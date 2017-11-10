@@ -8,7 +8,12 @@ public class Quini6 {
 			jugador.GanoQuini6();
 		}
 		else{
-			jugador.modificarDinero(30000);
+			if(jugador.getCantVecesQueGanoQuini6()==1)
+			{
+				jugador.modificarDinero(30000);
+				jugador.GanoQuini6();
+			}
+			else jugador.modificarDinero(0);
 		}
 	}
 
