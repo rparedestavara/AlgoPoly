@@ -10,10 +10,10 @@ import Clases.Jugador;
 import Clases.Quini6;
 
 
-public class TestQuini6 {
+public class Quini6Test {
 
 	@Test
-	public void Test1Quini6AgregaDinneroPorPrimeraVezAJugador() {
+	public void Test1Quini6AgregaDineroPorPrimeraVezAJugador() {
 		Jugador jugador=new Jugador();
 		Quini6 quini6= new Quini6();
 		quini6.entrar(jugador);
@@ -21,7 +21,7 @@ public class TestQuini6 {
 	}
 	
 	@Test
-	public void Test2Quini6AgregaDinneroPorSedundaVezAJugador() {
+	public void Test2Quini6AgregaDineroPorSegundaVezAJugador() {
 		Jugador jugador=new Jugador();
 		Quini6 quini6= new Quini6();
 		quini6.entrar(jugador);
@@ -36,13 +36,14 @@ public class TestQuini6 {
 		Quini6 quini6= new Quini6();
 		quini6.entrar(jugador);
 		quini6.entrar(jugador);
-		int dineroGanandoUnaVez = jugador.getDinero();
+		int dineroGanandoDosVeces = jugador.getDinero();
 		quini6.entrar(jugador);
-		Assert.assertEquals(0, jugador.getDinero()-dineroGanandoUnaVez);
+		int dineroGanandoPorTerceraVez = jugador.getDinero();
+		Assert.assertEquals(dineroGanandoDosVeces, dineroGanandoPorTerceraVez);
 	}
 	
 	@Test
-	public void  Test4VerQueJugadorQueCaeEnUnBarrioSeAduexaDeEste() {
+	public void Test4VerQueJugadorQueCaeEnUnBarrioSeAduexaDeEste() {
 		Jugador jugador = new Jugador("Aaron");
 		Barrio unBarrio= new Barrio();
 		unBarrio.agregarNuevoDuexo(jugador);
