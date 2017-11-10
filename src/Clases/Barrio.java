@@ -7,10 +7,10 @@ public class Barrio {
 	public void caeEste(Jugador jugador) {
 		this.jugador=jugador;
 	}
-	public void agregarNuevoDueño(Jugador jugador) {
+	public void agregarNuevoDuexo(Jugador jugador) {
 		this.jugador=jugador;
 	}
-	public Jugador mostrarDueño() {
+	public Jugador mostrarDuexo() {
 		return this.jugador;
 	}
 

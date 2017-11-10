@@ -42,10 +42,10 @@ public class TestQuini6 {
 	}
 	
 	@Test
-	public void  Test4VerQueJugadorQueCaeEnUnBarrioSeAdueñaDeEste() {
+	public void  Test4VerQueJugadorQueCaeEnUnBarrioSeAduexaDeEste() {
 		Jugador jugador = new Jugador("Aaron");
 		Barrio unBarrio= new Barrio();
-		unBarrio.agregarNuevoDueño(jugador);
+		unBarrio.agregarNuevoDuexo(jugador);
 		Assert.assertEquals("Aaron",jugador.getNombre());
 	}
 	
