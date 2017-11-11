@@ -6,12 +6,10 @@ public class Jugador {
 	private int cantidadDeVecesQueGanoQuini6;
 	private int resultadoDados;
 	private Tablero tablero;
-	
 	private Carcel carcel;
 	
 	public Jugador() {
 		this.dineroActual=100000;
-		
 	}
 	
 	public int getDinero() {
@@ -30,10 +28,11 @@ public class Jugador {
 	public void ganoQuini6() {
 		this.cantidadDeVecesQueGanoQuini6++;
 	}
-
+	
 	public void informarQueEstaEn(Carcel carcel) {
 		this.carcel=carcel;
 	}
+	
 	public boolean puedeHacerAcciones() {
 		return (carcel.estaEnCarcel(this));
 
@@ -55,6 +54,23 @@ public class Jugador {
 		// TODO Auto-generated method stub
 		
 	}
+	public void aumentarTurnosEnCarcel() {
+		this.carcel.aumentarTurno(this);
+	}
 
+	public boolean puedePagarFianzaDeCarcel() {
+		return ((this.dineroActual>45000)&&(this.carcel.turnosEnCarcel(this)>1));
+	}
+
+	public void pagarFianzaDeCarcel() {
+		if(this.puedePagarFianzaDeCarcel()) {
+		this.dineroActual-=45000;
+		this.carcel.liberar(this);
+		}
+	}
+
+	public void pagar(int monto) {
+		this.dineroActual-=monto;
+	}
 	
 }
