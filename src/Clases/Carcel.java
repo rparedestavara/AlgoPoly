@@ -2,15 +2,16 @@ package Clases;
 
 import java.util.ArrayList;
 
-public class Carcel {
+public class Carcel extends Casilla{
 	ArrayList<Jugador> jugadores ;
 	
 	public Carcel() {
 		this.jugadores = new ArrayList<>();
 	}
 	
-	public void encarcelarA(Jugador jugador) {
+	public void entrar(Jugador jugador) {
 		this.jugadores.add(jugador);
+		
 	}
 
 	public Jugador buscar(String nomJugador) { //me busca unjugador en carcel

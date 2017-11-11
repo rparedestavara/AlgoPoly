@@ -1,17 +1,22 @@
 package Clases;
 
-public class Barrio {
+import Clases.Casilla;
 
-	private Jugador jugador;
+public class Barrio extends Casilla {
+	private String propietario;
+	
+	public Barrio() {
+		this.propietario = null;
+	}
+	
+@Override
+	public void entrar(Jugador jugador) {
+		this.propietario = jugador.getNombre();
+	
+	}
 
-	public void caeEste(Jugador jugador) {
-		this.jugador=jugador;
-	}
-	public void agregarNuevoDuexo(Jugador jugador) {
-		this.jugador=jugador;
-	}
-	public Jugador mostrarDuexo() {
-		return this.jugador;
+	public String getPropietario(){
+		return this.propietario;
 	}
 
 }
