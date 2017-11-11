@@ -3,7 +3,7 @@ package Clases;
 import Clases.Casilla;
 
 public class Barrio extends Casilla {
-	private String propietario;
+	private Jugador propietario;
 	
 	public Barrio() {
 		this.propietario = null;
@@ -11,11 +11,10 @@ public class Barrio extends Casilla {
 	
 @Override
 	public void entrar(Jugador jugador) {
-		this.propietario = jugador.getNombre();
-	
+		this.propietario = jugador;
 	}
 
-	public String getPropietario(){
+	public Jugador getPropietario(){
 		return this.propietario;
 	}
 

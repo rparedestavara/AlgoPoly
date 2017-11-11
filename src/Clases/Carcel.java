@@ -1,12 +1,12 @@
 package Clases;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Carcel extends Casilla{
-	ArrayList<Jugador> jugadores ;
+	HashSet<Jugador> jugadores ;
 	
 	public Carcel() {
-		this.jugadores = new ArrayList<>();
+		this.jugadores = new HashSet<>();
 	}
 	
 	public void entrar(Jugador jugador) {
@@ -14,13 +14,7 @@ public class Carcel extends Casilla{
 		
 	}
 
-	public Jugador buscar(String nomJugador) { //me busca unjugador en carcel
-		Jugador jugadorEncontrado= null;
-		for(int i=0;i<this.jugadores.size();i++) {
-			if(this.jugadores.get(i).getNombre()==nomJugador) {
-					jugadorEncontrado=this.jugadores.get(i);
-				}	
-		}
-		return jugadorEncontrado;
+	public boolean estaEnCarcel(Jugador jugador) {
+		return jugadores.contains(jugador);
 	}
 }

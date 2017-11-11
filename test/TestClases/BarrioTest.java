@@ -11,10 +11,10 @@ public class BarrioTest {
 
 	@Test
 	public void Test01VerQueJugadorQueCompraEnUnBarrioEsPropietario() {
-		Jugador jugador = new Jugador("Jugador1");
+		Jugador jugador = new Jugador();
 		Barrio unBarrio= new Barrio();
 		unBarrio.entrar(jugador);
-		Assert.assertEquals("Jugador1",unBarrio.getPropietario());
+		Assert.assertEquals(jugador ,unBarrio.getPropietario());
 	}
 }	
 	

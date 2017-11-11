@@ -4,16 +4,14 @@ public class Jugador {
 
 	private int dineroActual;
 	private int cantidadDeVecesQueGanoQuini6;
-	private String nombre;
+	private int resultadoDados;
+	private Tablero tablero;
+	
 	private Carcel carcel;
 	
 	public Jugador() {
 		this.dineroActual=100000;
 		
-	}
-	public Jugador(String nombre) {
-		this();//Llama a mi constructor sin parametros Jugador()
-		this.nombre=nombre;
 	}
 	
 	public int getDinero() {
@@ -32,15 +30,31 @@ public class Jugador {
 	public void ganoQuini6() {
 		this.cantidadDeVecesQueGanoQuini6++;
 	}
-	public String getNombre(){
-		return this.nombre;
-	}
+
 	public void informarQueEstaEn(Carcel carcel) {
 		this.carcel=carcel;
 	}
 	public boolean puedeHacerAcciones() {
-		return (carcel.buscar(this.nombre) != null);
+		return (carcel.estaEnCarcel(this));
 
 	}
+	public int getResultadoDados() {
+		return resultadoDados;
+	}
+	public Tablero getTablero() {
+		return tablero;
+	}
+	public void setResultadoDados(int resultadoDadosIn) {
+		resultadoDados = resultadoDadosIn;
+	}
+	public void setTablero(Tablero tableroIn) {
+		tablero = tableroIn;
+	}
 
+	public void agregarPropiedad(Barrio barrio) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 }
