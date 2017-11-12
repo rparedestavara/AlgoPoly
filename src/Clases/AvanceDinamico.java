@@ -14,7 +14,7 @@ public class AvanceDinamico {
 			tablero.mover(jugador, cantidadMover);
 		}
 		else if(resultadoDados <= SEGUNDO_RANGO_ENTRAR_HASTA){
-			int cantidadMover = jugador.getDinero() * resultadoDados;
+			int cantidadMover = jugador.getDinero() % resultadoDados;
 			tablero.mover(jugador, cantidadMover);
 		}
 	}
