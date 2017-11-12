@@ -7,9 +7,14 @@ public class Jugador {
 	private int resultadoDados;
 	private Tablero tablero;
 	private Carcel carcel;
+	private int barriosComprados;
 	
 	public Jugador() {
 		this.dineroActual=100000;
+		this.barriosComprados = 0;
+		this.cantidadDeVecesQueGanoQuini6 = 0;
+		this.tablero = null;
+		this.carcel = null;
 	}
 	
 	public int getDinero() {
@@ -51,7 +56,7 @@ public class Jugador {
 	}
 
 	public void agregarPropiedad(Barrio barrio) {
-		// TODO Auto-generated method stub
+		this.barriosComprados++;
 		
 	}
 	public void aumentarTurnosEnCarcel() {
@@ -71,6 +76,12 @@ public class Jugador {
 
 	public void pagar(int monto) {
 		this.dineroActual-=monto;
+	}
+
+	public int getCantidadDePropiedades() {
+		int propiedades = 0;
+		propiedades += this.barriosComprados;
+		return propiedades;
 	}
 	
 }
