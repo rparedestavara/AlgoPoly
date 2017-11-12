@@ -25,7 +25,6 @@ public class AvanceDinamicoTest {
 		Random dados = new Random();
 		int resultadoDados = 2 + dados.nextInt(5); //genera un numero aleatorio entre 1 y 6 simulando los dados
 		jugador.setResultadoDados(resultadoDados);
-		jugador.setTablero(tablero);
 		avanceDinamico.entrar(jugador);
 		int posicionFinal = tablero.getPosicion(jugador);
 		
@@ -45,7 +44,6 @@ public class AvanceDinamicoTest {
 		Random dados = new Random();
 		int resultadoDados = 7 + dados.nextInt(4);  //numero aleatorio entre 7 y 10
 		jugador1.setResultadoDados(resultadoDados);
-		jugador1.setTablero(tablero);
 		avanceDinamico.entrar(jugador1);
 		int posicionFinal = tablero.getPosicion(jugador1);
 		Assert.assertEquals((jugador1.getDinero() % resultadoDados), (posicionFinal - posicionInicial));
@@ -57,7 +55,6 @@ public class AvanceDinamicoTest {
 		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
 		jugadores.add(jugador);
 		Tablero tablero = new Tablero(jugadores);
-		jugador.setTablero(tablero);
 		AvanceDinamico avanceDinamico = new AvanceDinamico();
 		int posicionInicial = tablero.getPosicion(jugador);
 		Random dados = new Random();
