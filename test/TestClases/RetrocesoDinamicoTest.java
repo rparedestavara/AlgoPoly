@@ -32,7 +32,7 @@ public class RetrocesoDinamicoTest {
 		Assert.assertEquals((resultadoDados - propiedades), posicionFinal);
 	}
 	
-	/*@Test
+	@Test
 	public void test02RetrocesoDinamicoConRango2a6ConPropiedadesRetrocedeCorrectamente() {
 		Jugador jugador = new Jugador();
 		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
@@ -46,9 +46,12 @@ public class RetrocesoDinamicoTest {
 		tablero.mover(jugador, 4);
 		retrocesoDinamico.entrar(jugador);
 		int posicionFinal = tablero.getPosicion(jugador);
-		Assert.assertEquals(posicionInicial + jugador.getCantidadDePropiedades(), posicionFinal);
+		Assert.assertEquals(posicionFinal, posicionInicial + jugador.getCantidadDePropiedades());
+		
 	}
-	*/
+
+
+	
 	@Test
 	public void test03RetrocesoDinamicoConRango7a10RetrocedeBien(){
 		Jugador jugador = new Jugador();
@@ -60,10 +63,12 @@ public class RetrocesoDinamicoTest {
 		int posicionInicial = tablero.getPosicion(jugador);
 		jugador.setResultadoDados(9);
 		tablero.mover(jugador, 9);
+		int posicionSinRetroceso = tablero.getPosicion(jugador);
 		retrocesoDinamico.entrar(jugador);
 		int posicionFinal = tablero.getPosicion(jugador);
 		int auxDeComparacion = jugador.getDinero() % jugador.getResultadoDados();
-		Assert.assertEquals(auxDeComparacion, posicionFinal - posicionInicial);
+		
+		Assert.assertEquals(posicionFinal,(posicionSinRetroceso-posicionInicial)-auxDeComparacion);
 	}
 	
 	@Test

@@ -25,7 +25,7 @@ public class RetrocesoDinamico implements MovimientoDinamico {
 		}else if (resultadoDados <= SEGUNDO_RANGO_ENTRAR_HASTA) {
 			this.movimientoCantidadDeDineroModuloDados(jugador);
 			
-		}if (resultadoDados <= TERCER_RANGO_ENTRAR_HASTA) {
+		}else if (resultadoDados <= TERCER_RANGO_ENTRAR_HASTA) {
 			this.movimientoMenosCantidadDeEspaciosAReducir(jugador);
 		}
 		

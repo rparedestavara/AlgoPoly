@@ -40,7 +40,6 @@ public class Tablero {
 		nuevaPosicion = this.ajustarPosicionAlRangoDelTablero(nuevaPosicion);
 		posicionesJugadores.put(jugador, nuevaPosicion);
 	}
-	
 
 	public void mandarALaCarcel(Jugador jugador) {
 		posicionesJugadores.put(jugador, POSICION_CARCEL);
