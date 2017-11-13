@@ -1,6 +1,6 @@
 package Clases;
 
-public class Casilla {
+public abstract class Casilla {
 
 	public void entrar(Jugador jugador) {
 		

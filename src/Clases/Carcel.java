@@ -10,11 +10,16 @@ public class Carcel extends Casilla{
 	}
 	
 	public void entrar(Jugador jugador) {
+		jugador.informarQueEstaEn(this);
 		this.jugadores.put(jugador,0);
 	}
 
 	public boolean estaEnCarcel(Jugador jugador) {
 		return (jugadores.get(jugador)==null);
+	}
+	
+	public boolean enCarcel(Jugador jugador) {
+		return jugadores.containsKey(jugador);
 	}
 
 	public void liberar(Jugador jugador) {
