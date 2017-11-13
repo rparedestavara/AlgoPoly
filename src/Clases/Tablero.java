@@ -9,8 +9,7 @@ public class Tablero {
 	private HashMap<Jugador,Integer> posicionesJugadores;
 	private static final int CANTIDAD_CASILLAS = 20;
 	private static final int POSICION_CARCEL = 5;
-	private Carcel carcel;
-
+	
 	private int ajustarPosicionAlRangoDelTablero(int posicion) {
 		while(posicion > (CANTIDAD_CASILLAS - 1)) { 
 			posicion -= CANTIDAD_CASILLAS;
@@ -27,13 +26,14 @@ public class Tablero {
 			jugador.setTablero(this);
 			posicionesJugadores.put(jugador, 0);
 		}
-		carcel = new Carcel();
+		
 	}
 
 	public int getPosicion(Jugador jugador1) {
 		return posicionesJugadores.get(jugador1);
 	}
 
+	
 	public void mover(Jugador jugador, int pasos) {
 		int nuevaPosicion = posicionesJugadores.get(jugador); 
 		nuevaPosicion += pasos;
@@ -41,13 +41,13 @@ public class Tablero {
 		posicionesJugadores.put(jugador, nuevaPosicion);
 	}
 
+	
 	public void mandarALaCarcel(Jugador jugador) {
 		posicionesJugadores.put(jugador, POSICION_CARCEL);
+		Carcel carcel = Carcel.getInstancia();
 		carcel.entrar(jugador);
 	}
 	
-	public Carcel getCarcel() {
-		return carcel;
-	}
+	
 
 }

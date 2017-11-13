@@ -42,23 +42,26 @@ public class Jugador {
 		return (carcel.estaEnCarcel(this));
 
 	}
-	public int getResultadoDados() {
-		return resultadoDados;
-	}
-	public Tablero getTablero() {
-		return tablero;
-	}
+//	public int getResultadoDados() {
+//		return resultadoDados;
+//	}
+//	public Tablero getTablero() {
+//		return tablero;
+//	}
+	
 	public void setResultadoDados(int resultadoDadosIn) {
 		resultadoDados = resultadoDadosIn;
 	}
+	
 	public void setTablero(Tablero tableroIn) {
 		tablero = tableroIn;
 	}
 
+	
 	public void agregarPropiedad() {
 		this.barriosComprados++;
-		
 	}
+	
 	public void aumentarTurnosEnCarcel() {
 		this.carcel.aumentarTurno(this);
 	}

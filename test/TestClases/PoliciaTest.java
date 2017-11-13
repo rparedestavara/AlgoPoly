@@ -31,7 +31,7 @@ public class PoliciaTest {
 		jugadores.add(jugador);
 		Tablero tablero = new Tablero(jugadores);
 		policia.entrar(jugador);
-		Carcel carcel = tablero.getCarcel();
+		Carcel carcel = Carcel.getInstancia();
 		Assert.assertTrue(carcel.enCarcel(jugador));
 	}
 }
