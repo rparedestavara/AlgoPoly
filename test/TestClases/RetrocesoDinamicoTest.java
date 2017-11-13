@@ -9,6 +9,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import Clases.Jugador;
+import Clases.RetrocesoDinamico;
 import Clases.Tablero;
 
 public class RetrocesoDinamicoTest {

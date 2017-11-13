@@ -1,7 +1,4 @@
-package TestClases;
-
-import Clases.Jugador;
-import Clases.MovimientoDinamico;
+package Clases;
 
 public class RetrocesoDinamico implements MovimientoDinamico {
 		
