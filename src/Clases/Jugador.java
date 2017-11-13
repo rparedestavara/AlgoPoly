@@ -55,7 +55,7 @@ public class Jugador {
 		tablero = tableroIn;
 	}
 
-	public void agregarPropiedad(Barrio barrio) {
+	public void agregarPropiedad() {
 		this.barriosComprados++;
 		
 	}

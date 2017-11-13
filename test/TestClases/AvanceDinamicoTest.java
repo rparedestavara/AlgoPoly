@@ -59,6 +59,7 @@ public class AvanceDinamicoTest {
 		Tablero tablero = new Tablero(jugadores);
 		jugador.setTablero(tablero);
 		AvanceDinamico avanceDinamico = new AvanceDinamico();
+		jugador.agregarPropiedad();
 		int posicionInicial = tablero.getPosicion(jugador);
 		Random dados = new Random();
 		int resultadoDados = 11 + dados.nextInt(2);

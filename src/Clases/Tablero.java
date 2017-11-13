@@ -8,7 +8,7 @@ public class Tablero {
 	private static final int CANTIDAD_CASILLAS = 20;
 
 	private int ajustarPosicionAlRangoDelTablero(int posicion) {
-		while(posicion > CANTIDAD_CASILLAS - 1) { 
+		while(posicion > (CANTIDAD_CASILLAS - 1)) { 
 			posicion -= CANTIDAD_CASILLAS;
 		}
 		while(posicion < 0) {
@@ -29,9 +29,11 @@ public class Tablero {
 	}
 
 	public void mover(Jugador jugador, int pasos) {
-		int nuevaPosicion = posicionesJugadores.get(jugador) + pasos;
+		int nuevaPosicion = posicionesJugadores.get(jugador); 
+		nuevaPosicion += pasos;
 		nuevaPosicion = this.ajustarPosicionAlRangoDelTablero(nuevaPosicion);
 		posicionesJugadores.put(jugador, nuevaPosicion);
 	}
+	
 
 }
