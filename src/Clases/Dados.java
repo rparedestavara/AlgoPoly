@@ -1,14 +1,17 @@
 package Clases;
 
 public class Dados {
-	public static Dados INSTANCE = new Dados();
-	private int resultado;
+	private static Dados INSTANCE = new Dados();
+	int resultadoDados;
 	
-	private Dados() {
-		resultado = 0;
-	}
+	private Dados() {}
 	
 	public static Dados getInstance() {
 		return INSTANCE;
 	}
+	
+	public void setResultadoDados(int resultado){
+		resultadoDados = resultado;
+	}
+	
 }

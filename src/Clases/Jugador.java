@@ -53,11 +53,6 @@ public class Jugador {
 		resultadoDados = resultadoDadosIn;
 	}
 	
-	public void setTablero(Tablero tableroIn) {
-		tablero = tableroIn;
-	}
-
-	
 	public void agregarPropiedad() {
 		this.barriosComprados++;
 	}
