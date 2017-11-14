@@ -22,16 +22,23 @@ public class RetrocesoDinamico implements MovimientoDinamico {
 	
 	public void entrar(Jugador jugador) {
 		int resultadoDados = jugador.getResultadoDados();
-		if (resultadoDados <= PRIMER_RANGO_ENTRAR_HASTA) {
+		this.primerDespliegue(resultadoDados, jugador );
+		this.segundoDespliegue(resultadoDados, jugador );
+		this.tercerDespliegue(resultadoDados, jugador );
+	}
+	
+	public void primerDespliegue(int resultadoObtenido,Jugador jugador ) {
+		if(resultadoObtenido <= PRIMER_RANGO_ENTRAR_HASTA) 
 			this.movimientoMenosCantidadDePropiedades(jugador);
-			
-		}else if (resultadoDados <= SEGUNDO_RANGO_ENTRAR_HASTA) {
+	}
+	
+	public void segundoDespliegue(int resultadoObtenido,Jugador jugador) {
+		if(resultadoObtenido <= SEGUNDO_RANGO_ENTRAR_HASTA && resultadoObtenido > PRIMER_RANGO_ENTRAR_HASTA)
 			this.movimientoCantidadDeDineroModuloDados(jugador);
-			
-		}else if (resultadoDados <= TERCER_RANGO_ENTRAR_HASTA) {
-			this.movimientoMenosCantidadDeEspaciosAReducir(jugador);
-		}
-		
-			
+	}
+	
+	public void tercerDespliegue(int resultadoObtenido,Jugador jugador) {
+		if (resultadoObtenido <= TERCER_RANGO_ENTRAR_HASTA && resultadoObtenido >SEGUNDO_RANGO_ENTRAR_HASTA) 
+			this.movimientoMenosCantidadDeEspaciosAReducir(jugador);			
 	}
 }

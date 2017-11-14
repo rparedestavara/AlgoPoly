@@ -14,4 +14,9 @@ public interface MovimientoDinamico{
 	
 	public void movimientoMenosCantidadDePropiedades(Jugador jugador);
 	
+	public void primerDespliegue(int resultadoObtenido,Jugador jugador ) ;
+	
+	public void segundoDespliegue(int resultadoObtenido,Jugador jugador) ;
+	
+	public void tercerDespliegue(int resultadoObtenido,Jugador jugador);
 }
