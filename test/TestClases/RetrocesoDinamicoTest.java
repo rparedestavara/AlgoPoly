@@ -18,9 +18,9 @@ public class RetrocesoDinamicoTest {
 	public void test01RetrocesoDinamicoConRango2a6YSinPropiedadesRetrocedeCorrectamente() {
 		Jugador jugador = new Jugador();
 		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
+		Tablero tablero = Tablero.getInstancia();
 		jugadores.add(jugador);
-		Tablero tablero = new Tablero(jugadores);
-		jugador.setTablero(tablero);
+		tablero.agregarJugadores(jugadores);
 		RetrocesoDinamico retrocesoDinamico = new RetrocesoDinamico();
 		int propiedades = jugador.getCantidadDePropiedades();
 		Random dados = new Random();
@@ -36,10 +36,9 @@ public class RetrocesoDinamicoTest {
 	public void test02RetrocesoDinamicoConRango2a6ConPropiedadesRetrocedeCorrectamente() {
 		Jugador jugador = new Jugador();
 		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
+		Tablero tablero = Tablero.getInstancia();
 		jugadores.add(jugador);
-		Tablero tablero = new Tablero(jugadores);
-		jugador.setTablero(tablero);
-		jugador.agregarPropiedad();
+		tablero.agregarJugadores(jugadores);jugador.agregarPropiedad();
 		RetrocesoDinamico retrocesoDinamico = new RetrocesoDinamico();
 		int posicionInicial = tablero.getPosicion(jugador);
 		jugador.setResultadoDados(4);
@@ -56,10 +55,9 @@ public class RetrocesoDinamicoTest {
 	public void test03RetrocesoDinamicoConRango7a10RetrocedeBien(){
 		Jugador jugador = new Jugador();
 		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
+		Tablero tablero = Tablero.getInstancia();
 		jugadores.add(jugador);
-		Tablero tablero = new Tablero(jugadores);
-		jugador.setTablero(tablero);
-		RetrocesoDinamico retrocesoDinamico = new RetrocesoDinamico();
+		tablero.agregarJugadores(jugadores);RetrocesoDinamico retrocesoDinamico = new RetrocesoDinamico();
 		int posicionInicial = tablero.getPosicion(jugador);
 		jugador.setResultadoDados(9);
 		tablero.mover(jugador, 9);
@@ -78,9 +76,8 @@ public class RetrocesoDinamicoTest {
 		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
 		jugadores.add(jugador1);
 		jugadores.add(jugador2);
-		Tablero tablero = new Tablero(jugadores);
-		jugador1.setTablero(tablero);
-		jugador2.setTablero(tablero);
+		Tablero tablero = Tablero.getInstancia();
+		tablero.agregarJugadores(jugadores);
 		RetrocesoDinamico retrocesoDinamico = new RetrocesoDinamico();
 		int posicionInicial1 = tablero.getPosicion(jugador1);
 		int posicionInicial2 = tablero.getPosicion(jugador2);

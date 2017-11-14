@@ -6,6 +6,7 @@ import java.util.HashMap;
 import Clases.Carcel;
 
 public class Tablero {
+	private static Tablero INSTANCIA;
 	private HashMap<Jugador,Integer> posicionesJugadores;
 	private static final int CANTIDAD_CASILLAS = 20;
 	private static final int POSICION_CARCEL = 5;
@@ -20,10 +21,21 @@ public class Tablero {
 		return posicion;
 	}
 	
-	public Tablero(ArrayList<Jugador> jugadores) {
+	
+	private Tablero() {
 		posicionesJugadores = new HashMap<Jugador,Integer>();
+		
+	}
+
+	public static Tablero getInstancia() {
+		if (INSTANCIA == null)
+			INSTANCIA = new Tablero();
+		return INSTANCIA;
+	}
+		
+	public void agregarJugadores(ArrayList<Jugador> jugadores) {
 		for(Jugador jugador : jugadores){
-			jugador.setTablero(this);
+//			jugador.setTablero(this);
 			posicionesJugadores.put(jugador, 0);
 		}
 		

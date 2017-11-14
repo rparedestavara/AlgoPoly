@@ -3,7 +3,7 @@ package Clases;
 import java.util.HashMap;
 
 public class Carcel extends Casilla{
-	private static Carcel INSTANCE = new Carcel();
+	private static Carcel INSTANCE;
 	HashMap<Jugador,Integer> jugadores ;
 	
 	private Carcel() {
@@ -11,8 +11,11 @@ public class Carcel extends Casilla{
 	}
 	
 	public static Carcel getInstancia() {
+		if (INSTANCE == null)
+			INSTANCE = new Carcel();
 		return INSTANCE;
 	}
+	
 	public void entrar(Jugador jugador) {
 		jugador.informarQueEstaEn(this);
 		this.jugadores.put(jugador,0);

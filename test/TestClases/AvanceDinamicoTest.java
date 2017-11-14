@@ -17,8 +17,9 @@ public class AvanceDinamicoTest {
 	public void test01EntrarEnAvanceDinamicoConRango2a6AvanzaLaCantidadCorrecta() {
 		Jugador jugador = new Jugador();
 		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
+		Tablero tablero = Tablero.getInstancia();
 		jugadores.add(jugador);
-		Tablero tablero = new Tablero(jugadores);
+		tablero.agregarJugadores(jugadores);
 		AvanceDinamico avanceDinamico = new AvanceDinamico();
 		
 		int posicionInicial = tablero.getPosicion(jugador);
@@ -36,9 +37,10 @@ public class AvanceDinamicoTest {
 		Jugador jugador1 = new Jugador();
 		
 		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
+		Tablero tablero = Tablero.getInstancia();
 		jugadores.add(jugador1);
+		tablero.agregarJugadores(jugadores);
 		
-		Tablero tablero = new Tablero(jugadores);
 		AvanceDinamico avanceDinamico = new AvanceDinamico();
 		int posicionInicial = tablero.getPosicion(jugador1);
 		Random dados = new Random();
@@ -53,8 +55,10 @@ public class AvanceDinamicoTest {
 	public void test03EntrarEnAvanceDinamicoCon11o12AvanzaLaCantidadCorrecta() {
 		Jugador jugador = new Jugador();
 		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
+		Tablero tablero = Tablero.getInstancia();
 		jugadores.add(jugador);
-		Tablero tablero = new Tablero(jugadores);
+		tablero.agregarJugadores(jugadores);
+		
 		AvanceDinamico avanceDinamico = new AvanceDinamico();
 		jugador.agregarPropiedad();
 		int posicionInicial = tablero.getPosicion(jugador);
