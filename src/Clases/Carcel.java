@@ -17,7 +17,6 @@ public class Carcel extends Casilla{
 	}
 	
 	public void entrar(Jugador jugador) {
-		jugador.informarQueEstaEn(this);
 		this.jugadores.put(jugador,0);
 	}
 
@@ -35,7 +34,6 @@ public class Carcel extends Casilla{
 
 	public void aumentarTurno(Jugador jugador) {
 		this.jugadores.put(jugador,this.jugadores.get(jugador)+1);
-		if(this.jugadores.get(jugador)>3) this.liberar(jugador);
 	}
 
 	public int turnosEnCarcel(Jugador jugador) {

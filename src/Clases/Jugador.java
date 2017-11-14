@@ -5,16 +5,12 @@ public class Jugador {
 	private int dineroActual;
 	private int cantidadDeVecesQueGanoQuini6;
 	private int resultadoDados;
-	private Tablero tablero;
-	private Carcel carcel;
 	private int barriosComprados;
 	
 	public Jugador() {
 		this.dineroActual=100000;
 		this.barriosComprados = 0;
 		this.cantidadDeVecesQueGanoQuini6 = 0;
-		this.tablero = null;
-		this.carcel = null;
 	}
 	
 	public int getDinero() {
@@ -30,23 +26,19 @@ public class Jugador {
 	public int getCantidadVecesQueGanoQuini6() {
 		return this.cantidadDeVecesQueGanoQuini6;
 	}
+	
 	public void ganoQuini6() {
 		this.cantidadDeVecesQueGanoQuini6++;
 	}
 	
-	public void informarQueEstaEn(Carcel carcel) {
-		this.carcel=carcel;
-	}
 	
 	public boolean puedeHacerAcciones() {
+		Carcel carcel = Carcel.getInstancia();
 		return (carcel.estaEnCarcel(this));
 
 	}
 	public int getResultadoDados() {
 		return resultadoDados;
-	}
-	public Tablero getTablero() {
-		return tablero;
 	}
 	
 	public void setResultadoDados(int resultadoDadosIn) {
@@ -58,17 +50,20 @@ public class Jugador {
 	}
 	
 	public void aumentarTurnosEnCarcel() {
-		this.carcel.aumentarTurno(this);
+		Carcel carcel = Carcel.getInstancia();
+		carcel.aumentarTurno(this);
 	}
 
 	public boolean puedePagarFianzaDeCarcel() {
-		return ((this.dineroActual>45000)&&(this.carcel.turnosEnCarcel(this)>1));
+		Carcel carcel = Carcel.getInstancia();
+		return ((this.dineroActual>45000)&&(carcel.turnosEnCarcel(this)>1));
 	}
 
 	public void pagarFianzaDeCarcel() {
+		Carcel carcel = Carcel.getInstancia();
 		if(this.puedePagarFianzaDeCarcel()) {
 		this.dineroActual-=45000;
-		this.carcel.liberar(this);
+		carcel.liberar(this);
 		}
 	}
 
@@ -80,6 +75,11 @@ public class Jugador {
 		int propiedades = 0;
 		propiedades += this.barriosComprados;
 		return propiedades;
+	}
+
+	public void setDinero(int dineroJugador) {
+		this.dineroActual = dineroJugador;
+		
 	}
 	
 }
