@@ -42,12 +42,12 @@ public class Jugador {
 		return (carcel.estaEnCarcel(this));
 
 	}
-//	public int getResultadoDados() {
-//		return resultadoDados;
-//	}
-//	public Tablero getTablero() {
-//		return tablero;
-//	}
+	public int getResultadoDados() {
+		return resultadoDados;
+	}
+	public Tablero getTablero() {
+		return tablero;
+	}
 	
 	public void setResultadoDados(int resultadoDadosIn) {
 		resultadoDados = resultadoDadosIn;
