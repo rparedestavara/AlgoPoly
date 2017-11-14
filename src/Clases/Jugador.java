@@ -3,34 +3,21 @@ package Clases;
 public class Jugador {
 
 	private int dineroActual;
-	private int cantidadDeVecesQueGanoQuini6;
 	private int resultadoDados;
 	private int barriosComprados;
 	
 	public Jugador() {
 		this.dineroActual=100000;
 		this.barriosComprados = 0;
-		this.cantidadDeVecesQueGanoQuini6 = 0;
 	}
 	
 	public int getDinero() {
 		return this.dineroActual;
 	}
 	
-	public void modificarDinero(int monto) {
-		if (cantidadDeVecesQueGanoQuini6 < 2) {
-			this.dineroActual += (monto-(20000*cantidadDeVecesQueGanoQuini6));
-		}
+	public void modificarDinero(int dinero) {
+		dineroActual += dinero;
 	}
-			
-	public int getCantidadVecesQueGanoQuini6() {
-		return this.cantidadDeVecesQueGanoQuini6;
-	}
-	
-	public void ganoQuini6() {
-		this.cantidadDeVecesQueGanoQuini6++;
-	}
-	
 	
 	public boolean puedeHacerAcciones() {
 		Carcel carcel = Carcel.getInstancia();

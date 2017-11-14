@@ -10,34 +10,33 @@ import Clases.Quini6;
 public class PrimeraEntregaIntegrationTest {
 
 	@Test
-	public void Test01Quini6AgregaDineroPorPrimeraVezAJugador() {
-		Jugador jugador = new Jugador();
-		Casilla quini6 = new Quini6();
-		int capitalSinQuini6 = jugador.getDinero();
+	public void Test1Quini6AgregaDineroLaPrimeraVezQueElJugadorGana() {
+		Jugador jugador=new Jugador();
+		Casilla quini6= new Quini6();
 		quini6.entrar(jugador);
-		Assert.assertEquals(capitalSinQuini6 + 50000, jugador.getDinero());
+		Assert.assertEquals(150000, jugador.getDinero());
 	}
 	
 	@Test
-	public void Test02Quini6AgregaTreintaMilSiGanaPorSegunda() {
-		Jugador jugador = new Jugador();
-		Casilla quini6 = new Quini6();
+	public void Test2Quini6AgregaDineroLaSegundaVezQueElJugadorGana() {
+		Jugador jugador=new Jugador();
+		Casilla quini6= new Quini6();
 		quini6.entrar(jugador);
 		int dineroGanandoUnaVez = jugador.getDinero();
 		quini6.entrar(jugador);
-		Assert.assertEquals(30000 + dineroGanandoUnaVez, jugador.getDinero());
+		Assert.assertEquals(30000, jugador.getDinero()-dineroGanandoUnaVez);
 	}
 	
 	@Test
-	public void Test03Quini6NoDaDineroAJugadorSiYaCayoMasDeDosVeces() {
-		Jugador jugador = new Jugador();
-		Casilla quini6 = new Quini6();
+	public void Test3Quini6NoAgregaDineroAJugadorDesdeLaTerceraVezQueGana() {
+		Jugador jugador=new Jugador();
+		Casilla quini6= new Quini6();
 		quini6.entrar(jugador);
 		quini6.entrar(jugador);
 		int dineroGanandoDosVeces = jugador.getDinero();
 		quini6.entrar(jugador);
-		int dineroGanandoPorTresVeces = jugador.getDinero();
-		Assert.assertEquals(dineroGanandoDosVeces, dineroGanandoPorTresVeces);
+		Assert.assertEquals(dineroGanandoDosVeces, jugador.getDinero());
+		quini6.entrar(jugador);
+		Assert.assertEquals(dineroGanandoDosVeces, jugador.getDinero());
 	}
-
 }

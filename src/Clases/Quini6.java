@@ -1,22 +1,41 @@
 package Clases;
 
+import java.util.HashMap;
 
 public class Quini6 extends Casilla {
+	private HashMap<Jugador, Integer> vecesGanadasRegistro;
+	private static final int PREMIO_PRIMERA_VEZ = 50000;
+	private static final int PREMIO_SEGUNDA_VEZ = 30000;
 	
+	public Quini6() {
+		vecesGanadasRegistro = new HashMap<Jugador,Integer>();
+	}
+	
+	public void registrarGanador(Jugador jugador) {
+		if(! vecesGanadasRegistro.containsKey(jugador)) {
+			vecesGanadasRegistro.put(jugador, 1);
+		}
+		else {
+			int vecesGanadasJugadorActual = vecesGanadasRegistro.get(jugador);
+			vecesGanadasRegistro.put(jugador, vecesGanadasJugadorActual + 1);
+		}
+	}
+		
+	public int cuantasVecesGano(Jugador jugador){
+		if(! vecesGanadasRegistro.containsKey(jugador)) {
+			return 0;
+		}
+		return vecesGanadasRegistro.get(jugador);
+	}
 	
 	public void entrar(Jugador jugador) {
-		int dineroJugador = jugador.getDinero();
-		int cantidadDeVecesGanado = jugador.getCantidadVecesQueGanoQuini6();
-		dineroJugador = this.calcularDinero(dineroJugador, cantidadDeVecesGanado);
-		jugador.setDinero(dineroJugador);
-		jugador.ganoQuini6();
-		
-	}
-
-	private int calcularDinero(int dineroJugador, int cantidadDeVecesQueGanoQuini6) {
-		int premioQuini6 = 0; 
-		if (cantidadDeVecesQueGanoQuini6 < 2)
-			 premioQuini6 = (50000 -(20000*cantidadDeVecesQueGanoQuini6));
-		return dineroJugador + premioQuini6;
+		int vecesGanadasJugador = this.cuantasVecesGano(jugador);
+		if(vecesGanadasJugador == 0) {
+			jugador.modificarDinero(PREMIO_PRIMERA_VEZ);
+		}
+		if(vecesGanadasJugador == 1) {
+			jugador.modificarDinero(PREMIO_SEGUNDA_VEZ);
+		}
+		this.registrarGanador(jugador);
 	}
 }
