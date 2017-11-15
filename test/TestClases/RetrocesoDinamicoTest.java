@@ -3,11 +3,11 @@ package TestClases;
 
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import org.junit.Assert;
 import org.junit.Test;
 
+import Clases.Dados;
 import Clases.Jugador;
 import Clases.RetrocesoDinamico;
 import Clases.Tablero;
@@ -21,15 +21,13 @@ public class RetrocesoDinamicoTest {
 		Tablero tablero = Tablero.getInstancia();
 		jugadores.add(jugador);
 		tablero.agregarJugadores(jugadores);
-		RetrocesoDinamico retrocesoDinamico = new RetrocesoDinamico();
-		int propiedades = jugador.getCantidadDePropiedades();
-		Random dados = new Random();
-		int resultadoDados = 2 + dados.nextInt(5);
-		jugador.setResultadoDados(resultadoDados);
-		tablero.mover(jugador, resultadoDados);
-		int posicionFinal = tablero.getPosicion(jugador);
-		retrocesoDinamico.entrar(jugador);
-		Assert.assertEquals((resultadoDados - propiedades), posicionFinal);
+		RetrocesoDinamico retroceso = new RetrocesoDinamico();
+		Dados dados=Dados.getInstance();
+		dados.setResultadoDados(3);
+		jugador.setResultadoDados(dados.getResultado());
+		tablero.mover(jugador, dados.getResultado());
+		retroceso.entrar(jugador);
+		Assert.assertEquals(0,tablero.getPosicion(jugador));
 	}
 	
 	@Test
@@ -38,15 +36,16 @@ public class RetrocesoDinamicoTest {
 		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
 		Tablero tablero = Tablero.getInstancia();
 		jugadores.add(jugador);
-		tablero.agregarJugadores(jugadores);jugador.agregarPropiedad();
-		RetrocesoDinamico retrocesoDinamico = new RetrocesoDinamico();
-		int posicionInicial = tablero.getPosicion(jugador);
-		jugador.setResultadoDados(4);
-		tablero.mover(jugador, 4);
-		retrocesoDinamico.entrar(jugador);
-		int posicionFinal = tablero.getPosicion(jugador);
-		Assert.assertEquals(posicionFinal, posicionInicial + jugador.getCantidadDePropiedades());
-		
+		tablero.agregarJugadores(jugadores);
+		RetrocesoDinamico retroceso = new RetrocesoDinamico();
+		jugador.agregarPropiedad();
+		jugador.agregarPropiedad();
+		Dados dados=Dados.getInstance();
+		dados.setResultadoDados(3);
+		jugador.setResultadoDados(dados.getResultado());
+		tablero.mover(jugador, dados.getResultado());
+		retroceso.entrar(jugador);
+		Assert.assertEquals(3-1,tablero.getPosicion(jugador));
 	}
 
 
@@ -57,40 +56,34 @@ public class RetrocesoDinamicoTest {
 		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
 		Tablero tablero = Tablero.getInstancia();
 		jugadores.add(jugador);
-		tablero.agregarJugadores(jugadores);RetrocesoDinamico retrocesoDinamico = new RetrocesoDinamico();
-		int posicionInicial = tablero.getPosicion(jugador);
-		jugador.setResultadoDados(9);
-		tablero.mover(jugador, 9);
-		int posicionSinRetroceso = tablero.getPosicion(jugador);
-		retrocesoDinamico.entrar(jugador);
-		int posicionFinal = tablero.getPosicion(jugador);
-		int auxDeComparacion = jugador.getDinero() % jugador.getResultadoDados();
-		
-		Assert.assertEquals(posicionFinal,(posicionSinRetroceso-posicionInicial)-auxDeComparacion);
+		tablero.agregarJugadores(jugadores);
+		RetrocesoDinamico retroceso = new RetrocesoDinamico();
+		jugador.agregarPropiedad();
+		jugador.agregarPropiedad();
+		Dados dados=Dados.getInstance();
+		dados.setResultadoDados(9);
+		jugador.setResultadoDados(dados.getResultado());
+		tablero.mover(jugador, dados.getResultado());
+		retroceso.entrar(jugador);
+		Assert.assertEquals(9-10000%9,tablero.getPosicion(jugador));
 	}
 	
 	@Test
 	public void test04RetrocesoDinamicoCon11o12RetrocedeBien(){
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador = new Jugador();
 		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
-		jugadores.add(jugador1);
-		jugadores.add(jugador2);
 		Tablero tablero = Tablero.getInstancia();
+		jugadores.add(jugador);
 		tablero.agregarJugadores(jugadores);
-		RetrocesoDinamico retrocesoDinamico = new RetrocesoDinamico();
-		int posicionInicial1 = tablero.getPosicion(jugador1);
-		int posicionInicial2 = tablero.getPosicion(jugador2);
-		jugador1.setResultadoDados(12);
-		jugador2.setResultadoDados(11);
-		tablero.mover(jugador1, 12);
-		tablero.mover(jugador2, 11);
-		retrocesoDinamico.entrar(jugador1);
-		retrocesoDinamico.entrar(jugador2);
-		int posicionFinal01 = tablero.getPosicion(jugador1);
-		int posicionFinal02 = tablero.getPosicion(jugador2);
-		Assert.assertEquals(posicionInicial1 + 2, posicionFinal01);
-		Assert.assertEquals(posicionInicial2 + 2, posicionFinal02);
+		RetrocesoDinamico retroceso = new RetrocesoDinamico();
+		jugador.agregarPropiedad();
+		jugador.agregarPropiedad();
+		Dados dados=Dados.getInstance();
+		dados.setResultadoDados(11);
+		jugador.setResultadoDados(dados.getResultado());
+		tablero.mover(jugador, dados.getResultado());
+		retroceso.entrar(jugador);
+		Assert.assertEquals(11-9,tablero.getPosicion(jugador));
 	}
 
 }

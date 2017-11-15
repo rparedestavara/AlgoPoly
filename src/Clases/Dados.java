@@ -13,6 +13,8 @@ public class Dados {
 	public void setResultadoDados(int resultado){
 		resultadoDados = resultado;
 	}
-	
+	public int getResultado() {
+		return this.resultadoDados;
+	}
 	
 }
