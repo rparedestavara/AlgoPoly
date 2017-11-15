@@ -8,16 +8,10 @@ import Clases.Jugador;
 
 public class CarcelTest {
 	
-	@Test
-	public void Test01SiJugadorCaeEnUnaCarcelNoPuedeRealizarAcciones() {
-		Jugador jugador = new Jugador();
-		Carcel carcel = Carcel.getInstancia();
-		carcel.entrar(jugador);
-		Assert.assertFalse(jugador.puedeHacerAcciones());
-	}
+	
 	
 	@Test
-	public void Test02JugadorNoPuedePagarFianzaSiNoAPasadoMasDeDosTurnoEnLaCarcel() {
+	public void Test02JugadorNoPuedePagarFianzaSiNoPasoMasDeDosTurnoEnLaCarcel() {
 		Jugador jugador = new Jugador();
 		Carcel carcel = Carcel.getInstancia();
 		carcel.entrar(jugador);
@@ -26,7 +20,7 @@ public class CarcelTest {
 	}
 	
 	@Test 
-	public void Test03JugadorPuedePagarFianzaDespuesDeDosTurno() {
+	public void Test03JugadorPuedePagarFianzaDespuesDeDosTurnos() {
 		Jugador jugador = new Jugador();
 		Carcel carcel = Carcel.getInstancia();
 		carcel.entrar(jugador);

@@ -49,8 +49,8 @@ public class Jugador {
 	public void pagarFianzaDeCarcel() {
 		Carcel carcel = Carcel.getInstancia();
 		if(this.puedePagarFianzaDeCarcel()) {
-		this.dineroActual-=45000;
-		carcel.liberar(this);
+			this.pagar(45000);
+			carcel.liberar(this);
 		}
 	}
 

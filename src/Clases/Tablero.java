@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import Clases.Carcel;
+import excepciones.NoPuedeJugarException;
 
 public class Tablero {
 	private static Tablero INSTANCIA;
@@ -34,10 +35,9 @@ public class Tablero {
 	}
 		
 	public void agregarJugadores(ArrayList<Jugador> jugadores) {
-		for(Jugador jugador : jugadores){
-//			jugador.setTablero(this);
+		for(Jugador jugador : jugadores)
 			posicionesJugadores.put(jugador, 0);
-		}
+		
 		
 	}
 
@@ -46,7 +46,8 @@ public class Tablero {
 	}
 
 	
-	public void mover(Jugador jugador, int pasos) {
+	public void mover(Jugador jugador, int pasos) throws RuntimeException {
+		if(!jugador.puedeHacerAcciones()) throw new NoPuedeJugarException(); 
 		int nuevaPosicion = posicionesJugadores.get(jugador); 
 		nuevaPosicion += pasos;
 		nuevaPosicion = this.ajustarPosicionAlRangoDelTablero(nuevaPosicion);
