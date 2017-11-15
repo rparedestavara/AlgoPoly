@@ -15,7 +15,7 @@ public class PoliciaTest {
 	@Test
 	public void Test01SiJugadorCaeEnPolicialNoPuedeRealizarAcciones() {
 		Jugador jugador = new Jugador();
-		Policia policia = new Policia();
+		Policia policia = Policia.getInstancia();
 		Tablero tablero = Tablero.getInstancia();
 		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
 		jugadores.add(jugador);
@@ -27,7 +27,7 @@ public class PoliciaTest {
 	@Test
 	public void Test02SiJugadorCaeEnPolicialPasaAEstarEnLaCarcel() {
 		Jugador jugador = new Jugador();
-		Policia policia = new Policia();
+		Policia policia = Policia.getInstancia();
 		Tablero tablero = Tablero.getInstancia();
 		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
 		jugadores.add(jugador);

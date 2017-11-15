@@ -1,5 +1,6 @@
 package TestClases;
 
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -8,7 +9,13 @@ import Clases.Jugador;
 
 public class CarcelTest {
 	
-	
+	@Test
+	public void Test01SiJugadorCaeEnUnaCarcelNoPuedeRealizarAcciones() {
+		Jugador jugador = new Jugador();
+		Carcel carcel = Carcel.getInstancia();
+		carcel.entrar(jugador);
+		Assert.assertFalse(jugador.puedeHacerAcciones());
+	}
 	
 	@Test
 	public void Test02JugadorNoPuedePagarFianzaSiNoPasoMasDeDosTurnoEnLaCarcel() {
@@ -40,20 +47,9 @@ public class CarcelTest {
 		Assert.assertTrue(jugador.puedeHacerAcciones());
 	}
 	
-	@Test 
-	public void Test05JugadorAlPagarFianzaNoLopuedeHacerPorFaltaDeFondosYNoSePuedeMover() {
-		Jugador jugador = new Jugador();
-		Carcel carcel = Carcel.getInstancia();
-		carcel.entrar(jugador);
-		jugador.aumentarTurnosEnCarcel();
-		jugador.aumentarTurnosEnCarcel();
-		jugador.pagar(80000);
-		jugador.pagarFianzaDeCarcel();
-		Assert.assertFalse(jugador.puedeHacerAcciones());
-	}
 	
 	@Test 
-	public void Test06JugardorNoSePuedeMoverAunEnElTerceTurnoEnLaCarcel() {
+	public void Test05JugadorNoSePuedeMoverAunEnElTercerTurnoEnLaCarcel() {
 		Jugador jugador = new Jugador();
 		Carcel carcel = Carcel.getInstancia();
 		carcel.entrar(jugador);
@@ -64,7 +60,7 @@ public class CarcelTest {
 	}
 	
 	@Test
-	public void Test07JugadorDespuesDelCuartoTurnoPuedeMoverse() {
+	public void Test06JugadorDespuesDelCuartoTurnoPuedeMoverse() {
 		Jugador jugador = new Jugador();
 		Carcel carcel = Carcel.getInstancia();
 		carcel.entrar(jugador);
@@ -76,7 +72,6 @@ public class CarcelTest {
 		Assert.assertTrue( jugador.puedeHacerAcciones());
 	}
 
-		
 }
 
 

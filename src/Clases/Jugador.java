@@ -1,5 +1,7 @@
 package Clases;
 
+import excepciones.SaldoInsuficienteException;
+
 public class Jugador {
 
 	private int dineroActual;
@@ -43,10 +45,10 @@ public class Jugador {
 
 	public boolean puedePagarFianzaDeCarcel() {
 		Carcel carcel = Carcel.getInstancia();
-		return ((this.dineroActual>45000)&&(carcel.turnosEnCarcel(this)>1));
+		return ((carcel.turnosEnCarcel(this)>1));
 	}
 
-	public void pagarFianzaDeCarcel() {
+	public void pagarFianzaDeCarcel() throws SaldoInsuficienteException {
 		Carcel carcel = Carcel.getInstancia();
 		if(this.puedePagarFianzaDeCarcel()) {
 			this.pagar(45000);
@@ -54,8 +56,10 @@ public class Jugador {
 		}
 	}
 
-	public void pagar(int monto) {
+	public void pagar(int monto) throws SaldoInsuficienteException {
+		if (monto > dineroActual) throw new SaldoInsuficienteException();
 		this.dineroActual-=monto;
+		
 	}
 
 	public int getCantidadDePropiedades() {
