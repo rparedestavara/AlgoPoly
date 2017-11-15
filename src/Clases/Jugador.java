@@ -5,7 +5,6 @@ import excepciones.SaldoInsuficienteException;
 public class Jugador {
 
 	private int dineroActual;
-	private int resultadoDados;
 	private int barriosComprados;
 	
 	public Jugador() {
@@ -25,13 +24,6 @@ public class Jugador {
 		Carcel carcel = Carcel.getInstancia();
 		return (!carcel.enCarcel(this));
 
-	}
-	public int getResultadoDados() {
-		return resultadoDados;
-	}
-	
-	public void setResultadoDados(int resultadoDadosIn) {
-		resultadoDados = resultadoDadosIn;
 	}
 	
 	public void agregarPropiedad() {

@@ -119,8 +119,7 @@ public class PrimeraEntregaIntegrationTest {
 		Dados dados=Dados.getInstance();
 		int posInicialJugador=tablero.getPosicion(jugador);
 		int resultado=4;
-		dados.setResultadoDados(resultado);
-		jugador.setResultadoDados(dados.getResultado());
+		dados.setResultado(resultado);
 		avanceDinamico.entrar(jugador);
 		Assert.assertEquals(dados.getResultado()-2,(tablero.getPosicion(jugador)-posInicialJugador));
 	}
@@ -136,10 +135,9 @@ public class PrimeraEntregaIntegrationTest {
 		Dados dados=Dados.getInstance();
 		int posInicialJugador=tablero.getPosicion(jugador);
 		int resultado=7;
-		dados.setResultadoDados(resultado);
-		jugador.setResultadoDados(dados.getResultado());
+		dados.setResultado(resultado);
 		avanceDinamico.entrar(jugador);
-		Assert.assertEquals(100000%7,jugador.getDinero()%jugador.getResultadoDados()-posInicialJugador);
+		Assert.assertEquals(100000%7,jugador.getDinero()%dados.getResultado()-posInicialJugador);
 	}
 	
 	@Test
@@ -155,8 +153,7 @@ public class PrimeraEntregaIntegrationTest {
 		int resultado=11;
 		jugador.agregarPropiedad();
 		jugador.agregarPropiedad();
-		dados.setResultadoDados(resultado);
-		jugador.setResultadoDados(dados.getResultado());
+		dados.setResultado(resultado);
 		avanceDinamico.entrar(jugador);
 		int resultadoFinal=tablero.getPosicion(jugador)-posInicialJugador;
 		Assert.assertEquals(11-2,resultadoFinal);
@@ -173,8 +170,7 @@ public class PrimeraEntregaIntegrationTest {
 		jugador.agregarPropiedad();
 		jugador.agregarPropiedad();
 		Dados dados=Dados.getInstance();
-		dados.setResultadoDados(3);
-		jugador.setResultadoDados(dados.getResultado());
+		dados.setResultado(3);
 		tablero.mover(jugador, dados.getResultado());
 		retroceso.entrar(jugador);
 		Assert.assertEquals(3-1,tablero.getPosicion(jugador));
@@ -190,8 +186,7 @@ public class PrimeraEntregaIntegrationTest {
 		jugador.agregarPropiedad();
 		jugador.agregarPropiedad();
 		Dados dados=Dados.getInstance();
-		dados.setResultadoDados(9);
-		jugador.setResultadoDados(dados.getResultado());
+		dados.setResultado(9);
 		tablero.mover(jugador, dados.getResultado());
 		retroceso.entrar(jugador);
 		Assert.assertEquals(9-10000%9,tablero.getPosicion(jugador));
@@ -208,8 +203,7 @@ public class PrimeraEntregaIntegrationTest {
 		jugador.agregarPropiedad();
 		jugador.agregarPropiedad();
 		Dados dados=Dados.getInstance();
-		dados.setResultadoDados(11);
-		jugador.setResultadoDados(dados.getResultado());
+		dados.setResultado(11);
 		tablero.mover(jugador, dados.getResultado());
 		retroceso.entrar(jugador);
 		Assert.assertEquals(11-9,tablero.getPosicion(jugador));

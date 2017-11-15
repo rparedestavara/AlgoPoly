@@ -10,7 +10,7 @@ public class Dados {
 		return INSTANCE;
 	}
 	
-	public void setResultadoDados(int resultado){
+	public void setResultado(int resultado){
 		resultadoDados = resultado;
 	}
 	public int getResultado() {
