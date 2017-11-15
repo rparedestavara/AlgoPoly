@@ -2,10 +2,10 @@ package Clases;
 
 import Clases.Casilla;
 
-public class Barrio extends Casilla {
+public class Provincia extends Casilla {
 	private Jugador propietario;
 	
-	public Barrio() {
+	public Provincia() {
 		this.propietario = null;
 	}
 	

@@ -4,7 +4,7 @@ package TestClases;
 import org.junit.Assert;
 import org.junit.Test;
 
-import Clases.Barrio;
+import Clases.Provincia;
 import Clases.Jugador;
 
 public class BarrioTest {
@@ -12,7 +12,7 @@ public class BarrioTest {
 	@Test
 	public void Test01VerQueJugadorQueCompraEnUnBarrioEsPropietario() {
 		Jugador jugador = new Jugador();
-		Barrio unBarrio= new Barrio();
+		Provincia unBarrio= new Provincia();
 		unBarrio.entrar(jugador);
 		Assert.assertEquals(jugador ,unBarrio.getPropietario());
 	}
