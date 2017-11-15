@@ -23,7 +23,7 @@ public class Jugador {
 	
 	public boolean puedeHacerAcciones() {
 		Carcel carcel = Carcel.getInstancia();
-		return (carcel.estaEnCarcel(this));
+		return (!carcel.enCarcel(this));
 
 	}
 	public int getResultadoDados() {

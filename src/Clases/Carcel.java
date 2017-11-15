@@ -20,10 +20,6 @@ public class Carcel extends Casilla{
 		this.jugadores.put(jugador,0);
 	}
 
-	public boolean estaEnCarcel(Jugador jugador) {
-		return (jugadores.get(jugador)==null);
-	}
-	
 	public boolean enCarcel(Jugador jugador) {
 		return jugadores.containsKey(jugador);
 	}
