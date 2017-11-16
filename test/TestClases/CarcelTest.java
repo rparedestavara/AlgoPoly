@@ -18,16 +18,15 @@ public class CarcelTest {
 	}
 	
 	@Test
-	public void Test02JugadorNoPuedePagarFianzaSiNoPasoMasDeDosTurnoEnLaCarcel() {
+	public void Test02JugadorNoPuedePagarFianzaSiNoPasoMasDeUnTurnoEnLaCarcel() {
 		Jugador jugador = new Jugador();
 		Carcel carcel = Carcel.getInstancia();
 		carcel.entrar(jugador);
-		jugador.aumentarTurnosEnCarcel();
 		Assert.assertEquals(false, jugador.puedePagarFianzaDeCarcel());
 	}
 	
 	@Test 
-	public void Test03JugadorPuedePagarFianzaDespuesDeDosTurnos() {
+	public void Test03JugadorPuedePagarFianzaDespuesDeUnTurnoEnCarcel() {
 		Jugador jugador = new Jugador();
 		Carcel carcel = Carcel.getInstancia();
 		carcel.entrar(jugador);

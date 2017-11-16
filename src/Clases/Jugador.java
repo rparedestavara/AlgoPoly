@@ -37,7 +37,7 @@ public class Jugador {
 
 	public boolean puedePagarFianzaDeCarcel() {
 		Carcel carcel = Carcel.getInstancia();
-		return ((carcel.turnosEnCarcel(this)>1));
+		return ((carcel.turnosEnCarcel(this)>=1));
 	}
 
 	public void pagarFianzaDeCarcel() throws SaldoInsuficienteException {

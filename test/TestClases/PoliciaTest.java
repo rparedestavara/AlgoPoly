@@ -1,6 +1,5 @@
 package TestClases;
 
-import java.util.ArrayList;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -8,7 +7,6 @@ import org.junit.Test;
 import Clases.Carcel;
 import Clases.Jugador;
 import Clases.Policia;
-import Clases.Tablero;
 
 public class PoliciaTest {
 
