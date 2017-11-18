@@ -28,7 +28,7 @@ public class SegundaEntregaIntegracionTest {
 		Provincia bSur=new BSSur();
 		int dineroAntesDeAdquirirTerreno=jugador.getDinero();
 		bSur.agregarPropietario(jugador);
-		Assert.assertEquals(25000,dineroAntesDeAdquirirTerreno-jugador.getDinero());
+		Assert.assertEquals(23000,dineroAntesDeAdquirirTerreno-jugador.getDinero());
 	}
 	@Test
 	public void test1JugadorAlAdquirirSaltaSurSuDineroSeReduce25000() {
@@ -60,7 +60,7 @@ public class SegundaEntregaIntegracionTest {
 		Provincia cordobaSur=new CordobaSur();
 		int dineroAntesDeAdquirirTerreno=jugador.getDinero();
 		cordobaSur.agregarPropietario(jugador);
-		Assert.assertEquals(20000,dineroAntesDeAdquirirTerreno-jugador.getDinero());
+		Assert.assertEquals(18000,dineroAntesDeAdquirirTerreno-jugador.getDinero());
 	}
 	@Test
 	public void test2JugadorAlCaerEnBuenosConPropietarioYConUnaCasaConstruidaSuDineroSeReduceEns3000() {
