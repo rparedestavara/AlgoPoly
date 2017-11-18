@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import Clases.Provincia;
+import Clases.BSNorte;
 import Clases.Jugador;
 
 public class BarrioTest {
@@ -12,7 +13,7 @@ public class BarrioTest {
 	@Test
 	public void Test01VerQueJugadorQueCompraEnUnBarrioEsPropietario() {
 		Jugador jugador = new Jugador();
-		Provincia unBarrio= new Provincia();
+		Provincia unBarrio= new BSNorte();
 		unBarrio.entrar(jugador);
 		Assert.assertEquals(jugador ,unBarrio.getPropietario());
 	}
