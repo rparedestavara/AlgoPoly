@@ -2,10 +2,12 @@ package Clases;
 
 public class CordobaSur extends ProvinciaSur {
 	public CordobaSur(){
-		this.precioDeTerreno=18000;
-		this.precioAlquiler=1000;
-		this.precioDeConstruccionDeCasas=2000;
-		this.precioDeConstruccionDeHotel=3000;
-		this.cantCasas=0;
+		precioAlquilerConHotel = 3000;
+		precioAlquilerSinEdificaciones = 1000;
+		precioAlquilerConUnaCasa = 1500;
+		precioAlquilerConDosCasas = 2500;
+		precioDeTerreno = 18000;
+		precioDeConstruccionDeCasas = 2000;
+		precioDeConstruccionDeHotel = 3000;
 		}
 }

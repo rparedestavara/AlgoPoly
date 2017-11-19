@@ -2,10 +2,12 @@ package Clases;
 
 public class CordobaNorte extends ProvinciaNorte{
 	public CordobaNorte(){
-		this.precioDeTerreno=20000;
-		this.precioAlquiler=1300;
-		this.precioDeConstruccionDeCasas=2200;
-		this.precioDeConstruccionDeHotel=3500;
-		this.cantCasas=0;
+		precioAlquilerConHotel = 3500;
+		precioAlquilerSinEdificaciones = 1300;
+		precioAlquilerConUnaCasa = 1800;
+		precioAlquilerConDosCasas = 2900;
+		precioDeTerreno = 20000;
+		precioDeConstruccionDeCasas = 2200;
+		precioDeConstruccionDeHotel = 3500;
 		}
 }

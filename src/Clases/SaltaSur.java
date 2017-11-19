@@ -2,11 +2,13 @@ package Clases;
 
 public class SaltaSur extends ProvinciaSur{
 	public SaltaSur(){
-		this.precioDeTerreno=23000;
-		this.precioAlquiler=2000;
-		this.precioDeConstruccionDeCasas=4500;
-		this.precioDeConstruccionDeHotel=7500;
-		this.cantCasas=0;
+		precioAlquilerConHotel = 5500;
+		precioAlquilerSinEdificaciones = 2000;
+		precioAlquilerConUnaCasa = 3250;
+		precioAlquilerConDosCasas = 3850;
+		precioDeTerreno = 23000;
+		precioDeConstruccionDeCasas = 4500;
+		precioDeConstruccionDeHotel = 5500;
 		}
 
 }

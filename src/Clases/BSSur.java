@@ -3,11 +3,13 @@ package Clases;
 public class BSSur extends ProvinciaSur {
 
 public BSSur(){
-	this.precioDeTerreno=23000;
-	this.precioAlquiler=2000;
-	this.precioDeConstruccionDeCasas=3250;
-	this.precioDeConstruccionDeHotel=5500;
-	this.cantCasas=0;
+	precioAlquilerConHotel = 5000;
+	precioAlquilerSinEdificaciones = 2000;
+	precioAlquilerConUnaCasa = 3000;
+	precioAlquilerConDosCasas = 3500;
+	precioDeTerreno = 20000;
+	precioDeConstruccionDeCasas = 5000;
+	precioDeConstruccionDeHotel = 8000;
 	}
 
 }

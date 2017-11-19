@@ -23,15 +23,15 @@ public class SegundaEntregaIntegracionTest {
 		Assert.assertEquals(25000,dineroAntesDeAdquirirTerreno-jugador.getDinero());
 	}
 	@Test
-	public void test1JugadorAlAdquirirBuenosAiresSuruDineroSeReduce25000() {
+	public void test1JugadorAlAdquirirBuenosAiresSuruDineroSeReduce20000() {
 		Jugador jugador= new Jugador();
 		Provincia bSur=new BSSur();
 		int dineroAntesDeAdquirirTerreno=jugador.getDinero();
 		bSur.agregarPropietario(jugador);
-		Assert.assertEquals(23000,dineroAntesDeAdquirirTerreno-jugador.getDinero());
+		Assert.assertEquals(20000,dineroAntesDeAdquirirTerreno-jugador.getDinero());
 	}
 	@Test
-	public void test1JugadorAlAdquirirSaltaSurSuDineroSeReduce25000() {
+	public void test1JugadorAlAdquirirSaltaSurSuDineroSeReduce23000() {
 		Jugador jugador= new Jugador();
 		Provincia saltaSur=new SaltaSur();
 		int dineroAntesDeAdquirirTerreno=jugador.getDinero();
@@ -39,7 +39,7 @@ public class SegundaEntregaIntegracionTest {
 		Assert.assertEquals(23000,dineroAntesDeAdquirirTerreno-jugador.getDinero());
 	}
 	@Test
-	public void test1JugadorAlAdquirirSaltaNorteSuDineroSeReduce25000() {
+	public void test1JugadorAlAdquirirSaltaNorteSuDineroSeReduce23000() {
 		Jugador jugador= new Jugador();
 		Provincia saltaNorte=new SaltaNorte();
 		int dineroAntesDeAdquirirTerreno=jugador.getDinero();
@@ -47,7 +47,7 @@ public class SegundaEntregaIntegracionTest {
 		Assert.assertEquals(23000,dineroAntesDeAdquirirTerreno-jugador.getDinero());
 	}
 	@Test
-	public void test1JugadorAlAdquirirCordobaNorteDineroSeReduce25000() {
+	public void test1JugadorAlAdquirirCordobaNorteDineroSeReduce20000() {
 		Jugador jugador= new Jugador();
 		Provincia cordobaNorte=new CordobaNorte();
 		int dineroAntesDeAdquirirTerreno=jugador.getDinero();
@@ -55,7 +55,7 @@ public class SegundaEntregaIntegracionTest {
 		Assert.assertEquals(20000,dineroAntesDeAdquirirTerreno-jugador.getDinero());
 	}
 	@Test
-	public void test1JugadorAlAdquirirCordobaSurDineroSeReduce25000() {
+	public void test1JugadorAlAdquirirCordobaSurDineroSeReduce18000() {
 		Jugador jugador= new Jugador();
 		Provincia cordobaSur=new CordobaSur();
 		int dineroAntesDeAdquirirTerreno=jugador.getDinero();
@@ -63,7 +63,7 @@ public class SegundaEntregaIntegracionTest {
 		Assert.assertEquals(18000,dineroAntesDeAdquirirTerreno-jugador.getDinero());
 	}
 	@Test
-	public void test2JugadorAlCaerEnBuenosConPropietarioYConUnaCasaConstruidaSuDineroSeReduceEns3000() {
+	public void test2JugadorAlCaerEnBuenosConPropietarioYConUnaCasaConstruidaSuDineroSeReduceEns3500() {
 		Jugador jugador= new Jugador();
 		Provincia bNorte=new BSNorte();
 		Provincia bSur=new BSSur();
@@ -76,10 +76,10 @@ public class SegundaEntregaIntegracionTest {
 		Jugador jugador2= new Jugador();
 		int dineroAntesDeEntrarAPropiedad=jugador2.getDinero();
 		bNorte.entrar(jugador2);
-		Assert.assertEquals(3000,dineroAntesDeEntrarAPropiedad-jugador2.getDinero());
+		Assert.assertEquals(3500,dineroAntesDeEntrarAPropiedad-jugador2.getDinero());
 	}
 	@Test
-	public void test2JugadorAlCaerEnSaltaConPropietarioYConUnaCasaConstruidaSuDineroSeReduceEns3000() {
+	public void test2JugadorAlCaerEnSaltaConPropietarioYConUnaCasaConstruidaSuDineroSeReduceEns3250() {
 		Jugador jugador= new Jugador();
 		Provincia saltaNorte=new SaltaNorte();
 		Provincia saltaSur=new SaltaSur();
@@ -92,10 +92,10 @@ public class SegundaEntregaIntegracionTest {
 		Jugador jugador2= new Jugador();
 		int dineroAntesDeEntrarAPropiedad=jugador2.getDinero();
 		saltaNorte.entrar(jugador2);
-		Assert.assertEquals(3000,dineroAntesDeEntrarAPropiedad-jugador2.getDinero());
+		Assert.assertEquals(3250,dineroAntesDeEntrarAPropiedad-jugador2.getDinero());
 	}
 	@Test
-	public void test2JugadorAlCaerEnCordobaConPropietarioYConUnaCasaConstruidaSuDineroSeReduceEns3000() {
+	public void test2JugadorAlCaerEnCordobaConPropietarioYConUnaCasaConstruidaSuDineroSeReduceEns1800() {
 		Jugador jugador= new Jugador();
 		Provincia cordobaNorte=new CordobaNorte();
 		Provincia cordobaSur=new CordobaSur();
@@ -108,10 +108,10 @@ public class SegundaEntregaIntegracionTest {
 		Jugador jugador2= new Jugador();
 		int dineroAntesDeEntrarAPropiedad=jugador2.getDinero();
 		cordobaNorte.entrar(jugador2);
-		Assert.assertEquals(3000,dineroAntesDeEntrarAPropiedad-jugador2.getDinero());
+		Assert.assertEquals(1800,dineroAntesDeEntrarAPropiedad-jugador2.getDinero());
 	}
 	@Test
-	public void test3JugadorAlCaerEnBuenAiresConPropietarioYCon2CasasY1CasaConstruidaSuDineroSeReduceEns3500(){
+	public void test3JugadorAlCaerEnBuenAiresConPropietarioYCon2CasasY1CasaConstruidaSuDineroSeReduceEns4000(){
 		Jugador jugador= new Jugador();
 		Provincia bNorte=new BSNorte();
 		Provincia bSur=new BSSur();
@@ -125,10 +125,10 @@ public class SegundaEntregaIntegracionTest {
 		Jugador jugador2= new Jugador();
 		int dineroAntesDeEntrarAPropiedad=jugador2.getDinero();
 		bNorte.entrar(jugador2);
-		Assert.assertEquals(3500,dineroAntesDeEntrarAPropiedad-jugador2.getDinero());
+		Assert.assertEquals(4000,dineroAntesDeEntrarAPropiedad-jugador2.getDinero());
 	}
 	@Test
-	public void test3JugadorAlCaerEnSaltaConPropietarioYCon2CasasY1CasaConstruidaSuDineroSeReduceEns3500(){
+	public void test3JugadorAlCaerEnSaltaConPropietarioYCon2CasasY1CasaConstruidaSuDineroSeReduceEns3850(){
 		Jugador jugador= new Jugador();
 		Provincia saltaNorte=new SaltaNorte();
 		Provincia saltaSur=new SaltaSur();
@@ -142,10 +142,10 @@ public class SegundaEntregaIntegracionTest {
 		Jugador jugador2= new Jugador();
 		int dineroAntesDeEntrarAPropiedad=jugador2.getDinero();
 		saltaNorte.entrar(jugador2);
-		Assert.assertEquals(3500,dineroAntesDeEntrarAPropiedad-jugador2.getDinero());
+		Assert.assertEquals(3850,dineroAntesDeEntrarAPropiedad-jugador2.getDinero());
 	}
 	@Test
-	public void test3JugadorAlCaerEnCordobaConPropietarioYCon2CasasY1CasaConstruidaSuDineroSeReduceEns3500(){
+	public void test3JugadorAlCaerEnCordobaConPropietarioYCon2CasasY1CasaConstruidaSuDineroSeReduceEns2900(){
 		Jugador jugador= new Jugador();
 		Provincia cordobaNorte=new CordobaNorte();
 		Provincia cordobaSur=new CordobaSur();
@@ -159,7 +159,7 @@ public class SegundaEntregaIntegracionTest {
 		Jugador jugador2= new Jugador();
 		int dineroAntesDeEntrarAPropiedad=jugador2.getDinero();
 		cordobaNorte.entrar(jugador2);
-		Assert.assertEquals(3500,dineroAntesDeEntrarAPropiedad-jugador2.getDinero());
+		Assert.assertEquals(2900,dineroAntesDeEntrarAPropiedad-jugador2.getDinero());
 	}
 	@Test
 	public void test4JugadorConstruyeHotelTeniendoCasasEnProvinciasOpuestasBueAires() {
@@ -273,7 +273,7 @@ public class SegundaEntregaIntegracionTest {
 		Assert.assertEquals(5000,dineroAntesDeEntrar-jugador2.getDinero());
 	}
 	@Test 
-	public void test7VerQueJugadorAlCaerEnUnaSaltaConHotelSuDineroDisminuye5000() {
+	public void test7VerQueJugadorAlCaerEnUnaSaltaConHotelSuDineroDisminuye5500() {
 		Jugador jugador= new Jugador();
 		Provincia saltaNorte=new SaltaNorte();
 		Provincia saltaSur=new SaltaSur();
@@ -289,10 +289,10 @@ public class SegundaEntregaIntegracionTest {
 		Jugador jugador2= new Jugador();
 		int dineroAntesDeEntrar=jugador2.getDinero();
 		saltaNorte.entrar(jugador2);
-		Assert.assertEquals(5000,dineroAntesDeEntrar-jugador2.getDinero());
+		Assert.assertEquals(5500,dineroAntesDeEntrar-jugador2.getDinero());
 	}
 	@Test 
-	public void test7VerQueJugadorAlCaerEnCordobaConHotelSuDineroDisminuye5000() {
+	public void test7VerQueJugadorAlCaerEnCordobaConHotelSuDineroDisminuye3500() {
 		Jugador jugador= new Jugador();
 		Provincia cordobaNorte=new CordobaNorte();
 		Provincia cordobaSur=new CordobaSur();
@@ -308,7 +308,7 @@ public class SegundaEntregaIntegracionTest {
 		Jugador jugador2= new Jugador();
 		int dineroAntesDeEntrar=jugador2.getDinero();
 		cordobaNorte.entrar(jugador2);
-		Assert.assertEquals(5000,dineroAntesDeEntrar-jugador2.getDinero());
+		Assert.assertEquals(3500,dineroAntesDeEntrar-jugador2.getDinero());
 	}
 
 }

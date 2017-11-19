@@ -9,7 +9,7 @@ import Clases.BSSur;
 import Clases.Jugador;
 import Clases.Provincia;
 
-public class BunenosAiresTest {
+public class BunenosAiresNorteTest {
 
 	@Test
 	public void test1JugadorAlAdquirirBuenosAiresNorteSuDineroSeReduce25000() {
@@ -21,7 +21,7 @@ public class BunenosAiresTest {
 	}
 	
 	@Test
-	public void test2JugadorCaeEnBuenosAiresYConstruyeUnaCasaSuDineroSeReduceEn5000() {
+	public void test2JugadorCaeEnBuenosAiresYConstruyeUnaCasaSuDineroSeReduceEn5500() {
 		Jugador jugador= new Jugador();
 		Provincia bNorte=new BSNorte();
 		int dineroAntesDeAdquirirTerreno=jugador.getDinero();
@@ -40,7 +40,7 @@ public class BunenosAiresTest {
 	}
 	
 	@Test
-	public void test4JugadorAlCaerEnUnaProvinciaConPropietarioYConUnaCasaConstruidaSuDineroSeReduceEns3000() {
+	public void test4JugadorAlCaerEnUnaProvinciaConPropietarioYConUnaCasaConstruidaSuDineroSeReduceEns3500() {
 		Jugador jugador= new Jugador();
 		Provincia bNorte=new BSNorte();
 		Provincia bSur=new BSSur();
@@ -48,30 +48,30 @@ public class BunenosAiresTest {
 		bSur.agregarOpuesto(bNorte);
 		bNorte.agregarPropietario(jugador);
 		bSur.agregarPropietario(jugador);
-		bNorte.construirCasa();
-		bSur.construirCasa();
-		Jugador jugador2= new Jugador();
-		int dineroAntesDeEntrarAPropiedad=jugador2.getDinero();
-		bNorte.entrar(jugador2);
-		Assert.assertEquals(3000,dineroAntesDeEntrarAPropiedad-jugador2.getDinero());
-	}
-	
-	@Test
-	public void test5JugadorAlCaerEnUnaProvinciaConPropietarioYCon2CasasY1CasaConstruidaSuDineroSeReduceEns3500(){
-		Jugador jugador= new Jugador();
-		Provincia bNorte=new BSNorte();
-		Provincia bSur=new BSSur();
-		bNorte.agregarOpuesto(bSur);
-		bSur.agregarOpuesto(bNorte);
-		bNorte.agregarPropietario(jugador);
-		bSur.agregarPropietario(jugador);
-		bNorte.construirCasa();
 		bNorte.construirCasa();
 		bSur.construirCasa();
 		Jugador jugador2= new Jugador();
 		int dineroAntesDeEntrarAPropiedad=jugador2.getDinero();
 		bNorte.entrar(jugador2);
 		Assert.assertEquals(3500,dineroAntesDeEntrarAPropiedad-jugador2.getDinero());
+	}
+	
+	@Test
+	public void test5JugadorAlCaerEnUnaProvinciaConPropietarioYCon2CasasY1CasaConstruidaSuDineroSeReduceEns4000(){
+		Jugador jugador= new Jugador();
+		Provincia bNorte=new BSNorte();
+		Provincia bSur=new BSSur();
+		bNorte.agregarOpuesto(bSur);
+		bSur.agregarOpuesto(bNorte);
+		bNorte.agregarPropietario(jugador);
+		bSur.agregarPropietario(jugador);
+		bNorte.construirCasa();
+		bNorte.construirCasa();
+		bSur.construirCasa();
+		Jugador jugador2= new Jugador();
+		int dineroAntesDeEntrarAPropiedad=jugador2.getDinero();
+		bNorte.entrar(jugador2);
+		Assert.assertEquals(4000,dineroAntesDeEntrarAPropiedad-jugador2.getDinero());
 	}
 	
 	@Test
@@ -160,7 +160,7 @@ public class BunenosAiresTest {
 	}
 
 	@Test 
-	public void test11VerQueJugadorAlCaerEnUnaProvinciConHotelSuDineroDisminuye5000() {
+	public void test11VerQueJugadorAlCaerEnUnaProvinciConHotelSuDineroDisminuye6000() {
 		Jugador jugador= new Jugador();
 		Provincia bNorte=new BSNorte();
 		Provincia bSur=new BSSur();
@@ -176,6 +176,6 @@ public class BunenosAiresTest {
 		Jugador jugador2= new Jugador();
 		int dineroAntesDeEntrar=jugador2.getDinero();
 		bNorte.entrar(jugador2);
-		Assert.assertEquals(5000,dineroAntesDeEntrar-jugador2.getDinero());
+		Assert.assertEquals(6000,dineroAntesDeEntrar-jugador2.getDinero());
 	}
 }

@@ -2,39 +2,27 @@ package Clases;
 
 import Clases.Casilla;
 
-public class Provincia extends Casilla {
+public abstract class Provincia extends Casilla {
+	protected int precioAlquilerConHotel;
+	protected int precioAlquilerSinEdificaciones;
+	protected int precioAlquilerConUnaCasa;
+	protected int precioAlquilerConDosCasas;
 	protected int precioDeTerreno;
-	protected int precioAlquiler;
 	protected int precioDeConstruccionDeCasas;
 	protected int precioDeConstruccionDeHotel;
+	protected Provincia provinciaOpuesta;
 	protected Jugador propietario;
 	protected int cantCasas;
-	protected Jugador residente;
-	protected int costoDeEntradaPorUnaCasa;
-	protected int costoDeEntradaPorDosYUnaCasa;
-	protected Provincia provinciaOpuesta;
 	protected int cantHoteles;
-	protected int costoPorHotel;
 	
 	public Provincia() {
 		this.propietario = null;
-		this.costoDeEntradaPorUnaCasa=3000;
-		this.costoDeEntradaPorDosYUnaCasa=3500;
 		this.cantHoteles=0;
 		this.cantCasas=0;
-		this.costoPorHotel=5000;
-	}
-
-	public boolean poseeUnaCasaEnAmbasProvincias() {
-		return this.cantCasas==1 && this.provinciaOpuesta.cantCasas==1;
 	}
 
 	public boolean EsPropietario(Jugador jugadorDesconocido) {
 		return (jugadorDesconocido==this.propietario);
-	}
-
-	public boolean propietarioPoseeCasasEnAmbasProvincias() {
-		return (this.cantCasas>0 && this.provinciaOpuesta.EsPropietario(this.propietario) &&this.provinciaOpuesta.cantCasasConstruidas()>0);
 	}
 
 	public Jugador getPropietario(){
@@ -84,10 +72,16 @@ public class Provincia extends Casilla {
 		return this.cantCasas==2 && this.provinciaOpuesta.cantCasas==2;
 	}
 	
-	public void cobrar(Jugador residente2) {
-		if(poseeUnaCasaEnAmbasProvincias()) this.residente.modificarDinero(-this.costoDeEntradaPorUnaCasa);
-		if(poseeUnaCasaEnNorteYDosEnSur())this.residente.modificarDinero(-this.costoDeEntradaPorDosYUnaCasa);
-		if(poseeUnHotel())this.residente.modificarDinero(-this.costoPorHotel);
+	private int cuantoCobrar() {
+		if(cantHoteles == 1) return precioAlquilerConHotel;
+		if(cantCasas == 1) return precioAlquilerConUnaCasa;
+		if(cantCasas == 2) return precioAlquilerConDosCasas;
+		return precioAlquilerSinEdificaciones;
+	}
+	
+	private void cobrar(Jugador residente) {
+		int precioAlquiler = cuantoCobrar();
+		residente.modificarDinero(-precioAlquiler);
 	}
 	public void entrar(Jugador jugador) {
 		if(this.propietario==null) {
@@ -99,8 +93,7 @@ public class Provincia extends Casilla {
 
 	public void entroUnDesconocido(Jugador jugadorDesconocido) {
 		if(!EsPropietario(jugadorDesconocido) ) {
-			this.residente=jugadorDesconocido;
-			this.cobrar(this.residente);
+			this.cobrar(jugadorDesconocido);
 		}
 	}
 	public boolean poseeUnaCasaEnNorteYDosEnSur() {
