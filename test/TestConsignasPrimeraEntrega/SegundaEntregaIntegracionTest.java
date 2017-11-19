@@ -1,5 +1,7 @@
 package TestConsignasPrimeraEntrega;
 
+import static org.junit.Assert.*;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -376,5 +378,20 @@ public class SegundaEntregaIntegracionTest {
 		int dineroAntesDeEntrar = inquilino.getDinero();
 		edesur.entrar(inquilino);
 		Assert.assertEquals(1000 * 12, dineroAntesDeEntrar - inquilino.getDinero());
+	}
+	
+	@Test
+	public void testJugadorNoPuedeConstruirHotelSinTenerCubiertoDeCasas(){
+		Jugador propietario = new Jugador();
+		Provincia buenosAiresNorte = new BSNorte();
+		Provincia buenosAiresSur = new BSSur();
+		buenosAiresNorte.agregarOpuesto(buenosAiresSur);
+		buenosAiresSur.agregarOpuesto(buenosAiresNorte);
+		buenosAiresNorte.entrar(propietario);
+		buenosAiresNorte.construirCasa();
+		int dineroSinConstruirHotel = propietario.getDinero();
+		buenosAiresNorte.construirHotel();
+		int dineroConstruyendoHotel = propietario.getDinero();
+		Assert.assertEquals(dineroSinConstruirHotel, dineroConstruyendoHotel);
 	}
 }
