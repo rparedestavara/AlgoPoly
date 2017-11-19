@@ -1,28 +1,19 @@
 package Clases;
 
-import Clases.Casilla;
-
-public abstract class Provincia extends Casilla {
+public abstract class Provincia extends Propiedad {
+	protected Provincia provinciaOpuesta;
 	protected int precioAlquilerConHotel;
 	protected int precioAlquilerSinEdificaciones;
 	protected int precioAlquilerConUnaCasa;
 	protected int precioAlquilerConDosCasas;
-	protected int precioDeTerreno;
 	protected int precioDeConstruccionDeCasas;
 	protected int precioDeConstruccionDeHotel;
-	protected Provincia provinciaOpuesta;
-	protected Jugador propietario;
 	protected int cantCasas;
 	protected int cantHoteles;
 	
 	public Provincia() {
-		this.propietario = null;
 		this.cantHoteles=0;
 		this.cantCasas=0;
-	}
-
-	public boolean EsPropietario(Jugador jugadorDesconocido) {
-		return (jugadorDesconocido==this.propietario);
 	}
 
 	public Jugador getPropietario(){
@@ -36,10 +27,6 @@ public abstract class Provincia extends Casilla {
 	
 	public int costePorConstruccionDeCasa() {
 		return this.precioDeConstruccionDeCasas;
-	}
-
-	public void agregarPropietario(Jugador jugador) {
-		this.entrar(jugador);
 	}
 
 	public int cantCasasConstruidas() {
@@ -79,23 +66,11 @@ public abstract class Provincia extends Casilla {
 		return precioAlquilerSinEdificaciones;
 	}
 	
-	private void cobrar(Jugador residente) {
+	protected void cobrar(Jugador residente) {
 		int precioAlquiler = cuantoCobrar();
 		residente.modificarDinero(-precioAlquiler);
 	}
-	public void entrar(Jugador jugador) {
-		if(this.propietario==null) {
-			this.propietario = jugador;
-			this.propietario.modificarDinero(-this.precioDeTerreno);
-		}
-		else this.entroUnDesconocido(jugador);
-	}
-
-	public void entroUnDesconocido(Jugador jugadorDesconocido) {
-		if(!EsPropietario(jugadorDesconocido) ) {
-			this.cobrar(jugadorDesconocido);
-		}
-	}
+	
 	public boolean poseeUnaCasaEnNorteYDosEnSur() {
 		return this.cantCasas==2 && this.provinciaOpuesta.cantCasas==1;
 	}
