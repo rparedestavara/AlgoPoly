@@ -381,7 +381,7 @@ public class SegundaEntregaIntegracionTest {
 	}
 	
 	@Test
-	public void testJugadorNoPuedeConstruirHotelSinTenerCubiertoDeCasas(){
+	public void test18JugadorNoPuedeConstruirHotelSinTenerCubiertoDeCasas(){
 		Jugador propietario = new Jugador();
 		Provincia buenosAiresNorte = new BSNorte();
 		Provincia buenosAiresSur = new BSSur();
@@ -393,5 +393,55 @@ public class SegundaEntregaIntegracionTest {
 		buenosAiresNorte.construirHotel();
 		int dineroConstruyendoHotel = propietario.getDinero();
 		Assert.assertEquals(dineroSinConstruirHotel, dineroConstruyendoHotel);
+	}
+	
+	@Test
+	public void test19JugadorDebePagarElAlquilerDeBsAs(){
+		Jugador jugadorEnBsAs = new Jugador();
+		Jugador propietario = new Jugador();
+		Provincia buenosAiresNorte = new BSNorte();
+		Provincia buenosAiresSur = new BSSur();
+		int plataJugadorEnBsAs = jugadorEnBsAs.getDinero();
+		buenosAiresNorte.entrar(propietario);
+		buenosAiresNorte.construirCasa();
+		buenosAiresSur.entrar(propietario);
+		buenosAiresSur.construirCasa();
+		buenosAiresNorte.entrar(jugadorEnBsAs);
+		buenosAiresSur.entrar(jugadorEnBsAs);
+		Assert.assertEquals(plataJugadorEnBsAs - 6500, jugadorEnBsAs.getDinero());
+	}
+	
+	@Test
+	public void test20JugadorDebePagarElAlquilerDeSalta() {
+		Jugador jugadorSalta= new Jugador();
+		Jugador propietario = new Jugador();
+		Provincia saltaNorte = new SaltaNorte();
+		Provincia saltaSur = new SaltaSur();
+		int plataJugadorSalta = jugadorSalta.getDinero();
+		saltaNorte.entrar(propietario);
+		saltaNorte.construirCasa();
+		saltaSur.entrar(propietario);
+		saltaSur.construirCasa();
+		saltaNorte.entrar(jugadorSalta);
+		saltaSur.entrar(jugadorSalta);
+		Assert.assertEquals(plataJugadorSalta - 6500, jugadorSalta.getDinero());
+
+	}
+	
+	@Test
+	public void test21JugadorDebePagarElAlquilerDeCordoba(){
+		Jugador jugadorEnCordoba = new Jugador();
+		Jugador propietario = new Jugador();
+		Provincia cordobaNorte = new CordobaNorte();
+		Provincia cordobaSur = new CordobaSur();
+		int plataJugadorEnCordoba = jugadorEnCordoba.getDinero();
+		cordobaNorte.entrar(propietario);
+		cordobaNorte.construirCasa();
+		cordobaSur.entrar(propietario);
+		cordobaSur.construirCasa();
+		cordobaNorte.entrar(jugadorEnCordoba);
+		cordobaSur.entrar(jugadorEnCordoba);
+		Assert.assertEquals(plataJugadorEnCordoba - 3300, jugadorEnCordoba.getDinero());
+
 	}
 }
