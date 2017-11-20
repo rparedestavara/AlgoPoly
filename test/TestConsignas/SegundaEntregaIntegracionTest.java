@@ -8,10 +8,12 @@ import org.junit.Test;
 import Clases.Aysa;
 import Clases.BSNorte;
 import Clases.BSSur;
+import Clases.Casilla;
 import Clases.CordobaNorte;
 import Clases.CordobaSur;
 import Clases.Dados;
 import Clases.Edesur;
+import Clases.ImpuestoAlLujo;
 import Clases.Jugador;
 import Clases.Provincia;
 import Clases.ProvinciaDividida;
@@ -459,5 +461,29 @@ public class SegundaEntregaIntegracionTest {
 		santaFe.entrar(propietario);
 		santaFe.construirCasa();
 		Assert.assertEquals(plataPropietarioSinConstruir - 4000, propietario.getDinero());
+	}
+	
+	@Test
+	public void test23IntercambioDePropietarioHaceQueCobreUnNuevoMonto(){
+		Jugador propietario1 = new Jugador();
+		Jugador propietario2 = new Jugador();
+		Jugador visitante = new Jugador();
+		Provincia bsAsNorte = new BSNorte();
+		bsAsNorte.entrar(propietario1);
+		Provincia santaFe = new SantaFe();
+		santaFe.entrar(propietario2);
+		int plataPropietario2 = propietario2.getDinero();
+		propietario1.intercambiarPropiedad(propietario2,santaFe, bsAsNorte);
+		bsAsNorte.entrar(visitante);
+		Assert.assertEquals(plataPropietario2 + 2500, propietario2.getDinero());
+	}
+	
+	@Test
+	public void test24ImpuestoAlLujoReduceElCapitalDelJugadorUnDiezPorciento(){
+		Jugador jugador = new Jugador();
+		Casilla impuesto = new ImpuestoAlLujo();
+		int plataJugadorSinEntrar = jugador.getDinero();
+		impuesto.entrar(jugador);
+		Assert.assertEquals(plataJugadorSinEntrar - (plataJugadorSinEntrar* 0.1), jugador.getDinero(),5);
 	}
 }

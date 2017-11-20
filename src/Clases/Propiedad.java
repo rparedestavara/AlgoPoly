@@ -22,6 +22,7 @@ public abstract class Propiedad extends Casilla{
 		if(this.propietario==null) {
 			this.propietario = jugador;
 			this.propietario.modificarDinero(-this.precioPropiedad);
+			this.propietario.agregarPropiedad(this);
 		}
 		else this.entroUnDesconocido(jugador);
 	}

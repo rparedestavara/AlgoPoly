@@ -1,15 +1,20 @@
 package Clases;
 
+import java.util.ArrayList;
+
+import excepciones.NoEsDuenioDePropiedadException;
 import excepciones.SaldoInsuficienteException;
 
 public class Jugador {
 
 	private int dineroActual;
 	private int barriosComprados;
+	private ArrayList<Propiedad> propiedades;
 	
 	public Jugador() {
 		this.dineroActual=100000;
 		this.barriosComprados = 0;
+		this.propiedades = new ArrayList<Propiedad>();
 	}
 	
 	public int getDinero() {
@@ -59,9 +64,19 @@ public class Jugador {
 		propiedades += this.barriosComprados;
 		return propiedades;
 	}
-
+	
+	public void agregarPropiedad(Propiedad propiedad) {
+		this.propiedades.add(propiedad);
+	}
 	public void setDinero(int dineroJugador) {
 		this.dineroActual = dineroJugador;
+		
+	}
+
+	public void intercambiarPropiedad(Jugador propietario, Provincia provinciaPedida, Provincia provinciaOfrecida) {
+		if(!this.propiedades.contains(provinciaOfrecida)) throw new NoEsDuenioDePropiedadException();
+		provinciaPedida.cambiarPropietario(this); 
+		provinciaOfrecida.cambiarPropietario(propietario);
 		
 	}
 	

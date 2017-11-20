@@ -9,7 +9,7 @@ import Clases.Jugador;
 import Clases.Provincia;
 import Clases.ProvinciaDividida;
 
-public class CordobaNorteTets {
+public class CordobaNorteTest {
 
 	@Test
 	public void test1JugadorAlAdquirirCordobaNorteDineroSeReduce20000() {
