@@ -7,6 +7,7 @@ import Clases.CordobaNorte;
 import Clases.CordobaSur;
 import Clases.Jugador;
 import Clases.Provincia;
+import Clases.ProvinciaDividida;
 
 public class CordobaNorteTets {
 
@@ -41,8 +42,8 @@ public class CordobaNorteTets {
 	@Test
 	public void test4JugadorAlCaerEnUnaProvinciaConPropietarioYConUnaCasaConstruidaSuDineroSeReduceEns1800() {
 		Jugador jugador= new Jugador();
-		Provincia cordobaNorte=new CordobaNorte();
-		Provincia cordobaSur=new CordobaSur();
+		ProvinciaDividida cordobaNorte=new CordobaNorte();
+		ProvinciaDividida cordobaSur=new CordobaSur();
 		cordobaNorte.agregarOpuesto(cordobaSur);
 		cordobaSur.agregarOpuesto(cordobaNorte);
 		cordobaNorte.agregarPropietario(jugador);
@@ -58,8 +59,8 @@ public class CordobaNorteTets {
 	@Test
 	public void test5JugadorAlCaerEnUnaProvinciaConPropietarioYCon2CasasY1CasaConstruidaSuDineroSeReduceEns2900(){
 		Jugador jugador= new Jugador();
-		Provincia cordobaNorte=new CordobaNorte();
-		Provincia cordobaSur=new CordobaSur();
+		ProvinciaDividida cordobaNorte=new CordobaNorte();
+		ProvinciaDividida cordobaSur=new CordobaSur();
 		cordobaNorte.agregarOpuesto(cordobaSur);
 		cordobaSur.agregarOpuesto(cordobaNorte);
 		cordobaNorte.agregarPropietario(jugador);
@@ -76,8 +77,8 @@ public class CordobaNorteTets {
 	@Test
 	public void test6JugadorConstruyeHotelTeniendoCasasEnProvinciasOpuestas() {
 		Jugador jugador= new Jugador();
-		Provincia cordobaNorte=new CordobaNorte();
-		Provincia cordobaSur=new CordobaSur();
+		ProvinciaDividida cordobaNorte=new CordobaNorte();
+		ProvinciaDividida cordobaSur=new CordobaSur();
 		cordobaNorte.agregarOpuesto(cordobaSur);
 		cordobaSur.agregarOpuesto(cordobaNorte);
 		cordobaNorte.agregarPropietario(jugador);
@@ -93,8 +94,8 @@ public class CordobaNorteTets {
 	@Test
 	public void test7VerQueJugadorAlConstruirUnHotelSuDineroSeRedujo() {
 		Jugador jugador= new Jugador();
-		Provincia cordobaNorte=new CordobaNorte();
-		Provincia cordobaSur=new CordobaSur();
+		ProvinciaDividida cordobaNorte=new CordobaNorte();
+		ProvinciaDividida cordobaSur=new CordobaSur();
 		cordobaNorte.agregarOpuesto(cordobaSur);
 		cordobaSur.agregarOpuesto(cordobaNorte);
 		cordobaNorte.agregarPropietario(jugador);
@@ -111,8 +112,8 @@ public class CordobaNorteTets {
 	@Test
 	public void test8VerQueAlConstruirUnHotelLasCasasEnLaProvinciaContruidaDesaparecieron() {
 		Jugador jugador= new Jugador();
-		Provincia cordobaNorte=new CordobaNorte();
-		Provincia cordobaSur=new CordobaSur();
+		ProvinciaDividida cordobaNorte=new CordobaNorte();
+		ProvinciaDividida cordobaSur=new CordobaSur();
 		cordobaNorte.agregarOpuesto(cordobaSur);
 		cordobaSur.agregarOpuesto(cordobaNorte);
 		cordobaNorte.agregarPropietario(jugador);
@@ -128,8 +129,8 @@ public class CordobaNorteTets {
 	@Test
 	public void test9JugadorQuiereConstruirHotelYNoPuedePorNoTenerCasaAlMaximo() {
 		Jugador jugador= new Jugador();
-		Provincia cordobaNorte=new CordobaNorte();
-		Provincia cordobaSur=new CordobaSur();
+		ProvinciaDividida cordobaNorte=new CordobaNorte();
+		ProvinciaDividida cordobaSur=new CordobaSur();
 		cordobaNorte.agregarOpuesto(cordobaSur);
 		cordobaSur.agregarOpuesto(cordobaNorte);
 		cordobaNorte.agregarPropietario(jugador);
@@ -144,8 +145,8 @@ public class CordobaNorteTets {
 	@Test
 	public void test10ugadorQuiereConstruirHotelYNoPuedePorNoTenerCasaAlMaximoVerQueSuDineroNoSeDecremento() {
 		Jugador jugador= new Jugador();
-		Provincia cordobaNorte=new CordobaNorte();
-		Provincia cordobaSur=new CordobaSur();
+		ProvinciaDividida cordobaNorte=new CordobaNorte();
+		ProvinciaDividida cordobaSur=new CordobaSur();
 		cordobaNorte.agregarOpuesto(cordobaSur);
 		cordobaSur.agregarOpuesto(cordobaNorte);
 		cordobaNorte.agregarPropietario(jugador);
@@ -161,8 +162,8 @@ public class CordobaNorteTets {
 	@Test 
 	public void test11VerQueJugadorAlCaerEnUnaProvinciConHotelSuDineroDisminuye3500() {
 		Jugador jugador= new Jugador();
-		Provincia cordobaNorte=new CordobaNorte();
-		Provincia cordobaSur=new CordobaSur();
+		ProvinciaDividida cordobaNorte=new CordobaNorte();
+		ProvinciaDividida cordobaSur=new CordobaSur();
 		cordobaNorte.agregarOpuesto(cordobaSur);
 		cordobaSur.agregarOpuesto(cordobaNorte);
 		cordobaNorte.agregarPropietario(jugador);

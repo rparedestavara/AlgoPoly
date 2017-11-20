@@ -1,6 +1,6 @@
 package Clases;
 
-public class CordobaSur extends ProvinciaSur {
+public class CordobaSur extends ProvinciaDividida {
 	
 	public CordobaSur(){
 		precioAlquilerConHotel = 3000;

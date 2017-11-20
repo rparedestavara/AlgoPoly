@@ -8,6 +8,7 @@ import Clases.BSNorte;
 import Clases.BSSur;
 import Clases.Jugador;
 import Clases.Provincia;
+import Clases.ProvinciaDividida;
 
 public class BunenosAiresNorteTest {
 
@@ -42,8 +43,8 @@ public class BunenosAiresNorteTest {
 	@Test
 	public void test4JugadorAlCaerEnUnaProvinciaConPropietarioYConUnaCasaConstruidaSuDineroSeReduceEns3500() {
 		Jugador jugador= new Jugador();
-		Provincia bNorte=new BSNorte();
-		Provincia bSur=new BSSur();
+		ProvinciaDividida bNorte=new BSNorte();
+		ProvinciaDividida bSur=new BSSur();
 		bNorte.agregarOpuesto(bSur);
 		bSur.agregarOpuesto(bNorte);
 		bNorte.agregarPropietario(jugador);
@@ -59,8 +60,8 @@ public class BunenosAiresNorteTest {
 	@Test
 	public void test5JugadorAlCaerEnUnaProvinciaConPropietarioYCon2CasasY1CasaConstruidaSuDineroSeReduceEns4000(){
 		Jugador jugador= new Jugador();
-		Provincia bNorte=new BSNorte();
-		Provincia bSur=new BSSur();
+		ProvinciaDividida bNorte=new BSNorte();
+		ProvinciaDividida bSur=new BSSur();
 		bNorte.agregarOpuesto(bSur);
 		bSur.agregarOpuesto(bNorte);
 		bNorte.agregarPropietario(jugador);
@@ -77,8 +78,8 @@ public class BunenosAiresNorteTest {
 	@Test
 	public void test6JugadorConstruyeHotelTeniendoCasasEnProvinciasOpuestas() {
 		Jugador jugador= new Jugador();
-		Provincia bNorte=new BSNorte();
-		Provincia bSur=new BSSur();
+		ProvinciaDividida bNorte=new BSNorte();
+		ProvinciaDividida bSur=new BSSur();
 		bNorte.agregarOpuesto(bSur);
 		bSur.agregarOpuesto(bNorte);
 		bNorte.agregarPropietario(jugador);
@@ -94,8 +95,8 @@ public class BunenosAiresNorteTest {
 	@Test
 	public void test7VerQueJugadorAlConstruirUnHotelSuDineroSeRedujo() {
 		Jugador jugador= new Jugador();
-		Provincia bNorte=new BSNorte();
-		Provincia bSur=new BSSur();
+		ProvinciaDividida bNorte=new BSNorte();
+		ProvinciaDividida bSur=new BSSur();
 		bNorte.agregarOpuesto(bSur);
 		bSur.agregarOpuesto(bNorte);
 		bNorte.agregarPropietario(jugador);
@@ -112,8 +113,8 @@ public class BunenosAiresNorteTest {
 	@Test
 	public void test8VerQueAlConstruirUnHotelLasCasasEnLaProvinciaContruidaDesaparecieron() {
 		Jugador jugador= new Jugador();
-		Provincia bNorte=new BSNorte();
-		Provincia bSur=new BSSur();
+		ProvinciaDividida bNorte=new BSNorte();
+		ProvinciaDividida bSur=new BSSur();
 		bNorte.agregarOpuesto(bSur);
 		bSur.agregarOpuesto(bNorte);
 		bNorte.agregarPropietario(jugador);
@@ -129,8 +130,8 @@ public class BunenosAiresNorteTest {
 	@Test
 	public void test9JugadorQuiereConstruirHotelYNoPuedePorNoTenerCasaAlMaximo() {
 		Jugador jugador= new Jugador();
-		Provincia bNorte=new BSNorte();
-		Provincia bSur=new BSSur();
+		ProvinciaDividida bNorte=new BSNorte();
+		ProvinciaDividida bSur=new BSSur();
 		bNorte.agregarOpuesto(bSur);
 		bSur.agregarOpuesto(bNorte);
 		bNorte.agregarPropietario(jugador);
@@ -145,8 +146,8 @@ public class BunenosAiresNorteTest {
 	@Test
 	public void test10ugadorQuiereConstruirHotelYNoPuedePorNoTenerCasaAlMaximoVerQueSuDineroNoSeDecremento() {
 		Jugador jugador= new Jugador();
-		Provincia bNorte=new BSNorte();
-		Provincia bSur=new BSSur();
+		ProvinciaDividida bNorte=new BSNorte();
+		ProvinciaDividida bSur=new BSSur();
 		bNorte.agregarOpuesto(bSur);
 		bSur.agregarOpuesto(bNorte);
 		bNorte.agregarPropietario(jugador);
@@ -162,8 +163,8 @@ public class BunenosAiresNorteTest {
 	@Test 
 	public void test11VerQueJugadorAlCaerEnUnaProvinciConHotelSuDineroDisminuye6000() {
 		Jugador jugador= new Jugador();
-		Provincia bNorte=new BSNorte();
-		Provincia bSur=new BSSur();
+		ProvinciaDividida bNorte=new BSNorte();
+		ProvinciaDividida bSur=new BSSur();
 		bNorte.agregarOpuesto(bSur);
 		bSur.agregarOpuesto(bNorte);
 		bNorte.agregarPropietario(jugador);

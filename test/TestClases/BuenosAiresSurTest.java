@@ -7,6 +7,7 @@ import Clases.BSNorte;
 import Clases.BSSur;
 import Clases.Jugador;
 import Clases.Provincia;
+import Clases.ProvinciaDividida;
 
 public class BuenosAiresSurTest {
 	@Test
@@ -21,8 +22,8 @@ public class BuenosAiresSurTest {
 	@Test
 	public void test1VerQueJugadorQueEntraEnBSurSeLeDisminuyeDineroPorNoSerPropietario() {
 		Jugador jugador= new Jugador();
-		Provincia bNorte=new BSNorte();
-		Provincia bSur=new BSSur();
+		ProvinciaDividida bNorte = new BSNorte();
+		ProvinciaDividida bSur = new BSSur();
 		bNorte.agregarOpuesto(bSur);
 		bSur.agregarOpuesto(bNorte);
 		bNorte.agregarPropietario(jugador);

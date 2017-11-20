@@ -4,17 +4,17 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import Clases.Jugador;
-import Clases.Provincia;
+import Clases.ProvinciaDividida;
 import Clases.SaltaNorte;
 import Clases.SaltaSur;
 
-public class SalatSurTest {
+public class SaltaSurTest {
 
 	@Test
 	public void test1VerQueJugadorQueEntraEnBSurSeLeDisminuyeDineroPorNoSerPropietario() {
 		Jugador jugador= new Jugador();
-		Provincia SaltaNorte=new SaltaNorte();
-		Provincia SaltaSur=new SaltaSur();
+		ProvinciaDividida SaltaNorte=new SaltaNorte();
+		ProvinciaDividida SaltaSur=new SaltaSur();
 		SaltaNorte.agregarOpuesto(SaltaSur);
 		SaltaSur.agregarOpuesto(SaltaNorte);
 		SaltaNorte.agregarPropietario(jugador);

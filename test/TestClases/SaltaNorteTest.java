@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import Clases.Jugador;
 import Clases.Provincia;
+import Clases.ProvinciaDividida;
 import Clases.SaltaNorte;
 import Clases.SaltaSur;
 
@@ -40,8 +41,8 @@ public class SaltaNorteTest {
 	@Test
 	public void test4JugadorAlCaerEnUnaProvinciaConPropietarioYConUnaCasaConstruidaSuDineroSeReduceEns3250() {
 		Jugador jugador= new Jugador();
-		Provincia saltaNorte=new SaltaNorte();
-		Provincia saltaSur=new SaltaSur();
+		ProvinciaDividida saltaNorte=new SaltaNorte();
+		ProvinciaDividida saltaSur=new SaltaSur();
 		saltaNorte.agregarOpuesto(saltaSur);
 		saltaSur.agregarOpuesto(saltaNorte);
 		saltaNorte.agregarPropietario(jugador);
@@ -57,8 +58,8 @@ public class SaltaNorteTest {
 	@Test
 	public void test5JugadorAlCaerEnUnaProvinciaConPropietarioYCon2CasasY1CasaConstruidaSuDineroSeReduceEn3850(){
 		Jugador jugador= new Jugador();
-		Provincia saltaNorte=new SaltaNorte();
-		Provincia saltaSur=new SaltaSur();
+		ProvinciaDividida saltaNorte=new SaltaNorte();
+		ProvinciaDividida saltaSur=new SaltaSur();
 		saltaNorte.agregarOpuesto(saltaSur);
 		saltaSur.agregarOpuesto(saltaNorte);
 		saltaNorte.agregarPropietario(jugador);
@@ -75,8 +76,8 @@ public class SaltaNorteTest {
 	@Test
 	public void test6JugadorConstruyeHotelTeniendoCasasEnProvinciasOpuestas() {
 		Jugador jugador= new Jugador();
-		Provincia saltaNorte=new SaltaNorte();
-		Provincia saltaSur=new SaltaSur();
+		ProvinciaDividida saltaNorte=new SaltaNorte();
+		ProvinciaDividida saltaSur=new SaltaSur();
 		saltaNorte.agregarOpuesto(saltaSur);
 		saltaSur.agregarOpuesto(saltaNorte);
 		saltaNorte.agregarPropietario(jugador);
@@ -92,8 +93,8 @@ public class SaltaNorteTest {
 	@Test
 	public void test7VerQueJugadorAlConstruirUnHotelSuDineroSeRedujo() {
 		Jugador jugador= new Jugador();
-		Provincia saltaNorte=new SaltaNorte();
-		Provincia saltaSur=new SaltaSur();
+		ProvinciaDividida saltaNorte=new SaltaNorte();
+		ProvinciaDividida saltaSur=new SaltaSur();
 		saltaNorte.agregarOpuesto(saltaSur);
 		saltaSur.agregarOpuesto(saltaNorte);
 		saltaNorte.agregarPropietario(jugador);
@@ -110,8 +111,8 @@ public class SaltaNorteTest {
 	@Test
 	public void test8VerQueAlConstruirUnHotelLasCasasEnLaProvinciaContruidaDesaparecieron() {
 		Jugador jugador= new Jugador();
-		Provincia saltaNorte=new SaltaNorte();
-		Provincia saltaSur=new SaltaSur();
+		ProvinciaDividida saltaNorte=new SaltaNorte();
+		ProvinciaDividida saltaSur=new SaltaSur();
 		saltaNorte.agregarOpuesto(saltaSur);
 		saltaSur.agregarOpuesto(saltaNorte);
 		saltaNorte.agregarPropietario(jugador);
@@ -127,8 +128,8 @@ public class SaltaNorteTest {
 	@Test
 	public void test9JugadorQuiereConstruirHotelYNoPuedePorNoTenerCasaAlMaximo() {
 		Jugador jugador= new Jugador();
-		Provincia saltaNorte=new SaltaNorte();
-		Provincia saltaSur=new SaltaSur();
+		ProvinciaDividida saltaNorte=new SaltaNorte();
+		ProvinciaDividida saltaSur=new SaltaSur();
 		saltaNorte.agregarOpuesto(saltaSur);
 		saltaSur.agregarOpuesto(saltaNorte);
 		saltaNorte.agregarPropietario(jugador);
@@ -143,8 +144,8 @@ public class SaltaNorteTest {
 	@Test
 	public void test10ugadorQuiereConstruirHotelYNoPuedePorNoTenerCasaAlMaximoVerQueSuDineroNoSeDecremento() {
 		Jugador jugador= new Jugador();
-		Provincia saltaNorte=new SaltaNorte();
-		Provincia saltaSur=new SaltaSur();
+		ProvinciaDividida saltaNorte=new SaltaNorte();
+		ProvinciaDividida saltaSur=new SaltaSur();
 		saltaNorte.agregarOpuesto(saltaSur);
 		saltaSur.agregarOpuesto(saltaNorte);
 		saltaNorte.agregarPropietario(jugador);
@@ -160,8 +161,8 @@ public class SaltaNorteTest {
 	@Test 
 	public void test11VerQueJugadorAlCaerEnUnaProvinciConHotelSuDineroDisminuye5500() {
 		Jugador jugador= new Jugador();
-		Provincia saltaNorte=new SaltaNorte();
-		Provincia saltaSur=new SaltaSur();
+		ProvinciaDividida saltaNorte=new SaltaNorte();
+		ProvinciaDividida saltaSur=new SaltaSur();
 		saltaNorte.agregarOpuesto(saltaSur);
 		saltaSur.agregarOpuesto(saltaNorte);
 		saltaNorte.agregarPropietario(jugador);

@@ -7,15 +7,15 @@ import org.junit.Test;
 import Clases.CordobaNorte;
 import Clases.CordobaSur;
 import Clases.Jugador;
-import Clases.Provincia;
+import Clases.ProvinciaDividida;
 
 public class CordobaSurTest {
 
 	@Test
 	public void test1VerQueJugadorQueEntraEnCordobaSurSeLeDisminuyeDineroPorNoSerPropietario() {
 		Jugador jugador= new Jugador();
-		Provincia cordobaNorte=new CordobaNorte();
-		Provincia cordobaSur=new CordobaSur();
+		ProvinciaDividida cordobaNorte=new CordobaNorte();
+		ProvinciaDividida cordobaSur=new CordobaSur();
 		cordobaNorte.agregarOpuesto(cordobaSur);
 		cordobaSur.agregarOpuesto(cordobaNorte);
 		cordobaNorte.agregarPropietario(jugador);
