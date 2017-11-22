@@ -8,7 +8,7 @@ import Clases.Jugador;
 import Clases.Neuquen;
 import Clases.Provincia;
 
-public class NeuquénTest {
+public class NeuquenTest {
 	
 	@Test
 	public void testJugadorCompraProvinciaSeLeReduceCorrectamente() {
