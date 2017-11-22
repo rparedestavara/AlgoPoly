@@ -13,7 +13,11 @@ public abstract class ProvinciaDividida extends Provincia {
 	public void agregarOpuesto(Provincia provincia) {
 		this.otraMitad = provincia;
 	}
-
+	
+	public void construirCasa() {
+		this.cantCasas++;
+		this.propietario.modificarDinero(-this.precioDeConstruccionDeCasas);
+	}
 	
 	public void construirHotel() {
 		if(this.SePuedeConstruisHoteles())

@@ -19,8 +19,9 @@ public abstract class Provincia extends Propiedad {
 	}
 	
 	public void construirCasa() {
+		if(this.cantCasasConstruidas()<1) {
 		this.cantCasas++;
-		this.propietario.modificarDinero(-this.precioDeConstruccionDeCasas);
+		this.propietario.modificarDinero(-this.precioDeConstruccionDeCasas);}
 	}
 	
 	public int costePorConstruccionDeCasa() {
