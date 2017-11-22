@@ -459,7 +459,7 @@ public class SegundaEntregaIntegracionTest {
 		int plataPropietarioSinConstruir = propietario.getDinero();
 		santaFe.entrar(propietario);
 		santaFe.construirCasa();
-		Assert.assertEquals(plataPropietarioSinConstruir - 4000, propietario.getDinero());
+		Assert.assertEquals(plataPropietarioSinConstruir - 4000-15000, propietario.getDinero());
 	}
 	
 	@Test
