@@ -1,6 +1,6 @@
 package Clases;
 
-public abstract class MovimientoDinamico{
+public abstract class MovimientoDinamico extends Casilla{
 	public static final int PRIMER_RANGO_ENTRAR_HASTA = 6;
 	public static final int CANTIDAD_DE_ESPACIOS_REDUCIR = 2;
 	public static final int SEGUNDO_RANGO_ENTRAR_HASTA = 10;
