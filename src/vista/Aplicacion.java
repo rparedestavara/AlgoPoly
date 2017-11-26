@@ -15,10 +15,12 @@ public class Aplicacion extends Application {
 
 		stage.setTitle("AlgoPoly");
 		
-		ContenedorDeBotonesJuego contenedorBotonesJuego = new ContenedorDeBotonesJuego();
-		Scene escena = new Scene(contenedorBotonesJuego, 400, 500);
 		
-		stage.setScene(escena);
+		ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal();
+		Scene escenaPrincipal = new Scene(contenedorPrincipal, 400, 500);
+		
+		stage.setScene(escenaPrincipal);
+	
 		stage.setFullScreen(true);
 		stage.show();
 		

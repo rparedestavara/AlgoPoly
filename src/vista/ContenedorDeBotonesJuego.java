@@ -18,6 +18,7 @@ public class ContenedorDeBotonesJuego extends BorderPane  {
 		VBox contenedorVertical = new VBox(botonTirarDados);
 		contenedorVertical.setSpacing(10);
 		contenedorVertical.setPadding(new Insets(15));
+		
 		this.setRight(contenedorVertical);
 	}
 }
