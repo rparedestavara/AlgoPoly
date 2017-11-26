@@ -14,14 +14,18 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 public class ContenedorPrincipal extends BorderPane{
-	
+		VistaTablero vistaTablero; 
+		Canvas canvasCentral;
+		 
 	public ContenedorPrincipal() {
 		this.setBotones();
 		this.setEscenaCentral();
 }
 
 	private void setEscenaCentral() {
-		Canvas canvasCentral = new Canvas(460, 220);
+		canvasCentral = new Canvas(600, 500);
+		vistaTablero = new VistaTablero(canvasCentral);
+		vistaTablero.actualizarTablero();
 		
 		VBox contenedorCentral = new VBox(canvasCentral);
         contenedorCentral.setAlignment(Pos.CENTER);
@@ -41,8 +45,9 @@ public class ContenedorPrincipal extends BorderPane{
 		Button botonComprarPropiedad = new Button("Comprar propiedad");
 		
 		VBox contenedorVertical = new VBox(botonTirarDados,botonVenderPropiedad, botonComprarPropiedad);
-		contenedorVertical.setSpacing(10);
+		contenedorVertical.setSpacing(20);
 		contenedorVertical.setPadding(new Insets(15));
+		
 		
 		this.setRight(contenedorVertical);
 		
