@@ -19,7 +19,8 @@ public class AysaTest {
 		Dados dados = Dados.getInstance();
 		aysa.agregarPropietario(propietario);
 		aysa.agregarOpuesto(edesur);
-		dados.setResultado(11);
+		int[] resultados={5,6};
+		dados.setResultados(resultados);
 		int dineroAntesDeEntrar = inquilino.getDinero();
 		aysa.entrar(inquilino);
 		Assert.assertEquals(300 * 11, dineroAntesDeEntrar - inquilino.getDinero());

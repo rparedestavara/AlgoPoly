@@ -19,7 +19,8 @@ public class EdesurTest {
 		Dados dados = Dados.getInstance();
 		edesur.agregarPropietario(propietario);
 		edesur.agregarOpuesto(aysa);
-		dados.setResultado(9);
+		int[] resultados={4,5};
+		dados.setResultados(resultados);
 		int dineroAntesDeEntrar = inquilino.getDinero();
 		edesur.entrar(inquilino);
 		Assert.assertEquals(500 * 9, dineroAntesDeEntrar - inquilino.getDinero());

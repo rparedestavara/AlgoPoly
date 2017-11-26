@@ -19,7 +19,8 @@ public class SubteTest {
 		Dados dados = Dados.getInstance();
 		subte.agregarPropietario(propietario);
 		subte.agregarOpuesto(trenes);
-		dados.setResultado(6);
+		int[] resultados={3,3};
+		dados.setResultados(resultados);
 		int dineroAntesDeEntrar = inquilino.getDinero();
 		subte.entrar(inquilino);
 		Assert.assertEquals(600 * 6, dineroAntesDeEntrar - inquilino.getDinero());

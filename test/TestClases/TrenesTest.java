@@ -19,7 +19,8 @@ public class TrenesTest {
 		Dados dados = Dados.getInstance();
 		trenes.agregarPropietario(propietario);
 		trenes.agregarOpuesto(subte);
-		dados.setResultado(2);
+		int[] resultados={1,1};
+		dados.setResultados(resultados);
 		int dineroAntesDeEntrar = inquilino.getDinero();
 		trenes.entrar(inquilino);
 		Assert.assertEquals(450 * 2, dineroAntesDeEntrar - inquilino.getDinero());

@@ -23,8 +23,8 @@ public class AvanceDinamicoTest {
 		AvanceDinamico avanceDinamico = new AvanceDinamico();
 		Dados dados=Dados.getInstance();
 		int posInicialJugador=tablero.getPosicion(jugador);
-		int resultado=4;
-		dados.setResultado(resultado);
+		int[] resultados={2,2};
+		dados.setResultados(resultados);
 		avanceDinamico.entrar(jugador);
 		Assert.assertEquals(dados.getResultado()-2,(tablero.getPosicion(jugador)-posInicialJugador));
 	}
@@ -39,8 +39,8 @@ public class AvanceDinamicoTest {
 		AvanceDinamico avanceDinamico = new AvanceDinamico();
 		Dados dados=Dados.getInstance();
 		int posInicialJugador=tablero.getPosicion(jugador);
-		int resultado=7;
-		dados.setResultado(resultado);
+		int[] resultados={3,4};
+		dados.setResultados(resultados);
 		avanceDinamico.entrar(jugador);
 		Assert.assertEquals(100000%7,jugador.getDinero()%dados.getResultado()-posInicialJugador);
 	}
@@ -55,10 +55,10 @@ public class AvanceDinamicoTest {
 		AvanceDinamico avanceDinamico = new AvanceDinamico();
 		Dados dados=Dados.getInstance();
 		int posInicialJugador=tablero.getPosicion(jugador);
-		int resultado=11;
 		jugador.agregarPropiedad();
 		jugador.agregarPropiedad();
-		dados.setResultado(resultado);
+		int[] resultados={5,6};
+		dados.setResultados(resultados);
 		avanceDinamico.entrar(jugador);
 		int resultadoFinal=tablero.getPosicion(jugador)-posInicialJugador;
 		Assert.assertEquals(11-2,resultadoFinal);
