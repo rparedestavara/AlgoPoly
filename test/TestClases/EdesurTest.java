@@ -7,9 +7,11 @@ import Clases.Aysa;
 import Clases.Dados;
 import Clases.Edesur;
 import Clases.Jugador;
+import Clases.Servicio;
+import Clases.Subte;
 
 public class EdesurTest {
-
+	private static final double DELTA = 1e-15;
 	@Test
 	public void tes16CuandoUnjugadorEntraEnEdesurPoseidaPorOtroJugadorSuDineroDisminuye500MultiplicadoDados() {
 		Jugador inquilino = new Jugador();
@@ -21,9 +23,27 @@ public class EdesurTest {
 		edesur.agregarOpuesto(aysa);
 		int[] resultados={4,5};
 		dados.setResultados(resultados);
-		int dineroAntesDeEntrar = inquilino.getDinero();
+		double dineroAntesDeEntrar = inquilino.getDinero();
 		edesur.entrar(inquilino);
-		Assert.assertEquals(500 * 9, dineroAntesDeEntrar - inquilino.getDinero());
+		Assert.assertEquals(500 * 9, dineroAntesDeEntrar - inquilino.getDinero(),DELTA);
 	}
-
+	
+	@Test
+	public void testCasillaVendida() {
+		Jugador jugador= new Jugador();
+		Servicio edesur = new Edesur();
+		edesur.agregarPropietario(jugador);
+		double dineroAntesDeVenderProiedad=jugador.getDinero();
+		edesur.vender(jugador);
+		Assert.assertEquals(35000*0.85, jugador.getDinero()-dineroAntesDeVenderProiedad,DELTA);
+	}
+	
+	@Test
+	public void testAlVenderServicioUnJugadroEsteDejaDeSerPropietario() {
+		Jugador jugador= new Jugador();
+		Servicio edesur = new Edesur();
+		edesur.agregarPropietario(jugador);
+		edesur.vender(jugador);
+		Assert.assertEquals(false,edesur.esPropietario(jugador));
+	}
 }

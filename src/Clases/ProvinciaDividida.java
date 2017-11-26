@@ -43,6 +43,11 @@ public abstract class ProvinciaDividida extends Provincia {
 		return super.cuantoCobrar();
 		
 	}
+
+	protected void destruirConstrucciones() {
+		this.cantCasas=0;
+		this.cantHoteles=0;
+	}
 	
 
 

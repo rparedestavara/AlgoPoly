@@ -15,7 +15,7 @@ public abstract class MovimientoDinamico extends Casilla{
 		 
 	
 	protected void movimientoCantidadDeDineroModuloDados(Jugador jugador, int direccion) {
-		 int movimiento = (jugador.getDinero() % dados.getResultado());
+		 double movimiento = (jugador.getDinero() % dados.getResultado());
 		 Tablero tablero = Tablero.getInstancia(); 
 			tablero.mover(jugador, movimiento * direccion);
 	}

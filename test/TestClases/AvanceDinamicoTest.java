@@ -12,7 +12,7 @@ import Clases.Jugador;
 import Clases.Tablero;
 
 public class AvanceDinamicoTest {
-
+	private static final double DELTA = 1e-15;
 	@Test
 	public void test01EntrarEnAvanceDinamicoConRango2a6AvanzaLaCantidadCorrecta() {
 		Jugador jugador= new Jugador();
@@ -42,7 +42,7 @@ public class AvanceDinamicoTest {
 		int[] resultados={3,4};
 		dados.setResultados(resultados);
 		avanceDinamico.entrar(jugador);
-		Assert.assertEquals(100000%7,jugador.getDinero()%dados.getResultado()-posInicialJugador);
+		Assert.assertEquals(100000%7,jugador.getDinero()%dados.getResultado()-posInicialJugador,DELTA);
 	}
 	
 	@Test

@@ -9,14 +9,14 @@ import Clases.Neuquen;
 import Clases.Provincia;
 
 public class NeuquenTest {
-	
+	private static final double DELTA = 1e-15;	
 	@Test
 	public void testJugadorCompraProvinciaSeLeReduceCorrectamente() {
 		Provincia neuquen = new Neuquen();
 		Jugador jugador= new Jugador();
-		int precioAntesDeLaCompra = jugador.getDinero();
+		double precioAntesDeLaCompra = jugador.getDinero();
 		neuquen.agregarPropietario(jugador);
-		Assert.assertEquals(17000,precioAntesDeLaCompra-jugador.getDinero());
+		Assert.assertEquals(17000,precioAntesDeLaCompra-jugador.getDinero(),DELTA);
 	}
 
 	@Test

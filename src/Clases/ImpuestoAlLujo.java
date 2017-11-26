@@ -9,7 +9,7 @@ public class ImpuestoAlLujo extends Casilla {
 	
 	@Override
 	public void entrar(Jugador jugador) {
-		int dinero = jugador.getDinero();
+		double dinero = jugador.getDinero();
 		jugador.modificarDinero((int) (-dinero*valorImpuesto));
 	}
 }

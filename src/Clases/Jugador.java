@@ -7,7 +7,7 @@ import excepciones.SaldoInsuficienteException;
 
 public class Jugador {
 
-	private int dineroActual;
+	private double dineroActual;
 	private int barriosComprados;
 	private ArrayList<Propiedad> propiedades;
 	
@@ -17,12 +17,12 @@ public class Jugador {
 		this.propiedades = new ArrayList<Propiedad>();
 	}
 	
-	public int getDinero() {
+	public double getDinero() {
 		return this.dineroActual;
 	}
 	
-	public void modificarDinero(int dinero) {
-		dineroActual += dinero;
+	public void modificarDinero(double d) {
+		dineroActual += d;
 	}
 	
 	public boolean puedeHacerAcciones() {

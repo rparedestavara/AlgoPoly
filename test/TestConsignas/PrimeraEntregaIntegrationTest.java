@@ -21,14 +21,14 @@ import excepciones.SaldoInsuficienteException;
 
 
 public class PrimeraEntregaIntegrationTest {
-
+	private static final double DELTA = 1e-15;
 	@Test
 	public void Test01Quini6AgregaDineroLaPrimeraVezQueElJugadorGana() {
 		Jugador jugador=new Jugador();
 		Casilla quini6= new Quini6();
-		int dineroSinGanarQuini6 = jugador.getDinero();
+		double dineroSinGanarQuini6 = jugador.getDinero();
 		quini6.entrar(jugador);
-		Assert.assertEquals(dineroSinGanarQuini6 + 50000, jugador.getDinero());
+		Assert.assertEquals(dineroSinGanarQuini6 + 50000, jugador.getDinero(),DELTA);
 	}
 	
 	@Test
@@ -36,9 +36,9 @@ public class PrimeraEntregaIntegrationTest {
 		Jugador jugador=new Jugador();
 		Casilla quini6= new Quini6();
 		quini6.entrar(jugador);
-		int dineroGanandoUnaVez = jugador.getDinero();
+		double dineroGanandoUnaVez = jugador.getDinero();
 		quini6.entrar(jugador);
-		Assert.assertEquals(30000, jugador.getDinero()-dineroGanandoUnaVez);
+		Assert.assertEquals(30000, jugador.getDinero()-dineroGanandoUnaVez,DELTA);
 	}
 	
 	@Test
@@ -47,11 +47,11 @@ public class PrimeraEntregaIntegrationTest {
 		Casilla quini6= new Quini6();
 		quini6.entrar(jugador);
 		quini6.entrar(jugador);
-		int dineroGanandoDosVeces = jugador.getDinero();
+		double dineroGanandoDosVeces = jugador.getDinero();
 		quini6.entrar(jugador);
-		Assert.assertEquals(dineroGanandoDosVeces, jugador.getDinero());
+		Assert.assertEquals(dineroGanandoDosVeces, jugador.getDinero(),DELTA);
 		quini6.entrar(jugador);
-		Assert.assertEquals(dineroGanandoDosVeces, jugador.getDinero());
+		Assert.assertEquals(dineroGanandoDosVeces, jugador.getDinero(),DELTA);
 	}
 	
 	
@@ -135,7 +135,7 @@ public class PrimeraEntregaIntegrationTest {
 		int[] resultados={4,3};
 		dados.setResultados(resultados);
 		avanceDinamico.entrar(jugador);
-		Assert.assertEquals(100000%7,jugador.getDinero()%dados.getResultado()-posInicialJugador);
+		Assert.assertEquals(100000%7,jugador.getDinero()%dados.getResultado()-posInicialJugador,DELTA);
 	}
 	
 	@Test

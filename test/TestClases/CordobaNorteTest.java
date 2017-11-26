@@ -3,6 +3,7 @@ package TestClases;
 import org.junit.Assert;
 import org.junit.Test;
 
+import Clases.BSNorte;
 import Clases.CordobaNorte;
 import Clases.CordobaSur;
 import Clases.Jugador;
@@ -10,24 +11,24 @@ import Clases.Provincia;
 import Clases.ProvinciaDividida;
 
 public class CordobaNorteTest {
-
+	private static final double DELTA = 1e-15;
 	@Test
 	public void test1JugadorAlAdquirirCordobaNorteDineroSeReduce20000() {
 		Jugador jugador= new Jugador();
 		Provincia cordobaNorte=new CordobaNorte();
-		int dineroAntesDeAdquirirTerreno=jugador.getDinero();
+		double dineroAntesDeAdquirirTerreno=jugador.getDinero();
 		cordobaNorte.agregarPropietario(jugador);
-		Assert.assertEquals(20000,dineroAntesDeAdquirirTerreno-jugador.getDinero());
+		Assert.assertEquals(20000,dineroAntesDeAdquirirTerreno-jugador.getDinero(),DELTA);
 	}
 	
 	@Test
 	public void test2JugadorCaeEnCordobaNorteYConstruyeUnaCasaSuDineroSeReduceEn2200() {
 		Jugador jugador= new Jugador();
 		Provincia cordobaNorte=new CordobaNorte();
-		int dineroAntesDeAdquirirTerreno=jugador.getDinero();
+		double dineroAntesDeAdquirirTerreno=jugador.getDinero();
 		cordobaNorte.agregarPropietario(jugador);
 		cordobaNorte.construirCasa();
-		Assert.assertEquals(2200+20000,dineroAntesDeAdquirirTerreno-jugador.getDinero());
+		Assert.assertEquals(2200+20000,dineroAntesDeAdquirirTerreno-jugador.getDinero(),DELTA);
 	}
 	
 	@Test
@@ -51,9 +52,9 @@ public class CordobaNorteTest {
 		cordobaNorte.construirCasa();
 		cordobaSur.construirCasa();
 		Jugador jugador2= new Jugador();
-		int dineroAntesDeEntrarAPropiedad=jugador2.getDinero();
+		double dineroAntesDeEntrarAPropiedad=jugador2.getDinero();
 		cordobaNorte.entrar(jugador2);
-		Assert.assertEquals(1800,dineroAntesDeEntrarAPropiedad-jugador2.getDinero());
+		Assert.assertEquals(1800,dineroAntesDeEntrarAPropiedad-jugador2.getDinero(),DELTA);
 	}
 	
 	@Test
@@ -69,9 +70,9 @@ public class CordobaNorteTest {
 		cordobaNorte.construirCasa();
 		cordobaSur.construirCasa();
 		Jugador jugador2= new Jugador();
-		int dineroAntesDeEntrarAPropiedad=jugador2.getDinero();
+		double dineroAntesDeEntrarAPropiedad=jugador2.getDinero();
 		cordobaNorte.entrar(jugador2);
-		Assert.assertEquals(2900,dineroAntesDeEntrarAPropiedad-jugador2.getDinero());
+		Assert.assertEquals(2900,dineroAntesDeEntrarAPropiedad-jugador2.getDinero(),DELTA);
 	}
 	
 	@Test
@@ -104,9 +105,9 @@ public class CordobaNorteTest {
 		cordobaNorte.construirCasa();
 		cordobaSur.construirCasa();
 		cordobaSur.construirCasa();
-		int dineroAntesDeQuererCostruirHotel=jugador.getDinero();
+		double dineroAntesDeQuererCostruirHotel=jugador.getDinero();
 		cordobaNorte.construirHotel();
-		Assert.assertEquals(3500,dineroAntesDeQuererCostruirHotel-jugador.getDinero());
+		Assert.assertEquals(3500,dineroAntesDeQuererCostruirHotel-jugador.getDinero(),DELTA);
 	}
 	
 	@Test
@@ -154,9 +155,9 @@ public class CordobaNorteTest {
 		cordobaNorte.construirCasa();
 		cordobaNorte.construirCasa();
 		cordobaSur.construirCasa();
-		int dineroAntesDeQuererCostruir=jugador.getDinero();
+		double dineroAntesDeQuererCostruir=jugador.getDinero();
 		cordobaNorte.construirHotel();
-		Assert.assertEquals(dineroAntesDeQuererCostruir,jugador.getDinero());
+		Assert.assertEquals(dineroAntesDeQuererCostruir,jugador.getDinero(),DELTA);
 	}
 
 	@Test 
@@ -174,9 +175,38 @@ public class CordobaNorteTest {
 		cordobaSur.construirCasa();
 		cordobaNorte.construirHotel();
 		Jugador jugador2= new Jugador();
-		int dineroAntesDeEntrar=jugador2.getDinero();
+		double dineroAntesDeEntrar=jugador2.getDinero();
 		cordobaNorte.entrar(jugador2);
-		Assert.assertEquals(3500,dineroAntesDeEntrar-jugador2.getDinero());
+		Assert.assertEquals(3500,dineroAntesDeEntrar-jugador2.getDinero(),DELTA);
+	}
+	@Test
+	public void testCasillaVendida() {
+		Jugador jugador= new Jugador();
+		ProvinciaDividida cordobaNorte = new CordobaNorte();
+		cordobaNorte.agregarPropietario(jugador);
+		cordobaNorte.construirCasa();
+		cordobaNorte.construirCasa();
+		double dineroAntesDeVenderProiedad=jugador.getDinero();
+		cordobaNorte.provinciaVendida(jugador);
+		Assert.assertEquals(20000*0.85, jugador.getDinero()-dineroAntesDeVenderProiedad,DELTA);
+	}
+	@Test
+	public void testAlvenderLaProvinciaLaCantidadDeCasasQuedaEn0() {
+		Jugador jugador= new Jugador();
+		ProvinciaDividida cordobaNorte = new CordobaNorte();
+		cordobaNorte.agregarPropietario(jugador);
+		cordobaNorte.construirCasa();
+		cordobaNorte.construirCasa();
+		cordobaNorte.provinciaVendida(jugador);
+		Assert.assertEquals(0,cordobaNorte.cantCasasConstruidas());
+	}
+	@Test
+	public void testAlVenderProvinciaUnJugadroEsteDejaDeSerPropietario() {
+		Jugador jugador= new Jugador();
+		ProvinciaDividida cordobaNorte = new CordobaNorte();
+		cordobaNorte.agregarPropietario(jugador);
+		cordobaNorte.provinciaVendida(jugador);
+		Assert.assertEquals(false,cordobaNorte.esPropietario(jugador));
 	}
 
 }

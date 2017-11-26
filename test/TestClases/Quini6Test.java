@@ -9,13 +9,13 @@ import Clases.Casilla;
 
 
 public class Quini6Test {
-
+	private static final double DELTA = 1e-15;
 	@Test
 	public void Test1Quini6AgregaDineroLaPrimeraVezQueElJugadorGana() {
 		Jugador jugador=new Jugador();
 		Casilla quini6= new Quini6();
 		quini6.entrar(jugador);
-		Assert.assertEquals(150000, jugador.getDinero());
+		Assert.assertEquals(150000, jugador.getDinero(),DELTA);
 	}
 	
 	@Test
@@ -23,9 +23,9 @@ public class Quini6Test {
 		Jugador jugador=new Jugador();
 		Casilla quini6= new Quini6();
 		quini6.entrar(jugador);
-		int dineroGanandoUnaVez = jugador.getDinero();
+		double dineroGanandoUnaVez = jugador.getDinero();
 		quini6.entrar(jugador);
-		Assert.assertEquals(30000, jugador.getDinero()-dineroGanandoUnaVez);
+		Assert.assertEquals(30000, jugador.getDinero()-dineroGanandoUnaVez,DELTA);
 	}
 	
 	@Test
@@ -34,10 +34,10 @@ public class Quini6Test {
 		Casilla quini6= new Quini6();
 		quini6.entrar(jugador);
 		quini6.entrar(jugador);
-		int dineroGanandoDosVeces = jugador.getDinero();
+		double dineroGanandoDosVeces = jugador.getDinero();
 		quini6.entrar(jugador);
-		Assert.assertEquals(dineroGanandoDosVeces, jugador.getDinero());
+		Assert.assertEquals(dineroGanandoDosVeces, jugador.getDinero(),DELTA);
 		quini6.entrar(jugador);
-		Assert.assertEquals(dineroGanandoDosVeces, jugador.getDinero());
+		Assert.assertEquals(dineroGanandoDosVeces, jugador.getDinero(),DELTA);
 	}
 }

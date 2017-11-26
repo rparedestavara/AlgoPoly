@@ -8,14 +8,14 @@ import Clases.Provincia;
 import Clases.Tucuman;
 
 public class TucumanTest {
-	
+	private static final double DELTA = 1e-15;
 	@Test
 	public void testJugadorCompraProvinciaSeLeReduceCorrectamente() {
 		Provincia tucuman = new Tucuman();
 		Jugador jugador= new Jugador();
-		int precioAntesDeLaCompra = jugador.getDinero();
+		double precioAntesDeLaCompra = jugador.getDinero();
 		tucuman.agregarPropietario(jugador);
-		Assert.assertEquals(25000,precioAntesDeLaCompra-jugador.getDinero());
+		Assert.assertEquals(25000,precioAntesDeLaCompra-jugador.getDinero(),DELTA);
 	}
 
 	@Test

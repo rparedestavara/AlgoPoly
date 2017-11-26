@@ -5,11 +5,12 @@ import org.junit.Test;
 
 import Clases.Dados;
 import Clases.Jugador;
+import Clases.Servicio;
 import Clases.Subte;
 import Clases.Trenes;
 
 public class TrenesTest {
-
+	private static final double DELTA = 1e-15;
 	@Test
 	public void tes1CuandoUnjugadorEntraEnTrenesPoseidaPorOtroJugadorSuDineroDisminuye450MultiplicadoDados() {
 		Jugador inquilino = new Jugador();
@@ -21,9 +22,27 @@ public class TrenesTest {
 		trenes.agregarOpuesto(subte);
 		int[] resultados={1,1};
 		dados.setResultados(resultados);
-		int dineroAntesDeEntrar = inquilino.getDinero();
+		double dineroAntesDeEntrar = inquilino.getDinero();
 		trenes.entrar(inquilino);
-		Assert.assertEquals(450 * 2, dineroAntesDeEntrar - inquilino.getDinero());
+		Assert.assertEquals(450 * 2, dineroAntesDeEntrar - inquilino.getDinero(),DELTA);
+	}
+	@Test
+	public void testCasillaVendida() {
+		Jugador jugador= new Jugador();
+		Servicio trenes = new Trenes();
+		trenes.agregarPropietario(jugador);
+		double dineroAntesDeVenderProiedad=jugador.getDinero();
+		trenes.vender(jugador);
+		Assert.assertEquals(38000*0.85, jugador.getDinero()-dineroAntesDeVenderProiedad,DELTA);
+	}
+	
+	@Test
+	public void testAlVenderServicioUnJugadroEsteDejaDeSerPropietario() {
+		Jugador jugador= new Jugador();
+		Servicio trenes = new Trenes();
+		trenes.agregarPropietario(jugador);
+		trenes.vender(jugador);
+		Assert.assertEquals(false,trenes.esPropietario(jugador));
 	}
 
 }

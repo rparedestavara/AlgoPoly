@@ -6,17 +6,19 @@ import org.junit.Test;
 
 import Clases.Jugador;
 import Clases.Provincia;
+import Clases.ProvinciaDividida;
+import Clases.SaltaSur;
 import Clases.SantaFe;
 
 public class SantaFeTest {
-	
+	private static final double DELTA = 1e-15;	
 	@Test
 	public void testJugadorCompraProvinciaSeLeReduceCorrectamente() {
 		Provincia santaFe = new SantaFe();
 		Jugador jugador= new Jugador();
-		int precioAntesDeLaCompra = jugador.getDinero();
+		double precioAntesDeLaCompra = jugador.getDinero();
 		santaFe.agregarPropietario(jugador);
-		Assert.assertEquals(15000,precioAntesDeLaCompra-jugador.getDinero());
+		Assert.assertEquals(15000,precioAntesDeLaCompra-jugador.getDinero(),DELTA);
 	}
 	@Test
 	public void testConstruyeCasaAumenteCorrectamentElNumeroDeCasasQuePosee() {
@@ -35,5 +37,33 @@ public class SantaFeTest {
 		santaFe.construirCasa();
 		santaFe.construirCasa();
 		Assert.assertEquals(1,santaFe.cantCasasConstruidas());
+	}
+	public void testCasillaVendida() {
+		Jugador jugador= new Jugador();
+		Provincia santaFe = new SantaFe();
+		santaFe.agregarPropietario(jugador);
+		santaFe.construirCasa();
+		santaFe.construirCasa();
+		double dineroAntesDeVenderProiedad=jugador.getDinero();
+		santaFe.provinciaVendida(jugador);
+		Assert.assertEquals(18000*0.85, jugador.getDinero()-dineroAntesDeVenderProiedad,DELTA);
+	}
+	@Test
+	public void testAlvenderLaProvinciaLaCantidadDeCasasQuedaEn0() {
+		Jugador jugador= new Jugador();
+		Provincia santaFe = new SantaFe();
+		santaFe.agregarPropietario(jugador);
+		santaFe.construirCasa();
+		santaFe.construirCasa();
+		santaFe.provinciaVendida(jugador);
+		Assert.assertEquals(0,santaFe.cantCasasConstruidas());
+	}
+	@Test
+	public void testAlVenderProvinciaUnJugadroEsteDejaDeSerPropietario() {
+		Jugador jugador= new Jugador();
+		Provincia santaFe = new SantaFe();
+		santaFe.agregarPropietario(jugador);
+		santaFe.provinciaVendida(jugador);
+		Assert.assertEquals(false,santaFe.esPropietario(jugador));
 	}
 }

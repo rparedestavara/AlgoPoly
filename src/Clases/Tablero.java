@@ -69,10 +69,10 @@ public class Tablero {
 	}
 
 	
-	public void mover(Jugador jugador, int pasos) throws RuntimeException {
+	public void mover(Jugador jugador, double d) throws RuntimeException {
 		if(!jugador.puedeHacerAcciones()) throw new NoPuedeJugarException(); 
 		int nuevaPosicion = posicionesJugadores.get(jugador); 
-		nuevaPosicion += pasos;
+		nuevaPosicion += d;
 		nuevaPosicion = this.ajustarPosicionAlRangoDelTablero(nuevaPosicion);
 		posicionesJugadores.put(jugador, nuevaPosicion);
 	}

@@ -9,7 +9,7 @@ import Clases.Jugador;
 import Clases.Tablero;
 
 public class OtrosIntegrationTest {
-
+	private static final double DELTA = 1e-15;
 	@Test
 	public void test01AlRealizarUnaJugadaEnElTableroCon10ElJugadorEntraEnImpuestoAlLujo() {
 		Jugador jugador = new Jugador();
@@ -17,7 +17,7 @@ public class OtrosIntegrationTest {
 		jugadores.add(jugador);
 		Tablero tablero = Tablero.getInstancia();
 		tablero.agregarJugadores(jugadores);
-		int dineroInicialJugador = jugador.getDinero();
+		double dineroInicialJugador = jugador.getDinero();
 		tablero.jugada(jugador, 10);
 		Assert.assertEquals(dineroInicialJugador * 0.9, jugador.getDinero(), 5);
 	}
