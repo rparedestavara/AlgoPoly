@@ -2,7 +2,6 @@ package vista;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -38,8 +37,10 @@ public class ContenedorPrincipal extends BorderPane{
 
 	private void setBotones() {
 		Button botonTirarDados = new Button("Tirar dados");
+		Button botonVenderPropiedad = new Button("Vender propiedad");
+		Button botonComprarPropiedad = new Button("Comprar propiedad");
 		
-		VBox contenedorVertical = new VBox(botonTirarDados);
+		VBox contenedorVertical = new VBox(botonTirarDados,botonVenderPropiedad, botonComprarPropiedad);
 		contenedorVertical.setSpacing(10);
 		contenedorVertical.setPadding(new Insets(15));
 		
