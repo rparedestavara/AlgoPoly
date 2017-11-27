@@ -72,9 +72,7 @@ public class Jugador {
 	}
 
 	public int getCantidadDePropiedades() {
-		int propiedades = 0;
-		propiedades += this.barriosComprados;
-		return propiedades;
+		return this.barriosComprados;
 	}
 	
 	public void agregarPropiedad(Propiedad propiedad) {
@@ -85,10 +83,6 @@ public class Jugador {
 		this.propiedades.remove(propiedad);
 	}
 	
-	public void setDinero(int dineroJugador) {
-		this.dineroActual = dineroJugador;
-		
-	}
 
 	public void intercambiarPropiedad(Jugador propietario, Provincia provinciaPedida, Provincia provinciaOfrecida) {
 		if(!this.propiedades.contains(provinciaOfrecida)) throw new NoEsDuenioDePropiedadException();
