@@ -41,7 +41,7 @@ public class TerceraEntregaIntegrationTest {
 		dados.setResultados(resultados);
 		Jugador jugadorActual = turno.aQuienLeToca();
 		turno.proximoTurno();
-		Assert.assertNotEquals(jugadorActual, turno.proximoTurno());
+		Assert.assertNotSame(jugadorActual, turno.proximoTurno());
 	}
 	
 	@Test
