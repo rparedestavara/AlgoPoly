@@ -67,7 +67,6 @@ public class CarcelTest {
 		jugador.aumentarTurnosEnCarcel();
 		jugador.aumentarTurnosEnCarcel();
 		jugador.aumentarTurnosEnCarcel();
-		jugador.pagarFianzaDeCarcel();
 		Assert.assertTrue( jugador.puedeHacerAcciones());
 	}
 
