@@ -29,9 +29,9 @@ public class VistaTablero {
 		for(Jugador jugador : jugadores) {
 			if(tablero.getPosicion(jugador) == pos) {
 				canvas.getGraphicsContext2D().setFill(Color.BLACK);
-				canvas.getGraphicsContext2D().fillOval(x + 50 + posIndividual, y + 53, 10, 10);
+				canvas.getGraphicsContext2D().fillOval(x + 50 + posIndividual, y + 53, 14, 14);
 				canvas.getGraphicsContext2D().setFill(jugador.getColor());
-				canvas.getGraphicsContext2D().fillOval(x + 50 + posIndividual, y + 53, 8, 8);
+				canvas.getGraphicsContext2D().fillOval(x + 52 + posIndividual, y + 55, 10, 10);
 				posIndividual += 15;
 			}
 		}

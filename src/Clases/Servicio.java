@@ -24,18 +24,4 @@ public abstract class Servicio extends Propiedad{
 		int precioCobrar = multiplicador * dados.getResultado();
 		residente.modificarDinero(-precioCobrar);
 	}
-	
-	public void entrar(Jugador jugador) {
-		if(this.propietario==null) {
-			this.propietario = jugador;
-			this.propietario.modificarDinero(-this.precioPropiedad);
-		}
-		else this.entroUnDesconocido(jugador);
-	}
-	
-	public void entroUnDesconocido(Jugador jugadorDesconocido) {
-		if(!esPropietario(jugadorDesconocido) ) {
-			this.cobrar(jugadorDesconocido);
-		}
-	}
 }
