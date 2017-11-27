@@ -12,7 +12,6 @@ public class Jugador {
 	private int barriosComprados;
 	private ArrayList<Propiedad> propiedades;
 	private Color color;
-	private String ESTADO="JUGANDO";
 	
 	public Jugador() {
 		this.dineroActual=100000;
@@ -104,9 +103,6 @@ public class Jugador {
 		return propiedades;
 	}
 	
-	public void perder() {
-		this.ESTADO="PERDEDOR";
-	}
 	public boolean perdio(double dineroAPagar) {
 		return (this.propiedades.size()==0 && this.dineroActual<dineroAPagar );
 	}

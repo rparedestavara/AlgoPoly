@@ -17,7 +17,6 @@ import Clases.Quini6;
 import Clases.RetrocesoDinamico;
 import Clases.Tablero;
 import excepciones.NoPuedeJugarException;
-import excepciones.SaldoInsuficienteException;
 
 
 public class PrimeraEntregaIntegrationTest {

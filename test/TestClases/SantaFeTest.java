@@ -6,8 +6,6 @@ import org.junit.Test;
 
 import Clases.Jugador;
 import Clases.Provincia;
-import Clases.ProvinciaDividida;
-import Clases.SaltaSur;
 import Clases.SantaFe;
 
 public class SantaFeTest {

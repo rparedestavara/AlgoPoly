@@ -1,7 +1,5 @@
 package Clases;
 
-import java.util.HashMap;
-
 public class AvanceDinamico extends MovimientoDinamico {
 	private static final int AVANZA = 1;
 	

@@ -3,7 +3,6 @@ package TestClases;
 import org.junit.Assert;
 import org.junit.Test;
 
-import Clases.BSNorte;
 import Clases.CordobaNorte;
 import Clases.CordobaSur;
 import Clases.Jugador;

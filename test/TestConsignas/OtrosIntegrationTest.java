@@ -9,8 +9,7 @@ import Clases.Jugador;
 import Clases.Tablero;
 
 public class OtrosIntegrationTest {
-	private static final double DELTA = 1e-15;
-	@Test
+		@Test
 	public void test01AlRealizarUnaJugadaEnElTableroCon10ElJugadorEntraEnImpuestoAlLujo() {
 		Jugador jugador = new Jugador();
 		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();

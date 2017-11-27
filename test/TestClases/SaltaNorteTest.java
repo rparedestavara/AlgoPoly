@@ -3,7 +3,6 @@ package TestClases;
 import org.junit.Assert;
 import org.junit.Test;
 
-import Clases.CordobaSur;
 import Clases.Jugador;
 import Clases.Provincia;
 import Clases.ProvinciaDividida;
