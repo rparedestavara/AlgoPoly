@@ -33,7 +33,7 @@ public class EdesurTest {
 		Servicio edesur = new Edesur();
 		edesur.agregarPropietario(jugador);
 		double dineroAntesDeVenderProiedad=jugador.getDinero();
-		edesur.vender(jugador);
+		edesur.vender();
 		Assert.assertEquals(35000*0.85, jugador.getDinero()-dineroAntesDeVenderProiedad,DELTA);
 	}
 	
@@ -42,7 +42,7 @@ public class EdesurTest {
 		Jugador jugador= new Jugador();
 		Servicio edesur = new Edesur();
 		edesur.agregarPropietario(jugador);
-		edesur.vender(jugador);
+		edesur.vender();
 		Assert.assertEquals(false,edesur.esPropietario(jugador));
 	}
 }

@@ -32,7 +32,7 @@ public class AysaTest {
 		Servicio aysa = new Aysa();
 		aysa.agregarPropietario(jugador);
 		double dineroAntesDeVenderProiedad=jugador.getDinero();
-		aysa.vender(jugador);
+		aysa.vender();
 		Assert.assertEquals(30000*0.85, jugador.getDinero()-dineroAntesDeVenderProiedad,DELTA);
 	}
 	
@@ -41,7 +41,7 @@ public class AysaTest {
 		Jugador jugador= new Jugador();
 		Servicio aysa = new Aysa();
 		aysa.agregarPropietario(jugador);
-		aysa.vender(jugador);
+		aysa.vender();
 		Assert.assertEquals(false,aysa.esPropietario(jugador));
 	}
 }

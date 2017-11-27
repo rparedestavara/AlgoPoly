@@ -21,6 +21,7 @@ import excepciones.NoPuedeJugarException;
 
 public class PrimeraEntregaIntegrationTest {
 	private static final double DELTA = 1e-15;
+	
 	@Test
 	public void Test01Quini6AgregaDineroLaPrimeraVezQueElJugadorGana() {
 		Jugador jugador=new Jugador();

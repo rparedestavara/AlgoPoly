@@ -41,7 +41,7 @@ public class Jugador {
 				break;
 			}
 			Propiedad propiedad = propiedades.get(0);
-			propiedad.vender(this);
+			propiedad.vender();
 		}
 		dineroActual += d;
 	}

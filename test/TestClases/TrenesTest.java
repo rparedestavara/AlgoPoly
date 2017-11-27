@@ -32,7 +32,7 @@ public class TrenesTest {
 		Servicio trenes = new Trenes();
 		trenes.agregarPropietario(jugador);
 		double dineroAntesDeVenderProiedad=jugador.getDinero();
-		trenes.vender(jugador);
+		trenes.vender();
 		Assert.assertEquals(38000*0.85, jugador.getDinero()-dineroAntesDeVenderProiedad,DELTA);
 	}
 	
@@ -41,7 +41,7 @@ public class TrenesTest {
 		Jugador jugador= new Jugador();
 		Servicio trenes = new Trenes();
 		trenes.agregarPropietario(jugador);
-		trenes.vender(jugador);
+		trenes.vender();
 		Assert.assertEquals(false,trenes.esPropietario(jugador));
 	}
 

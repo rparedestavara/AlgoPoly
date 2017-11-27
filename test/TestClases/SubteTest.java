@@ -32,7 +32,7 @@ public class SubteTest {
 		Servicio subte = new Subte();
 		subte.agregarPropietario(jugador);
 		double dineroAntesDeVenderProiedad=jugador.getDinero();
-		subte.vender(jugador);
+		subte.vender();
 		Assert.assertEquals(40000*0.85, jugador.getDinero()-dineroAntesDeVenderProiedad,DELTA);
 	}
 	
@@ -41,7 +41,7 @@ public class SubteTest {
 		Jugador jugador= new Jugador();
 		Servicio subte = new Subte();
 		subte.agregarPropietario(jugador);
-		subte.vender(jugador);
+		subte.vender();
 		Assert.assertEquals(false,subte.esPropietario(jugador));
 	}
 

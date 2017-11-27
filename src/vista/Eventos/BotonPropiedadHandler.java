@@ -23,7 +23,7 @@ public class BotonPropiedadHandler implements EventHandler<ActionEvent>{
 	@Override
 	public void handle(ActionEvent event) {
 		vBox.getChildren().remove(boton);
-		propiedad.vender(jugador);
+		propiedad.vender();
 	}
 	
 

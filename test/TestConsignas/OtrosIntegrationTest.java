@@ -9,7 +9,8 @@ import Clases.Jugador;
 import Clases.Tablero;
 
 public class OtrosIntegrationTest {
-		@Test
+	
+	@Test
 	public void test01AlRealizarUnaJugadaEnElTableroCon10ElJugadorEntraEnImpuestoAlLujo() {
 		Jugador jugador = new Jugador();
 		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
