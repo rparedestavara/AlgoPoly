@@ -30,6 +30,7 @@ public class Tablero {
 	private ArrayList<Casilla> casillasTablero;
 	private static final int CANTIDAD_CASILLAS = 20;
 	private static final int POSICION_CARCEL = 5;
+	public Turno turno;
 	
 	private int ajustarPosicionAlRangoDelTablero(int posicion) {
 		while(posicion > (CANTIDAD_CASILLAS - 1)) { 
@@ -44,7 +45,6 @@ public class Tablero {
 	private Tablero() {
 		posicionesJugadores = new HashMap<Jugador,Integer>();
 		inicializarCasillasTablero();
-		
 	}
 
 	public static Tablero getInstancia() {
@@ -66,6 +66,7 @@ public class Tablero {
 		mover(jugador, pasos);
 		int nuevaPosicion = getPosicion(jugador);
 		casillasTablero.get(nuevaPosicion).entrar(jugador);
+
 	}
 
 	
@@ -106,6 +107,13 @@ public class Tablero {
 		casillasTablero.add(new Neuquen());
 		casillasTablero.add(new RetrocesoDinamico());
 		casillasTablero.add(new Tucuman());
+	}
+	public void agregarTurno(Turno turnoIn) {
+		turno = turnoIn;
+	}
+	
+	public Turno getTurno() {
+		return turno;
 	}
 
 }

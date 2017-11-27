@@ -11,5 +11,6 @@ public class BSNorte extends ProvinciaDividida {
 		precioPropiedad = 25000;
 		precioDeConstruccionDeCasas = 5500;
 		precioDeConstruccionDeHotel = 9000;
+		nombre = "BSNorte";
 	}
 }

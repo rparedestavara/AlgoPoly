@@ -12,6 +12,7 @@ import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import vista.Eventos.BotonInicioTurnoHandler;
 
 public class ContenedorPrincipal extends BorderPane{
 		VistaTablero vistaTablero; 
@@ -40,14 +41,13 @@ public class ContenedorPrincipal extends BorderPane{
 	}
 
 	private void setBotones() {
-		Button botonTirarDados = new Button("Tirar dados");
-		Button botonVenderPropiedad = new Button("Vender propiedad");
-		Button botonComprarPropiedad = new Button("Comprar propiedad");
-		
-		VBox contenedorVertical = new VBox(botonTirarDados,botonVenderPropiedad, botonComprarPropiedad);
+		Button botonInicio = new Button();
+		botonInicio.setText("Iniciar Juego");
+		VBox contenedorVertical = new VBox(botonInicio);
 		contenedorVertical.setSpacing(20);
 		contenedorVertical.setPadding(new Insets(15));
-		
+		BotonInicioTurnoHandler botonInicioTurnoHandler = new BotonInicioTurnoHandler(contenedorVertical);
+		botonInicio.setOnAction(botonInicioTurnoHandler);
 		
 		this.setRight(contenedorVertical);
 		

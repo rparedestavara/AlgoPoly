@@ -10,5 +10,6 @@ public class SaltaSur extends ProvinciaDividida{
 		precioPropiedad = 23000;
 		precioDeConstruccionDeCasas = 4500;
 		precioDeConstruccionDeHotel = 5500;
+		nombre = "Salta Sur";
 		}
 }

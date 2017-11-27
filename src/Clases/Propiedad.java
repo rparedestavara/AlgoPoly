@@ -1,6 +1,7 @@
 package Clases;
 
 public abstract class Propiedad extends Casilla{
+	String nombre;
 	protected int precioPropiedad;
 	protected Jugador propietario;
 	
@@ -43,5 +44,9 @@ public abstract class Propiedad extends Casilla{
 	}
 	protected void pagar(Jugador jugador) {
 		jugador.modificarDinero(this.precioPropiedad*0.85);
+	}
+	
+	public String getNombre() {
+		return nombre;
 	}
 }

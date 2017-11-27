@@ -6,5 +6,6 @@ public class Trenes extends Servicio{
 		precioPropiedad = 38000;
 		multiplicadorConUnaSola = 450;
 		multiplicadorConAmbas = 800;
+		nombre = "Trenes";
 	}
 }

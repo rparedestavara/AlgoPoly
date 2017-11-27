@@ -6,5 +6,6 @@ public class Subte extends Servicio{
 		precioPropiedad = 40000;
 		multiplicadorConUnaSola = 600;
 		multiplicadorConAmbas = 1100;
+		nombre = "Subte";
 	}
 }

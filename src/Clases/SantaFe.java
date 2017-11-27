@@ -8,5 +8,6 @@ public class SantaFe extends Provincia {
 		precioAlquilerSinEdificaciones = 1500;
 		precioDeConstruccionDeCasas = 4000;
 		precioPropiedad=15000;
+		nombre = "Santa Fe";
 	}	
 }

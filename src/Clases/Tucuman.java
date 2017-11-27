@@ -8,5 +8,6 @@ public class Tucuman extends Provincia {
 		precioAlquilerSinEdificaciones = 1500;
 		precioDeConstruccionDeCasas = 7000;
 		precioPropiedad=25000;
+		nombre = "Tucuman";
 	}	
 }

@@ -8,5 +8,6 @@ public class Neuquen extends Provincia {
 		precioAlquilerSinEdificaciones = 1800;
 		precioDeConstruccionDeCasas = 4800;
 		precioPropiedad=17000;
+		nombre = "Neuquen";
 	}	
 }

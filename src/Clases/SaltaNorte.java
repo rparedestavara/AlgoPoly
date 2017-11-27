@@ -10,5 +10,6 @@ public class SaltaNorte extends ProvinciaDividida{
 		precioPropiedad = 23000;
 		precioDeConstruccionDeCasas = 4500;
 		precioDeConstruccionDeHotel = 7500;
+		nombre = "Salta Norte";
 		}
 }

@@ -77,7 +77,10 @@ public class Jugador {
 		if(!this.propiedades.contains(provinciaOfrecida)) throw new NoEsDuenioDePropiedadException();
 		provinciaPedida.cambiarPropietario(this); 
 		provinciaOfrecida.cambiarPropietario(propietario);
-		
+	}
+	
+	public ArrayList<Propiedad> getPropiedades(){
+		return propiedades;
 	}
 	
 }

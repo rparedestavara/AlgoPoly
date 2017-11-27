@@ -10,5 +10,6 @@ public class BSSur extends ProvinciaDividida {
 		precioPropiedad = 20000;
 		precioDeConstruccionDeCasas = 5000;
 		precioDeConstruccionDeHotel = 8000;
+		nombre = "BSSur";
 		}
 }

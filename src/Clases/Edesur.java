@@ -6,5 +6,6 @@ public class Edesur extends Servicio{
 		precioPropiedad = 35000;
 		multiplicadorConUnaSola = 500;
 		multiplicadorConAmbas = 1000;
+		nombre = "Edesur";
 	}
 }

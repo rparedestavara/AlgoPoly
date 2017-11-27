@@ -6,5 +6,6 @@ public class Aysa extends Servicio{
 		precioPropiedad = 30000;
 		multiplicadorConUnaSola = 300;
 		multiplicadorConAmbas = 500;
+		nombre = "Aysa";
 	}
 }
