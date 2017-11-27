@@ -7,6 +7,7 @@ public class Turno {
 	private List<Jugador> jugadores;
 	int posicionJugadorActual;
 	boolean jugoDosVeces;
+	boolean hayGanador;
 	
 	
 	public Turno(List<Jugador> jugadoresIn) {
@@ -14,6 +15,7 @@ public class Turno {
 		Collections.shuffle(jugadores);
 		posicionJugadorActual = 0;
 		jugoDosVeces = false;
+		hayGanador = false;
 	}
 	
 	public Jugador aQuienLeToca() {
@@ -43,4 +45,18 @@ public class Turno {
 		return jugadores.get(posicionJugadorActual);
 	}
 	
+	public void removerJugador(Jugador jugador) {
+		jugadores.remove(jugador);
+		if(jugadores.size() == 1) {
+			hayGanador = true;
+		}
+	}
+	
+	public boolean estaJugando(Jugador jugador) {
+		return jugadores.contains(jugador);
+	}
+	
+	public boolean hayGanador() {
+		return hayGanador;
+	}
 }

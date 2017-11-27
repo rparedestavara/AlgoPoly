@@ -49,11 +49,6 @@ public abstract class Provincia extends Propiedad {
 		if(this.esPropietario(jugador)) this.vender(jugador);
 	}
 
-	public void vender(Jugador jugador) {
-		this.cambiarPropietario(null);
-		this.pagar(jugador);
-	}
-
 	protected void pagar(Jugador jugador) {
 		jugador.modificarDinero(this.precioPropiedad*0.85);
 		this.destruirConstrucciones();

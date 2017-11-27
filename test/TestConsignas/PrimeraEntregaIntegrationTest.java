@@ -81,18 +81,12 @@ public class PrimeraEntregaIntegrationTest {
 	public void Test06JugadorNoPuedePagarFianzaEntoncesNoSePuedeMover(){
 		Jugador jugador = new Jugador();
 		Carcel carcel = Carcel.getInstancia();
-		jugador.pagar(100000);
+		jugador.modificarDinero(-100000);
 		carcel.entrar(jugador);
 		carcel.aumentarTurno(jugador);
 		carcel.aumentarTurno(jugador);
 		carcel.aumentarTurno(jugador);
-		try {
-			jugador.pagarFianzaDeCarcel();
-			Assert.fail("Jugador si puede pagar");
-		}catch (SaldoInsuficienteException e) {}
-		finally {
-			Assert.assertFalse(jugador.puedeHacerAcciones());
-		}
+		Assert.assertFalse(jugador.puedeHacerAcciones());
 	}
 	@Test
 	public void Test07JugadorCaeEnPoliciaVaALaCarcelYNoPuedeMoverse(){

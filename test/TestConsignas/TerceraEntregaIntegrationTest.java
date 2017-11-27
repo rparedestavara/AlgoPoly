@@ -1,13 +1,16 @@
 package TestConsignas;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
 
+import Clases.BSSur;
 import Clases.Dados;
 import Clases.Jugador;
+import Clases.Tablero;
 import Clases.Turno;
 
 public class TerceraEntregaIntegrationTest {
@@ -40,5 +43,48 @@ public class TerceraEntregaIntegrationTest {
 		turno.proximoTurno();
 		Assert.assertNotEquals(jugadorActual, turno.proximoTurno());
 	}
-
+	
+	@Test
+	public void test06CuandoUnjugadorNoTienePlataPeroTienePropiedadesLasVendeHastaQuePuedaPagar() {
+		Jugador jugador1 = new Jugador();
+		Jugador jugador2 = new Jugador();
+		Jugador jugador3 = new Jugador();
+		Tablero tablero = Tablero.getInstancia();
+		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
+		jugadores.add(jugador1);
+		jugadores.add(jugador2);
+		jugadores.add(jugador3);
+		tablero.agregarJugadores(jugadores);
+		Turno turno = new Turno(jugadores);
+		tablero.agregarTurno(turno);
+		
+		double dineroInicial = jugador1.getDinero();
+		jugador1.modificarDinero(-dineroInicial);
+		jugador1.modificarDinero(20000);
+		BSSur bs = new BSSur();
+		bs.entrar(jugador1);
+		jugador1.modificarDinero(-20000);
+		Assert.assertFalse(turno.estaJugando(jugador1));
+	}
+	
+	@Test
+	public void test07CuandoQuedaUnSoloJugadorEseJugadorGana() {
+		Jugador jugador1 = new Jugador();
+		Jugador jugador2 = new Jugador();
+		Jugador jugador3 = new Jugador();
+		Tablero tablero = Tablero.getInstancia();
+		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
+		jugadores.add(jugador1);
+		jugadores.add(jugador2);
+		jugadores.add(jugador3);
+		tablero.agregarJugadores(jugadores);
+		Turno turno = new Turno(jugadores);
+		tablero.agregarTurno(turno);
+		
+		double dineroInicial = jugador1.getDinero();
+		jugador1.modificarDinero(-dineroInicial -1);
+		jugador2.modificarDinero(-dineroInicial -1);
+		Assert.assertTrue(turno.hayGanador());
+	}
+	
 }

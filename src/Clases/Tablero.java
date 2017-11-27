@@ -62,6 +62,10 @@ public class Tablero {
 		return posicionesJugadores.get(jugador1);
 	}
 	
+	public HashMap<Jugador, Integer> getPosiciones() {
+		return posicionesJugadores;
+	}
+	
 	public void jugada(Jugador jugador, int pasos) {
 		mover(jugador, pasos);
 		int nuevaPosicion = getPosicion(jugador);

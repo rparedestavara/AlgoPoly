@@ -22,6 +22,16 @@ public class Jugador {
 	}
 	
 	public void modificarDinero(double d) {
+		while (d + dineroActual < 0) {
+			if(propiedades.size() == 0) {
+				Tablero tablero = Tablero.getInstancia();
+				Turno turno = tablero.getTurno();
+				turno.removerJugador(this);
+				break;
+			}
+			Propiedad propiedad = propiedades.get(0);
+			propiedad.vender(this);
+		}
 		dineroActual += d;
 	}
 	
@@ -42,21 +52,15 @@ public class Jugador {
 
 	public boolean puedePagarFianzaDeCarcel() {
 		Carcel carcel = Carcel.getInstancia();
-		return ((carcel.turnosEnCarcel(this)>=1));
+		return ((carcel.turnosEnCarcel(this)>=1) && dineroActual >= 45000);
 	}
 
 	public void pagarFianzaDeCarcel() throws SaldoInsuficienteException {
 		Carcel carcel = Carcel.getInstancia();
 		if(this.puedePagarFianzaDeCarcel()) {
-			this.pagar(45000);
+			this.modificarDinero(-45000);
 			carcel.liberar(this);
 		}
-	}
-
-	public void pagar(int monto) throws SaldoInsuficienteException {
-		if (monto > dineroActual) throw new SaldoInsuficienteException();
-		this.dineroActual-=monto;
-		
 	}
 
 	public int getCantidadDePropiedades() {
@@ -68,6 +72,11 @@ public class Jugador {
 	public void agregarPropiedad(Propiedad propiedad) {
 		this.propiedades.add(propiedad);
 	}
+	
+	public void quitarPropiedad(Propiedad propiedad) {
+		this.propiedades.remove(propiedad);
+	}
+	
 	public void setDinero(int dineroJugador) {
 		this.dineroActual = dineroJugador;
 		

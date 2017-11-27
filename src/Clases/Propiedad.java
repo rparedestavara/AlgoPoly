@@ -34,7 +34,8 @@ public abstract class Propiedad extends Casilla{
 		}
 	}
 	public void vender(Jugador jugador) {
-		this.cambiarPropietario(null);
+		this.propietario = null;
+		jugador.quitarPropiedad(this);
 		this.pagar(jugador);
 	}
 	
