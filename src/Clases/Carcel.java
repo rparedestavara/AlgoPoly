@@ -8,6 +8,7 @@ public class Carcel extends Casilla{
 	
 	private Carcel() {
 		this.jugadores = new HashMap<>();
+		nombre = "Carcel";
 	}
 	
 	public static Carcel getInstancia() {

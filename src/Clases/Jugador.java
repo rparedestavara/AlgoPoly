@@ -4,21 +4,32 @@ import java.util.ArrayList;
 
 import excepciones.NoEsDuenioDePropiedadException;
 import excepciones.SaldoInsuficienteException;
+import javafx.scene.paint.Color;
 
 public class Jugador {
 
 	private double dineroActual;
 	private int barriosComprados;
 	private ArrayList<Propiedad> propiedades;
+	private Color color;
 	
 	public Jugador() {
 		this.dineroActual=100000;
 		this.barriosComprados = 0;
 		this.propiedades = new ArrayList<Propiedad>();
+		color = Color.BLACK;
 	}
 	
 	public double getDinero() {
 		return this.dineroActual;
+	}
+	
+	public void setColor(Color colorIn) {
+		color = colorIn;
+	}
+	
+	public Color getColor() {
+		return color;
 	}
 	
 	public void modificarDinero(double d) {

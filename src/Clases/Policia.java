@@ -4,7 +4,7 @@ public class Policia extends Casilla{
 	private static Policia INSTANCIA;
 	
 	private Policia() {
-		
+		nombre = "Policia";
 	}
 	
 	public static Policia getInstancia() {

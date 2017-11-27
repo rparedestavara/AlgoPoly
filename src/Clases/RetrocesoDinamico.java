@@ -2,6 +2,10 @@ package Clases;
 
 public class RetrocesoDinamico extends MovimientoDinamico {
 	 private static final int RETROCEDE = -1;
+	 
+	 public RetrocesoDinamico() {
+			nombre = "Retroceso";
+		}
 		
 	public void retrocesoMenosCantidadDeEspaciosAReducir(Jugador jugador) {
 		super.movimientoMenosCantidadDeEspaciosAReducir(jugador, RETROCEDE);

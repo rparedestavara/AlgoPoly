@@ -9,6 +9,7 @@ public class Quini6 extends Casilla {
 	
 	public Quini6() {
 		vecesGanadasRegistro = new HashMap<Jugador,Integer>();
+		nombre = "Quini6";
 	}
 	
 	public void registrarGanador(Jugador jugador) {

@@ -7,12 +7,15 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+import vista.VistaTablero;
 
 public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 	VBox vBox;
+	private VistaTablero vistaTablero;
 
-	public BotonLanzarDadosHandler(VBox vBoxIn) {
+	public BotonLanzarDadosHandler(VBox vBoxIn, VistaTablero vistaTableroIn) {
 		vBox = vBoxIn;
+		vistaTablero = vistaTableroIn;
 	}
 	
 	@Override
@@ -29,7 +32,8 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 		botonFinVenta.setText("terminar de vender");
 		vBox.getChildren().clear();
 		vBox.getChildren().add(botonFinVenta);
-		BotonInicioTurnoHandler botonFinVentaHandler = new BotonInicioTurnoHandler(vBox);
+		BotonInicioTurnoHandler botonFinVentaHandler = new BotonInicioTurnoHandler(vBox, vistaTablero);
 		botonFinVenta.setOnAction(botonFinVentaHandler);
+		vistaTablero.actualizarTablero();
 	}
 }

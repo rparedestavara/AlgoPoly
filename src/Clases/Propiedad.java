@@ -1,7 +1,8 @@
 package Clases;
 
+import javafx.scene.paint.Color;
+
 public abstract class Propiedad extends Casilla{
-	String nombre;
 	protected int precioPropiedad;
 	protected Jugador propietario;
 	
@@ -11,6 +12,7 @@ public abstract class Propiedad extends Casilla{
 	
 	public void agregarPropietario(Jugador jugador) {
 		this.entrar(jugador);
+		color = jugador.getColor();
 	}
 	
 	public boolean esPropietario(Jugador jugadorDesconocido) {
@@ -24,6 +26,7 @@ public abstract class Propiedad extends Casilla{
 			this.propietario = jugador;
 			this.propietario.modificarDinero(-this.precioPropiedad);
 			this.propietario.agregarPropiedad(this);
+			color = jugador.getColor();
 		}
 		else this.entroUnDesconocido(jugador);
 	}
@@ -35,12 +38,14 @@ public abstract class Propiedad extends Casilla{
 	}
 	public void vender(Jugador jugador) {
 		this.propietario = null;
+		color = Color.WHITE;
 		jugador.quitarPropiedad(this);
 		this.pagar(jugador);
 	}
 	
 	protected void cambiarPropietario(Jugador jugador) {
 		this.propietario = jugador;
+		color = jugador.getColor();
 		
 	}
 	protected void pagar(Jugador jugador) {

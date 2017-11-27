@@ -2,6 +2,7 @@ package Clases;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 import Clases.Carcel;
 import Clases.AvanceDinamico;
@@ -23,11 +24,13 @@ import Clases.SantaFe;
 import Clases.Trenes;
 import Clases.Tucuman;
 import excepciones.NoPuedeJugarException;
+import javafx.scene.paint.Color;
 
 public class Tablero {
 	private static Tablero INSTANCIA;
 	private HashMap<Jugador,Integer> posicionesJugadores;
 	private ArrayList<Casilla> casillasTablero;
+	private ArrayList<int[]> posicionesVista;
 	private static final int CANTIDAD_CASILLAS = 20;
 	private static final int POSICION_CARCEL = 5;
 	public Turno turno;
@@ -45,6 +48,7 @@ public class Tablero {
 	private Tablero() {
 		posicionesJugadores = new HashMap<Jugador,Integer>();
 		inicializarCasillasTablero();
+		posicionesVista = posicionesCasillasVista();
 	}
 
 	public static Tablero getInstancia() {
@@ -54,16 +58,20 @@ public class Tablero {
 	}
 		
 	public void agregarJugadores(ArrayList<Jugador> jugadores) {
-		for(Jugador jugador : jugadores)
+		Color[] colores = {Color.BLUE, Color.RED, Color.WHEAT};
+		for(int i = 0; i < jugadores.size(); i++) {
+			Jugador jugador = jugadores.get(i);
 			posicionesJugadores.put(jugador, 0);
+			jugador.setColor(colores[i]);
+		}
 	}
 
 	public int getPosicion(Jugador jugador1) {
 		return posicionesJugadores.get(jugador1);
 	}
 	
-	public HashMap<Jugador, Integer> getPosiciones() {
-		return posicionesJugadores;
+	public Set<Jugador> getJugadores() {
+		return posicionesJugadores.keySet();
 	}
 	
 	public void jugada(Jugador jugador, int pasos) {
@@ -119,5 +127,43 @@ public class Tablero {
 	public Turno getTurno() {
 		return turno;
 	}
+	
+	public ArrayList<int[]> posicionesCasillasVista() { //public?
+		ArrayList<int[]> posiciones = new ArrayList<int[]>();
+		Direccion direccion = new Direccion();
+		int dirX = direccion.direccionActualX();
+		int dirY = direccion.direccionActualY();
+		int paso = 120;
+		int[] acumuladorPosiciones = {0,800};
+		for(int i = 0; i < CANTIDAD_CASILLAS; i++ ) {
+			if(i % 5 == 0 && i > 0) {
+				direccion.rotarDerecha();
+				dirX = direccion.direccionActualX();
+				dirY = direccion.direccionActualY();
+			}
+			acumuladorPosiciones[0] += paso * dirX;
+			acumuladorPosiciones[1] += paso * dirY;
+			posiciones.add(acumuladorPosiciones.clone());
+		}
+		return posiciones;
+	}
+	
+	public ArrayList<Casilla> getCasillasTablero() {
+		return casillasTablero;
+	}
+	
+	public ArrayList<int[]> getPosicionesVista() {
+		return posicionesVista;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

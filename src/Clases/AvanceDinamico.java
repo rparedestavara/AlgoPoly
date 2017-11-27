@@ -1,7 +1,13 @@
 package Clases;
 
+import java.util.HashMap;
+
 public class AvanceDinamico extends MovimientoDinamico {
 	private static final int AVANZA = 1;
+	
+	public AvanceDinamico() {
+		nombre = "Avance";
+	}
 	
 	public void avanceMenosCantidadDeEspaciosAReducir(Jugador jugador) {
 		super.movimientoMenosCantidadDeEspaciosAReducir(jugador, AVANZA);

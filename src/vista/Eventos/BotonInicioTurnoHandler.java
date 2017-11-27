@@ -10,14 +10,17 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+import vista.VistaTablero;
 import vista.Eventos.BotonLanzarDadosHandler;
 
 public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{ 
 	//Muestra las propiedades a vender y muestra un boton lanzar dados, cuando lo precionan termina de vender y pasa a lanzar los dados
-	VBox vBox;
+	private VBox vBox;
+	private VistaTablero vistaTablero;
 
-	public BotonInicioTurnoHandler(VBox vBoxIn) {
+	public BotonInicioTurnoHandler(VBox vBoxIn, VistaTablero vistaTableroIn) {
 		vBox = vBoxIn;
+		vistaTablero = vistaTableroIn;
 	}
 	
 	@Override
@@ -26,7 +29,7 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 		Button botonLanzarDados = new Button();
 		botonLanzarDados.setText("lanzar Dados");
 		vBox.getChildren().add(botonLanzarDados);
-		BotonLanzarDadosHandler botonLanzarDadosHandler = new BotonLanzarDadosHandler(vBox);
+		BotonLanzarDadosHandler botonLanzarDadosHandler = new BotonLanzarDadosHandler(vBox, vistaTablero);
 		botonLanzarDados.setOnAction(botonLanzarDadosHandler);
 		Tablero tablero = Tablero.getInstancia();
 		Turno turno = tablero.getTurno();
@@ -39,6 +42,7 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 			botonPropiedad.setOnAction(botonPropiedadHandler);
 			vBox.getChildren().add(botonPropiedad);
 		}
+		vistaTablero.actualizarTablero();
 	}
 
 }

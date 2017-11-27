@@ -5,6 +5,7 @@ public class ImpuestoAlLujo extends Casilla {
 
 	public ImpuestoAlLujo() {
 		this.valorImpuesto = 0.1;
+		nombre = "Imp. Lujo";
 	}
 	
 	@Override

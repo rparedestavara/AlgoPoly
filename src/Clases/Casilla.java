@@ -1,11 +1,23 @@
 package Clases;
 
-public abstract class Casilla {
+import javafx.scene.paint.Color;
 
-	public void entrar(Jugador jugador) {
-		
+public abstract class Casilla {
+	protected Color color;
+	String nombre;
+	
+	public Casilla(){
+		color = Color.WHITE;
 	}
 
+	public Color getColor() {
+		return color;
+	}
 	
-
+	public String getNombre() {
+		return nombre;
+	}
+	
+	public void entrar(Jugador jugador) {}
+	
 }

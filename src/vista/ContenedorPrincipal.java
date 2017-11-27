@@ -19,12 +19,12 @@ public class ContenedorPrincipal extends BorderPane{
 		Canvas canvasCentral;
 		 
 	public ContenedorPrincipal() {
-		this.setBotones();
 		this.setEscenaCentral();
+		this.setBotones();
 }
 
 	private void setEscenaCentral() {
-		canvasCentral = new Canvas(600, 500);
+		canvasCentral = new Canvas(1000, 1000);
 		vistaTablero = new VistaTablero(canvasCentral);
 		vistaTablero.actualizarTablero();
 		
@@ -46,7 +46,7 @@ public class ContenedorPrincipal extends BorderPane{
 		VBox contenedorVertical = new VBox(botonInicio);
 		contenedorVertical.setSpacing(20);
 		contenedorVertical.setPadding(new Insets(15));
-		BotonInicioTurnoHandler botonInicioTurnoHandler = new BotonInicioTurnoHandler(contenedorVertical);
+		BotonInicioTurnoHandler botonInicioTurnoHandler = new BotonInicioTurnoHandler(contenedorVertical, vistaTablero);
 		botonInicio.setOnAction(botonInicioTurnoHandler);
 		
 		this.setRight(contenedorVertical);
