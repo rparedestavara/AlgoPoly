@@ -56,10 +56,7 @@ public class Jugador {
 		this.barriosComprados++;
 	}
 	
-	public void aumentarTurnosEnCarcel() {
-		Carcel carcel = Carcel.getInstancia();
-		carcel.aumentarTurno(this);
-	}
+	
 
 	public boolean puedePagarFianzaDeCarcel() {
 		Carcel carcel = Carcel.getInstancia();

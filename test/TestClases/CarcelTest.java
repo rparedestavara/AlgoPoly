@@ -30,8 +30,8 @@ public class CarcelTest {
 		Jugador jugador = new Jugador();
 		Carcel carcel = Carcel.getInstancia();
 		carcel.entrar(jugador);
-		jugador.aumentarTurnosEnCarcel();
-		jugador.aumentarTurnosEnCarcel();
+		carcel.aumentarTurno(jugador);
+		carcel.aumentarTurno(jugador);
 		Assert.assertTrue(jugador.puedePagarFianzaDeCarcel());
 	}
 	
@@ -40,8 +40,8 @@ public class CarcelTest {
 		Jugador jugador = new Jugador();
 		Carcel carcel = Carcel.getInstancia();
 		carcel.entrar(jugador);
-		jugador.aumentarTurnosEnCarcel();
-		jugador.aumentarTurnosEnCarcel();
+		carcel.aumentarTurno(jugador);
+		carcel.aumentarTurno(jugador);
 		jugador.pagarFianzaDeCarcel();
 		Assert.assertTrue(jugador.puedeHacerAcciones());
 	}
@@ -52,9 +52,9 @@ public class CarcelTest {
 		Jugador jugador = new Jugador();
 		Carcel carcel = Carcel.getInstancia();
 		carcel.entrar(jugador);
-		jugador.aumentarTurnosEnCarcel();
-		jugador.aumentarTurnosEnCarcel();
-		jugador.aumentarTurnosEnCarcel();
+		carcel.aumentarTurno(jugador);
+		carcel.aumentarTurno(jugador);
+		carcel.aumentarTurno(jugador);
 		Assert.assertFalse( jugador.puedeHacerAcciones());
 	}
 	
@@ -63,10 +63,10 @@ public class CarcelTest {
 		Jugador jugador = new Jugador();
 		Carcel carcel = Carcel.getInstancia();
 		carcel.entrar(jugador);
-		jugador.aumentarTurnosEnCarcel();
-		jugador.aumentarTurnosEnCarcel();
-		jugador.aumentarTurnosEnCarcel();
-		jugador.aumentarTurnosEnCarcel();
+		carcel.aumentarTurno(jugador);
+		carcel.aumentarTurno(jugador);
+		carcel.aumentarTurno(jugador);
+		carcel.aumentarTurno(jugador);
 		Assert.assertTrue( jugador.puedeHacerAcciones());
 	}
 
