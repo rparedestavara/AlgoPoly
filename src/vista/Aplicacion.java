@@ -36,11 +36,12 @@ public class Aplicacion extends Application {
 		ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal();
 		Scene escenaPrincipal = new Scene(contenedorPrincipal, 400, 500);
 		
-		stage.setScene(escenaPrincipal);
-	
-		stage.setFullScreen(true);
-		stage.show();
-		
+		ContenedorBienvenidos contenedorBienvenidos = new ContenedorBienvenidos(stage, escenaPrincipal);
+		 Scene escenaBienvenidos = new Scene(contenedorBienvenidos, 400, 500);
+		 
+		 stage.setScene(escenaBienvenidos);
+	        stage.setFullScreen(true);
+	        stage.show();
 	}
 
 }
