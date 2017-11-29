@@ -44,6 +44,12 @@ public abstract class Provincia extends Propiedad {
 		residente.modificarDinero(-precioAlquiler);
 		this.propietario.modificarDinero(precioAlquiler);
 	}
+	
+	@Override
+	public void vender() {
+		super.vender();
+		this.destruirConstrucciones();
+	}
 
 	public void provinciaVendida(Jugador jugador) {
 		if(this.esPropietario(jugador)) this.vender();
@@ -54,8 +60,8 @@ public abstract class Provincia extends Propiedad {
 		this.destruirConstrucciones();
 	}
 
-	protected void destruirConstrucciones() {
-		this.cantCasas=0;
+	private void destruirConstrucciones() {
+		this.cantCasas = 0;
 	}
 	
 	

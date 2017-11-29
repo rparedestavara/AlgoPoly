@@ -31,6 +31,12 @@ public abstract class ProvinciaDividida extends Provincia {
 	public int cantHoteles() {
 		return this.cantHoteles;
 	}
+	
+	@Override
+	public void vender() {
+		super.vender();
+		this.destruirConstrucciones();
+	}
 
 	public boolean SePuedeConstruisHoteles() {
 		return (this.cantCasas==2 && this.otraMitad.cantCasas==2);
@@ -44,8 +50,8 @@ public abstract class ProvinciaDividida extends Provincia {
 		
 	}
 
-	protected void destruirConstrucciones() {
-		this.cantCasas=0;
+	private void destruirConstrucciones() {
+		
 		this.cantHoteles=0;
 	}
 	
