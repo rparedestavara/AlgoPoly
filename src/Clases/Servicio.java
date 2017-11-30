@@ -9,6 +9,11 @@ public abstract class Servicio extends Propiedad{
 		servicioOpuesto = null;
 	}
 	
+	public static void AgregarOpuestos(Servicio servicio1, Servicio servicio2) {
+		servicio1.agregarOpuesto(servicio2);
+		servicio2.agregarOpuesto(servicio1);
+	}
+	
 	public void agregarOpuesto(Servicio servicio) {
 		this.servicioOpuesto = servicio;
 	}
@@ -23,5 +28,6 @@ public abstract class Servicio extends Propiedad{
 		Dados dados = Dados.getInstance();
 		int precioCobrar = multiplicador * dados.getResultado();
 		residente.modificarDinero(-precioCobrar);
+		propietario.modificarDinero(precioCobrar);
 	}
 }

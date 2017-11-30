@@ -10,7 +10,12 @@ public abstract class ProvinciaDividida extends Provincia {
 		return this.cantHoteles==1;
 	}
 	
-	public void agregarOpuesto(Provincia provincia) {
+	public static void AgregarOpuestos(ProvinciaDividida provincia1,ProvinciaDividida provincia2) {
+		provincia1.agregarOpuesto(provincia2);
+		provincia2.agregarOpuesto(provincia1);
+	}
+	
+	public void agregarOpuesto(ProvinciaDividida provincia) {
 		this.otraMitad = provincia;
 	}
 	

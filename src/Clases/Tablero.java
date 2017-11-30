@@ -101,25 +101,41 @@ public class Tablero {
 		casillasTablero = new ArrayList<Casilla>(20);
 		casillasTablero.add(new Salida());
 		casillasTablero.add(new Quini6());
-		casillasTablero.add(new BSSur());
-		casillasTablero.add(new Edesur());
-		casillasTablero.add(new BSNorte());
+		ProvinciaDividida bsSur = new BSSur();
+		casillasTablero.add(bsSur);
+		Servicio edesur = new Edesur();
+		casillasTablero.add(edesur);
+		ProvinciaDividida bsNorte = new BSNorte();
+		casillasTablero.add(bsNorte);
 		casillasTablero.add(Carcel.getInstancia());
-		casillasTablero.add(new CordobaSur());
+		ProvinciaDividida cordobaSur = new CordobaSur();
+		casillasTablero.add(cordobaSur);
 		casillasTablero.add(new AvanceDinamico());
-		casillasTablero.add(new Subte());
-		casillasTablero.add(new CordobaNorte());
+		Servicio subte = new Subte();
+		casillasTablero.add(subte);
+		ProvinciaDividida cordobaNorte = new CordobaNorte();
+		casillasTablero.add(cordobaNorte);
 		casillasTablero.add(new ImpuestoAlLujo());
 		casillasTablero.add(new SantaFe());
-		casillasTablero.add(new Aysa());
-		casillasTablero.add(new SaltaNorte());
-		casillasTablero.add(new SaltaSur());
+		Servicio aysa = new Aysa();
+		casillasTablero.add(aysa);
+		ProvinciaDividida saltaNorte = new SaltaNorte();
+		casillasTablero.add(saltaNorte);
+		ProvinciaDividida saltaSur = new SaltaSur();
+		casillasTablero.add(saltaSur);
 		casillasTablero.add(Policia.getInstancia());
-		casillasTablero.add(new Trenes());
+		Servicio trenes = new Trenes();
+		casillasTablero.add(trenes);
 		casillasTablero.add(new Neuquen());
 		casillasTablero.add(new RetrocesoDinamico());
 		casillasTablero.add(new Tucuman());
+		Servicio.AgregarOpuestos(subte, trenes);
+		Servicio.AgregarOpuestos(edesur, aysa);
+		ProvinciaDividida.AgregarOpuestos(bsNorte, bsSur);
+		ProvinciaDividida.AgregarOpuestos(cordobaNorte, cordobaSur);
+		ProvinciaDividida.AgregarOpuestos(saltaNorte, saltaSur);
 	}
+	
 	public void agregarTurno(Turno turnoIn) {
 		turno = turnoIn;
 	}
@@ -134,7 +150,7 @@ public class Tablero {
 		int dirX = direccion.direccionActualX();
 		int dirY = direccion.direccionActualY();
 		int paso = 120;
-		int[] acumuladorPosiciones = {0,800};
+		int[] acumuladorPosiciones = {0,600};
 		for(int i = 0; i < CANTIDAD_CASILLAS; i++ ) {
 			if(i % 5 == 0 && i > 0) {
 				direccion.rotarDerecha();
