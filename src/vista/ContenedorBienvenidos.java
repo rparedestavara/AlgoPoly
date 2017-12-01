@@ -35,40 +35,49 @@ public class ContenedorBienvenidos  extends VBox {
 	        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
 	        this.setBackground(new Background(imagenDeFondo));
 	        
-	        Button botonEntrar = new Button();
-	        botonEntrar.setText("Entrar");
+	       
 
 	        Label etiqueta = new Label();
 	        etiqueta.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
 
-	        etiqueta.setText("Bienvenidos a la Aplicacion AlgoPoly complete los datos y Presione Entrar para poder comenzar");
+	        etiqueta.setText("Bienvenidos a la Aplicacion AlgoPoly complete los datos y Presione Entara para poder comenzar");
 	        etiqueta.setTextFill(Color.web("#66A7C5"));
 
-	        BotonEntrarEventHandler botonEntrarHandler = new BotonEntrarEventHandler(stage, proximaEscena);
-	        botonEntrar.setOnAction(botonEntrarHandler);
 	        
-
 	        Button botonJugador1=new Button();
 	        botonJugador1.setText("Nombre Jugador1:");
 	        botonJugador1.setAlignment(Pos.CENTER);
 	        TextField nombre1=new TextField();
+	        
 	        nombre1.setMaxWidth(150);
 	        nombre1.setAlignment(Pos.CENTER_RIGHT);
+	        
 	        Button botonJugador2=new Button();
 	        botonJugador2.setText("Nombre Jugador2:");
 	        botonJugador2.setAlignment(Pos.CENTER);
 	        TextField nombre2=new TextField();
 	        nombre2.setMaxWidth(150);
 	        nombre2.setAlignment(Pos.CENTER_RIGHT);
+	        
 	        Button botonJugador3=new Button();
 	        botonJugador3.setText("Nombre Jugador3:");
 	        botonJugador3.setAlignment(Pos.CENTER);
 	        TextField nombre3=new TextField();
 	        nombre3.setMaxWidth(150);
 	        nombre3.setAlignment(Pos.CENTER_RIGHT);
-	        this.getChildren().addAll(etiqueta, botonEntrar,botonJugador1,nombre1,botonJugador2,nombre2,botonJugador3,nombre3);
-
-	     
+	        
+	        Button botonEntrar = new Button();
+	        botonEntrar.setText("Entrar");
+	        BotonEntrarEventHandler botonEntrarHandler = new BotonEntrarEventHandler(stage, proximaEscena,nombre1,nombre2,nombre3);
+	        botonEntrar.setOnAction(botonEntrarHandler);
+	        this.getChildren().addAll(etiqueta, botonJugador1,nombre1,botonJugador2,nombre2,botonJugador3,nombre3,botonEntrar);
+	       
+	         
 	    }	
+	 
+	    	public boolean esValido(TextField nombre) {
+				return(nombre.getText().trim() != "");
+	    	}
+
 	
 }
