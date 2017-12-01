@@ -1,5 +1,6 @@
 package vista;
 
+import Clases.Tablero;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -22,7 +23,7 @@ import vista.Eventos.BotonEntrarEventHandler;
 public class ContenedorBienvenidos  extends VBox {
 	
 	 Stage stage;   
-	public ContenedorBienvenidos(Stage stage, Scene proximaEscena) {
+	public ContenedorBienvenidos(Stage stage, ContenedorPrincipal proximaEscena, Tablero tablero) {
 
 	        super();
 
@@ -68,7 +69,7 @@ public class ContenedorBienvenidos  extends VBox {
 	        
 	        Button botonEntrar = new Button();
 	        botonEntrar.setText("Entrar");
-	        BotonEntrarEventHandler botonEntrarHandler = new BotonEntrarEventHandler(stage, proximaEscena,nombre1,nombre2,nombre3);
+	        BotonEntrarEventHandler botonEntrarHandler = new BotonEntrarEventHandler(stage, proximaEscena,nombre1,nombre2,nombre3,tablero);
 	        botonEntrar.setOnAction(botonEntrarHandler);
 	        this.getChildren().addAll(etiqueta, botonJugador1,nombre1,botonJugador2,nombre2,botonJugador3,nombre3,botonEntrar);
 	       

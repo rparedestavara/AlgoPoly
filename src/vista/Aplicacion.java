@@ -20,23 +20,10 @@ public class Aplicacion extends Application {
 
 		stage.setTitle("AlgoPoly");
 		
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
-		Jugador jugador3 = new Jugador();
+		
 		Tablero tablero = Tablero.getInstancia();
-		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
-		jugadores.add(jugador1);
-		jugadores.add(jugador2);
-		jugadores.add(jugador3);
-		tablero.agregarJugadores(jugadores);
-		Turno turno = new Turno(jugadores);
-		tablero.agregarTurno(turno);
-		
-		
 		ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal();
-		Scene escenaPrincipal = new Scene(contenedorPrincipal, 400, 500);
-		
-		ContenedorBienvenidos contenedorBienvenidos = new ContenedorBienvenidos(stage, escenaPrincipal);
+		ContenedorBienvenidos contenedorBienvenidos = new ContenedorBienvenidos(stage, contenedorPrincipal,tablero);
 		 Scene escenaBienvenidos = new Scene(contenedorBienvenidos, 400, 500);
 		 
 		 stage.setScene(escenaBienvenidos);

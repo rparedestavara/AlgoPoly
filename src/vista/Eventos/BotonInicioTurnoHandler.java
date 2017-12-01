@@ -9,6 +9,7 @@ import Clases.Turno;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import vista.VistaTablero;
 import vista.Eventos.BotonLanzarDadosHandler;
@@ -34,6 +35,10 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 		Tablero tablero = Tablero.getInstancia();
 		Turno turno = tablero.getTurno();
 		Jugador jugador = turno.aQuienLeToca();
+		TextField nomJugador1=new TextField();
+		nomJugador1.setText(jugador.getNombre());
+		nomJugador1.setEditable(false);
+		vBox.getChildren().add(nomJugador1);
 		ArrayList<Propiedad> propiedades = jugador.getPropiedades();
 		for(Propiedad propiedad : propiedades) {
 			Button botonPropiedad = new Button();

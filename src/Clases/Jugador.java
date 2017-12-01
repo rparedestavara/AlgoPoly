@@ -12,6 +12,7 @@ public class Jugador {
 	private int barriosComprados;
 	private ArrayList<Propiedad> propiedades;
 	private Color color;
+	private String nombre;
 	
 	public Jugador() {
 		this.dineroActual=100000;
@@ -97,5 +98,14 @@ public class Jugador {
 	public boolean perdio(double dineroAPagar) {
 		return (this.propiedades.size()==0 && this.dineroActual<dineroAPagar );
 	}
+	
+	public String getNombre() {
+		return this.nombre;
+	}
+	
+	public void setNombre(String nombre) {
+		this.nombre=nombre;
+	}
+	
 	
 }

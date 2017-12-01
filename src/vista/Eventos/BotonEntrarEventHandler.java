@@ -1,5 +1,10 @@
 package vista.Eventos;
 
+import java.util.ArrayList;
+
+import Clases.Jugador;
+import Clases.Tablero;
+import Clases.Turno;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -7,24 +12,28 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import vista.ContenedorPrincipal;
 
 public class BotonEntrarEventHandler implements EventHandler<ActionEvent> {
 	 	Stage stage;
-	    Scene proximaEscena;
+	    ContenedorPrincipal proximaEscena;
 		private TextField nomJugador1;
 		private TextField nomJugador2;
 		private TextField nomJugador3;
-
+		Tablero tablero ;
 	    
-	public BotonEntrarEventHandler(Stage stage2, Scene proximaEscena2, TextField nombre1, TextField nombre2,TextField nombre3) {
+	public BotonEntrarEventHandler(Stage stage2, ContenedorPrincipal proximaEscena2, TextField nombre1, TextField nombre2,TextField nombre3, Tablero tablero) {
 		this.stage = stage2;
-        this.proximaEscena = proximaEscena2;
+        
         this.nomJugador1=nombre1;
         this.nomJugador2=nombre2;
         this.nomJugador3=nombre3;
+        this.proximaEscena = proximaEscena2;
+        this.tablero=tablero.getInstancia();
 		}
 	@Override
 	public void handle(ActionEvent arg0) {
+		
 		if (!this.esValido(nomJugador1) || !this.esValido(nomJugador2) || !this.esValido(nomJugador3)) {
 			Alert alerta=new Alert(AlertType.INFORMATION);
 			alerta.setTitle("Error: Llenado incorrecto de Datos");
@@ -34,11 +43,24 @@ public class BotonEntrarEventHandler implements EventHandler<ActionEvent> {
 			error.setText("error completar datos");
 			return;
 		}
+		Scene escenaPrincipal = new Scene(this.proximaEscena, 400, 500);
 		System.out.println(nomJugador3.getText());
-	    stage.setScene(proximaEscena);
+	    stage.setScene(escenaPrincipal);
 		stage.setFullScreenExitHint("Bienvenidos Al juego");
 		stage.setFullScreen(true);    
-
+		Jugador jugador1 = new Jugador();
+		jugador1.setNombre(this.nomJugador1.getText());
+		Jugador jugador2 = new Jugador();
+		jugador2.setNombre(this.nomJugador2.getText());
+		Jugador jugador3 = new Jugador();
+		jugador3.setNombre(this.nomJugador3.getText());
+		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
+		jugadores.add(jugador1);
+		jugadores.add(jugador2);
+		jugadores.add(jugador3);
+		tablero.agregarJugadores(jugadores);
+		Turno turno = new Turno(jugadores);
+		tablero.agregarTurno(turno);
 	}
 	
 	public boolean esValido(TextField nombre) {
