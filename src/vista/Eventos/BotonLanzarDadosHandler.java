@@ -1,12 +1,14 @@
 package vista.Eventos;
 
 import Clases.Dados;
+import Clases.Jugador;
 import Clases.Tablero;
 import Clases.Turno;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import vista.VistaTablero;
 
 public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
@@ -23,17 +25,21 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 		Tablero tablero = Tablero.getInstancia();
 		Dados dados = Dados.getInstance();
 		Turno turno = tablero.getTurno();
+		Jugador jugador = turno.aQuienLeToca();
+		Text nombreJugador=new Text();
+		nombreJugador.setText("Turno del jugador: " + jugador.getNombre());
+		vBox.getChildren().add(nombreJugador);
 		dados.lanzar();
 		tablero.jugada(turno.aQuienLeToca() , dados.getResultado());
 		turno.proximoTurno();
-		
-		
-		Button botonFinVenta = new Button();
-		botonFinVenta.setText("terminar de vender");
+
+		Button botonFinTurno = new Button();
+		botonFinTurno.setText("Finalizar Turno");
 		vBox.getChildren().clear();
-		vBox.getChildren().add(botonFinVenta);
+		vBox.getChildren().add(nombreJugador);
+		vBox.getChildren().add(botonFinTurno);
 		BotonInicioTurnoHandler botonFinVentaHandler = new BotonInicioTurnoHandler(vBox, vistaTablero);
-		botonFinVenta.setOnAction(botonFinVentaHandler);
-		vistaTablero.actualizarTablero();
+		botonFinTurno.setOnAction(botonFinVentaHandler);
+		vistaTablero.actualizar();
 	}
 }

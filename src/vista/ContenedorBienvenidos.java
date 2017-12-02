@@ -40,7 +40,7 @@ public class ContenedorBienvenidos  extends VBox {
 	        Label etiqueta = new Label();
 	        etiqueta.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
 
-	        etiqueta.setText("Bienvenidos a la Aplicacion AlgoPoly complete los datos y Presione Entara para poder comenzar");
+	        etiqueta.setText("Bienvenidos a la Aplicacion AlgoPoly complete los datos y Presione Entrar para comenzar");
 	        etiqueta.setTextFill(Color.web("#66A7C5"));
 
 	        

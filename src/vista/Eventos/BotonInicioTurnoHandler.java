@@ -9,8 +9,8 @@ import Clases.Turno;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import vista.VistaTablero;
 import vista.Eventos.BotonLanzarDadosHandler;
 
@@ -27,27 +27,34 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 	@Override
 	public void handle(ActionEvent event) { //Falta que de la opcion de construir casas
 		vBox.getChildren().clear();
+		Tablero tablero = Tablero.getInstancia();
+		
+		Turno turno = tablero.getTurno();
+		Jugador jugador = turno.aQuienLeToca();
+		Text nombreJugador=new Text();
+		nombreJugador.setText("Turno del jugador: " + jugador.getNombre());
+		vBox.getChildren().add(nombreJugador);
+		
 		Button botonLanzarDados = new Button();
 		botonLanzarDados.setText("lanzar Dados");
 		vBox.getChildren().add(botonLanzarDados);
 		BotonLanzarDadosHandler botonLanzarDadosHandler = new BotonLanzarDadosHandler(vBox, vistaTablero);
 		botonLanzarDados.setOnAction(botonLanzarDadosHandler);
-		Tablero tablero = Tablero.getInstancia();
-		Turno turno = tablero.getTurno();
-		Jugador jugador = turno.aQuienLeToca();
-		TextField nomJugador1=new TextField();
-		nomJugador1.setText(jugador.getNombre());
-		nomJugador1.setEditable(false);
-		vBox.getChildren().add(nomJugador1);
 		ArrayList<Propiedad> propiedades = jugador.getPropiedades();
+		Text mensajePropiedades = new Text();
+		if(propiedades.size() > 0) {
+			mensajePropiedades.setText("Vender propiedades:");
+			vBox.getChildren().add(mensajePropiedades);
+		}
 		for(Propiedad propiedad : propiedades) {
 			Button botonPropiedad = new Button();
 			botonPropiedad.setText(propiedad.getNombre());
-			BotonPropiedadHandler botonPropiedadHandler = new BotonPropiedadHandler(vBox, botonPropiedad, propiedad,jugador);
+			BotonPropiedadHandler botonPropiedadHandler = new BotonPropiedadHandler(vBox, botonPropiedad, 
+					propiedad,jugador, mensajePropiedades);
 			botonPropiedad.setOnAction(botonPropiedadHandler);
 			vBox.getChildren().add(botonPropiedad);
 		}
-		vistaTablero.actualizarTablero();
+		vistaTablero.actualizar();
 	}
 
 }

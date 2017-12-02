@@ -16,25 +16,25 @@ import vista.Eventos.BotonInicioTurnoHandler;
 
 public class ContenedorPrincipal extends BorderPane{
 		
-		BarraDeMenu menuBar;
+//		BarraDeMenu menuBar;
 		VistaTablero vistaTablero; 
 		Canvas canvasCentral;
 		 
 	public ContenedorPrincipal() {
 		this.setEscenaCentral();
 		this.setBotones();
-		this.setMenu();
+//		this.setMenu();
 }
 
-	private void setMenu() {
-		this.menuBar = new BarraDeMenu();
-		this.setTop(menuBar);
-	}
+//	private void setMenu() {
+//		this.menuBar = new BarraDeMenu();
+//		this.setTop(menuBar);
+//	}
 
 	private void setEscenaCentral() {
 		canvasCentral = new Canvas(1000, 1000);
 		vistaTablero = new VistaTablero(canvasCentral);
-		vistaTablero.actualizarTablero();
+		vistaTablero.actualizar();
 		
 		VBox contenedorCentral = new VBox(canvasCentral);
         contenedorCentral.setAlignment(Pos.CENTER);

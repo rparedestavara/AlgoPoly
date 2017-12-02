@@ -35,7 +35,7 @@ public class VistaTablero {
 		}
 	}
 	
-	public void actualizarTablero() {
+	public void actualizar() {
 		int posX;
 		int posY;
 		Casilla casilla;

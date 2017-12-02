@@ -78,10 +78,12 @@ public class Jugador {
 	
 	public void agregarPropiedad(Propiedad propiedad) {
 		this.propiedades.add(propiedad);
+		barriosComprados++;
 	}
 	
 	public void quitarPropiedad(Propiedad propiedad) {
 		this.propiedades.remove(propiedad);
+		barriosComprados++;
 	}
 	
 
