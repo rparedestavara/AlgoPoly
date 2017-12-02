@@ -1,10 +1,6 @@
 package vista;
 
-import java.util.ArrayList;
-
-import Clases.Jugador;
 import Clases.Tablero;
-import Clases.Turno;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;

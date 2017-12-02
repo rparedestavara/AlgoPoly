@@ -29,7 +29,7 @@ public class BotonEntrarEventHandler implements EventHandler<ActionEvent> {
         this.nomJugador2=nombre2;
         this.nomJugador3=nombre3;
         this.proximaEscena = proximaEscena2;
-        this.tablero=tablero.getInstancia();
+        this.tablero = Tablero.getInstancia();
 		}
 	@Override
 	public void handle(ActionEvent arg0) {

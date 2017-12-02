@@ -4,7 +4,6 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
@@ -16,13 +15,21 @@ import javafx.scene.layout.VBox;
 import vista.Eventos.BotonInicioTurnoHandler;
 
 public class ContenedorPrincipal extends BorderPane{
+		
+		BarraDeMenu menuBar;
 		VistaTablero vistaTablero; 
 		Canvas canvasCentral;
 		 
 	public ContenedorPrincipal() {
 		this.setEscenaCentral();
 		this.setBotones();
+		this.setMenu();
 }
+
+	private void setMenu() {
+		this.menuBar = new BarraDeMenu();
+		this.setTop(menuBar);
+	}
 
 	private void setEscenaCentral() {
 		canvasCentral = new Canvas(1000, 1000);
