@@ -43,7 +43,6 @@ public class ContenedorPrincipal extends BorderPane{
         Image imagen = new Image("file:src/vista/fondoverde.jpg");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         contenedorCentral.setBackground(new Background(imagenDeFondo));
-        
         this.setCenter(contenedorCentral);
 
 	}
