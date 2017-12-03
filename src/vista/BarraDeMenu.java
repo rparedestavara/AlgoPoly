@@ -11,11 +11,11 @@ public class BarraDeMenu extends MenuBar {
 	public BarraDeMenu() {
 		
 		Menu menuArchivo = new Menu("Archivo");
-        Menu menuVer = new Menu("Ver");
+        Menu menuVer = new Menu("Informacion");
         
        
         MenuItem opcionSalir = new MenuItem("Salir");
-        MenuItem opcionInformacion = new MenuItem("Informacion del juego");
+        MenuItem opcionInformacion = new MenuItem("Reglas del juego");
         
         OpcionSalirEventHandler salirEventHandler = new OpcionSalirEventHandler();
         opcionSalir.setOnAction(salirEventHandler);
