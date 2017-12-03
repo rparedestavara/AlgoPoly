@@ -232,7 +232,7 @@ public class SegundaEntregaIntegracionTest {
 		bNorte.construirCasa();
 		bSur.construirCasa();
 		bNorte.construirHotel();
-		Assert.assertTrue(!bNorte.SePuedeConstruisHoteles());
+		Assert.assertTrue(!bNorte.sePuedeConstruirUnHotel());
 	}
 	@Test
 	public void test6JugadorQuiereConstruirHotelYNoPuedePorNoTenerCasaAlMaximoEnSalta() {
@@ -247,7 +247,7 @@ public class SegundaEntregaIntegracionTest {
 		saltaNorte.construirCasa();
 		saltaSur.construirCasa();
 		saltaNorte.construirHotel();
-		Assert.assertTrue(!saltaNorte.SePuedeConstruisHoteles());
+		Assert.assertTrue(!saltaNorte.sePuedeConstruirUnHotel());
 	}
 	@Test
 	public void test6JugadorQuiereConstruirHotelYNoPuedePorNoTenerCasaAlMaximoEnCordoba() {
@@ -262,7 +262,7 @@ public class SegundaEntregaIntegracionTest {
 		cordobaNorte.construirCasa();
 		cordobaSur.construirCasa();
 		cordobaNorte.construirHotel();
-		Assert.assertTrue(!cordobaNorte.SePuedeConstruisHoteles());
+		Assert.assertTrue(!cordobaNorte.sePuedeConstruirUnHotel());
 	}
 	public void test7VerQueJugadorAlCaerEnBuenosAiresConHotelSuDineroDisminuye5000() {
 		Jugador jugador= new Jugador();

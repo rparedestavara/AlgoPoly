@@ -19,13 +19,17 @@ public abstract class ProvinciaDividida extends Provincia {
 		this.otraMitad = provincia;
 	}
 	
+	public boolean sePuedeConstruirUnaCasa() {
+		return this.cantCasasConstruidas()<2;
+	}
+	
 	public void construirCasa() {
 		this.cantCasas++;
 		this.propietario.modificarDinero(-this.precioDeConstruccionDeCasas);
 	}
 	
 	public void construirHotel() {
-		if(this.SePuedeConstruisHoteles())
+		if(this.sePuedeConstruirUnHotel())
 		{
 			this.cantHoteles++;
 			this.propietario.modificarDinero(-this.precioDeConstruccionDeHotel);
@@ -43,7 +47,7 @@ public abstract class ProvinciaDividida extends Provincia {
 		this.destruirConstrucciones();
 	}
 
-	public boolean SePuedeConstruisHoteles() {
+	public boolean sePuedeConstruirUnHotel() {
 		return (this.cantCasas==2 && this.otraMitad.cantCasas==2);
 	}
 	
@@ -60,7 +64,9 @@ public abstract class ProvinciaDividida extends Provincia {
 		this.cantHoteles=0;
 	}
 	
-
+	public String getNombreOpuesta() {
+		return otraMitad.getNombre();
+	}
 
 }
 

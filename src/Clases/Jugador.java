@@ -53,6 +53,14 @@ public class Jugador {
 
 	}
 	
+	public boolean puedeEdificar() {
+		for(Propiedad propiedad : propiedades) {
+			if(propiedad.sePuedeConstruirUnHotel()) return true;
+			if(propiedad.sePuedeConstruirUnaCasa()) return true;
+		}
+		return false;
+	}
+	
 	public void agregarPropiedad() {
 		this.barriosComprados++;
 	}

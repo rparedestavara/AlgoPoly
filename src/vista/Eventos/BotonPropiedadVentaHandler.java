@@ -7,16 +7,15 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import vista.VistaTablero;
 
-public class BotonPropiedadHandler implements EventHandler<ActionEvent>{
+public class BotonPropiedadVentaHandler implements EventHandler<ActionEvent>{
 	VBox vBox;
 	Propiedad propiedad;
 	Jugador jugador;
 	Button boton;
 	Text mensajePropiedades;
 	
-	public BotonPropiedadHandler(VBox vBoxIn, Button botonIn, Propiedad propiedadIn, 
+	public BotonPropiedadVentaHandler(VBox vBoxIn, Button botonIn, Propiedad propiedadIn, 
 			Jugador jugadorIn, Text mensajePropiedadesIn) {
 		vBox = vBoxIn;
 		propiedad = propiedadIn;

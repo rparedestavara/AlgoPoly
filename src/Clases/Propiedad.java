@@ -15,6 +15,14 @@ public abstract class Propiedad extends Casilla{
 		color = jugador.getColor();
 	}
 	
+	public boolean sePuedeConstruirUnaCasa() {
+		return false;
+	}
+	
+	public boolean sePuedeConstruirUnHotel() {
+		return false;
+	}
+	
 	public boolean esPropietario(Jugador jugadorDesconocido) {
 		return (jugadorDesconocido==this.propietario);
 	}

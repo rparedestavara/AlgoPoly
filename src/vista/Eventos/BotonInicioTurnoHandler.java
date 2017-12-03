@@ -24,6 +24,22 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 		vistaTablero = vistaTableroIn;
 	}
 	
+	private void agregarBotonesVentaPropiedades(VBox vBox, Jugador jugador, ArrayList<Propiedad> propiedades) {
+		Text mensajePropiedades = new Text();
+		if(propiedades.size() > 0) {
+			mensajePropiedades.setText("Vender propiedades:");
+			vBox.getChildren().add(mensajePropiedades);
+		}
+		for(Propiedad propiedad : propiedades) {
+			Button botonPropiedad = new Button();
+			botonPropiedad.setText(propiedad.getNombre());
+			BotonPropiedadVentaHandler botonPropiedadHandler = new BotonPropiedadVentaHandler(vBox, botonPropiedad, 
+					propiedad,jugador, mensajePropiedades);
+			botonPropiedad.setOnAction(botonPropiedadHandler);
+			vBox.getChildren().add(botonPropiedad);
+		}
+	}
+	
 	@Override
 	public void handle(ActionEvent event) { //Falta que de la opcion de construir casas
 		vBox.getChildren().clear();
@@ -40,20 +56,15 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 		vBox.getChildren().add(botonLanzarDados);
 		BotonLanzarDadosHandler botonLanzarDadosHandler = new BotonLanzarDadosHandler(vBox, vistaTablero);
 		botonLanzarDados.setOnAction(botonLanzarDadosHandler);
+		if(jugador.puedeEdificar()) {
+			Button botonEdificar = new Button();
+			botonEdificar.setText("Edificar");
+			BotonEdificarHandler botonEdificarHandler = new BotonEdificarHandler(vBox, jugador, vistaTablero);
+			botonEdificar.setOnAction(botonEdificarHandler);
+			vBox.getChildren().add(botonEdificar);
+		}
 		ArrayList<Propiedad> propiedades = jugador.getPropiedades();
-		Text mensajePropiedades = new Text();
-		if(propiedades.size() > 0) {
-			mensajePropiedades.setText("Vender propiedades:");
-			vBox.getChildren().add(mensajePropiedades);
-		}
-		for(Propiedad propiedad : propiedades) {
-			Button botonPropiedad = new Button();
-			botonPropiedad.setText(propiedad.getNombre());
-			BotonPropiedadHandler botonPropiedadHandler = new BotonPropiedadHandler(vBox, botonPropiedad, 
-					propiedad,jugador, mensajePropiedades);
-			botonPropiedad.setOnAction(botonPropiedadHandler);
-			vBox.getChildren().add(botonPropiedad);
-		}
+		agregarBotonesVentaPropiedades(vBox, jugador, propiedades);
 		vistaTablero.actualizar();
 	}
 

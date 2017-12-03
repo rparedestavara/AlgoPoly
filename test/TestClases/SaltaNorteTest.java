@@ -139,7 +139,7 @@ public class SaltaNorteTest {
 		saltaNorte.construirCasa();
 		saltaSur.construirCasa();
 		saltaNorte.construirHotel();
-		Assert.assertTrue(!saltaNorte.SePuedeConstruisHoteles());
+		Assert.assertTrue(!saltaNorte.sePuedeConstruirUnHotel());
 	}
 	
 	@Test

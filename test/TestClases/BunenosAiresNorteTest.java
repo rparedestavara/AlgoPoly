@@ -140,7 +140,7 @@ public class BunenosAiresNorteTest {
 		bNorte.construirCasa();
 		bSur.construirCasa();
 		bNorte.construirHotel();
-		Assert.assertTrue(!bNorte.SePuedeConstruisHoteles());
+		Assert.assertTrue(!bNorte.sePuedeConstruirUnHotel());
 	}
 	
 	@Test

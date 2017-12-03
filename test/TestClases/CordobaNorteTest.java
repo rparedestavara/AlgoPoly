@@ -139,7 +139,7 @@ public class CordobaNorteTest {
 		cordobaNorte.construirCasa();
 		cordobaSur.construirCasa();
 		cordobaNorte.construirHotel();
-		Assert.assertTrue(!cordobaNorte.SePuedeConstruisHoteles());
+		Assert.assertTrue(!cordobaNorte.sePuedeConstruirUnHotel());
 	}
 	
 	@Test
