@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import org.junit.Assert;
 import org.junit.Test;
 
+import Clases.AlgoPoly;
 import Clases.AvanceDinamico;
 import Clases.Carcel;
 import Clases.Casilla;
@@ -74,7 +75,7 @@ public class PrimeraEntregaIntegrationTest {
 		carcel.entrar(jugador);
 		carcel.aumentarTurno(jugador);
 		jugador.pagarFianzaDeCarcel();
-		Assert.assertTrue(jugador.puedeHacerAcciones());
+		Assert.assertTrue(AlgoPoly.getInstancia().puedeHacerAcciones(jugador));
 	}
 	
 	@Test
@@ -86,7 +87,7 @@ public class PrimeraEntregaIntegrationTest {
 		carcel.aumentarTurno(jugador);
 		carcel.aumentarTurno(jugador);
 		carcel.aumentarTurno(jugador);
-		Assert.assertFalse(jugador.puedeHacerAcciones());
+		Assert.assertFalse(AlgoPoly.getInstancia().puedeHacerAcciones(jugador));
 	}
 	@Test
 	public void Test07JugadorCaeEnPoliciaVaALaCarcelYNoPuedeMoverse(){

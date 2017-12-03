@@ -55,6 +55,7 @@ public class TerceraEntregaIntegrationTest {
 		jugadores.add(jugador1);
 		jugadores.add(jugador2);
 		jugadores.add(jugador3);
+		AlgoPoly.getInstancia().agregarJugadores(jugadores);
 		tablero.agregarJugadores(jugadores);
 		Turno turno = new Turno(jugadores);
 		AlgoPoly.getInstancia().agregarTurno(turno);
@@ -85,7 +86,7 @@ public class TerceraEntregaIntegrationTest {
 		double dineroInicial = jugador1.getDinero();
 		jugador1.modificarDinero(-dineroInicial -1);
 		jugador2.modificarDinero(-dineroInicial -1);
-		Assert.assertTrue(turno.hayGanador());
+		Assert.assertNotNull(AlgoPoly.getInstancia().hayGanador());
 	}
 	
 }

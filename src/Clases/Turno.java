@@ -19,7 +19,9 @@ public class Turno {
 	}
 	
 	public Jugador aQuienLeToca() {
+		
 		return jugadores.get(posicionJugadorActual);
+		
 	}
 	
 	private boolean juegaElMismoJugador() {
@@ -32,8 +34,14 @@ public class Turno {
 		if(posicionJugadorActual >= jugadores.size()) {
 			posicionJugadorActual = 0;
 		}
+		this.turnoEnCarcel(jugadores.get(posicionJugadorActual));
 	}
 	
+	private void turnoEnCarcel(Jugador jugador) {
+		if(Carcel.getInstancia().enCarcel(jugador)) 
+			Carcel.getInstancia().aumentarTurno(jugador);
+	}
+
 	public Jugador proximoTurno() {
 		if(juegaElMismoJugador()) {
 			jugoDosVeces = true;
@@ -45,18 +53,11 @@ public class Turno {
 		return jugadores.get(posicionJugadorActual);
 	}
 	
-	public void removerJugador(Jugador jugador) {
-		jugadores.remove(jugador);
-		if(jugadores.size() == 1) {
-			hayGanador = true;
-		}
-	}
+	
 	
 	public boolean estaJugando(Jugador jugador) {
 		return jugadores.contains(jugador);
 	}
 	
-	public boolean hayGanador() {
-		return hayGanador;
-	}
+	
 }

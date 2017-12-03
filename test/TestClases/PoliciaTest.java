@@ -4,6 +4,7 @@ package TestClases;
 import org.junit.Assert;
 import org.junit.Test;
 
+import Clases.AlgoPoly;
 import Clases.Carcel;
 import Clases.Jugador;
 import Clases.Policia;
@@ -15,7 +16,7 @@ public class PoliciaTest {
 		Jugador jugador = new Jugador();
 		Policia policia = Policia.getInstancia();
 		policia.entrar(jugador);
-		Assert.assertFalse(jugador.puedeHacerAcciones());
+		Assert.assertFalse(AlgoPoly.getInstancia().puedeHacerAcciones(jugador));
 	}
 	
 	@Test

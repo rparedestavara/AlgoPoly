@@ -30,7 +30,7 @@ public class Carcel extends Casilla{
 	}
 
 	public void aumentarTurno(Jugador jugador) {
-		if(this.enCarcel(jugador)&&this.jugadores.get(jugador)<3) {
+		if((this.enCarcel(jugador)) && (this.jugadores.get(jugador) < 3)) {
 			this.jugadores.put(jugador,this.jugadores.get(jugador)+1);}
 		else {
 			this.jugadores.remove(jugador);

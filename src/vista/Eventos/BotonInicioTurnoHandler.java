@@ -14,7 +14,7 @@ import javafx.scene.text.Text;
 import vista.VistaTablero;
 
 public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{ 
-	//Muestra las propiedades a vender y muestra un boton lanzar dados, cuando lo precionan termina de vender y pasa a lanzar los dados
+	//Muestra las propiedades a vender y muestra un boton lanzar dados, cuando lo presionan termina de vender y pasa a lanzar los dados
 	private VBox vBox;
 	private VistaTablero vistaTablero;
 
@@ -48,7 +48,7 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 		Text nombreJugador=new Text();
 		nombreJugador.setText("Turno del jugador: " + jugador.getNombre());
 		vBox.getChildren().add(nombreJugador);
-		
+				
 		Button botonLanzarDados = new Button();
 		botonLanzarDados.setText("lanzar Dados");
 		vBox.getChildren().add(botonLanzarDados);

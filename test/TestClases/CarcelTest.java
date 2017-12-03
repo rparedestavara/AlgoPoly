@@ -4,6 +4,7 @@ package TestClases;
 import org.junit.Assert;
 import org.junit.Test;
 
+import Clases.AlgoPoly;
 import Clases.Carcel;
 import Clases.Jugador;
 
@@ -14,7 +15,7 @@ public class CarcelTest {
 		Jugador jugador = new Jugador();
 		Carcel carcel = Carcel.getInstancia();
 		carcel.entrar(jugador);
-		Assert.assertFalse(jugador.puedeHacerAcciones());
+		Assert.assertFalse(AlgoPoly.getInstancia().puedeHacerAcciones(jugador));
 	}
 	
 	@Test
@@ -43,7 +44,7 @@ public class CarcelTest {
 		carcel.aumentarTurno(jugador);
 		carcel.aumentarTurno(jugador);
 		jugador.pagarFianzaDeCarcel();
-		Assert.assertTrue(jugador.puedeHacerAcciones());
+		Assert.assertTrue(AlgoPoly.getInstancia().puedeHacerAcciones(jugador));
 	}
 	
 	
@@ -55,7 +56,7 @@ public class CarcelTest {
 		carcel.aumentarTurno(jugador);
 		carcel.aumentarTurno(jugador);
 		carcel.aumentarTurno(jugador);
-		Assert.assertFalse( jugador.puedeHacerAcciones());
+		Assert.assertFalse( AlgoPoly.getInstancia().puedeHacerAcciones(jugador));
 	}
 	
 	@Test
@@ -67,7 +68,7 @@ public class CarcelTest {
 		carcel.aumentarTurno(jugador);
 		carcel.aumentarTurno(jugador);
 		carcel.aumentarTurno(jugador);
-		Assert.assertTrue( jugador.puedeHacerAcciones());
+		Assert.assertTrue( AlgoPoly.getInstancia().puedeHacerAcciones(jugador));
 	}
 
 }

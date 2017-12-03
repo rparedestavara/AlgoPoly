@@ -15,7 +15,7 @@ public class Jugador {
 	private String nombre;
 	
 	public Jugador() {
-		this.dineroActual=100000;
+		this.dineroActual = 100000;
 		this.barriosComprados = 0;
 		this.propiedades = new ArrayList<Propiedad>();
 		color = Color.BLACK;
@@ -36,8 +36,7 @@ public class Jugador {
 	public void modificarDinero(double d) {
 		while (d + dineroActual < 0) {
 			if(propiedades.size() == 0) {
-				Turno turno = AlgoPoly.getInstancia().getTurno();
-				turno.removerJugador(this);
+				AlgoPoly.getInstancia().removerJugador(this);
 				break;
 			}
 			Propiedad propiedad = propiedades.get(0);
@@ -46,11 +45,7 @@ public class Jugador {
 		dineroActual += d;
 	}
 	
-	public boolean puedeHacerAcciones() {
-		Carcel carcel = Carcel.getInstancia();
-		return (!carcel.enCarcel(this));
-
-	}
+	
 	
 	public boolean puedeEdificar() {
 		for(Propiedad propiedad : propiedades) {
@@ -68,7 +63,7 @@ public class Jugador {
 
 	public boolean puedePagarFianzaDeCarcel() {
 		Carcel carcel = Carcel.getInstancia();
-		return ((carcel.turnosEnCarcel(this)>=1) && dineroActual >= 45000);
+		return ((carcel.turnosEnCarcel(this) >= 1) && (dineroActual >= 45000));
 	}
 
 	public void pagarFianzaDeCarcel() throws SaldoInsuficienteException {

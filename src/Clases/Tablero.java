@@ -82,7 +82,7 @@ public class Tablero {
 
 	
 	public void mover(Jugador jugador, double pasos) throws RuntimeException {
-		if(!jugador.puedeHacerAcciones()) throw new NoPuedeJugarException(); 
+		if(!AlgoPoly.getInstancia().puedeHacerAcciones(jugador)) throw new NoPuedeJugarException(); 
 		int nuevaPosicion = posicionesJugadores.get(jugador); 
 		nuevaPosicion += pasos;
 		nuevaPosicion = this.ajustarPosicionAlRangoDelTablero(nuevaPosicion);
