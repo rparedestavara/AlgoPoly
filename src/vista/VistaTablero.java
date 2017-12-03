@@ -5,6 +5,7 @@ import java.util.Set;
 
 import Clases.Casilla;
 import Clases.Jugador;
+import Clases.Provincia;
 import Clases.Tablero;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -35,6 +36,19 @@ public class VistaTablero {
 		}
 	}
 	
+	private void dibujarEdificaciones(Provincia provincia, int x, int y) {
+		int posIndividual = -15;
+		for(int i = 0; i < provincia.cantCasas(); i++) {
+			canvas.getGraphicsContext2D().setFill(Color.GREEN);
+			canvas.getGraphicsContext2D().fillRect(x + 50 + posIndividual, y + 80, 8, 8);
+			posIndividual += 15;
+		}
+		if(provincia.cantHoteles() == 0) {
+			canvas.getGraphicsContext2D().setFill(Color.RED);
+			canvas.getGraphicsContext2D().fillRect(x + 50 + posIndividual, y + 80, 8, 8);
+		}
+	}
+	
 	public void actualizar() {
 		int posX;
 		int posY;
@@ -55,6 +69,9 @@ public class VistaTablero {
 			gc.setFill(Color.BLACK);
 			gc.fillText(casilla.getNombre(), posX + 40, posY + 40);
 			dibujarJugador(i, posX, posY);
+			if(casilla instanceof Provincia) {
+				dibujarEdificaciones((Provincia)casilla, posX, posY);
+			}
 		}
 }
 

@@ -18,6 +18,14 @@ public abstract class Provincia extends Propiedad {
 		return this.propietario;
 	}
 	
+	public int cantCasas() {
+		return cantCasas;
+	}
+	
+	public int cantHoteles() {
+		return 0;
+	}
+	
 	public boolean sePuedeConstruirUnaCasa() {
 		return this.cantCasasConstruidas()<1;
 	}
