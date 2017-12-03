@@ -43,7 +43,7 @@ public class VistaTablero {
 			canvas.getGraphicsContext2D().fillRect(x + 50 + posIndividual, y + 80, 8, 8);
 			posIndividual += 15;
 		}
-		if(provincia.cantHoteles() == 0) {
+		if(provincia.cantHoteles() == 1) {
 			canvas.getGraphicsContext2D().setFill(Color.RED);
 			canvas.getGraphicsContext2D().fillRect(x + 50 + posIndividual, y + 80, 8, 8);
 		}

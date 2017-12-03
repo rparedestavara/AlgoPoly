@@ -2,9 +2,9 @@ package vista.Eventos;
 
 import java.util.ArrayList;
 
+import Clases.AlgoPoly;
 import Clases.Jugador;
 import Clases.Propiedad;
-import Clases.Tablero;
 import Clases.Turno;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -12,7 +12,6 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import vista.VistaTablero;
-import vista.Eventos.BotonLanzarDadosHandler;
 
 public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{ 
 	//Muestra las propiedades a vender y muestra un boton lanzar dados, cuando lo precionan termina de vender y pasa a lanzar los dados
@@ -43,9 +42,8 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 	@Override
 	public void handle(ActionEvent event) { //Falta que de la opcion de construir casas
 		vBox.getChildren().clear();
-		Tablero tablero = Tablero.getInstancia();
 		
-		Turno turno = tablero.getTurno();
+		Turno turno = AlgoPoly.getInstancia().getTurno();
 		Jugador jugador = turno.aQuienLeToca();
 		Text nombreJugador=new Text();
 		nombreJugador.setText("Turno del jugador: " + jugador.getNombre());

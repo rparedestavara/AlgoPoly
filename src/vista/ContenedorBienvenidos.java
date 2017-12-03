@@ -75,9 +75,6 @@ public class ContenedorBienvenidos  extends VBox {
 	         
 	    }	
 	 
-	    	public boolean esValido(TextField nombre) {
-				return(nombre.getText().trim() != "");
-	    	}
 
 	
 }

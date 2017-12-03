@@ -2,10 +2,10 @@ package vista.Eventos;
 
 import java.util.ArrayList;
 
+import Clases.AlgoPoly;
 import Clases.Jugador;
 import Clases.Propiedad;
 import Clases.Provincia;
-import Clases.Tablero;
 import Clases.Turno;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -28,10 +28,9 @@ public class BotonEdificarHandler implements EventHandler<ActionEvent>{
 	@Override
 	public void handle(ActionEvent event) {
 		vBox.getChildren().clear();
-		Tablero tablero = Tablero.getInstancia();
 		ArrayList<Propiedad> propiedades = jugador.getPropiedades();
 		
-		Turno turno = tablero.getTurno();
+		Turno turno = AlgoPoly.getInstancia().getTurno();
 		Jugador jugador = turno.aQuienLeToca();
 		Text nombreJugador=new Text();
 		nombreJugador.setText("Turno del jugador: " + jugador.getNombre());

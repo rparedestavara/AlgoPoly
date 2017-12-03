@@ -2,6 +2,7 @@ package vista.Eventos;
 
 import java.util.ArrayList;
 
+import Clases.AlgoPoly;
 import Clases.Jugador;
 import Clases.Tablero;
 import Clases.Turno;
@@ -44,7 +45,6 @@ public class BotonEntrarEventHandler implements EventHandler<ActionEvent> {
 			return;
 		}
 		Scene escenaPrincipal = new Scene(this.proximaEscena, 400, 500);
-		System.out.println(nomJugador3.getText());
 	    stage.setScene(escenaPrincipal);
 		stage.setFullScreenExitHint("Bienvenidos Al juego");
 		stage.setFullScreen(true);    
@@ -60,7 +60,7 @@ public class BotonEntrarEventHandler implements EventHandler<ActionEvent> {
 		jugadores.add(jugador3);
 		tablero.agregarJugadores(jugadores);
 		Turno turno = new Turno(jugadores);
-		tablero.agregarTurno(turno);
+		AlgoPoly.getInstancia().agregarTurno(turno);
 	}
 	
 	public boolean esValido(TextField nombre) {

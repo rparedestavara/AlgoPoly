@@ -7,6 +7,7 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
+import Clases.AlgoPoly;
 import Clases.BSSur;
 import Clases.Dados;
 import Clases.Jugador;
@@ -56,7 +57,7 @@ public class TerceraEntregaIntegrationTest {
 		jugadores.add(jugador3);
 		tablero.agregarJugadores(jugadores);
 		Turno turno = new Turno(jugadores);
-		tablero.agregarTurno(turno);
+		AlgoPoly.getInstancia().agregarTurno(turno);
 		
 		double dineroInicial = jugador1.getDinero();
 		jugador1.modificarDinero(-dineroInicial);
@@ -79,7 +80,7 @@ public class TerceraEntregaIntegrationTest {
 		jugadores.add(jugador3);
 		tablero.agregarJugadores(jugadores);
 		Turno turno = new Turno(jugadores);
-		tablero.agregarTurno(turno);
+		AlgoPoly.getInstancia().agregarTurno(turno);
 		
 		double dineroInicial = jugador1.getDinero();
 		jugador1.modificarDinero(-dineroInicial -1);

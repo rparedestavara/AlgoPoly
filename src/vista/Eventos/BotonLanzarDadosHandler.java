@@ -1,5 +1,6 @@
 package vista.Eventos;
 
+import Clases.AlgoPoly;
 import Clases.Dados;
 import Clases.Jugador;
 import Clases.Tablero;
@@ -24,7 +25,7 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 	public void handle(ActionEvent event) { //tendria que ver lo de la carcel
 		Tablero tablero = Tablero.getInstancia();
 		Dados dados = Dados.getInstance();
-		Turno turno = tablero.getTurno();
+		Turno turno = AlgoPoly.getInstancia().getTurno();
 		Jugador jugador = turno.aQuienLeToca();
 		Text nombreJugador=new Text();
 		nombreJugador.setText("Turno del jugador: " + jugador.getNombre());

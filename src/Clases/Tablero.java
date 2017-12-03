@@ -33,7 +33,6 @@ public class Tablero {
 	private ArrayList<int[]> posicionesVista;
 	private static final int CANTIDAD_CASILLAS = 20;
 	private static final int POSICION_CARCEL = 5;
-	public Turno turno;
 	
 	private int ajustarPosicionAlRangoDelTablero(int posicion) {
 		while(posicion > (CANTIDAD_CASILLAS - 1)) { 
@@ -82,16 +81,16 @@ public class Tablero {
 	}
 
 	
-	public void mover(Jugador jugador, double d) throws RuntimeException {
+	public void mover(Jugador jugador, double pasos) throws RuntimeException {
 		if(!jugador.puedeHacerAcciones()) throw new NoPuedeJugarException(); 
 		int nuevaPosicion = posicionesJugadores.get(jugador); 
-		nuevaPosicion += d;
+		nuevaPosicion += pasos;
 		nuevaPosicion = this.ajustarPosicionAlRangoDelTablero(nuevaPosicion);
 		posicionesJugadores.put(jugador, nuevaPosicion);
 	}
 
 	
-	public void mandarALaCarcel(Jugador jugador) {
+	public void moverALaCarcel(Jugador jugador) {
 		posicionesJugadores.put(jugador, POSICION_CARCEL);
 		Carcel carcel = Carcel.getInstancia();
 		carcel.entrar(jugador);
@@ -136,15 +135,8 @@ public class Tablero {
 		ProvinciaDividida.AgregarOpuestos(saltaNorte, saltaSur);
 	}
 	
-	public void agregarTurno(Turno turnoIn) {
-		turno = turnoIn;
-	}
 	
-	public Turno getTurno() {
-		return turno;
-	}
-	
-	public ArrayList<int[]> posicionesCasillasVista() { //public?
+	private ArrayList<int[]> posicionesCasillasVista() { 
 		ArrayList<int[]> posiciones = new ArrayList<int[]>();
 		Direccion direccion = new Direccion();
 		int dirX = direccion.direccionActualX();

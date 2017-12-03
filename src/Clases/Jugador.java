@@ -36,8 +36,7 @@ public class Jugador {
 	public void modificarDinero(double d) {
 		while (d + dineroActual < 0) {
 			if(propiedades.size() == 0) {
-				Tablero tablero = Tablero.getInstancia();
-				Turno turno = tablero.getTurno();
+				Turno turno = AlgoPoly.getInstancia().getTurno();
 				turno.removerJugador(this);
 				break;
 			}
