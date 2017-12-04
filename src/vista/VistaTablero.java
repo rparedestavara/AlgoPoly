@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Set;
 
 import Clases.Casilla;
+import Clases.Direccion;
 import Clases.Jugador;
 import Clases.Provincia;
 import Clases.Tablero;
@@ -16,10 +17,32 @@ public class VistaTablero {
 	private Tablero tablero;
 	Canvas canvas;
 	private static final int CANTIDAD_CASILLAS = 20;
+	private ArrayList<int[]> posicionesVista;
 	
 	public VistaTablero(Canvas canvas) {
 		this.tablero = Tablero.getInstancia();
 		this.canvas = canvas;
+		posicionesVista = posicionesCasillas();
+	}
+	
+	private ArrayList<int[]> posicionesCasillas() { 
+		ArrayList<int[]> posiciones = new ArrayList<int[]>();
+		Direccion direccion = new Direccion();
+		int dirX = direccion.direccionActualX();
+		int dirY = direccion.direccionActualY();
+		int paso = 120;
+		int[] acumuladorPosiciones = {0,600};
+		for(int i = 0; i < CANTIDAD_CASILLAS; i++ ) {
+			if(i % 5 == 0 && i > 0) {
+				direccion.rotarDerecha();
+				dirX = direccion.direccionActualX();
+				dirY = direccion.direccionActualY();
+			}
+			acumuladorPosiciones[0] += paso * dirX;
+			acumuladorPosiciones[1] += paso * dirY;
+			posiciones.add(acumuladorPosiciones.clone());
+		}
+		return posiciones;
 	}
 	
 	private void dibujarJugador(int pos,int x,int y) {
@@ -53,7 +76,6 @@ public class VistaTablero {
 		int posX;
 		int posY;
 		Casilla casilla;
-		ArrayList<int[]> posicionesVista = tablero.getPosicionesVista();
 		ArrayList<Casilla> casillasTablero = tablero.getCasillasTablero();
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 		gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());

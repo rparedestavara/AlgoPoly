@@ -30,7 +30,6 @@ public class Tablero {
 	private static Tablero INSTANCIA;
 	private HashMap<Jugador,Integer> posicionesJugadores;
 	private ArrayList<Casilla> casillasTablero;
-	private ArrayList<int[]> posicionesVista;
 	private static final int CANTIDAD_CASILLAS = 20;
 	private static final int POSICION_CARCEL = 5;
 	
@@ -47,7 +46,6 @@ public class Tablero {
 	private Tablero() {
 		posicionesJugadores = new HashMap<Jugador,Integer>();
 		inicializarCasillasTablero();
-		posicionesVista = posicionesCasillasVista();
 	}
 
 	public static Tablero getInstancia() {
@@ -135,43 +133,8 @@ public class Tablero {
 		ProvinciaDividida.AgregarOpuestos(saltaNorte, saltaSur);
 	}
 	
-	
-	private ArrayList<int[]> posicionesCasillasVista() { 
-		ArrayList<int[]> posiciones = new ArrayList<int[]>();
-		Direccion direccion = new Direccion();
-		int dirX = direccion.direccionActualX();
-		int dirY = direccion.direccionActualY();
-		int paso = 120;
-		int[] acumuladorPosiciones = {0,600};
-		for(int i = 0; i < CANTIDAD_CASILLAS; i++ ) {
-			if(i % 5 == 0 && i > 0) {
-				direccion.rotarDerecha();
-				dirX = direccion.direccionActualX();
-				dirY = direccion.direccionActualY();
-			}
-			acumuladorPosiciones[0] += paso * dirX;
-			acumuladorPosiciones[1] += paso * dirY;
-			posiciones.add(acumuladorPosiciones.clone());
-		}
-		return posiciones;
-	}
-	
 	public ArrayList<Casilla> getCasillasTablero() {
 		return casillasTablero;
-	}
-	
-	public ArrayList<int[]> getPosicionesVista() {
-		return posicionesVista;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	}	
 
 }
