@@ -33,8 +33,8 @@ public class Jugador {
 		return color;
 	}
 	
-	public void modificarDinero(double d) {
-		while (d + dineroActual < 0) {
+	public void modificarDinero(double dinero) {
+		while (dinero + dineroActual < 0) {
 			if(propiedades.size() == 0) {
 				AlgoPoly.getInstancia().removerJugador(this);
 				break;
@@ -42,7 +42,7 @@ public class Jugador {
 			Propiedad propiedad = propiedades.get(0);
 			propiedad.vender();
 		}
-		dineroActual += d;
+		dineroActual += dinero;
 	}
 	
 	

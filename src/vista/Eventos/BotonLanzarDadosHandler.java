@@ -11,7 +11,6 @@ import excepciones.NoPuedeJugarException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import vista.VistaTablero;
@@ -30,13 +29,14 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 		Tablero tablero = Tablero.getInstancia();
 		Dados dados = Dados.getInstance();
 		Turno turno = AlgoPoly.getInstancia().getTurno();
-		TextField infoDados=new TextField();
+		Text infoDados=new Text();
 		Jugador jugador = turno.aQuienLeToca();
 		Text nombreJugador=new Text();
 		nombreJugador.setText("Turno del jugador: " + jugador.getNombre());
 		vBox.getChildren().add(nombreJugador);
 		dados.lanzar();
 		infoDados.setText("El resultado de los dados es "+ dados.getResultado());
+		infoDados.autosize();
 		Button pagarFianza = null;
 		try {
 			tablero.jugada(turno.aQuienLeToca() , dados.getResultado());
@@ -54,14 +54,16 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 		vBox.getChildren().add(nombreJugador);
 		vBox.getChildren().add(botonFinTurno);
 		vBox.getChildren().add(infoDados);
-		TextField infoCasilla=new TextField();
+		Text infoCasilla = new Text();
 		infoCasilla.setText(" Usted Cayo En " + tablero.getCasillasTablero().get(tablero.getPosicion(jugador)).getNombre());
+		infoCasilla.autosize();
 		vBox.getChildren().add(infoCasilla);
 		BotonInicioTurnoHandler botonFinVentaHandler = new BotonInicioTurnoHandler(vBox, vistaTablero);
 		botonFinTurno.setOnAction(botonFinVentaHandler);
-		TextField casas = new TextField();
-		casas.setEditable(false);
-		casas.setText("Cantidad de casas: "+jugador.getCantidadDePropiedades());
+		Text casas = new Text();
+		casas.setText("Cantidad de propiedades: " + jugador.getCantidadDePropiedades());
+		casas.autosize();
+		vBox.getChildren().add(casas);
 		vistaTablero.actualizar();
 	}
 
