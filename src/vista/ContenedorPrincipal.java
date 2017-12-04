@@ -53,6 +53,7 @@ public class ContenedorPrincipal extends BorderPane{
 		VBox contenedorVertical = new VBox(botonInicio);
 		contenedorVertical.setSpacing(20);
 		contenedorVertical.setPadding(new Insets(15));
+		contenedorVertical.setMinWidth(220);
 		BotonInicioTurnoHandler botonInicioTurnoHandler = new BotonInicioTurnoHandler(contenedorVertical, vistaTablero);
 		botonInicio.setOnAction(botonInicioTurnoHandler);
 		
