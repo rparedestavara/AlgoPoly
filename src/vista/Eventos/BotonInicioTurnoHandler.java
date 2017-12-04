@@ -14,7 +14,11 @@ import javafx.scene.text.Text;
 import vista.VistaTablero;
 
 public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{ 
-	//Muestra las propiedades a vender y muestra un boton lanzar dados, cuando lo presionan termina de vender y pasa a lanzar los dados
+	/*Muestra las propiedades a vender y muestra un boton lanzar dados.
+	 * Cuando lo presionan termina de vender y pasa a lanzar los dados
+	 */
+	
+	
 	private VBox vBox;
 	private VistaTablero vistaTablero;
 
@@ -44,9 +48,11 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 		
 		Turno turno = AlgoPoly.getInstancia().getTurno();
 		Jugador jugador = turno.aQuienLeToca();
-		Text nombreJugador=new Text();
+		Text nombreJugador = new Text();
 		nombreJugador.setText("Turno del jugador: " + jugador.getNombre());
+		Text dineroJugador = new Text("Dinero: " + Double.toString(jugador.getDinero()));
 		vBox.getChildren().add(nombreJugador);
+		vBox.getChildren().add(dineroJugador);
 				
 		Button botonLanzarDados = new Button();
 		botonLanzarDados.setText("lanzar Dados");
