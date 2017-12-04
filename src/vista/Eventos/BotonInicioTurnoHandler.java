@@ -23,7 +23,7 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 		vistaTablero = vistaTableroIn;
 	}
 	
-	private void agregarBotonesVentaPropiedades(VBox vBox, Jugador jugador, ArrayList<Propiedad> propiedades) {
+	private void agregarBotonesVentaPropiedades(VBox vBox, Jugador jugador, ArrayList<Propiedad> propiedades,Turno turno) {
 		Text mensajePropiedades = new Text();
 		if(propiedades.size() > 0) {
 			mensajePropiedades.setText("Vender propiedades:");
@@ -32,8 +32,7 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 		for(Propiedad propiedad : propiedades) {
 			Button botonPropiedad = new Button();
 			botonPropiedad.setText(propiedad.getNombre());
-			BotonPropiedadVentaHandler botonPropiedadHandler = new BotonPropiedadVentaHandler(vBox, botonPropiedad, 
-					propiedad,jugador, mensajePropiedades);
+			BotonPropiedadVentaHandler botonPropiedadHandler = new BotonPropiedadVentaHandler(vBox, botonPropiedad,propiedad,jugador, mensajePropiedades,turno);
 			botonPropiedad.setOnAction(botonPropiedadHandler);
 			vBox.getChildren().add(botonPropiedad);
 		}
@@ -62,7 +61,7 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 			vBox.getChildren().add(botonEdificar);
 		}
 		ArrayList<Propiedad> propiedades = jugador.getPropiedades();
-		agregarBotonesVentaPropiedades(vBox, jugador, propiedades);
+		agregarBotonesVentaPropiedades(vBox, jugador, propiedades,turno);
 		vistaTablero.actualizar();
 	}
 

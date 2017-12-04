@@ -1,5 +1,6 @@
 package Clases;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -8,6 +9,7 @@ public class Turno {
 	int posicionJugadorActual;
 	boolean jugoDosVeces;
 	boolean hayGanador;
+	private ArrayList<Propiedad> propiedadesVendidas;
 	
 	
 	public Turno(List<Jugador> jugadoresIn) {
@@ -16,6 +18,7 @@ public class Turno {
 		posicionJugadorActual = 0;
 		jugoDosVeces = false;
 		hayGanador = false;
+		this.propiedadesVendidas=new ArrayList<Propiedad>();
 	}
 	
 	public Jugador aQuienLeToca() {
@@ -58,6 +61,17 @@ public class Turno {
 	public boolean estaJugando(Jugador jugador) {
 		return jugadores.contains(jugador);
 	}
+
+	public void agregarPropiedadVendidaDeJugador(Propiedad propiedad) {
+		this.propiedadesVendidas.add(propiedad);
+	}
 	
-	
+	public ArrayList<Propiedad> propiedadesVendidas() {
+		ArrayList<Propiedad> propiedades=this.propiedadesVendidas;
+		return propiedades ;
+	}
+
+	public void borrarPropiedades() {
+		this.propiedadesVendidas.clear();
+	}
 }
