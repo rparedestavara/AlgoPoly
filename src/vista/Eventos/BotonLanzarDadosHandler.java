@@ -1,12 +1,10 @@
 package vista.Eventos;
 
-import java.util.ArrayList;
 
 import Clases.AlgoPoly;
 import Clases.Carcel;
 import Clases.Dados;
 import Clases.Jugador;
-import Clases.Propiedad;
 import Clases.Tablero;
 import Clases.Turno;
 import excepciones.NoPuedeJugarException;
@@ -64,22 +62,7 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 		TextField casas = new TextField();
 		casas.setEditable(false);
 		casas.setText("Cantidad de casas: "+jugador.getCantidadDePropiedades());
-		this.mostrarPropiedadesVendidas(turno);
 		vistaTablero.actualizar();
-	}
-
-	private void mostrarPropiedadesVendidas(Turno turno) {
-		ArrayList<Propiedad> vendidas = turno.propiedadesVendidas();
-		if(vendidas.size()>0) {
-		Text text=new Text();
-		text.setText("Usted Vendio: ");
-		for(int i=0;i<vendidas.size();++i) {
-			Button PropiedadVendida = new Button();
-			PropiedadVendida.setText("Se Vendio la propieda: "+ vendidas.get(i).getNombre());
-			vBox.getChildren().add(PropiedadVendida);
-			}
-		turno.borrarPropiedades();
-		}
 	}
 
 	private Button crearBotonFianza(Jugador jugador) {

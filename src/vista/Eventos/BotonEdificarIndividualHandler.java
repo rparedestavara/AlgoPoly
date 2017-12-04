@@ -8,6 +8,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import vista.VistaTablero;
 
 public class BotonEdificarIndividualHandler implements EventHandler<ActionEvent>{
 	VBox vBox;
@@ -15,14 +16,16 @@ public class BotonEdificarIndividualHandler implements EventHandler<ActionEvent>
 	Jugador jugador;
 	Button boton;
 	Text mensajeEdificar;
+	 VistaTablero vistaTablero;
 	
 	public BotonEdificarIndividualHandler(VBox vBoxIn, Button botonIn, Provincia provinciaIn, 
-			Jugador jugadorIn, Text mensajeEdificarIn) {
+			Jugador jugadorIn, Text mensajeEdificarIn, VistaTablero vistaTableroIn) {
 		vBox = vBoxIn;
 		provincia = provinciaIn;
 		jugador = jugadorIn;
 		boton = botonIn;
 		mensajeEdificar = mensajeEdificarIn;
+		vistaTablero = vistaTableroIn;
 	}
 	
 	private void agregarBotonesHoteles() {
@@ -33,9 +36,9 @@ public class BotonEdificarIndividualHandler implements EventHandler<ActionEvent>
 		vBox.getChildren().add(botonHotelPropio);
 		vBox.getChildren().add(botonHotelOpuesto);
 		BotonEdificarIndividualHandler botonHotelPropioHandler = new BotonEdificarIndividualHandler(vBox, botonHotelPropio, 
-				provincia, jugador, mensajeEdificar);
+				provincia, jugador, mensajeEdificar, vistaTablero);
 		BotonEdificarIndividualHandler botonOpuestoHandler = new BotonEdificarIndividualHandler(vBox, botonHotelOpuesto, 
-				provincia, jugador, mensajeEdificar);
+				provincia, jugador, mensajeEdificar, vistaTablero);
 		botonHotelPropio.setOnAction(botonHotelPropioHandler);
 		botonHotelOpuesto.setOnAction(botonOpuestoHandler);
 	}
@@ -59,6 +62,7 @@ public class BotonEdificarIndividualHandler implements EventHandler<ActionEvent>
 		if(!jugador.puedeEdificar()) {
 			vBox.getChildren().remove(mensajeEdificar);
 		}
+		vistaTablero.actualizar();
 	}
 	
 }

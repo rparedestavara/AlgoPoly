@@ -58,7 +58,7 @@ public class BotonEdificarHandler implements EventHandler<ActionEvent>{
 				continue;
 			}
 			BotonEdificarIndividualHandler botonEdificarIndividualHandler = new BotonEdificarIndividualHandler(vBox, botonEdificarIndividual, 
-					(Provincia)propiedad, jugador, mensajeEdificacion);
+					(Provincia)propiedad, jugador, mensajeEdificacion, vistaTablero);
 			botonEdificarIndividual.setOnAction(botonEdificarIndividualHandler);
 			vBox.getChildren().add(botonEdificarIndividual);
 		}

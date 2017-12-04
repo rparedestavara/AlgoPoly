@@ -36,14 +36,14 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 		for(Propiedad propiedad : propiedades) {
 			Button botonPropiedad = new Button();
 			botonPropiedad.setText(propiedad.getNombre());
-			BotonPropiedadVentaHandler botonPropiedadHandler = new BotonPropiedadVentaHandler(vBox, botonPropiedad,propiedad,jugador, mensajePropiedades,turno);
+			BotonPropiedadVentaHandler botonPropiedadHandler = new BotonPropiedadVentaHandler(vBox, botonPropiedad,propiedad,jugador, mensajePropiedades,turno,vistaTablero);
 			botonPropiedad.setOnAction(botonPropiedadHandler);
 			vBox.getChildren().add(botonPropiedad);
 		}
 	}
 	
 	@Override
-	public void handle(ActionEvent event) { //Falta que de la opcion de construir casas
+	public void handle(ActionEvent event) {
 		vBox.getChildren().clear();
 		
 		Turno turno = AlgoPoly.getInstancia().getTurno();
