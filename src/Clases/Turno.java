@@ -37,13 +37,8 @@ public class Turno {
 		if(posicionJugadorActual >= jugadores.size()) {
 			posicionJugadorActual = 0;
 		}
-		this.turnoEnCarcel(jugadores.get(posicionJugadorActual));
 	}
 	
-	private void turnoEnCarcel(Jugador jugador) {
-		if(Carcel.getInstancia().enCarcel(jugador)) 
-			Carcel.getInstancia().aumentarTurno(jugador);
-	}
 
 	public Jugador proximoTurno() {
 		if(juegaElMismoJugador()) {

@@ -74,6 +74,7 @@ public class PrimeraEntregaIntegrationTest {
 		Carcel carcel = Carcel.getInstancia();
 		carcel.entrar(jugador);
 		carcel.aumentarTurno(jugador);
+		carcel.aumentarTurno(jugador);
 		jugador.pagarFianzaDeCarcel();
 		Assert.assertTrue(AlgoPoly.getInstancia().puedeHacerAcciones(jugador));
 	}

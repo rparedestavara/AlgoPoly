@@ -3,6 +3,7 @@ package vista.Eventos;
 import java.util.ArrayList;
 
 import Clases.AlgoPoly;
+import Clases.Carcel;
 import Clases.Dados;
 import Clases.Jugador;
 import Clases.Propiedad;
@@ -44,7 +45,7 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 			
 		}catch(NoPuedeJugarException e) {
 				pagarFianza = this.crearBotonFianza(jugador);
-												
+				Carcel.getInstancia().aumentarTurno(jugador);								
 		}
 
 		turno.proximoTurno();
@@ -74,8 +75,6 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 		text.setText("Usted Vendio: ");
 		for(int i=0;i<vendidas.size();++i) {
 			Button PropiedadVendida = new Button();
-			Button casa = new Button();
-			Button hoteles= new Button();
 			PropiedadVendida.setText("Se Vendio la propieda: "+ vendidas.get(i).getNombre());
 			vBox.getChildren().add(PropiedadVendida);
 			}
