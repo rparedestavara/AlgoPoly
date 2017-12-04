@@ -1,7 +1,7 @@
 package Clases;
 
 public abstract class ProvinciaDividida extends Provincia {
-	protected Provincia otraMitad;
+	protected ProvinciaDividida otraMitad;
 	protected int precioAlquilerConHotel;
 	protected int precioAlquilerConDosCasas;
 	protected int cantHoteles;
@@ -48,7 +48,7 @@ public abstract class ProvinciaDividida extends Provincia {
 	}
 
 	public boolean sePuedeConstruirUnHotel() {
-		return (this.cantCasas==2 && this.otraMitad.cantCasas==2);
+		return (this.cantCasas==2 && (this.otraMitad.cantCasas==2) || this.otraMitad.cantHoteles == 1);
 	}
 	
 	@Override
@@ -60,13 +60,11 @@ public abstract class ProvinciaDividida extends Provincia {
 	}
 
 	private void destruirConstrucciones() {
-		
 		this.cantHoteles=0;
 	}
 	
-	public String getNombreOpuesta() {
-		return otraMitad.getNombre();
+	public ProvinciaDividida getOpuesta() {
+		return otraMitad;
 	}
-
 }
 
