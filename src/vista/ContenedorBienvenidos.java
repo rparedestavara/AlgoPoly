@@ -32,16 +32,17 @@ public class ContenedorBienvenidos  extends VBox {
 	        this.setSpacing(20);
 	        this.setPadding(new Insets(25));
 	        Image imagen = new Image("file:src/vista/monopoly.png");
-	        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+	        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.ROUND, BackgroundRepeat.ROUND, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
 	        this.setBackground(new Background(imagenDeFondo));
+	        
 	        
 	       
 
 	        Label etiqueta = new Label();
 	        etiqueta.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
 
-	        etiqueta.setText("Bienvenidos a la Aplicacion AlgoPoly complete los datos y Presione Entrar para comenzar");
-	        etiqueta.setTextFill(Color.web("#66A7C5"));
+//	        etiqueta.setText("Bienvenidos a la Aplicacion AlgoPoly complete los datos y Presione Entrar para comenzar");
+//	        etiqueta.setTextFill(Color.web("#66A7C5"));
 
 	        
 	        Button botonJugador1=new Button();
