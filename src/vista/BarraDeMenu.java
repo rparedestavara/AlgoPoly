@@ -3,6 +3,7 @@ package vista;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import vista.Eventos.OpcionAcercaDeEventHandler;
 import vista.Eventos.OpcionInformacionEventHandler;
 import vista.Eventos.OpcionSalirEventHandler;
 
@@ -16,6 +17,7 @@ public class BarraDeMenu extends MenuBar {
        
         MenuItem opcionSalir = new MenuItem("Salir");
         MenuItem opcionInformacion = new MenuItem("Reglas del juego");
+        MenuItem opcionAcercaDe = new MenuItem("Acera de...");
         
         OpcionSalirEventHandler salirEventHandler = new OpcionSalirEventHandler();
         opcionSalir.setOnAction(salirEventHandler);
@@ -23,8 +25,11 @@ public class BarraDeMenu extends MenuBar {
         OpcionInformacionEventHandler informacionEventHandler = new OpcionInformacionEventHandler();
         opcionInformacion.setOnAction(informacionEventHandler);
         
+        OpcionAcercaDeEventHandler acercaDeEventHandler = new OpcionAcercaDeEventHandler();
+        opcionAcercaDe.setOnAction(acercaDeEventHandler);
+        
         menuArchivo.getItems().add(opcionSalir);
-        menuVer.getItems().add(opcionInformacion);
+        menuVer.getItems().addAll(opcionInformacion, opcionAcercaDe);
         
         this.getMenus().addAll(menuArchivo, menuVer);
 	}
