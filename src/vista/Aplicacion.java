@@ -20,7 +20,7 @@ public class Aplicacion extends Application {
 		Tablero tablero = Tablero.getInstancia();
 		ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal();
 		ContenedorBienvenidos contenedorBienvenidos = new ContenedorBienvenidos(stage, contenedorPrincipal,tablero);
-		Scene escenaBienvenidos = new Scene(contenedorBienvenidos, 400, 500);
+		Scene escenaBienvenidos = new Scene(contenedorBienvenidos, 500, 500);
 		 
 		stage.setScene(escenaBienvenidos);
 	    stage.setFullScreen(true);
