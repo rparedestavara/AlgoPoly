@@ -123,21 +123,15 @@ public class OpcionInformacionEventHandler implements EventHandler<ActionEvent>{
 				"Alquiler con 1 edificio histórico: $4500\n" + 
 				"Construir la casita de tucumpán (única construcción posible) cuesta $7000\n" + 
 				"");
+
 		informacion.setEditable(false);
-		informacion.setWrapText(true);
-		informacion.setMaxWidth(Double.MAX_VALUE);
-		informacion.setMaxHeight(Double.MAX_VALUE);
-		
+
 		GridPane.setVgrow(informacion, Priority.ALWAYS);
 		GridPane.setHgrow(informacion, Priority.ALWAYS);
-
 		GridPane expContent = new GridPane();
-		
-		expContent.setMaxWidth(Double.MAX_VALUE);
 		expContent.add(informacion, 0, 1);
 		
 		alert.getDialogPane().setExpandableContent(expContent);
-
 		alert.show();
 		
 	}

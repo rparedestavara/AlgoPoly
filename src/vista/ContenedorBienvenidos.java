@@ -36,8 +36,11 @@ public class ContenedorBienvenidos  extends VBox {
 	        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.ROUND, BackgroundRepeat.ROUND, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
 	        this.setBackground(new Background(imagenDeFondo));
 	        
+	        Button botonEntrar = new Button();
+	        botonEntrar.setText("Entrar");
+	        botonEntrar.setFont(Font.font("Tahoma", FontWeight.BOLD, 15));;
 
-	        DropShadow ds = new DropShadow();
+	        DropShadow ds = new DropShadow();	//Efecto para las letras del formulario.
 	        ds.setOffsetY(3.0f);
 	        ds.setColor(Color.color(0.4f, 0.4f, 0.4f));
 	        
@@ -66,11 +69,11 @@ public class ContenedorBienvenidos  extends VBox {
 	        TextField nombre3 = new TextField();
 	        nombre3.setMaxWidth(150);
 	        
-	        
-	        Button botonEntrar = new Button();
-	        botonEntrar.setText("Entrar");
 	        BotonEntrarEventHandler botonEntrarHandler = new BotonEntrarEventHandler(stage, proximaEscena,nombre1,nombre2,nombre3,tablero);
 	        botonEntrar.setOnAction(botonEntrarHandler);
+	        nombre3.setOnAction(botonEntrarHandler);
+	        
+
 	        this.getChildren().addAll(etiquetaJugador1, nombre1, etiquetaJugador2, nombre2, etiquetaJugador3, nombre3,botonEntrar);
 	       
 	         
