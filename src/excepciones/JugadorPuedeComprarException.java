@@ -1,6 +1,6 @@
 package excepciones;
 
-public class PropiedadEnVentaException extends RuntimeException {
+public class JugadorPuedeComprarException extends RuntimeException {
 
 
 	private static final long serialVersionUID = 1L;

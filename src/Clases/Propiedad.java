@@ -1,6 +1,6 @@
 package Clases;
 
-import excepciones.PropiedadEnVentaException;
+import excepciones.JugadorPuedeComprarException;
 import javafx.scene.paint.Color;
 
 public abstract class Propiedad extends Casilla {
@@ -38,7 +38,9 @@ public abstract class Propiedad extends Casilla {
 	
 	public void entrar(Jugador jugador) {
 		if(propietario == null) {
-			throw new PropiedadEnVentaException();
+			if(jugador.puedePagarMonto(precioPropiedad)) {
+				throw new JugadorPuedeComprarException();
+			}
 		}
 		else if(propietario != jugador) {
 			cobrar(jugador);

@@ -8,7 +8,7 @@ import Clases.Jugador;
 import Clases.Tablero;
 import Clases.Turno;
 import excepciones.NoPuedeJugarException;
-import excepciones.PropiedadEnVentaException;
+import excepciones.JugadorPuedeComprarException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -51,7 +51,7 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 		}catch(NoPuedeJugarException e) {
 				pagarFianza = this.crearBotonFianza(jugador);
 				Carcel.getInstancia().aumentarTurno(jugador);								
-		}catch(PropiedadEnVentaException e) {
+		}catch(JugadorPuedeComprarException e) {
 			Button botonComprarPropiedad = new Button();
 			botonComprarPropiedad.setText("Comprar " + tablero.getCasillasTablero().get(tablero.getPosicion(jugador)).getNombre());
 			BotonComprarPropiedadHandler botonComprarPropiedadHandler = new BotonComprarPropiedadHandler(vBox, jugador, botonComprarPropiedad, vistaTablero);

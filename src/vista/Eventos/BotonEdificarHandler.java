@@ -11,6 +11,9 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import vista.VistaTablero;
 
@@ -33,6 +36,8 @@ public class BotonEdificarHandler implements EventHandler<ActionEvent>{
 		Turno turno = AlgoPoly.getInstancia().getTurno();
 		Jugador jugador = turno.aQuienLeToca();
 		Text nombreJugador=new Text();
+		nombreJugador.setFill(jugador.getColor());
+		nombreJugador.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 15));
 		nombreJugador.setText("Turno del jugador: " + jugador.getNombre());
 		vBox.getChildren().add(nombreJugador);
 		

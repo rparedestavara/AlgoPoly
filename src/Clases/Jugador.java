@@ -25,6 +25,10 @@ public class Jugador {
 		return this.dineroActual;
 	}
 	
+	public boolean puedePagarMonto(double precio) {
+		return precio <= dineroActual;
+	}
+	
 	public void setColor(Color colorIn) {
 		color = colorIn;
 	}
