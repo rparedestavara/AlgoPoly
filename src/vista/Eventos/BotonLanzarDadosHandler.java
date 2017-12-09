@@ -12,6 +12,9 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import vista.VistaTablero;
 
@@ -33,7 +36,7 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 		Jugador jugador = turno.aQuienLeToca();
 		Text nombreJugador=new Text();
 		nombreJugador.setFill(jugador.getColor());
-		
+		nombreJugador.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 15));
 		nombreJugador.setText("Turno del jugador: " + jugador.getNombre());
 		vBox.getChildren().add(nombreJugador);
 		dados.lanzar();
@@ -52,7 +55,7 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 		Button botonFinTurno = new Button();
 		botonFinTurno.setText("Finalizar Turno");
 		vBox.getChildren().clear();
-		if (pagarFianza != null) vBox.getChildren().add(pagarFianza);
+		if (pagarFianza != null && jugador.puedePagarFianzaDeCarcel()) vBox.getChildren().add(pagarFianza);
 		vBox.getChildren().add(nombreJugador);
 		vBox.getChildren().add(botonFinTurno);
 		vBox.getChildren().add(infoDados);
