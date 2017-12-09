@@ -1,5 +1,7 @@
 package vista.Eventos;
 
+
+import java.awt.Font;
 import java.util.ArrayList;
 
 import Clases.AlgoPoly;
@@ -8,8 +10,14 @@ import Clases.Propiedad;
 import Clases.Turno;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import vista.VistaTablero;
 
@@ -45,11 +53,18 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 	@Override
 	public void handle(ActionEvent event) {
 		vBox.getChildren().clear();
-		
 		Turno turno = AlgoPoly.getInstancia().getTurno();
 		Jugador jugador = turno.aQuienLeToca();
 		Text nombreJugador = new Text();
+		nombreJugador.setFill(jugador.getColor());
 		nombreJugador.setText("Turno del jugador: " + jugador.getNombre());
+		
+		
+		Canvas canvas=new Canvas();
+		canvas.getGraphicsContext2D().fillOval(2+ 50 + 3, 2 + 53, 14, 14);
+		canvas.getGraphicsContext2D().setFill(jugador.getColor());
+		
+		
 		Text dineroJugador = new Text("Dinero: " + Double.toString(jugador.getDinero()));
 		vBox.getChildren().add(nombreJugador);
 		vBox.getChildren().add(dineroJugador);
@@ -59,6 +74,7 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 		vBox.getChildren().add(botonLanzarDados);
 		BotonLanzarDadosHandler botonLanzarDadosHandler = new BotonLanzarDadosHandler(vBox, vistaTablero);
 		botonLanzarDados.setOnAction(botonLanzarDadosHandler);
+		
 		if(jugador.puedeEdificar()) {
 			Button botonEdificar = new Button();
 			botonEdificar.setText("Edificar");

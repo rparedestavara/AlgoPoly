@@ -32,6 +32,8 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 		Text infoDados=new Text();
 		Jugador jugador = turno.aQuienLeToca();
 		Text nombreJugador=new Text();
+		nombreJugador.setFill(jugador.getColor());
+		
 		nombreJugador.setText("Turno del jugador: " + jugador.getNombre());
 		vBox.getChildren().add(nombreJugador);
 		dados.lanzar();
