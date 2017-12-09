@@ -10,6 +10,6 @@ public class CordobaSur extends ProvinciaDividida {
 		precioPropiedad = 18000;
 		precioDeConstruccionDeCasas = 2000;
 		precioDeConstruccionDeHotel = 3000;
-		nombre = "CordobaSur";
+		nombre = "Cordoba Sur";
 		}
 }

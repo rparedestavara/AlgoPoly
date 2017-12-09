@@ -14,7 +14,7 @@ public class TucumanTest {
 		Provincia tucuman = new Tucuman();
 		Jugador jugador= new Jugador();
 		double precioAntesDeLaCompra = jugador.getDinero();
-		tucuman.agregarPropietario(jugador);
+		tucuman.comprar(jugador);
 		Assert.assertEquals(25000,precioAntesDeLaCompra-jugador.getDinero(),DELTA);
 	}
 
@@ -22,7 +22,7 @@ public class TucumanTest {
 	public void testConstruyeCasaAumenteCorrectamentElNumeroDeCasasQuePosee() {
 		Provincia tucuman = new Tucuman();
 		Jugador jugador= new Jugador();
-		tucuman.agregarPropietario(jugador);
+		tucuman.comprar(jugador);
 		tucuman.construirCasa();
 		Assert.assertEquals(1,tucuman.cantCasasConstruidas());
 	}
@@ -31,7 +31,7 @@ public class TucumanTest {
 	public void testSeQuiereCostruirMasDeDosCasasYNoSePuede() {
 		Provincia tucuman = new Tucuman();
 		Jugador jugador= new Jugador();
-		tucuman.agregarPropietario(jugador);
+		tucuman.comprar(jugador);
 		tucuman.construirCasa();
 		tucuman.construirCasa();
 		Assert.assertEquals(1,tucuman.cantCasasConstruidas());

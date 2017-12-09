@@ -17,8 +17,8 @@ public class SaltaSurTest {
 		ProvinciaDividida SaltaSur=new SaltaSur();
 		SaltaNorte.agregarOpuesto(SaltaSur);
 		SaltaSur.agregarOpuesto(SaltaNorte);
-		SaltaNorte.agregarPropietario(jugador);
-		SaltaSur.agregarPropietario(jugador);
+		SaltaNorte.comprar(jugador);
+		SaltaSur.comprar(jugador);
 		SaltaNorte.construirCasa();
 		SaltaSur.construirCasa();
 		Jugador jugador2= new Jugador();
@@ -29,7 +29,7 @@ public class SaltaSurTest {
 	public void testCasillaVendida() {
 		Jugador jugador= new Jugador();
 		ProvinciaDividida SaltaSur = new SaltaSur();
-		SaltaSur.agregarPropietario(jugador);
+		SaltaSur.comprar(jugador);
 		SaltaSur.construirCasa();
 		SaltaSur.construirCasa();
 		double dineroAntesDeVenderProiedad=jugador.getDinero();
@@ -40,7 +40,7 @@ public class SaltaSurTest {
 	public void testAlvenderLaProvinciaLaCantidadDeCasasQuedaEn0() {
 		Jugador jugador= new Jugador();
 		ProvinciaDividida SaltaSur = new SaltaSur();
-		SaltaSur.agregarPropietario(jugador);
+		SaltaSur.comprar(jugador);
 		SaltaSur.construirCasa();
 		SaltaSur.construirCasa();
 		SaltaSur.provinciaVendida(jugador);
@@ -50,7 +50,7 @@ public class SaltaSurTest {
 	public void testAlVenderProvinciaUnJugadroEsteDejaDeSerPropietario() {
 		Jugador jugador= new Jugador();
 		ProvinciaDividida SaltaSur = new SaltaSur();
-		SaltaSur.agregarPropietario(jugador);
+		SaltaSur.comprar(jugador);
 		SaltaSur.provinciaVendida(jugador);
 		Assert.assertEquals(false,SaltaSur.esPropietario(jugador));
 	}

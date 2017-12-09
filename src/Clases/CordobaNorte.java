@@ -10,6 +10,6 @@ public class CordobaNorte extends ProvinciaDividida{
 		precioPropiedad = 20000;
 		precioDeConstruccionDeCasas = 2200;
 		precioDeConstruccionDeHotel = 3500;
-		nombre = "CordobaNorte";
+		nombre = "Cordoba Norte";
 		}
 }

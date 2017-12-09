@@ -29,7 +29,7 @@ public class SegundaEntregaIntegracionTest {
 		Jugador jugador= new Jugador();
 		Provincia bNorte=new BSNorte();
 		double dineroAntesDeAdquirirTerreno=jugador.getDinero();
-		bNorte.agregarPropietario(jugador);
+		bNorte.comprar(jugador);
 		Assert.assertEquals(25000,dineroAntesDeAdquirirTerreno-jugador.getDinero(),DELTA);
 	}
 	@Test
@@ -37,7 +37,7 @@ public class SegundaEntregaIntegracionTest {
 		Jugador jugador= new Jugador();
 		Provincia bSur=new BSSur();
 		double dineroAntesDeAdquirirTerreno=jugador.getDinero();
-		bSur.agregarPropietario(jugador);
+		bSur.comprar(jugador);
 		Assert.assertEquals(20000,dineroAntesDeAdquirirTerreno-jugador.getDinero(),DELTA);
 	}
 	@Test
@@ -45,7 +45,7 @@ public class SegundaEntregaIntegracionTest {
 		Jugador jugador= new Jugador();
 		Provincia saltaSur=new SaltaSur();
 		double dineroAntesDeAdquirirTerreno=jugador.getDinero();
-		saltaSur.agregarPropietario(jugador);
+		saltaSur.comprar(jugador);
 		Assert.assertEquals(23000,dineroAntesDeAdquirirTerreno-jugador.getDinero(),DELTA);
 	}
 	@Test
@@ -53,7 +53,7 @@ public class SegundaEntregaIntegracionTest {
 		Jugador jugador= new Jugador();
 		Provincia saltaNorte=new SaltaNorte();
 		double dineroAntesDeAdquirirTerreno=jugador.getDinero();
-		saltaNorte.agregarPropietario(jugador);
+		saltaNorte.comprar(jugador);
 		Assert.assertEquals(23000,dineroAntesDeAdquirirTerreno-jugador.getDinero(),DELTA);
 	}
 	@Test
@@ -61,7 +61,7 @@ public class SegundaEntregaIntegracionTest {
 		Jugador jugador= new Jugador();
 		Provincia cordobaNorte=new CordobaNorte();
 		double dineroAntesDeAdquirirTerreno=jugador.getDinero();
-		cordobaNorte.agregarPropietario(jugador);
+		cordobaNorte.comprar(jugador);
 		Assert.assertEquals(20000,dineroAntesDeAdquirirTerreno-jugador.getDinero(),DELTA);
 	}
 	@Test
@@ -69,7 +69,7 @@ public class SegundaEntregaIntegracionTest {
 		Jugador jugador= new Jugador();
 		Provincia cordobaSur=new CordobaSur();
 		double dineroAntesDeAdquirirTerreno=jugador.getDinero();
-		cordobaSur.agregarPropietario(jugador);
+		cordobaSur.comprar(jugador);
 		Assert.assertEquals(18000,dineroAntesDeAdquirirTerreno-jugador.getDinero(),DELTA);
 	}
 	@Test
@@ -79,8 +79,8 @@ public class SegundaEntregaIntegracionTest {
 		ProvinciaDividida bSur=new BSSur();
 		bNorte.agregarOpuesto(bSur);
 		bSur.agregarOpuesto(bNorte);
-		bNorte.agregarPropietario(jugador);
-		bSur.agregarPropietario(jugador);
+		bNorte.comprar(jugador);
+		bSur.comprar(jugador);
 		bNorte.construirCasa();
 		bSur.construirCasa();
 		Jugador jugador2= new Jugador();
@@ -95,8 +95,8 @@ public class SegundaEntregaIntegracionTest {
 		ProvinciaDividida saltaSur=new SaltaSur();
 		saltaNorte.agregarOpuesto(saltaSur);
 		saltaSur.agregarOpuesto(saltaNorte);
-		saltaNorte.agregarPropietario(jugador);
-		saltaSur.agregarPropietario(jugador);
+		saltaNorte.comprar(jugador);
+		saltaSur.comprar(jugador);
 		saltaNorte.construirCasa();
 		saltaSur.construirCasa();
 		Jugador jugador2= new Jugador();
@@ -111,8 +111,8 @@ public class SegundaEntregaIntegracionTest {
 		ProvinciaDividida cordobaSur=new CordobaSur();
 		cordobaNorte.agregarOpuesto(cordobaSur);
 		cordobaSur.agregarOpuesto(cordobaNorte);
-		cordobaNorte.agregarPropietario(jugador);
-		cordobaSur.agregarPropietario(jugador);
+		cordobaNorte.comprar(jugador);
+		cordobaSur.comprar(jugador);
 		cordobaNorte.construirCasa();
 		cordobaSur.construirCasa();
 		Jugador jugador2= new Jugador();
@@ -127,8 +127,8 @@ public class SegundaEntregaIntegracionTest {
 		ProvinciaDividida bSur=new BSSur();
 		bNorte.agregarOpuesto(bSur);
 		bSur.agregarOpuesto(bNorte);
-		bNorte.agregarPropietario(jugador);
-		bSur.agregarPropietario(jugador);
+		bNorte.comprar(jugador);
+		bSur.comprar(jugador);
 		bNorte.construirCasa();
 		bNorte.construirCasa();
 		bSur.construirCasa();
@@ -144,8 +144,8 @@ public class SegundaEntregaIntegracionTest {
 		ProvinciaDividida saltaSur=new SaltaSur();
 		saltaNorte.agregarOpuesto(saltaSur);
 		saltaSur.agregarOpuesto(saltaNorte);
-		saltaNorte.agregarPropietario(jugador);
-		saltaSur.agregarPropietario(jugador);
+		saltaNorte.comprar(jugador);
+		saltaSur.comprar(jugador);
 		saltaNorte.construirCasa();
 		saltaNorte.construirCasa();
 		saltaSur.construirCasa();
@@ -161,8 +161,8 @@ public class SegundaEntregaIntegracionTest {
 		ProvinciaDividida cordobaSur=new CordobaSur();
 		cordobaNorte.agregarOpuesto(cordobaSur);
 		cordobaSur.agregarOpuesto(cordobaNorte);
-		cordobaNorte.agregarPropietario(jugador);
-		cordobaSur.agregarPropietario(jugador);
+		cordobaNorte.comprar(jugador);
+		cordobaSur.comprar(jugador);
 		cordobaNorte.construirCasa();
 		cordobaNorte.construirCasa();
 		cordobaSur.construirCasa();
@@ -178,8 +178,8 @@ public class SegundaEntregaIntegracionTest {
 		ProvinciaDividida bSur=new BSSur();
 		bNorte.agregarOpuesto(bSur);
 		bSur.agregarOpuesto(bNorte);
-		bNorte.agregarPropietario(jugador);
-		bSur.agregarPropietario(jugador);
+		bNorte.comprar(jugador);
+		bSur.comprar(jugador);
 		bNorte.construirCasa();
 		bNorte.construirCasa();
 		bSur.construirCasa();
@@ -194,8 +194,8 @@ public class SegundaEntregaIntegracionTest {
 		ProvinciaDividida saltaSur=new SaltaSur();
 		saltaNorte.agregarOpuesto(saltaSur);
 		saltaSur.agregarOpuesto(saltaNorte);
-		saltaNorte.agregarPropietario(jugador);
-		saltaSur.agregarPropietario(jugador);
+		saltaNorte.comprar(jugador);
+		saltaSur.comprar(jugador);
 		saltaNorte.construirCasa();
 		saltaNorte.construirCasa();
 		saltaSur.construirCasa();
@@ -210,8 +210,8 @@ public class SegundaEntregaIntegracionTest {
 		ProvinciaDividida cordobaSur=new CordobaSur();
 		cordobaNorte.agregarOpuesto(cordobaSur);
 		cordobaSur.agregarOpuesto(cordobaNorte);
-		cordobaNorte.agregarPropietario(jugador);
-		cordobaSur.agregarPropietario(jugador);
+		cordobaNorte.comprar(jugador);
+		cordobaSur.comprar(jugador);
 		cordobaNorte.construirCasa();
 		cordobaNorte.construirCasa();
 		cordobaSur.construirCasa();
@@ -226,8 +226,8 @@ public class SegundaEntregaIntegracionTest {
 		ProvinciaDividida bSur=new BSSur();
 		bNorte.agregarOpuesto(bSur);
 		bSur.agregarOpuesto(bNorte);
-		bNorte.agregarPropietario(jugador);
-		bSur.agregarPropietario(jugador);
+		bNorte.comprar(jugador);
+		bSur.comprar(jugador);
 		bNorte.construirCasa();
 		bNorte.construirCasa();
 		bSur.construirCasa();
@@ -241,8 +241,8 @@ public class SegundaEntregaIntegracionTest {
 		ProvinciaDividida saltaSur=new SaltaSur();
 		saltaNorte.agregarOpuesto(saltaSur);
 		saltaSur.agregarOpuesto(saltaNorte);
-		saltaNorte.agregarPropietario(jugador);
-		saltaSur.agregarPropietario(jugador);
+		saltaNorte.comprar(jugador);
+		saltaSur.comprar(jugador);
 		saltaNorte.construirCasa();
 		saltaNorte.construirCasa();
 		saltaSur.construirCasa();
@@ -256,8 +256,8 @@ public class SegundaEntregaIntegracionTest {
 		ProvinciaDividida cordobaSur=new CordobaSur();
 		cordobaNorte.agregarOpuesto(cordobaSur);
 		cordobaSur.agregarOpuesto(cordobaNorte);
-		cordobaNorte.agregarPropietario(jugador);
-		cordobaSur.agregarPropietario(jugador);
+		cordobaNorte.comprar(jugador);
+		cordobaSur.comprar(jugador);
 		cordobaNorte.construirCasa();
 		cordobaNorte.construirCasa();
 		cordobaSur.construirCasa();
@@ -270,8 +270,8 @@ public class SegundaEntregaIntegracionTest {
 		ProvinciaDividida bSur = new BSSur();
 		bNorte.agregarOpuesto(bSur);
 		bSur.agregarOpuesto(bNorte);
-		bNorte.agregarPropietario(jugador);
-		bSur.agregarPropietario(jugador);
+		bNorte.comprar(jugador);
+		bSur.comprar(jugador);
 		bNorte.construirCasa();
 		bNorte.construirCasa();
 		bSur.construirCasa();
@@ -289,8 +289,8 @@ public class SegundaEntregaIntegracionTest {
 		ProvinciaDividida saltaSur=new SaltaSur();
 		saltaNorte.agregarOpuesto(saltaSur);
 		saltaSur.agregarOpuesto(saltaNorte);
-		saltaNorte.agregarPropietario(jugador);
-		saltaSur.agregarPropietario(jugador);
+		saltaNorte.comprar(jugador);
+		saltaSur.comprar(jugador);
 		saltaNorte.construirCasa();
 		saltaNorte.construirCasa();
 		saltaSur.construirCasa();
@@ -308,8 +308,8 @@ public class SegundaEntregaIntegracionTest {
 		ProvinciaDividida cordobaSur=new CordobaSur();
 		cordobaNorte.agregarOpuesto(cordobaSur);
 		cordobaSur.agregarOpuesto(cordobaNorte);
-		cordobaNorte.agregarPropietario(jugador);
-		cordobaSur.agregarPropietario(jugador);
+		cordobaNorte.comprar(jugador);
+		cordobaSur.comprar(jugador);
 		cordobaNorte.construirCasa();
 		cordobaNorte.construirCasa();
 		cordobaSur.construirCasa();
@@ -328,7 +328,7 @@ public class SegundaEntregaIntegracionTest {
 		Trenes trenes = new Trenes();
 		Subte subte = new Subte();
 		Dados dados = Dados.getInstance();
-		trenes.agregarPropietario(propietario);
+		trenes.comprar(propietario);
 		trenes.agregarOpuesto(subte);
 		int[] resultados={4,4};
 		dados.setResultados(resultados);
@@ -344,8 +344,8 @@ public class SegundaEntregaIntegracionTest {
 		Trenes trenes = new Trenes();
 		Subte subte = new Subte();
 		Dados dados = Dados.getInstance();
-		trenes.agregarPropietario(propietario);
-		subte.agregarPropietario(propietario);
+		trenes.comprar(propietario);
+		subte.comprar(propietario);
 		trenes.agregarOpuesto(subte);
 		int[] resultados={2,3};
 		dados.setResultados(resultados);
@@ -361,7 +361,7 @@ public class SegundaEntregaIntegracionTest {
 		Edesur edesur = new Edesur();
 		Aysa aysa = new Aysa();
 		Dados dados = Dados.getInstance();
-		edesur.agregarPropietario(propietario);
+		edesur.comprar(propietario);
 		edesur.agregarOpuesto(aysa);
 		int[] resultados={1,2};
 		dados.setResultados(resultados);
@@ -377,8 +377,8 @@ public class SegundaEntregaIntegracionTest {
 		Edesur edesur = new Edesur();
 		Aysa aysa = new Aysa();
 		Dados dados = Dados.getInstance();
-		edesur.agregarPropietario(propietario);
-		aysa.agregarPropietario(propietario);
+		edesur.comprar(propietario);
+		aysa.comprar(propietario);
 		edesur.agregarOpuesto(aysa);
 		int[] resultados={6,6};
 		dados.setResultados(resultados);
@@ -394,7 +394,7 @@ public class SegundaEntregaIntegracionTest {
 		ProvinciaDividida buenosAiresSur = new BSSur();
 		buenosAiresNorte.agregarOpuesto(buenosAiresSur);
 		buenosAiresSur.agregarOpuesto(buenosAiresNorte);
-		buenosAiresNorte.entrar(propietario);
+		buenosAiresNorte.comprar(propietario);
 		buenosAiresNorte.construirCasa();
 		double dineroSinConstruirHotel = propietario.getDinero();
 		buenosAiresNorte.construirHotel();
@@ -409,8 +409,8 @@ public class SegundaEntregaIntegracionTest {
 		ProvinciaDividida buenosAiresNorte = new BSNorte();
 		ProvinciaDividida buenosAiresSur = new BSSur();
 		double plataJugadorEnBsAs = jugadorEnBsAs.getDinero();
-		buenosAiresNorte.entrar(propietario);
-		buenosAiresSur.entrar(propietario);
+		buenosAiresNorte.comprar(propietario);
+		buenosAiresSur.comprar(propietario);
 		buenosAiresNorte.construirCasa();
 		buenosAiresSur.construirCasa();
 		double plataPropietario = propietario.getDinero();
@@ -427,9 +427,9 @@ public class SegundaEntregaIntegracionTest {
 		ProvinciaDividida saltaNorte = new SaltaNorte();
 		ProvinciaDividida saltaSur = new SaltaSur();
 		double plataJugadorSalta = jugadorSalta.getDinero();
-		saltaNorte.entrar(propietario);
+		saltaNorte.comprar(propietario);
 		saltaNorte.construirCasa();
-		saltaSur.entrar(propietario);
+		saltaSur.comprar(propietario);
 		saltaSur.construirCasa();
 		double plataPropietario = propietario.getDinero();
 		saltaNorte.entrar(jugadorSalta);
@@ -445,9 +445,9 @@ public class SegundaEntregaIntegracionTest {
 		ProvinciaDividida cordobaNorte = new CordobaNorte();
 		ProvinciaDividida cordobaSur = new CordobaSur();
 		double plataJugadorEnCordoba = jugadorEnCordoba.getDinero();
-		cordobaNorte.entrar(propietario);
+		cordobaNorte.comprar(propietario);
 		cordobaNorte.construirCasa();
-		cordobaSur.entrar(propietario);
+		cordobaSur.comprar(propietario);
 		cordobaSur.construirCasa();
 		double plataPropietario = propietario.getDinero();
 		cordobaNorte.entrar(jugadorEnCordoba);
@@ -461,7 +461,7 @@ public class SegundaEntregaIntegracionTest {
 		Jugador propietario = new Jugador();
 		Provincia santaFe = new SantaFe();
 		double plataPropietarioSinConstruir = propietario.getDinero();
-		santaFe.entrar(propietario);
+		santaFe.comprar(propietario);
 		santaFe.construirCasa();
 		Assert.assertEquals(plataPropietarioSinConstruir - 4000-15000, propietario.getDinero(),DELTA);
 	}
@@ -472,9 +472,9 @@ public class SegundaEntregaIntegracionTest {
 		Jugador propietario2 = new Jugador();
 		Jugador visitante = new Jugador();
 		Provincia bsAsNorte = new BSNorte();
-		bsAsNorte.entrar(propietario1);
+		bsAsNorte.comprar(propietario1);
 		Provincia santaFe = new SantaFe();
-		santaFe.entrar(propietario2);
+		santaFe.comprar(propietario2);
 		double plataPropietario2 = propietario2.getDinero();
 		propietario1.intercambiarPropiedad(propietario2,santaFe, bsAsNorte);
 		bsAsNorte.entrar(visitante);

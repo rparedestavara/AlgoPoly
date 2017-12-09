@@ -18,7 +18,7 @@ public class SubteTest {
 		Trenes trenes = new Trenes();
 		Subte subte = new Subte();
 		Dados dados = Dados.getInstance();
-		subte.agregarPropietario(propietario);
+		subte.comprar(propietario);
 		subte.agregarOpuesto(trenes);
 		int[] resultados={3,3};
 		dados.setResultados(resultados);
@@ -30,7 +30,7 @@ public class SubteTest {
 	public void testCasillaVendida() {
 		Jugador jugador= new Jugador();
 		Servicio subte = new Subte();
-		subte.agregarPropietario(jugador);
+		subte.comprar(jugador);
 		double dineroAntesDeVenderProiedad=jugador.getDinero();
 		subte.vender();
 		Assert.assertEquals(40000*0.85, jugador.getDinero()-dineroAntesDeVenderProiedad,DELTA);
@@ -40,7 +40,7 @@ public class SubteTest {
 	public void testAlVenderServicioUnJugadroEsteDejaDeSerPropietario() {
 		Jugador jugador= new Jugador();
 		Servicio subte = new Subte();
-		subte.agregarPropietario(jugador);
+		subte.comprar(jugador);
 		subte.vender();
 		Assert.assertEquals(false,subte.esPropietario(jugador));
 	}

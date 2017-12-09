@@ -64,7 +64,7 @@ public class TerceraEntregaIntegrationTest {
 		jugador1.modificarDinero(-dineroInicial);
 		jugador1.modificarDinero(20000);
 		BSSur bs = new BSSur();
-		bs.entrar(jugador1);
+		bs.comprar(jugador1);
 		jugador1.modificarDinero(-20000);
 		Assert.assertFalse(turno.estaJugando(jugador1));
 	}

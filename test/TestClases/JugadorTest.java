@@ -17,8 +17,8 @@ public class JugadorTest {
 		ProvinciaDividida mitad1 = new BSNorte();
 		ProvinciaDividida mitad2 = new BSSur();
 		mitad1.agregarOpuesto(mitad2);
-		mitad1.agregarPropietario(jugador);
-		mitad2.agregarPropietario(jugador);
+		mitad1.comprar(jugador);
+		mitad2.comprar(jugador);
 		assertTrue(jugador.puedeEdificar());
 	}
 	
@@ -28,7 +28,7 @@ public class JugadorTest {
 		ProvinciaDividida mitad1 = new BSNorte();
 		ProvinciaDividida mitad2 = new BSSur();
 		mitad1.agregarOpuesto(mitad2);
-		mitad1.agregarPropietario(jugador);
+		mitad1.comprar(jugador);
 		assertFalse(jugador.puedeEdificar());
 	}
 

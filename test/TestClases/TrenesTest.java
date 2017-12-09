@@ -18,7 +18,7 @@ public class TrenesTest {
 		Trenes trenes = new Trenes();
 		Subte subte = new Subte();
 		Dados dados = Dados.getInstance();
-		trenes.agregarPropietario(propietario);
+		trenes.comprar(propietario);
 		trenes.agregarOpuesto(subte);
 		int[] resultados={1,1};
 		dados.setResultados(resultados);
@@ -30,7 +30,7 @@ public class TrenesTest {
 	public void testCasillaVendida() {
 		Jugador jugador= new Jugador();
 		Servicio trenes = new Trenes();
-		trenes.agregarPropietario(jugador);
+		trenes.comprar(jugador);
 		double dineroAntesDeVenderProiedad=jugador.getDinero();
 		trenes.vender();
 		Assert.assertEquals(38000*0.85, jugador.getDinero()-dineroAntesDeVenderProiedad,DELTA);
@@ -40,7 +40,7 @@ public class TrenesTest {
 	public void testAlVenderServicioUnJugadroEsteDejaDeSerPropietario() {
 		Jugador jugador= new Jugador();
 		Servicio trenes = new Trenes();
-		trenes.agregarPropietario(jugador);
+		trenes.comprar(jugador);
 		trenes.vender();
 		Assert.assertEquals(false,trenes.esPropietario(jugador));
 	}

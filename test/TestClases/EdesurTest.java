@@ -18,7 +18,7 @@ public class EdesurTest {
 		Edesur edesur = new Edesur();
 		Aysa aysa = new Aysa();
 		Dados dados = Dados.getInstance();
-		edesur.agregarPropietario(propietario);
+		edesur.comprar(propietario);
 		edesur.agregarOpuesto(aysa);
 		int[] resultados={4,5};
 		dados.setResultados(resultados);
@@ -31,7 +31,7 @@ public class EdesurTest {
 	public void testCasillaVendida() {
 		Jugador jugador= new Jugador();
 		Servicio edesur = new Edesur();
-		edesur.agregarPropietario(jugador);
+		edesur.comprar(jugador);
 		double dineroAntesDeVenderProiedad=jugador.getDinero();
 		edesur.vender();
 		Assert.assertEquals(35000*0.85, jugador.getDinero()-dineroAntesDeVenderProiedad,DELTA);
@@ -41,7 +41,7 @@ public class EdesurTest {
 	public void testAlVenderServicioUnJugadroEsteDejaDeSerPropietario() {
 		Jugador jugador= new Jugador();
 		Servicio edesur = new Edesur();
-		edesur.agregarPropietario(jugador);
+		edesur.comprar(jugador);
 		edesur.vender();
 		Assert.assertEquals(false,edesur.esPropietario(jugador));
 	}

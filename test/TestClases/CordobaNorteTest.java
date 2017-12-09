@@ -16,7 +16,7 @@ public class CordobaNorteTest {
 		Jugador jugador= new Jugador();
 		Provincia cordobaNorte=new CordobaNorte();
 		double dineroAntesDeAdquirirTerreno=jugador.getDinero();
-		cordobaNorte.agregarPropietario(jugador);
+		cordobaNorte.comprar(jugador);
 		Assert.assertEquals(20000,dineroAntesDeAdquirirTerreno-jugador.getDinero(),DELTA);
 	}
 	
@@ -25,7 +25,7 @@ public class CordobaNorteTest {
 		Jugador jugador= new Jugador();
 		Provincia cordobaNorte=new CordobaNorte();
 		double dineroAntesDeAdquirirTerreno=jugador.getDinero();
-		cordobaNorte.agregarPropietario(jugador);
+		cordobaNorte.comprar(jugador);
 		cordobaNorte.construirCasa();
 		Assert.assertEquals(2200+20000,dineroAntesDeAdquirirTerreno-jugador.getDinero(),DELTA);
 	}
@@ -34,7 +34,7 @@ public class CordobaNorteTest {
 	public void test3AlConstruirUnaCasaVerQueAumenteLaCantidadDeCasasEnELTerreno() {
 		Jugador jugador= new Jugador();
 		Provincia cordobaNorte=new CordobaNorte();
-		cordobaNorte.agregarPropietario(jugador);
+		cordobaNorte.comprar(jugador);
 		cordobaNorte.construirCasa();
 		Assert.assertEquals(1,cordobaNorte.cantCasasConstruidas());
 	}
@@ -46,8 +46,8 @@ public class CordobaNorteTest {
 		ProvinciaDividida cordobaSur=new CordobaSur();
 		cordobaNorte.agregarOpuesto(cordobaSur);
 		cordobaSur.agregarOpuesto(cordobaNorte);
-		cordobaNorte.agregarPropietario(jugador);
-		cordobaSur.agregarPropietario(jugador);
+		cordobaNorte.comprar(jugador);
+		cordobaSur.comprar(jugador);
 		cordobaNorte.construirCasa();
 		cordobaSur.construirCasa();
 		Jugador jugador2= new Jugador();
@@ -63,8 +63,8 @@ public class CordobaNorteTest {
 		ProvinciaDividida cordobaSur=new CordobaSur();
 		cordobaNorte.agregarOpuesto(cordobaSur);
 		cordobaSur.agregarOpuesto(cordobaNorte);
-		cordobaNorte.agregarPropietario(jugador);
-		cordobaSur.agregarPropietario(jugador);
+		cordobaNorte.comprar(jugador);
+		cordobaSur.comprar(jugador);
 		cordobaNorte.construirCasa();
 		cordobaNorte.construirCasa();
 		cordobaSur.construirCasa();
@@ -81,8 +81,8 @@ public class CordobaNorteTest {
 		ProvinciaDividida cordobaSur=new CordobaSur();
 		cordobaNorte.agregarOpuesto(cordobaSur);
 		cordobaSur.agregarOpuesto(cordobaNorte);
-		cordobaNorte.agregarPropietario(jugador);
-		cordobaSur.agregarPropietario(jugador);
+		cordobaNorte.comprar(jugador);
+		cordobaSur.comprar(jugador);
 		cordobaNorte.construirCasa();
 		cordobaNorte.construirCasa();
 		cordobaSur.construirCasa();
@@ -98,8 +98,8 @@ public class CordobaNorteTest {
 		ProvinciaDividida cordobaSur=new CordobaSur();
 		cordobaNorte.agregarOpuesto(cordobaSur);
 		cordobaSur.agregarOpuesto(cordobaNorte);
-		cordobaNorte.agregarPropietario(jugador);
-		cordobaSur.agregarPropietario(jugador);
+		cordobaNorte.comprar(jugador);
+		cordobaSur.comprar(jugador);
 		cordobaNorte.construirCasa();
 		cordobaNorte.construirCasa();
 		cordobaSur.construirCasa();
@@ -116,8 +116,8 @@ public class CordobaNorteTest {
 		ProvinciaDividida cordobaSur=new CordobaSur();
 		cordobaNorte.agregarOpuesto(cordobaSur);
 		cordobaSur.agregarOpuesto(cordobaNorte);
-		cordobaNorte.agregarPropietario(jugador);
-		cordobaSur.agregarPropietario(jugador);
+		cordobaNorte.comprar(jugador);
+		cordobaSur.comprar(jugador);
 		cordobaNorte.construirCasa();
 		cordobaNorte.construirCasa();
 		cordobaSur.construirCasa();
@@ -133,8 +133,8 @@ public class CordobaNorteTest {
 		ProvinciaDividida cordobaSur=new CordobaSur();
 		cordobaNorte.agregarOpuesto(cordobaSur);
 		cordobaSur.agregarOpuesto(cordobaNorte);
-		cordobaNorte.agregarPropietario(jugador);
-		cordobaSur.agregarPropietario(jugador);
+		cordobaNorte.comprar(jugador);
+		cordobaSur.comprar(jugador);
 		cordobaNorte.construirCasa();
 		cordobaNorte.construirCasa();
 		cordobaSur.construirCasa();
@@ -149,8 +149,8 @@ public class CordobaNorteTest {
 		ProvinciaDividida cordobaSur=new CordobaSur();
 		cordobaNorte.agregarOpuesto(cordobaSur);
 		cordobaSur.agregarOpuesto(cordobaNorte);
-		cordobaNorte.agregarPropietario(jugador);
-		cordobaSur.agregarPropietario(jugador);
+		cordobaNorte.comprar(jugador);
+		cordobaSur.comprar(jugador);
 		cordobaNorte.construirCasa();
 		cordobaNorte.construirCasa();
 		cordobaSur.construirCasa();
@@ -166,8 +166,8 @@ public class CordobaNorteTest {
 		ProvinciaDividida cordobaSur=new CordobaSur();
 		cordobaNorte.agregarOpuesto(cordobaSur);
 		cordobaSur.agregarOpuesto(cordobaNorte);
-		cordobaNorte.agregarPropietario(jugador);
-		cordobaSur.agregarPropietario(jugador);
+		cordobaNorte.comprar(jugador);
+		cordobaSur.comprar(jugador);
 		cordobaNorte.construirCasa();
 		cordobaNorte.construirCasa();
 		cordobaSur.construirCasa();
@@ -182,7 +182,7 @@ public class CordobaNorteTest {
 	public void testCasillaVendida() {
 		Jugador jugador= new Jugador();
 		ProvinciaDividida cordobaNorte = new CordobaNorte();
-		cordobaNorte.agregarPropietario(jugador);
+		cordobaNorte.comprar(jugador);
 		cordobaNorte.construirCasa();
 		cordobaNorte.construirCasa();
 		double dineroAntesDeVenderProiedad=jugador.getDinero();
@@ -193,7 +193,7 @@ public class CordobaNorteTest {
 	public void testAlvenderLaProvinciaLaCantidadDeCasasQuedaEn0() {
 		Jugador jugador= new Jugador();
 		ProvinciaDividida cordobaNorte = new CordobaNorte();
-		cordobaNorte.agregarPropietario(jugador);
+		cordobaNorte.comprar(jugador);
 		cordobaNorte.construirCasa();
 		cordobaNorte.construirCasa();
 		cordobaNorte.provinciaVendida(jugador);
@@ -203,7 +203,7 @@ public class CordobaNorteTest {
 	public void testAlVenderProvinciaUnJugadroEsteDejaDeSerPropietario() {
 		Jugador jugador= new Jugador();
 		ProvinciaDividida cordobaNorte = new CordobaNorte();
-		cordobaNorte.agregarPropietario(jugador);
+		cordobaNorte.comprar(jugador);
 		cordobaNorte.provinciaVendida(jugador);
 		Assert.assertEquals(false,cordobaNorte.esPropietario(jugador));
 	}

@@ -15,7 +15,7 @@ public class NeuquenTest {
 		Provincia neuquen = new Neuquen();
 		Jugador jugador= new Jugador();
 		double precioAntesDeLaCompra = jugador.getDinero();
-		neuquen.agregarPropietario(jugador);
+		neuquen.comprar(jugador);
 		Assert.assertEquals(17000,precioAntesDeLaCompra-jugador.getDinero(),DELTA);
 	}
 
@@ -23,7 +23,7 @@ public class NeuquenTest {
 	public void testConstruyeCasaAumenteCorrectamentElNumeroDeCasasQuePosee() {
 		Provincia neuquen = new Neuquen();
 		Jugador jugador= new Jugador();
-		neuquen.agregarPropietario(jugador);
+		neuquen.comprar(jugador);
 		neuquen.construirCasa();
 		Assert.assertEquals(1,neuquen.cantCasasConstruidas());
 	}
@@ -32,7 +32,7 @@ public class NeuquenTest {
 	public void testSeQuiereCostruirMasDeDosCasasYNoSePuede() {
 		Provincia neuquen = new Neuquen();
 		Jugador jugador= new Jugador();
-		neuquen.agregarPropietario(jugador);
+		neuquen.comprar(jugador);
 		neuquen.construirCasa();
 		neuquen.construirCasa();
 		Assert.assertEquals(1,neuquen.cantCasasConstruidas());

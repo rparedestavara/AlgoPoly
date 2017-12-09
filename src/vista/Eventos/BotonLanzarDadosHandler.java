@@ -8,6 +8,7 @@ import Clases.Jugador;
 import Clases.Tablero;
 import Clases.Turno;
 import excepciones.NoPuedeJugarException;
+import excepciones.PropiedadEnVentaException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -28,7 +29,8 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 	}
 	
 	@Override
-	public void handle(ActionEvent event) { 
+	public void handle(ActionEvent event) {
+		vBox.getChildren().clear();
 		Tablero tablero = Tablero.getInstancia();
 		Dados dados = Dados.getInstance();
 		Turno turno = AlgoPoly.getInstancia().getTurno();
@@ -49,14 +51,17 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 		}catch(NoPuedeJugarException e) {
 				pagarFianza = this.crearBotonFianza(jugador);
 				Carcel.getInstancia().aumentarTurno(jugador);								
+		}catch(PropiedadEnVentaException e) {
+			Button botonComprarPropiedad = new Button();
+			botonComprarPropiedad.setText("Comprar " + tablero.getCasillasTablero().get(tablero.getPosicion(jugador)).getNombre());
+			BotonComprarPropiedadHandler botonComprarPropiedadHandler = new BotonComprarPropiedadHandler(vBox, jugador, botonComprarPropiedad, vistaTablero);
+			botonComprarPropiedad.setOnAction(botonComprarPropiedadHandler);
+			vBox.getChildren().add(botonComprarPropiedad);
 		}
-
 		turno.proximoTurno();
 		Button botonFinTurno = new Button();
 		botonFinTurno.setText("Finalizar Turno");
-		vBox.getChildren().clear();
 		if (pagarFianza != null && jugador.puedePagarFianzaDeCarcel()) vBox.getChildren().add(pagarFianza);
-		vBox.getChildren().add(nombreJugador);
 		vBox.getChildren().add(botonFinTurno);
 		vBox.getChildren().add(infoDados);
 		Text infoCasilla = new Text();

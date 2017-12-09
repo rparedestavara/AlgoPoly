@@ -1,5 +1,6 @@
 package Clases;
 
+import excepciones.PropiedadEnVentaException;
 import javafx.scene.paint.Color;
 
 public abstract class Propiedad extends Casilla {
@@ -10,8 +11,10 @@ public abstract class Propiedad extends Casilla {
 		propietario = null;
 	}
 	
-	public void agregarPropietario(Jugador jugador) {
-		this.entrar(jugador);
+	public void comprar(Jugador jugador) {
+		this.propietario = jugador;
+		this.propietario.modificarDinero(-this.precioPropiedad);
+		this.propietario.agregarPropiedad(this);
 		color = jugador.getColor();
 	}
 	
@@ -34,20 +37,14 @@ public abstract class Propiedad extends Casilla {
 	}
 	
 	public void entrar(Jugador jugador) {
-		if(this.propietario==null) {
-			this.propietario = jugador;
-			this.propietario.modificarDinero(-this.precioPropiedad);
-			this.propietario.agregarPropiedad(this);
-			color = jugador.getColor();
+		if(propietario == null) {
+			throw new PropiedadEnVentaException();
 		}
-		else this.entroUnDesconocido(jugador);
+		else if(propietario != jugador) {
+			cobrar(jugador);
+		}
 	}
 	
-	public void entroUnDesconocido(Jugador jugadorDesconocido) {
-		if(!esPropietario(jugadorDesconocido) ) {
-			this.cobrar(jugadorDesconocido);
-		}
-	}
 	public void vender() {
 		this.propietario.quitarPropiedad(this);
 		this.pagar(this.propietario);

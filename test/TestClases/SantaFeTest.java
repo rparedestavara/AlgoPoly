@@ -15,14 +15,14 @@ public class SantaFeTest {
 		Provincia santaFe = new SantaFe();
 		Jugador jugador= new Jugador();
 		double precioAntesDeLaCompra = jugador.getDinero();
-		santaFe.agregarPropietario(jugador);
+		santaFe.comprar(jugador);
 		Assert.assertEquals(15000,precioAntesDeLaCompra-jugador.getDinero(),DELTA);
 	}
 	@Test
 	public void testConstruyeCasaAumenteCorrectamentElNumeroDeCasasQuePosee() {
 		Provincia santaFe = new SantaFe();
 		Jugador jugador= new Jugador();
-		santaFe.agregarPropietario(jugador);
+		santaFe.comprar(jugador);
 		santaFe.construirCasa();
 		Assert.assertEquals(1,santaFe.cantCasasConstruidas());
 	}
@@ -31,7 +31,7 @@ public class SantaFeTest {
 	public void testSeQuiereCostruirMasDeDosCasasYNoSePuede() {
 		Provincia santaFe = new SantaFe();
 		Jugador jugador= new Jugador();
-		santaFe.agregarPropietario(jugador);
+		santaFe.comprar(jugador);
 		santaFe.construirCasa();
 		santaFe.construirCasa();
 		Assert.assertEquals(1,santaFe.cantCasasConstruidas());
@@ -39,7 +39,7 @@ public class SantaFeTest {
 	public void testCasillaVendida() {
 		Jugador jugador= new Jugador();
 		Provincia santaFe = new SantaFe();
-		santaFe.agregarPropietario(jugador);
+		santaFe.comprar(jugador);
 		santaFe.construirCasa();
 		santaFe.construirCasa();
 		double dineroAntesDeVenderProiedad=jugador.getDinero();
@@ -50,7 +50,7 @@ public class SantaFeTest {
 	public void testAlvenderLaProvinciaLaCantidadDeCasasQuedaEn0() {
 		Jugador jugador= new Jugador();
 		Provincia santaFe = new SantaFe();
-		santaFe.agregarPropietario(jugador);
+		santaFe.comprar(jugador);
 		santaFe.construirCasa();
 		santaFe.construirCasa();
 		santaFe.provinciaVendida(jugador);
@@ -60,7 +60,7 @@ public class SantaFeTest {
 	public void testAlVenderProvinciaUnJugadroEsteDejaDeSerPropietario() {
 		Jugador jugador= new Jugador();
 		Provincia santaFe = new SantaFe();
-		santaFe.agregarPropietario(jugador);
+		santaFe.comprar(jugador);
 		santaFe.provinciaVendida(jugador);
 		Assert.assertEquals(false,santaFe.esPropietario(jugador));
 	}

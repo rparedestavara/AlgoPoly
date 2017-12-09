@@ -14,7 +14,7 @@ public class BarrioTest {
 	public void Test01VerQueJugadorQueCompraEnUnBarrioEsPropietario() {
 		Jugador jugador = new Jugador();
 		Provincia unBarrio= new BSNorte();
-		unBarrio.entrar(jugador);
+		unBarrio.comprar(jugador);
 		Assert.assertEquals(jugador ,unBarrio.getPropietario());
 	}
 }	
