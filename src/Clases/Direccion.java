@@ -3,11 +3,11 @@ package Clases;
 public class Direccion {
 	private int posDirX;
 	private int posDirY;
-	private int[] direcciones = {1,0,-1,0};
+	private int[] direcciones = {0,-1,0,1};
 	
 	public Direccion() {
-		posDirX = 0;
-		posDirY = 1;
+		posDirX = 1;
+		posDirY = 0;
 	}
 	
 	public int direccionActualX() {
