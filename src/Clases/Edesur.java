@@ -2,7 +2,7 @@ package Clases;
 
 public class Edesur extends Servicio{
 	
-	public Edesur(){
+	public Edesur()	{
 		precioPropiedad = 35000;
 		multiplicadorConUnaSola = 500;
 		multiplicadorConAmbas = 1000;
