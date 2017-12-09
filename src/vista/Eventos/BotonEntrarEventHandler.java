@@ -25,13 +25,15 @@ public class BotonEntrarEventHandler implements EventHandler<ActionEvent> {
 	    
 	public BotonEntrarEventHandler(Stage stage2, ContenedorPrincipal proximaEscena2, TextField nombre1, TextField nombre2,TextField nombre3, Tablero tablero) {
 		this.stage = stage2;
-        
         this.nomJugador1=nombre1;
         this.nomJugador2=nombre2;
         this.nomJugador3=nombre3;
         this.proximaEscena = proximaEscena2;
         this.tablero = Tablero.getInstancia();
-		}
+
+	}
+	
+	
 	@Override
 	public void handle(ActionEvent arg0) {
 		
@@ -40,10 +42,9 @@ public class BotonEntrarEventHandler implements EventHandler<ActionEvent> {
 			alerta.setTitle("Error: Llenado incorrecto de Datos");
 			alerta.setHeaderText("Los Nombres tienen que contener al menos un caracter.");
 			alerta.show();
-			TextField error=new TextField();
-			error.setText("error completar datos");
 			return;
 		}
+		
 		Scene escenaPrincipal = new Scene(this.proximaEscena, 400, 500);
 	    stage.setScene(escenaPrincipal);
 		stage.setFullScreenExitHint("Bienvenidos Al juego");

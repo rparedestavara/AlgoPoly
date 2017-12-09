@@ -1,7 +1,6 @@
 package vista.Eventos;
 
 
-import java.awt.Font;
 import java.util.ArrayList;
 
 import Clases.AlgoPoly;
@@ -11,13 +10,8 @@ import Clases.Turno;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import vista.VistaTablero;
 

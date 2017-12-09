@@ -53,14 +53,14 @@ public class AvanceDinamicoTest {
 		jugadores.add(jugador);
 		tablero.agregarJugadores(jugadores);
 		AvanceDinamico avanceDinamico = new AvanceDinamico();
-		Dados dados=Dados.getInstance();
-		int posInicialJugador=tablero.getPosicion(jugador);
+		Dados dados = Dados.getInstance();
+		int posInicialJugador = tablero.getPosicion(jugador);
 		jugador.agregarPropiedad();
 		jugador.agregarPropiedad();
-		int[] resultados={5,6};
+		int[] resultados = {5,6};
 		dados.setResultados(resultados);
 		avanceDinamico.entrar(jugador);
-		int resultadoFinal=tablero.getPosicion(jugador)-posInicialJugador;
+		int resultadoFinal = tablero.getPosicion(jugador)-posInicialJugador;
 		Assert.assertEquals(11-2,resultadoFinal);
 	}
 	

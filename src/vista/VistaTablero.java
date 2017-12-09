@@ -90,7 +90,7 @@ public class VistaTablero {
 			gc.fillRect(posX, posY, 118, 118);
 			gc.setFont(Font.getDefault());
 			gc.setFill(Color.BLACK);
-			gc.fillText(casilla.getNombre(), posX + 40, posY + 40);
+			gc.fillText(casilla.getNombre(), posX + 20, posY + 40);
 			dibujarJugador(i, posX, posY);
 			if(casilla instanceof Provincia) {
 				dibujarEdificaciones((Provincia)casilla, posX, posY);
