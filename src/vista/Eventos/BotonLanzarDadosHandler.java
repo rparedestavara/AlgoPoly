@@ -55,7 +55,7 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 		Button botonFinTurno = new Button();
 		botonFinTurno.setText("Finalizar Turno");
 		vBox.getChildren().clear();
-		if (pagarFianza != null) vBox.getChildren().add(pagarFianza);
+		if (pagarFianza != null && jugador.puedePagarFianzaDeCarcel()) vBox.getChildren().add(pagarFianza);
 		vBox.getChildren().add(nombreJugador);
 		vBox.getChildren().add(botonFinTurno);
 		vBox.getChildren().add(infoDados);
