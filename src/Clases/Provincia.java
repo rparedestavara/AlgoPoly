@@ -60,6 +60,11 @@ public abstract class Provincia extends Propiedad {
 	}
 	
 	@Override
+	protected Propiedad getOpuesta() {
+		return null;
+	}
+	
+	@Override
 	public void vender() {
 		super.vender();
 		this.destruirConstrucciones();
@@ -77,6 +82,7 @@ public abstract class Provincia extends Propiedad {
 	private void destruirConstrucciones() {
 		this.cantCasas = 0;
 	}
+	
 	
 	
 

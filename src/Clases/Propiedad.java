@@ -2,7 +2,7 @@ package Clases;
 
 import javafx.scene.paint.Color;
 
-public abstract class Propiedad extends Casilla{
+public abstract class Propiedad extends Casilla {
 	protected int precioPropiedad;
 	protected Jugador propietario;
 	
@@ -28,6 +28,10 @@ public abstract class Propiedad extends Casilla{
 	}
 	
 	protected abstract void cobrar(Jugador residente);
+	
+	protected Propiedad getOpuesta() {
+		return null;
+	}
 	
 	public void entrar(Jugador jugador) {
 		if(this.propietario==null) {

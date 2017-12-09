@@ -20,9 +20,10 @@ public abstract class ProvinciaDividida extends Provincia {
 	}
 	
 	public boolean sePuedeConstruirUnaCasa() {
-		return this.cantCasasConstruidas()<2;
+		return (this.cantCasasConstruidas() < 2) ;
 	}
 	
+
 	public void construirCasa() {
 		this.cantCasas++;
 		this.propietario.modificarDinero(-this.precioDeConstruccionDeCasas);

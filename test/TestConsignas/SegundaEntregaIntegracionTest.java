@@ -172,7 +172,7 @@ public class SegundaEntregaIntegracionTest {
 		Assert.assertEquals(2900,dineroAntesDeEntrarAPropiedad-jugador2.getDinero(),DELTA);
 	}
 	@Test
-	public void test4JugadorConstruyeHotelTeniendoCasasEnProvinciasOpuestasBueAires() {
+	public void test4JugadorConstruyeHotelTeniendoCasasEnProvinciasOpuestasBuenosAires() {
 		Jugador jugador= new Jugador();
 		ProvinciaDividida bNorte=new BSNorte();
 		ProvinciaDividida bSur=new BSSur();
@@ -220,7 +220,7 @@ public class SegundaEntregaIntegracionTest {
 		Assert.assertEquals(1, cordobaNorte.cantHoteles());
 	}
 	@Test
-	public void test6JugadorQuiereConstruirHotelYNoPuedePorNoTenerCasaAlMaximoEnBueAires() {
+	public void test6JugadorQuiereConstruirHotelYNoPuedePorNoTenerCasaAlMaximoEnBuenosAires() {
 		Jugador jugador= new Jugador();
 		ProvinciaDividida bNorte=new BSNorte();
 		ProvinciaDividida bSur=new BSSur();

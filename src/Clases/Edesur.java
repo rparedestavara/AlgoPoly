@@ -8,4 +8,5 @@ public class Edesur extends Servicio{
 		multiplicadorConAmbas = 1000;
 		nombre = "Edesur";
 	}
+
 }

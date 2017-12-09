@@ -49,12 +49,20 @@ public class Jugador {
 	
 	public boolean puedeEdificar() {
 		for(Propiedad propiedad : propiedades) {
+			if(this.tieneLasDosPartes(propiedad)) {
 			if(propiedad.sePuedeConstruirUnHotel()) return true;
 			if(propiedad.sePuedeConstruirUnaCasa()) return true;
+			}
 		}
 		return false;
 	}
 	
+	private boolean tieneLasDosPartes(Propiedad propiedad) {
+		if (propiedad.getOpuesta()!= null)
+		return (this.propiedades.contains(propiedad.getOpuesta()));
+		else return true; 
+	}
+
 	public void agregarPropiedad() {
 		this.barriosComprados++;
 	}
