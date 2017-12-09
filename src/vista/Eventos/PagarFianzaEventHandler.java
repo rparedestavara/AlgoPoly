@@ -5,13 +5,20 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
 
 public class PagarFianzaEventHandler implements EventHandler<ActionEvent> {
 	private Jugador jugador;
+	VBox vbox;
+	Button pagar;
+	
 
-	public PagarFianzaEventHandler(Jugador jugador) {
+	public PagarFianzaEventHandler(Jugador jugador, VBox vBox, Button pagarFianza) {
 		this.jugador = jugador;
+		this.vbox=vBox;
+		this.pagar=pagarFianza;
 	}
 
 	@Override
@@ -23,6 +30,9 @@ public class PagarFianzaEventHandler implements EventHandler<ActionEvent> {
 			alert.setContentText("Usted ha pagado la fianza con exito, se le desconto 45000");
 			alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);			
 			alert.show();
+			this.pagar.setText("Husted ya Pago Fianza es Libre De irse");
+			this.pagar.setOnAction(null);
+			this.pagar.setEffect(null);
 		}else {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("¡Usted no esta en condiciones de pagar la fianza!");

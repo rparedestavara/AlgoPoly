@@ -74,7 +74,7 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 
 	private Button crearBotonFianza(Jugador jugador) {
 		Button pagarFianza = new Button("PAGAR FIANZA!");
-		PagarFianzaEventHandler pagarFianzaEventHandler = new PagarFianzaEventHandler(jugador);
+		PagarFianzaEventHandler pagarFianzaEventHandler = new PagarFianzaEventHandler(jugador,vBox,pagarFianza);
 		pagarFianza.setOnAction(pagarFianzaEventHandler);
 		return pagarFianza;
 	}
