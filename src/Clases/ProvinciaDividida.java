@@ -73,5 +73,6 @@ public abstract class ProvinciaDividida extends Provincia {
 	public ProvinciaDividida getOpuesta() {
 		return otraMitad;
 	}
+	
 }
 

@@ -6,6 +6,7 @@ import javafx.scene.paint.Color;
 public abstract class Propiedad extends Casilla {
 	protected int precioPropiedad;
 	protected Jugador propietario;
+	private static final double MULTIPLICADOR_DESCUENTO_VENTA = 0.85;
 	
 	public Propiedad(){
 		propietario = null;
@@ -68,10 +69,18 @@ public abstract class Propiedad extends Casilla {
 		
 	}
 	protected void pagar(Jugador jugador) {
-		jugador.modificarDinero(this.precioPropiedad*0.85);
+		jugador.modificarDinero(this.precioPropiedad*MULTIPLICADOR_DESCUENTO_VENTA);
 	}
 	
 	public String getNombre() {
 		return nombre;
+	}
+	
+	public double getPrecio() {
+		return precioPropiedad;
+	}
+	
+	public double getPrecioVenta() {
+		return precioPropiedad * MULTIPLICADOR_DESCUENTO_VENTA;
 	}
 }

@@ -54,10 +54,10 @@ public class BotonEdificarHandler implements EventHandler<ActionEvent>{
 			for(Propiedad propiedad : propiedades) {
 				Button botonEdificarIndividual = new Button();
 				if(propiedad.jugadorPuedeComprarCasa(jugador.getDinero())) {
-					botonEdificarIndividual.setText("Casa en " + propiedad.getNombre());
+					botonEdificarIndividual.setText("Casa en " + propiedad.getNombre() + " (-$" + ((Provincia) propiedad).getCostoCasa() + ")");
 				}
-				else if(propiedad.jugadorPuedeComprarCasa(jugador.getDinero())) {
-					botonEdificarIndividual.setText("hotel en " + propiedad.getNombre());
+				else if(propiedad.jugadorPuedeComprarHotel(jugador.getDinero())) {
+					botonEdificarIndividual.setText("hotel en " + propiedad.getNombre() + " (-$" + ((Provincia) propiedad).getCostoHotel() + ")");
 				}
 				else {
 					continue;

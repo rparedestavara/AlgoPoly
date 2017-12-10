@@ -40,7 +40,7 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 		}
 		for(Propiedad propiedad : propiedades) {
 			Button botonPropiedad = new Button();
-			botonPropiedad.setText(propiedad.getNombre());
+			botonPropiedad.setText(propiedad.getNombre() + " (+$" + propiedad.getPrecioVenta() + ")");
 			BotonPropiedadVentaHandler botonPropiedadHandler = new BotonPropiedadVentaHandler(vBox, botonPropiedad,propiedad,jugador, mensajePropiedades,turno,vistaTablero);
 			botonPropiedad.setOnAction(botonPropiedadHandler);
 			vBox.getChildren().add(botonPropiedad);

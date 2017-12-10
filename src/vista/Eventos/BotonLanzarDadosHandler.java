@@ -5,6 +5,7 @@ import Clases.AlgoPoly;
 import Clases.Carcel;
 import Clases.Dados;
 import Clases.Jugador;
+import Clases.Propiedad;
 import Clases.Tablero;
 import Clases.Turno;
 import excepciones.NoPuedeJugarException;
@@ -53,7 +54,8 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 				Carcel.getInstancia().aumentarTurno(jugador);								
 		}catch(JugadorPuedeComprarException e) {
 			Button botonComprarPropiedad = new Button();
-			botonComprarPropiedad.setText("Comprar " + tablero.getCasillasTablero().get(tablero.getPosicion(jugador)).getNombre());
+			Propiedad propiedad = (Propiedad) tablero.getCasillasTablero().get(tablero.getPosicion(jugador));
+			botonComprarPropiedad.setText("Comprar " + propiedad.getNombre() + " (-$" + propiedad.getPrecio() + ")");
 			BotonComprarPropiedadHandler botonComprarPropiedadHandler = new BotonComprarPropiedadHandler(vBox, jugador, botonComprarPropiedad, vistaTablero);
 			botonComprarPropiedad.setOnAction(botonComprarPropiedadHandler);
 			vBox.getChildren().add(botonComprarPropiedad);
@@ -78,7 +80,7 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 	}
 
 	private Button crearBotonFianza(Jugador jugador) {
-		Button pagarFianza = new Button("PAGAR FIANZA!");
+		Button pagarFianza = new Button("PAGAR FIANZA!" + " (-$" + jugador.getCostoFianza() + ")");
 		PagarFianzaEventHandler pagarFianzaEventHandler = new PagarFianzaEventHandler(jugador,vBox,pagarFianza);
 		pagarFianza.setOnAction(pagarFianzaEventHandler);
 		return pagarFianza;

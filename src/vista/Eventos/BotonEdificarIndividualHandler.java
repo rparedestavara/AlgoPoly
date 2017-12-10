@@ -32,8 +32,8 @@ public class BotonEdificarIndividualHandler implements EventHandler<ActionEvent>
 		Button botonHotelPropio = new Button();
 		Button botonHotelOpuesto = new Button();
 		ProvinciaDividida provinciaOpuesta = ((ProvinciaDividida)provincia).getOpuesta();
-		botonHotelPropio.setText("hotel en " + provincia.getNombre());
-		botonHotelOpuesto.setText("hotel en " + provinciaOpuesta.getNombre());
+		botonHotelPropio.setText("hotel en " + provincia.getNombre() + " (-$" + provincia.getCostoHotel() + ")");
+		botonHotelOpuesto.setText("hotel en " + provinciaOpuesta.getNombre() + " (-$" + provinciaOpuesta.getCostoHotel() + ")");
 		vBox.getChildren().add(botonHotelPropio);
 		vBox.getChildren().add(botonHotelOpuesto);
 		BotonEdificarIndividualHandler botonHotelPropioHandler = new BotonEdificarIndividualHandler(vBox, botonHotelPropio, 

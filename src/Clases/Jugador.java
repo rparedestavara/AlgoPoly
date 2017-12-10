@@ -13,6 +13,7 @@ public class Jugador {
 	private ArrayList<Propiedad> propiedades;
 	private Color color;
 	private String nombre;
+	private static final double COSTO_FIANZA = 45000;
 	
 	public Jugador() {
 		this.dineroActual = 100000;
@@ -71,7 +72,7 @@ public class Jugador {
 
 	public boolean puedePagarFianzaDeCarcel() {
 		Carcel carcel = Carcel.getInstancia();
-		return ((carcel.turnosEnCarcel(this) > 1) && (dineroActual >= 45000));
+		return ((carcel.turnosEnCarcel(this) > 1) && (dineroActual >= COSTO_FIANZA));
 	}
 
 	public void pagarFianzaDeCarcel() throws SaldoInsuficienteException {
@@ -117,6 +118,10 @@ public class Jugador {
 	
 	public void setNombre(String nombre) {
 		this.nombre=nombre;
+	}
+	
+	public double getCostoFianza() {
+		return COSTO_FIANZA;
 	}
 	
 	

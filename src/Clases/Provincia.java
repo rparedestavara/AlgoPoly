@@ -87,9 +87,13 @@ public abstract class Provincia extends Propiedad {
 	private void destruirConstrucciones() {
 		this.cantCasas = 0;
 	}
-	
-	
-	
 
+	public double getCostoCasa() {
+		return precioDeConstruccionDeCasas;
+	}
+	
+	public double getCostoHotel() {
+		return precioDeConstruccionDeHotel;
+	}
 	
 }
