@@ -32,6 +32,14 @@ public abstract class Propiedad extends Casilla {
 	
 	protected abstract void cobrar(Jugador residente);
 	
+	public boolean jugadorPuedeComprarCasa(double dinero) {
+		return false;
+	}
+	
+	public boolean jugadorPuedeComprarHotel(double dinero) {
+		return false;
+	}
+	
 	protected Propiedad getOpuesta() {
 		return null;
 	}

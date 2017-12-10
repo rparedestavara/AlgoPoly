@@ -47,25 +47,26 @@ public class BotonEdificarHandler implements EventHandler<ActionEvent>{
 		BotonLanzarDadosHandler botonLanzarDadosHandler = new BotonLanzarDadosHandler(vBox, vistaTablero);
 		botonLanzarDados.setOnAction(botonLanzarDadosHandler);
 		
-		Text mensajeEdificacion = new Text(); //men prop?
-		mensajeEdificacion.setText("Edificar: ");
-		vBox.getChildren().add(mensajeEdificacion);
-		
-		for(Propiedad propiedad : propiedades) {
-			Button botonEdificarIndividual = new Button();
-			if(propiedad.sePuedeConstruirUnaCasa()) {
-				botonEdificarIndividual.setText("Casa en " + propiedad.getNombre());
+		if(jugador.puedeEdificar()) {
+			Text mensajeEdificacion = new Text();
+			mensajeEdificacion.setText("Edificar: ");
+			vBox.getChildren().add(mensajeEdificacion);
+			for(Propiedad propiedad : propiedades) {
+				Button botonEdificarIndividual = new Button();
+				if(propiedad.jugadorPuedeComprarCasa(jugador.getDinero())) {
+					botonEdificarIndividual.setText("Casa en " + propiedad.getNombre());
+				}
+				else if(propiedad.jugadorPuedeComprarCasa(jugador.getDinero())) {
+					botonEdificarIndividual.setText("hotel en " + propiedad.getNombre());
+				}
+				else {
+					continue;
+				}
+				BotonEdificarIndividualHandler botonEdificarIndividualHandler = new BotonEdificarIndividualHandler(vBox, botonEdificarIndividual, 
+						(Provincia)propiedad, jugador, mensajeEdificacion, vistaTablero);
+				botonEdificarIndividual.setOnAction(botonEdificarIndividualHandler);
+				vBox.getChildren().add(botonEdificarIndividual);
 			}
-			else if(propiedad.sePuedeConstruirUnHotel()) {
-				botonEdificarIndividual.setText("hotel en " + propiedad.getNombre());
-			}
-			else {
-				continue;
-			}
-			BotonEdificarIndividualHandler botonEdificarIndividualHandler = new BotonEdificarIndividualHandler(vBox, botonEdificarIndividual, 
-					(Provincia)propiedad, jugador, mensajeEdificacion, vistaTablero);
-			botonEdificarIndividual.setOnAction(botonEdificarIndividualHandler);
-			vBox.getChildren().add(botonEdificarIndividual);
 		}
 	}
 }

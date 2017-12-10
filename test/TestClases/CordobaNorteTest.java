@@ -23,7 +23,11 @@ public class CordobaNorteTest {
 	@Test
 	public void test2JugadorCaeEnCordobaNorteYConstruyeUnaCasaSuDineroSeReduceEn2200() {
 		Jugador jugador= new Jugador();
-		Provincia cordobaNorte=new CordobaNorte();
+		ProvinciaDividida cordobaNorte=new CordobaNorte();
+		ProvinciaDividida cordobaSur=new CordobaSur();
+		cordobaNorte.agregarOpuesto(cordobaSur);
+		cordobaSur.agregarOpuesto(cordobaNorte);
+		cordobaSur.comprar(jugador);
 		double dineroAntesDeAdquirirTerreno=jugador.getDinero();
 		cordobaNorte.comprar(jugador);
 		cordobaNorte.construirCasa();
@@ -33,8 +37,12 @@ public class CordobaNorteTest {
 	@Test
 	public void test3AlConstruirUnaCasaVerQueAumenteLaCantidadDeCasasEnELTerreno() {
 		Jugador jugador= new Jugador();
-		Provincia cordobaNorte=new CordobaNorte();
+		ProvinciaDividida cordobaNorte=new CordobaNorte();
+		ProvinciaDividida cordobaSur=new CordobaSur();
+		cordobaNorte.agregarOpuesto(cordobaSur);
+		cordobaSur.agregarOpuesto(cordobaNorte);
 		cordobaNorte.comprar(jugador);
+		cordobaSur.comprar(jugador);
 		cordobaNorte.construirCasa();
 		Assert.assertEquals(1,cordobaNorte.cantCasasConstruidas());
 	}
@@ -183,8 +191,6 @@ public class CordobaNorteTest {
 		Jugador jugador= new Jugador();
 		ProvinciaDividida cordobaNorte = new CordobaNorte();
 		cordobaNorte.comprar(jugador);
-		cordobaNorte.construirCasa();
-		cordobaNorte.construirCasa();
 		double dineroAntesDeVenderProiedad=jugador.getDinero();
 		cordobaNorte.provinciaVendida(jugador);
 		Assert.assertEquals(20000*0.85, jugador.getDinero()-dineroAntesDeVenderProiedad,DELTA);
@@ -192,8 +198,12 @@ public class CordobaNorteTest {
 	@Test
 	public void testAlvenderLaProvinciaLaCantidadDeCasasQuedaEn0() {
 		Jugador jugador= new Jugador();
-		ProvinciaDividida cordobaNorte = new CordobaNorte();
+		ProvinciaDividida cordobaNorte=new CordobaNorte();
+		ProvinciaDividida cordobaSur=new CordobaSur();
+		cordobaNorte.agregarOpuesto(cordobaSur);
+		cordobaSur.agregarOpuesto(cordobaNorte);
 		cordobaNorte.comprar(jugador);
+		cordobaSur.comprar(jugador);
 		cordobaNorte.construirCasa();
 		cordobaNorte.construirCasa();
 		cordobaNorte.provinciaVendida(jugador);

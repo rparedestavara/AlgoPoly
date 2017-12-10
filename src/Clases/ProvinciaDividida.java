@@ -20,13 +20,15 @@ public abstract class ProvinciaDividida extends Provincia {
 	}
 	
 	public boolean sePuedeConstruirUnaCasa() {
-		return (this.cantCasasConstruidas() < 2) ;
+		return (this.cantCasasConstruidas() < 2 && this.otraMitad.getPropietario() == this.propietario);
 	}
 	
 
 	public void construirCasa() {
-		this.cantCasas++;
-		this.propietario.modificarDinero(-this.precioDeConstruccionDeCasas);
+		if(sePuedeConstruirUnaCasa()) {
+			this.cantCasas++;
+			this.propietario.modificarDinero(-this.precioDeConstruccionDeCasas);
+		}
 	}
 	
 	public void construirHotel() {
@@ -49,7 +51,11 @@ public abstract class ProvinciaDividida extends Provincia {
 	}
 
 	public boolean sePuedeConstruirUnHotel() {
-		return (this.cantCasas==2 && (this.otraMitad.cantCasas==2) || this.otraMitad.cantHoteles == 1);
+		return (this.cantCasas==2 && (this.otraMitad.cantCasas==2 || this.otraMitad.cantHoteles == 1) && this.otraMitad.getPropietario() == this.propietario);
+	}
+	
+	public boolean jugadorPuedeComprarHotel(double dinero) {
+		return dinero >= precioDeConstruccionDeHotel && sePuedeConstruirUnHotel();
 	}
 	
 	@Override

@@ -30,8 +30,6 @@ public class SaltaSurTest {
 		Jugador jugador= new Jugador();
 		ProvinciaDividida SaltaSur = new SaltaSur();
 		SaltaSur.comprar(jugador);
-		SaltaSur.construirCasa();
-		SaltaSur.construirCasa();
 		double dineroAntesDeVenderProiedad=jugador.getDinero();
 		SaltaSur.provinciaVendida(jugador);
 		Assert.assertEquals(18000*0.85, jugador.getDinero()-dineroAntesDeVenderProiedad,DELTA);
@@ -39,7 +37,11 @@ public class SaltaSurTest {
 	@Test
 	public void testAlvenderLaProvinciaLaCantidadDeCasasQuedaEn0() {
 		Jugador jugador= new Jugador();
-		ProvinciaDividida SaltaSur = new SaltaSur();
+		ProvinciaDividida SaltaNorte=new SaltaNorte();
+		ProvinciaDividida SaltaSur=new SaltaSur();
+		SaltaNorte.agregarOpuesto(SaltaSur);
+		SaltaSur.agregarOpuesto(SaltaNorte);
+		SaltaNorte.comprar(jugador);
 		SaltaSur.comprar(jugador);
 		SaltaSur.construirCasa();
 		SaltaSur.construirCasa();

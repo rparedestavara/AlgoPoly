@@ -23,7 +23,11 @@ public class SaltaNorteTest {
 	@Test
 	public void test2JugadorCaeEnSaltaYConstruyeUnaCasaSuDineroSeReduceEn4500() {
 		Jugador jugador= new Jugador();
-		Provincia saltaNorte=new SaltaNorte();
+		ProvinciaDividida saltaNorte=new SaltaNorte();
+		ProvinciaDividida saltaSur=new SaltaSur();
+		saltaNorte.agregarOpuesto(saltaSur);
+		saltaSur.agregarOpuesto(saltaNorte);
+		saltaSur.comprar(jugador);
 		double dineroAntesDeAdquirirTerreno=jugador.getDinero();
 		saltaNorte.comprar(jugador);
 		saltaNorte.construirCasa();
@@ -33,8 +37,12 @@ public class SaltaNorteTest {
 	@Test
 	public void test3AlConstruirUnaCasaVerQueAumenteLaCantidadDeCasasEnELTerreno() {
 		Jugador jugador= new Jugador();
-		Provincia saltaNorte=new SaltaNorte();
+		ProvinciaDividida saltaNorte=new SaltaNorte();
+		ProvinciaDividida saltaSur=new SaltaSur();
+		saltaNorte.agregarOpuesto(saltaSur);
+		saltaSur.agregarOpuesto(saltaNorte);
 		saltaNorte.comprar(jugador);
+		saltaSur.comprar(jugador);
 		saltaNorte.construirCasa();
 		Assert.assertEquals(1,saltaNorte.cantCasasConstruidas());
 	}
@@ -178,21 +186,24 @@ public class SaltaNorteTest {
 		saltaNorte.entrar(jugador2);
 		Assert.assertEquals(5500,dineroAntesDeEntrar-jugador2.getDinero(), DELTA);
 	}
+	@Test
 	public void testCasillaVendida() {
 		Jugador jugador= new Jugador();
 		ProvinciaDividida saltaNorte = new SaltaNorte();
 		saltaNorte.comprar(jugador);
-		saltaNorte.construirCasa();
-		saltaNorte.construirCasa();
 		double dineroAntesDeVenderProiedad=jugador.getDinero();
 		saltaNorte.provinciaVendida(jugador);
-		Assert.assertEquals(18000*0.85, jugador.getDinero()-dineroAntesDeVenderProiedad,DELTA);
+		Assert.assertEquals(23000*0.85, jugador.getDinero()-dineroAntesDeVenderProiedad,DELTA);
 	}
 	@Test
 	public void testAlvenderLaProvinciaLaCantidadDeCasasQuedaEn0() {
 		Jugador jugador= new Jugador();
-		ProvinciaDividida saltaNorte = new SaltaNorte();
+		ProvinciaDividida saltaNorte=new SaltaNorte();
+		ProvinciaDividida saltaSur=new SaltaSur();
+		saltaNorte.agregarOpuesto(saltaSur);
+		saltaSur.agregarOpuesto(saltaNorte);
 		saltaNorte.comprar(jugador);
+		saltaSur.comprar(jugador);
 		saltaNorte.construirCasa();
 		saltaNorte.construirCasa();
 		saltaNorte.provinciaVendida(jugador);

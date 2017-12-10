@@ -26,6 +26,10 @@ public abstract class Provincia extends Propiedad {
 		return 0;
 	}
 	
+	public boolean jugadorPuedeComprarCasa(double dinero) {
+		return dinero >= precioDeConstruccionDeCasas && sePuedeConstruirUnaCasa();
+	}
+	
 	public boolean sePuedeConstruirUnaCasa() {
 		return this.cantCasasConstruidas()<1;
 	}
@@ -34,8 +38,9 @@ public abstract class Provincia extends Propiedad {
 	
 	public void construirCasa() {
 		if(sePuedeConstruirUnaCasa()) {
-		this.cantCasas++;
-		this.propietario.modificarDinero(-this.precioDeConstruccionDeCasas);}
+			this.cantCasas++;
+			this.propietario.modificarDinero(-this.precioDeConstruccionDeCasas);
+		}
 	}
 	
 	public int costePorConstruccionDeCasa() {

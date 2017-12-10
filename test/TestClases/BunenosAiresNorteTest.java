@@ -24,7 +24,11 @@ public class BunenosAiresNorteTest {
 	@Test
 	public void test2JugadorCaeEnBuenosAiresYConstruyeUnaCasaSuDineroSeReduceEn5500() {
 		Jugador jugador= new Jugador();
-		Provincia bNorte=new BSNorte();
+		ProvinciaDividida bNorte = new BSNorte();
+		ProvinciaDividida bSur = new BSSur();
+		bNorte.agregarOpuesto(bSur);
+		bSur.agregarOpuesto(bNorte);
+		bSur.comprar(jugador);
 		double dineroAntesDeAdquirirTerreno=jugador.getDinero();
 		bNorte.comprar(jugador);
 		bNorte.construirCasa();
@@ -34,8 +38,12 @@ public class BunenosAiresNorteTest {
 	@Test
 	public void test3AlConstruirUnaCasaVerQueAumenteLaCantidadDeCasasEnELTerreno() {
 		Jugador jugador= new Jugador();
-		Provincia bNorte=new BSNorte();
+		ProvinciaDividida bNorte=new BSNorte();
+		ProvinciaDividida bSur=new BSSur();
+		bNorte.agregarOpuesto(bSur);
+		bSur.agregarOpuesto(bNorte);
 		bNorte.comprar(jugador);
+		bSur.comprar(jugador);
 		bNorte.construirCasa();
 		Assert.assertEquals(1,bNorte.cantCasasConstruidas());
 	}
@@ -182,8 +190,12 @@ public class BunenosAiresNorteTest {
 	@Test
 	public void testCasillaVendida() {
 		Jugador jugador= new Jugador();
-		ProvinciaDividida bNorte = new BSNorte();
+		ProvinciaDividida bNorte=new BSNorte();
+		ProvinciaDividida bSur=new BSSur();
+		bNorte.agregarOpuesto(bSur);
+		bSur.agregarOpuesto(bNorte);
 		bNorte.comprar(jugador);
+		bSur.comprar(jugador);
 		bNorte.construirCasa();
 		bNorte.construirCasa();
 		double dineroAntesDeVenderProiedad=jugador.getDinero();
@@ -193,8 +205,12 @@ public class BunenosAiresNorteTest {
 	@Test
 	public void testAlvenderLaProvinciaLaCantidadDeCasasQuedaEn0() {
 		Jugador jugador= new Jugador();
-		ProvinciaDividida bNorte = new BSNorte();
+		ProvinciaDividida bNorte=new BSNorte();
+		ProvinciaDividida bSur=new BSSur();
+		bNorte.agregarOpuesto(bSur);
+		bSur.agregarOpuesto(bNorte);
 		bNorte.comprar(jugador);
+		bSur.comprar(jugador);
 		bNorte.construirCasa();
 		bNorte.construirCasa();
 		bNorte.provinciaVendida(jugador);

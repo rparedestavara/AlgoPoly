@@ -411,6 +411,8 @@ public class SegundaEntregaIntegracionTest {
 		double plataJugadorEnBsAs = jugadorEnBsAs.getDinero();
 		buenosAiresNorte.comprar(propietario);
 		buenosAiresSur.comprar(propietario);
+		buenosAiresNorte.agregarOpuesto(buenosAiresSur);
+		buenosAiresSur.agregarOpuesto(buenosAiresNorte);
 		buenosAiresNorte.construirCasa();
 		buenosAiresSur.construirCasa();
 		double plataPropietario = propietario.getDinero();
@@ -428,8 +430,10 @@ public class SegundaEntregaIntegracionTest {
 		ProvinciaDividida saltaSur = new SaltaSur();
 		double plataJugadorSalta = jugadorSalta.getDinero();
 		saltaNorte.comprar(propietario);
-		saltaNorte.construirCasa();
 		saltaSur.comprar(propietario);
+		saltaNorte.agregarOpuesto(saltaSur);
+		saltaSur.agregarOpuesto(saltaNorte);
+		saltaNorte.construirCasa();
 		saltaSur.construirCasa();
 		double plataPropietario = propietario.getDinero();
 		saltaNorte.entrar(jugadorSalta);
@@ -446,8 +450,10 @@ public class SegundaEntregaIntegracionTest {
 		ProvinciaDividida cordobaSur = new CordobaSur();
 		double plataJugadorEnCordoba = jugadorEnCordoba.getDinero();
 		cordobaNorte.comprar(propietario);
-		cordobaNorte.construirCasa();
 		cordobaSur.comprar(propietario);
+		cordobaNorte.agregarOpuesto(cordobaSur);
+		cordobaSur.agregarOpuesto(cordobaNorte);
+		cordobaNorte.construirCasa();
 		cordobaSur.construirCasa();
 		double plataPropietario = propietario.getDinero();
 		cordobaNorte.entrar(jugadorEnCordoba);
