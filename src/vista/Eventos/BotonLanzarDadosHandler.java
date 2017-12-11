@@ -59,7 +59,7 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 			Button botonComprarPropiedad = new Button();
 			Propiedad propiedad = (Propiedad) tablero.getCasillasTablero().get(tablero.getPosicion(jugador));
 			botonComprarPropiedad.setText("Comprar " + propiedad.getNombre() + " (-$" + propiedad.getPrecio() + ")");
-			BotonComprarPropiedadHandler botonComprarPropiedadHandler = new BotonComprarPropiedadHandler(vBoxBotones, jugador, botonComprarPropiedad, vistaTablero);
+			BotonComprarPropiedadHandler botonComprarPropiedadHandler = new BotonComprarPropiedadHandler(vBoxBotones, vBoxMensajes, jugador, botonComprarPropiedad, vistaTablero);
 			botonComprarPropiedad.setOnAction(botonComprarPropiedadHandler);
 			vBoxBotones.getChildren().add(botonComprarPropiedad);
 		}
@@ -75,10 +75,6 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 		vBoxMensajes.getChildren().add(infoCasilla);
 		BotonInicioTurnoHandler botonFinVentaHandler = new BotonInicioTurnoHandler(vBoxBotones, vBoxMensajes, vistaTablero);
 		botonFinTurno.setOnAction(botonFinVentaHandler);
-		Text casas = new Text();
-		casas.setText("Cantidad de propiedades: " + jugador.getCantidadDePropiedades());
-		casas.autosize();
-		vBoxMensajes.getChildren().add(casas);
 		vistaTablero.actualizar();
 	}
 

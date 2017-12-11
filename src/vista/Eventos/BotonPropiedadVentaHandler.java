@@ -11,7 +11,8 @@ import javafx.scene.text.Text;
 import vista.VistaTablero;
 
 public class BotonPropiedadVentaHandler implements EventHandler<ActionEvent>{
-	VBox vBox;
+	VBox vBoxBotones;
+	VBox vBoxMensajes;
 	Propiedad propiedad;
 	Jugador jugador;
 	Button boton;
@@ -19,9 +20,10 @@ public class BotonPropiedadVentaHandler implements EventHandler<ActionEvent>{
 	Turno turno;
 	VistaTablero vistaTablero;
 	
-	public BotonPropiedadVentaHandler(VBox vBoxIn, Button botonIn, Propiedad propiedadIn, 
+	public BotonPropiedadVentaHandler(VBox vBoxB, VBox vBoxM, Button botonIn, Propiedad propiedadIn, 
 			Jugador jugadorIn, Text mensajePropiedadesIn,Turno turno, VistaTablero vistaTableroIn) {
-		vBox = vBoxIn;
+		vBoxBotones = vBoxB;
+		vBoxMensajes = vBoxM;
 		propiedad = propiedadIn;
 		jugador = jugadorIn;
 		boton = botonIn;
@@ -29,16 +31,24 @@ public class BotonPropiedadVentaHandler implements EventHandler<ActionEvent>{
 		this.turno=turno;
 		vistaTablero = vistaTableroIn;
 	}
+	
+	private void mostrarMensajeVentaEnVBox(VBox vBox, Propiedad propiedad, Jugador jugador) {
+		Text mensajeVenta = new Text("Usted vendio " + propiedad.getNombre());
+		Text mensajeEfectivo = new Text("Su efectivo ahora es $" + jugador.getDinero());
+		vBox.getChildren().add(mensajeVenta);
+		vBox.getChildren().add(mensajeEfectivo);
+	}
 
 	@Override
 	public void handle(ActionEvent event) {
-		vBox.getChildren().remove(boton);
+		vBoxBotones.getChildren().remove(boton);
 		turno.agregarPropiedadVendidaDeJugador(propiedad);
 		propiedad.vender();
 		int cantidadesPropiedades = jugador.getPropiedades().size();
 		if(cantidadesPropiedades == 0) {
-			vBox.getChildren().remove(mensajePropiedades);
+			vBoxBotones.getChildren().remove(mensajePropiedades);
 		}
+		mostrarMensajeVentaEnVBox(vBoxMensajes, propiedad, jugador);
 		vistaTablero.actualizar();
 	}
 	

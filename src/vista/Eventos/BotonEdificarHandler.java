@@ -2,18 +2,13 @@ package vista.Eventos;
 
 import java.util.ArrayList;
 
-import Clases.AlgoPoly;
 import Clases.Jugador;
 import Clases.Propiedad;
 import Clases.Provincia;
-import Clases.Turno;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import vista.VistaTablero;
 
@@ -34,14 +29,6 @@ public class BotonEdificarHandler implements EventHandler<ActionEvent>{
 	public void handle(ActionEvent event) {
 		vBoxBotones.getChildren().clear();
 		ArrayList<Propiedad> propiedades = jugador.getPropiedades();
-		
-		Turno turno = AlgoPoly.getInstancia().getTurno();
-		Jugador jugador = turno.aQuienLeToca();
-		Text nombreJugador=new Text();
-		nombreJugador.setFill(jugador.getColor());
-		nombreJugador.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 15));
-		nombreJugador.setText("Turno del jugador: " + jugador.getNombre());
-		vBoxBotones.getChildren().add(nombreJugador);
 		
 		Button botonLanzarDados = new Button();
 		botonLanzarDados.setText("lanzar Dados");
@@ -64,8 +51,8 @@ public class BotonEdificarHandler implements EventHandler<ActionEvent>{
 				else {
 					continue;
 				}
-				BotonEdificarIndividualHandler botonEdificarIndividualHandler = new BotonEdificarIndividualHandler(vBoxBotones, botonEdificarIndividual, 
-						(Provincia)propiedad, jugador, mensajeEdificacion, vistaTablero);
+				BotonEdificarIndividualHandler botonEdificarIndividualHandler = new BotonEdificarIndividualHandler(vBoxBotones, vBoxMensajes, 
+						botonEdificarIndividual, (Provincia)propiedad, jugador, mensajeEdificacion, vistaTablero);
 				botonEdificarIndividual.setOnAction(botonEdificarIndividualHandler);
 				vBoxBotones.getChildren().add(botonEdificarIndividual);
 			}

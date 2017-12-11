@@ -32,18 +32,18 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 		vistaTablero = vistaTableroIn;
 	}
 	
-	private void agregarBotonesVentaPropiedades(VBox vBox, Jugador jugador, ArrayList<Propiedad> propiedades,Turno turno) {
+	private void agregarBotonesVentaPropiedades(VBox vBoxBotones, VBox vBoxMensajes, Jugador jugador, ArrayList<Propiedad> propiedades,Turno turno) {
 		Text mensajePropiedades = new Text();
 		if(propiedades.size() > 0) {
 			mensajePropiedades.setText("Vender propiedades:");
-			vBox.getChildren().add(mensajePropiedades);
+			vBoxBotones.getChildren().add(mensajePropiedades);
 		}
 		for(Propiedad propiedad : propiedades) {
 			Button botonPropiedad = new Button();
 			botonPropiedad.setText(propiedad.getNombre() + " (+$" + propiedad.getPrecioVenta() + ")");
-			BotonPropiedadVentaHandler botonPropiedadHandler = new BotonPropiedadVentaHandler(vBox, botonPropiedad,propiedad,jugador, mensajePropiedades,turno,vistaTablero);
+			BotonPropiedadVentaHandler botonPropiedadHandler = new BotonPropiedadVentaHandler(vBoxBotones, vBoxMensajes, botonPropiedad,propiedad,jugador, mensajePropiedades,turno,vistaTablero);
 			botonPropiedad.setOnAction(botonPropiedadHandler);
-			vBox.getChildren().add(botonPropiedad);
+			vBoxBotones.getChildren().add(botonPropiedad);
 		}
 	}
 	
@@ -76,7 +76,7 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 			vBoxBotones.getChildren().add(botonEdificar);
 		}
 		ArrayList<Propiedad> propiedades = jugador.getPropiedades();
-		agregarBotonesVentaPropiedades(vBoxBotones, jugador, propiedades,turno);
+		agregarBotonesVentaPropiedades(vBoxBotones, vBoxMensajes, jugador, propiedades,turno);
 		vistaTablero.actualizar();
 	}
 
