@@ -1,6 +1,8 @@
 package vista.Eventos;
 
 
+import java.util.List;
+
 import Clases.AlgoPoly;
 import Clases.Dados;
 import Clases.Jugador;
@@ -29,6 +31,24 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 		vistaTablero = vistaTableroIn;
 	}
 	
+	private void mostrarMensajes() {
+		AlgoPoly algoPoly = AlgoPoly.getInstancia();
+		List<String> mensajes = algoPoly.getMensajes();
+		for(String mensaje : mensajes) {
+			Text mensajeText = new Text(mensaje);
+			vBoxMensajes.getChildren().add(mensajeText);
+		}
+		algoPoly.borrarMensajes();
+	}
+	
+	private void mensajeDobleTurno() {
+		Turno turno = AlgoPoly.getInstancia().getTurno();
+		if(turno.juegaElMismoJugador()) {
+			Text mensaje = new Text("Salieron dobles, el jugador tiene otro turno");
+			vBoxMensajes.getChildren().add(mensaje);
+		}
+	}
+	
 	@Override
 	public void handle(ActionEvent event) {
 		vBoxBotones.getChildren().clear();
@@ -43,6 +63,8 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 		nombreJugador.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 15));
 		nombreJugador.setText("Turno del jugador: " + jugador.getNombre());
 		vBoxMensajes.getChildren().add(nombreJugador);
+		Text dineroJugador = new Text("Dinero: " + jugador.getDinero());
+		vBoxMensajes.getChildren().add(dineroJugador);
 		dados.lanzar();
 		infoDados.setText("El resultado de los dados es "+ dados.getResultado());
 		infoDados.autosize();
@@ -63,10 +85,8 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 		botonFinTurno.setText("Finalizar Turno");
 		vBoxBotones.getChildren().add(botonFinTurno);
 		vBoxMensajes.getChildren().add(infoDados);
-		Text infoCasilla = new Text();
-		infoCasilla.setText(" Usted Cayo En " + tablero.getCasillasTablero().get(tablero.getPosicion(jugador)).getNombre());
-		infoCasilla.autosize();
-		vBoxMensajes.getChildren().add(infoCasilla);
+		mensajeDobleTurno();
+		mostrarMensajes();
 		BotonInicioTurnoHandler botonFinVentaHandler = new BotonInicioTurnoHandler(vBoxBotones, vBoxMensajes, vistaTablero);
 		botonFinTurno.setOnAction(botonFinVentaHandler);
 		vistaTablero.actualizar();

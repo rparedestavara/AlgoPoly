@@ -62,6 +62,7 @@ public abstract class Provincia extends Propiedad {
 		int precioAlquiler = cuantoCobrar();
 		residente.modificarDinero(-precioAlquiler);
 		this.propietario.modificarDinero(precioAlquiler);
+		guardarMensaje(residente, propietario, precioAlquiler);
 	}
 	
 	@Override

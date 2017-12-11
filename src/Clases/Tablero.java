@@ -72,10 +72,12 @@ public class Tablero {
 	}
 	
 	public void jugada(Jugador jugador, int pasos) {
+		AlgoPoly algoPoly = AlgoPoly.getInstancia();
 		mover(jugador, pasos);
 		int nuevaPosicion = getPosicion(jugador);
-		casillasTablero.get(nuevaPosicion).entrar(jugador);
-
+		Casilla casillaActual = casillasTablero.get(nuevaPosicion);
+		algoPoly.agregarMensaje("Usted cayo en " + casillaActual.getNombre());
+		casillaActual.entrar(jugador);
 	}
 
 	

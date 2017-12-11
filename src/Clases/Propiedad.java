@@ -83,4 +83,11 @@ public abstract class Propiedad extends Casilla {
 	public double getPrecioVenta() {
 		return precioPropiedad * MULTIPLICADOR_DESCUENTO_VENTA;
 	}
+	
+	public void guardarMensaje(Jugador inquilino, Jugador Propietario, double monto) {
+		AlgoPoly algoPoly = AlgoPoly.getInstancia();
+		algoPoly.agregarMensaje(inquilino.getNombre() + " le pago a " + propietario.getNombre() + " un monto de " + monto);
+		algoPoly.agregarMensaje("EL efectivo de " + inquilino.getNombre() + " paso a ser " + inquilino.getDinero());
+		algoPoly.agregarMensaje("EL efectivo de " + propietario.getNombre() + " paso a ser " + propietario.getDinero());
+	}
 }

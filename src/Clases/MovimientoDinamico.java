@@ -11,13 +11,15 @@ public abstract class MovimientoDinamico extends Casilla{
 		int movimiento = (dados.getResultado() - CANTIDAD_DE_ESPACIOS_REDUCIR);
 		Tablero tablero = Tablero.getInstancia(); 
 		tablero.mover(jugador, movimiento * direccion);
+		guardarMensaje(direccion, movimiento);
 	}
 		 
 	
 	protected void movimientoCantidadDeDineroModuloDados(Jugador jugador, int direccion) {
 		 double movimiento = (jugador.getDinero() % dados.getResultado());
 		 Tablero tablero = Tablero.getInstancia(); 
-			tablero.mover(jugador, movimiento * direccion);
+		 tablero.mover(jugador, movimiento * direccion);
+		 guardarMensaje(direccion, movimiento);
 	}
 		 
 	
@@ -25,6 +27,15 @@ public abstract class MovimientoDinamico extends Casilla{
 		int movimiento = (dados.getResultado()-jugador.getCantidadDePropiedades());
 		Tablero tablero = Tablero.getInstancia(); 
 		tablero.mover(jugador, movimiento * direccion);
+		guardarMensaje(direccion, movimiento);
+	}
+	
+	public void guardarMensaje(int direccion, double movimiento) {
+		String stringDireccion;
+		AlgoPoly algoPoly = AlgoPoly.getInstancia();
+		if(direccion == -1) stringDireccion = "Retrocedio ";
+		else stringDireccion = "Avanzo ";
+		algoPoly.agregarMensaje(stringDireccion + (int)movimiento + " lugares");
 	}
 	
 	public void entrar(Jugador jugador) {
@@ -32,6 +43,7 @@ public abstract class MovimientoDinamico extends Casilla{
 		this.primerDespliegue( resultadoDados, jugador);
 		this.segundoDespliegue( resultadoDados,  jugador);
 		this.tercerDespliegue( resultadoDados,  jugador) ;
+
 	}
 	
 	protected abstract void primerDespliegue(int resultadoObtenido,Jugador jugador ) ;

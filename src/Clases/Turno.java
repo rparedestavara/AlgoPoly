@@ -27,7 +27,7 @@ public class Turno {
 		
 	}
 	
-	private boolean juegaElMismoJugador() {
+	public boolean juegaElMismoJugador() {
 		Dados dados = Dados.getInstance();
 		return dados.salioDobles() && !jugoDosVeces;
 	}

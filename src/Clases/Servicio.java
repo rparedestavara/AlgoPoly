@@ -29,5 +29,6 @@ public abstract class Servicio extends Propiedad{
 		int precioCobrar = multiplicador * dados.getResultado();
 		residente.modificarDinero(-precioCobrar);
 		propietario.modificarDinero(precioCobrar);
+		guardarMensaje(residente, propietario, precioCobrar);
 	}
 }

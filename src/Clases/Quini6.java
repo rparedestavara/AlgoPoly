@@ -29,13 +29,21 @@ public class Quini6 extends Casilla {
 		return vecesGanadasRegistro.get(jugador);
 	}
 	
+	public void agregarMensajes(double dinero, Jugador jugador) {
+		AlgoPoly algoPoly = AlgoPoly.getInstancia();
+		algoPoly.agregarMensaje("Gano" + dinero);
+		algoPoly.agregarMensaje("Su efectivo paso a ser $" + jugador.getDinero());
+	}
+	
 	public void entrar(Jugador jugador) {
 		int vecesGanadasJugador = this.cuantasVecesGano(jugador);
 		if(vecesGanadasJugador == 0) {
 			jugador.modificarDinero(PREMIO_PRIMERA_VEZ);
+			agregarMensajes(PREMIO_PRIMERA_VEZ, jugador);
 		}
 		if(vecesGanadasJugador == 1) {
 			jugador.modificarDinero(PREMIO_SEGUNDA_VEZ);
+			agregarMensajes(PREMIO_SEGUNDA_VEZ, jugador);
 		}
 		this.registrarGanador(jugador);
 	}

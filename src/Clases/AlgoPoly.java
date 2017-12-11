@@ -5,12 +5,14 @@ import java.util.List;
 
 public class AlgoPoly {
 	private List<Jugador> jugadores;
+	private ArrayList<String> mensajes;
 	private Turno turno;
 	private Jugador ganador;
 	private static final Tablero tablero = Tablero.getInstancia(); 
 	private static AlgoPoly INSTANCIA;
 	
 	private AlgoPoly() {
+		mensajes = new ArrayList<String>();
 		ganador = null;
 	}
 	
@@ -47,6 +49,18 @@ public class AlgoPoly {
 	
 	public void agregarJugadores(ArrayList<Jugador> jugadores) {
 		this.jugadores = jugadores;
+	}
+	
+	public List<String> getMensajes() {
+		return mensajes;
+	}
+	
+	public void borrarMensajes() {
+		mensajes.clear();
+	}
+	
+	public void agregarMensaje(String mensaje) {
+		mensajes.add(mensaje);
 	}
 		
 	public boolean hayGanador() {
