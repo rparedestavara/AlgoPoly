@@ -7,17 +7,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Region;
-import javafx.scene.layout.VBox;
 
 public class PagarFianzaEventHandler implements EventHandler<ActionEvent> {
 	private Jugador jugador;
-	VBox vbox;
 	Button pagar;
 	
 
-	public PagarFianzaEventHandler(Jugador jugador, VBox vBox, Button pagarFianza) {
+	public PagarFianzaEventHandler(Jugador jugador, Button pagarFianza) {
 		this.jugador = jugador;
-		this.vbox=vBox;
 		this.pagar=pagarFianza;
 	}
 

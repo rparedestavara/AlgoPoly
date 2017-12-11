@@ -21,17 +21,20 @@ import javafx.scene.text.Text;
 import vista.VistaTablero;
 
 public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
-	VBox vBox;
+	private VBox vBoxBotones;
+	private VBox vBoxMensajes;
 	private VistaTablero vistaTablero;
 
-	public BotonLanzarDadosHandler(VBox vBoxIn, VistaTablero vistaTableroIn) {
-		vBox = vBoxIn;
+	public BotonLanzarDadosHandler(VBox vBoxIn, VBox contenedorMensajes, VistaTablero vistaTableroIn) {
+		vBoxBotones = vBoxIn;
+		vBoxMensajes = contenedorMensajes;
 		vistaTablero = vistaTableroIn;
 	}
 	
 	@Override
 	public void handle(ActionEvent event) {
-		vBox.getChildren().clear();
+		vBoxBotones.getChildren().clear();
+		vBoxMensajes.getChildren().clear();
 		Tablero tablero = Tablero.getInstancia();
 		Dados dados = Dados.getInstance();
 		Turno turno = AlgoPoly.getInstancia().getTurno();
@@ -41,7 +44,7 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 		nombreJugador.setFill(jugador.getColor());
 		nombreJugador.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 15));
 		nombreJugador.setText("Turno del jugador: " + jugador.getNombre());
-		vBox.getChildren().add(nombreJugador);
+		vBoxMensajes.getChildren().add(nombreJugador);
 		dados.lanzar();
 		infoDados.setText("El resultado de los dados es "+ dados.getResultado());
 		infoDados.autosize();
@@ -56,32 +59,32 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 			Button botonComprarPropiedad = new Button();
 			Propiedad propiedad = (Propiedad) tablero.getCasillasTablero().get(tablero.getPosicion(jugador));
 			botonComprarPropiedad.setText("Comprar " + propiedad.getNombre() + " (-$" + propiedad.getPrecio() + ")");
-			BotonComprarPropiedadHandler botonComprarPropiedadHandler = new BotonComprarPropiedadHandler(vBox, jugador, botonComprarPropiedad, vistaTablero);
+			BotonComprarPropiedadHandler botonComprarPropiedadHandler = new BotonComprarPropiedadHandler(vBoxBotones, jugador, botonComprarPropiedad, vistaTablero);
 			botonComprarPropiedad.setOnAction(botonComprarPropiedadHandler);
-			vBox.getChildren().add(botonComprarPropiedad);
+			vBoxBotones.getChildren().add(botonComprarPropiedad);
 		}
 		turno.proximoTurno();
 		Button botonFinTurno = new Button();
 		botonFinTurno.setText("Finalizar Turno");
-		if (pagarFianza != null && jugador.puedePagarFianzaDeCarcel()) vBox.getChildren().add(pagarFianza);
-		vBox.getChildren().add(botonFinTurno);
-		vBox.getChildren().add(infoDados);
+		if (pagarFianza != null && jugador.puedePagarFianzaDeCarcel()) vBoxBotones.getChildren().add(pagarFianza);
+		vBoxBotones.getChildren().add(botonFinTurno);
+		vBoxMensajes.getChildren().add(infoDados);
 		Text infoCasilla = new Text();
 		infoCasilla.setText(" Usted Cayo En " + tablero.getCasillasTablero().get(tablero.getPosicion(jugador)).getNombre());
 		infoCasilla.autosize();
-		vBox.getChildren().add(infoCasilla);
-		BotonInicioTurnoHandler botonFinVentaHandler = new BotonInicioTurnoHandler(vBox, vistaTablero);
+		vBoxMensajes.getChildren().add(infoCasilla);
+		BotonInicioTurnoHandler botonFinVentaHandler = new BotonInicioTurnoHandler(vBoxBotones, vBoxMensajes, vistaTablero);
 		botonFinTurno.setOnAction(botonFinVentaHandler);
 		Text casas = new Text();
 		casas.setText("Cantidad de propiedades: " + jugador.getCantidadDePropiedades());
 		casas.autosize();
-		vBox.getChildren().add(casas);
+		vBoxMensajes.getChildren().add(casas);
 		vistaTablero.actualizar();
 	}
 
 	private Button crearBotonFianza(Jugador jugador) {
 		Button pagarFianza = new Button("PAGAR FIANZA!" + " (-$" + jugador.getCostoFianza() + ")");
-		PagarFianzaEventHandler pagarFianzaEventHandler = new PagarFianzaEventHandler(jugador,vBox,pagarFianza);
+		PagarFianzaEventHandler pagarFianzaEventHandler = new PagarFianzaEventHandler(jugador,pagarFianza);
 		pagarFianza.setOnAction(pagarFianzaEventHandler);
 		return pagarFianza;
 	}

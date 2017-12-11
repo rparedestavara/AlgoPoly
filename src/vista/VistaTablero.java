@@ -31,7 +31,7 @@ public class VistaTablero {
 		int dirX = direccion.direccionActualX();
 		int dirY = direccion.direccionActualY();
 		int paso = 120;
-		int[] acumuladorPosiciones = {600,600};
+		int[] acumuladorPosiciones = {750,600};
 		posiciones.add(acumuladorPosiciones.clone());
 		for(int i = 1; i < CANTIDAD_CASILLAS; i++ ) {
 			if((i - 1) % 5 == 0 && i != 1) {

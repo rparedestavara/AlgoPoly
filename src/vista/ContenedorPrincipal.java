@@ -22,9 +22,9 @@ public class ContenedorPrincipal extends BorderPane{
 		 
 	public ContenedorPrincipal() {
 		this.setEscenaCentral();
-		this.setBotones();
+		this.setBotonesDerecha();
 		this.setMenu();
-}
+	}
 
 	private void setMenu() {
 		this.menuBar = new BarraDeMenu();
@@ -47,17 +47,23 @@ public class ContenedorPrincipal extends BorderPane{
 
 	}
 
-	private void setBotones() {
+	private void setBotonesDerecha() {
 		Button botonInicio = new Button();
 		botonInicio.setText("Iniciar Juego");
-		VBox contenedorVertical = new VBox(botonInicio);
-		contenedorVertical.setSpacing(20);
-		contenedorVertical.setPadding(new Insets(15));
-		contenedorVertical.setMinWidth(220);
-		BotonInicioTurnoHandler botonInicioTurnoHandler = new BotonInicioTurnoHandler(contenedorVertical, vistaTablero);
+		VBox contenedorBotones = new VBox(botonInicio);
+		contenedorBotones.setSpacing(20);
+		contenedorBotones.setPadding(new Insets(15));
+		contenedorBotones.setMinWidth(220);
+		
+		VBox contenedorMensajes = new VBox();
+		contenedorMensajes.setSpacing(20);
+		contenedorMensajes.setPadding(new Insets(15));
+		contenedorMensajes.setMinWidth(220);
+		BotonInicioTurnoHandler botonInicioTurnoHandler = new BotonInicioTurnoHandler(contenedorBotones, contenedorMensajes, vistaTablero);
 		botonInicio.setOnAction(botonInicioTurnoHandler);
 		
-		this.setRight(contenedorVertical);
-		
+		this.setRight(contenedorBotones);
+		this.setLeft(contenedorMensajes);
 	}
+
 }

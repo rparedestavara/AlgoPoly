@@ -18,19 +18,21 @@ import javafx.scene.text.Text;
 import vista.VistaTablero;
 
 public class BotonEdificarHandler implements EventHandler<ActionEvent>{
-	VBox vBox;
+	VBox vBoxBotones;
+	VBox vBoxMensajes;
 	Jugador jugador;
 	VistaTablero vistaTablero;
 	
-	public BotonEdificarHandler(VBox vBoxIn, Jugador jugadorIn, VistaTablero vistaTableroIn) {
-		vBox = vBoxIn;
+	public BotonEdificarHandler(VBox vBoxBotonesIn, VBox vBoxMensajesIn, Jugador jugadorIn, VistaTablero vistaTableroIn) {
+		vBoxBotones = vBoxBotonesIn;
+		vBoxMensajes = vBoxMensajesIn;
 		jugador = jugadorIn;
 		vistaTablero = vistaTableroIn;
 	}
 
 	@Override
 	public void handle(ActionEvent event) {
-		vBox.getChildren().clear();
+		vBoxBotones.getChildren().clear();
 		ArrayList<Propiedad> propiedades = jugador.getPropiedades();
 		
 		Turno turno = AlgoPoly.getInstancia().getTurno();
@@ -39,18 +41,18 @@ public class BotonEdificarHandler implements EventHandler<ActionEvent>{
 		nombreJugador.setFill(jugador.getColor());
 		nombreJugador.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 15));
 		nombreJugador.setText("Turno del jugador: " + jugador.getNombre());
-		vBox.getChildren().add(nombreJugador);
+		vBoxBotones.getChildren().add(nombreJugador);
 		
 		Button botonLanzarDados = new Button();
 		botonLanzarDados.setText("lanzar Dados");
-		vBox.getChildren().add(botonLanzarDados);
-		BotonLanzarDadosHandler botonLanzarDadosHandler = new BotonLanzarDadosHandler(vBox, vistaTablero);
+		vBoxBotones.getChildren().add(botonLanzarDados);
+		BotonLanzarDadosHandler botonLanzarDadosHandler = new BotonLanzarDadosHandler(vBoxBotones, vBoxMensajes, vistaTablero);
 		botonLanzarDados.setOnAction(botonLanzarDadosHandler);
 		
 		if(jugador.puedeEdificar()) {
 			Text mensajeEdificacion = new Text();
 			mensajeEdificacion.setText("Edificar: ");
-			vBox.getChildren().add(mensajeEdificacion);
+			vBoxBotones.getChildren().add(mensajeEdificacion);
 			for(Propiedad propiedad : propiedades) {
 				Button botonEdificarIndividual = new Button();
 				if(propiedad.jugadorPuedeComprarCasa(jugador.getDinero())) {
@@ -62,10 +64,10 @@ public class BotonEdificarHandler implements EventHandler<ActionEvent>{
 				else {
 					continue;
 				}
-				BotonEdificarIndividualHandler botonEdificarIndividualHandler = new BotonEdificarIndividualHandler(vBox, botonEdificarIndividual, 
+				BotonEdificarIndividualHandler botonEdificarIndividualHandler = new BotonEdificarIndividualHandler(vBoxBotones, botonEdificarIndividual, 
 						(Provincia)propiedad, jugador, mensajeEdificacion, vistaTablero);
 				botonEdificarIndividual.setOnAction(botonEdificarIndividualHandler);
-				vBox.getChildren().add(botonEdificarIndividual);
+				vBoxBotones.getChildren().add(botonEdificarIndividual);
 			}
 		}
 	}

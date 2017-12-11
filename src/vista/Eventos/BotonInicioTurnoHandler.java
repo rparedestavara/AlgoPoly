@@ -23,12 +23,13 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 	 * Cuando lo presionan termina de vender y pasa a lanzar los dados
 	 */
 	
-	
-	private VBox vBox;
+	private VBox vBoxBotones;
+	private VBox vBoxMensajes;
 	private VistaTablero vistaTablero;
 
-	public BotonInicioTurnoHandler(VBox vBoxIn, VistaTablero vistaTableroIn) {
-		vBox = vBoxIn;
+	public BotonInicioTurnoHandler(VBox vBoxIn, VBox contenedorMensajes, VistaTablero vistaTableroIn) {
+		vBoxBotones = vBoxIn;
+		vBoxMensajes = contenedorMensajes;
 		vistaTablero = vistaTableroIn;
 	}
 	
@@ -49,7 +50,8 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 	
 	@Override
 	public void handle(ActionEvent event) {
-		vBox.getChildren().clear();
+		vBoxBotones.getChildren().clear();
+		vBoxMensajes.getChildren().clear();
 		Turno turno = AlgoPoly.getInstancia().getTurno();
 		Jugador jugador = turno.aQuienLeToca();
 		Text nombreJugador = new Text();
@@ -64,24 +66,24 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 		
 		
 		Text dineroJugador = new Text("Dinero: " + Double.toString(jugador.getDinero()));
-		vBox.getChildren().add(nombreJugador);
-		vBox.getChildren().add(dineroJugador);
+		vBoxMensajes.getChildren().add(nombreJugador);
+		vBoxMensajes.getChildren().add(dineroJugador);
 				
 		Button botonLanzarDados = new Button();
 		botonLanzarDados.setText("lanzar Dados");
-		vBox.getChildren().add(botonLanzarDados);
-		BotonLanzarDadosHandler botonLanzarDadosHandler = new BotonLanzarDadosHandler(vBox, vistaTablero);
+		vBoxBotones.getChildren().add(botonLanzarDados);
+		BotonLanzarDadosHandler botonLanzarDadosHandler = new BotonLanzarDadosHandler(vBoxBotones, vBoxMensajes, vistaTablero);
 		botonLanzarDados.setOnAction(botonLanzarDadosHandler);
 		
 		if(jugador.puedeEdificar()) {
 			Button botonEdificar = new Button();
 			botonEdificar.setText("Edificar");
-			BotonEdificarHandler botonEdificarHandler = new BotonEdificarHandler(vBox, jugador, vistaTablero);
+			BotonEdificarHandler botonEdificarHandler = new BotonEdificarHandler(vBoxBotones, vBoxMensajes, jugador, vistaTablero);
 			botonEdificar.setOnAction(botonEdificarHandler);
-			vBox.getChildren().add(botonEdificar);
+			vBoxBotones.getChildren().add(botonEdificar);
 		}
 		ArrayList<Propiedad> propiedades = jugador.getPropiedades();
-		agregarBotonesVentaPropiedades(vBox, jugador, propiedades,turno);
+		agregarBotonesVentaPropiedades(vBoxBotones, jugador, propiedades,turno);
 		vistaTablero.actualizar();
 	}
 
