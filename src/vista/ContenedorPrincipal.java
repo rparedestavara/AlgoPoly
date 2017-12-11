@@ -1,5 +1,8 @@
 package vista;
 
+import Clases.AlgoPoly;
+import Clases.Jugador;
+import Clases.Turno;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
@@ -12,7 +15,11 @@ import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import vista.Eventos.BotonInicioTurnoHandler;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import vista.Eventos.BotonLanzarDadosHandler;
 
 public class ContenedorPrincipal extends BorderPane{
 		
@@ -46,24 +53,38 @@ public class ContenedorPrincipal extends BorderPane{
         this.setCenter(contenedorCentral);
 
 	}
+	
+	private VBox crearVBox() {
+		VBox vBox = new VBox();
+		vBox.setSpacing(20);
+		vBox.setPadding(new Insets(15));
+		vBox.setMinWidth(220);
+		return vBox;
+	}
 
 	private void setBotonesDerecha() {
-		Button botonInicio = new Button();
-		botonInicio.setText("Iniciar Juego");
-		VBox contenedorBotones = new VBox(botonInicio);
-		contenedorBotones.setSpacing(20);
-		contenedorBotones.setPadding(new Insets(15));
-		contenedorBotones.setMinWidth(220);
+		VBox vBoxBotones = crearVBox();
+		VBox vBoxMensajes = crearVBox();
+
+		this.setRight(vBoxBotones);
+		this.setLeft(vBoxMensajes);
 		
-		VBox contenedorMensajes = new VBox();
-		contenedorMensajes.setSpacing(20);
-		contenedorMensajes.setPadding(new Insets(15));
-		contenedorMensajes.setMinWidth(220);
-		BotonInicioTurnoHandler botonInicioTurnoHandler = new BotonInicioTurnoHandler(contenedorBotones, contenedorMensajes, vistaTablero);
-		botonInicio.setOnAction(botonInicioTurnoHandler);
+		Turno turno = AlgoPoly.getInstancia().getTurno();
+		Jugador jugador = turno.aQuienLeToca();
+		Text nombreJugador = new Text();
+		nombreJugador.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 15));
+		nombreJugador.setFill(jugador.getColor());
+		nombreJugador.setText("Turno del jugador: " + jugador.getNombre());		
 		
-		this.setRight(contenedorBotones);
-		this.setLeft(contenedorMensajes);
+		Text dineroJugador = new Text("Dinero: " + Double.toString(jugador.getDinero()));
+		vBoxMensajes.getChildren().add(nombreJugador);
+		vBoxMensajes.getChildren().add(dineroJugador);
+				
+		Button botonLanzarDados = new Button();
+		botonLanzarDados.setText("lanzar Dados");
+		vBoxBotones.getChildren().add(botonLanzarDados);
+		BotonLanzarDadosHandler botonLanzarDadosHandler = new BotonLanzarDadosHandler(vBoxBotones, vBoxMensajes, vistaTablero);
+		botonLanzarDados.setOnAction(botonLanzarDadosHandler);
 	}
 
 }

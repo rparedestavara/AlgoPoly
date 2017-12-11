@@ -23,7 +23,7 @@ import vista.Eventos.BotonEntrarEventHandler;
 public class ContenedorBienvenidos  extends VBox {
 	
 	 Stage stage;   
-	public ContenedorBienvenidos(Stage stage, ContenedorPrincipal proximaEscena, Tablero tablero) {
+	public ContenedorBienvenidos(Stage stage, Tablero tablero) {
 
 	        super();
 
@@ -69,7 +69,7 @@ public class ContenedorBienvenidos  extends VBox {
 	        TextField nombre3 = new TextField();
 	        nombre3.setMaxWidth(150);
 	        
-	        BotonEntrarEventHandler botonEntrarHandler = new BotonEntrarEventHandler(stage, proximaEscena,nombre1,nombre2,nombre3,tablero);
+	        BotonEntrarEventHandler botonEntrarHandler = new BotonEntrarEventHandler(stage, nombre1,nombre2,nombre3,tablero);
 	        botonEntrar.setOnAction(botonEntrarHandler);
 	        nombre3.setOnAction(botonEntrarHandler);
 	        

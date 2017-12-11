@@ -9,7 +9,6 @@ import Clases.Propiedad;
 import Clases.Turno;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -57,13 +56,7 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 		Text nombreJugador = new Text();
 		nombreJugador.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 15));
 		nombreJugador.setFill(jugador.getColor());
-		nombreJugador.setText("Turno del jugador: " + jugador.getNombre());
-		
-		
-		Canvas canvas=new Canvas();
-		canvas.getGraphicsContext2D().fillOval(2+ 50 + 3, 2 + 53, 14, 14);
-		canvas.getGraphicsContext2D().setFill(jugador.getColor());
-		
+		nombreJugador.setText("Turno del jugador: " + jugador.getNombre());		
 		
 		Text dineroJugador = new Text("Dinero: " + Double.toString(jugador.getDinero()));
 		vBoxMensajes.getChildren().add(nombreJugador);

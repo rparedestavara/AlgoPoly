@@ -18,8 +18,7 @@ public class Aplicacion extends Application {
 		
 		
 		Tablero tablero = Tablero.getInstancia();
-		ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal();
-		ContenedorBienvenidos contenedorBienvenidos = new ContenedorBienvenidos(stage, contenedorPrincipal,tablero);
+		ContenedorBienvenidos contenedorBienvenidos = new ContenedorBienvenidos(stage, tablero);
 		Scene escenaBienvenidos = new Scene(contenedorBienvenidos, 500, 500);
 		 
 		stage.setScene(escenaBienvenidos);
