@@ -15,7 +15,7 @@ public class PagarFianzaEventHandler implements EventHandler<ActionEvent> {
 
 	public PagarFianzaEventHandler(Jugador jugador, Button pagarFianza) {
 		this.jugador = jugador;
-		this.pagar=pagarFianza;
+		this.pagar = pagarFianza;
 	}
 
 	@Override
@@ -27,9 +27,7 @@ public class PagarFianzaEventHandler implements EventHandler<ActionEvent> {
 			alert.setContentText("Usted ha pagado la fianza con exito, se le desconto 45000");
 			alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);			
 			alert.show();
-			this.pagar.setText("Husted ya Pago Fianza es Libre De irse");
-			this.pagar.setOnAction(null);
-			this.pagar.setEffect(null);
+			pagar.setDisable(true);
 		}else {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("¡Usted no esta en condiciones de pagar la fianza!");

@@ -57,7 +57,7 @@ public class BotonEntrarEventHandler implements EventHandler<ActionEvent> {
 			return;
 		}
 		inicializarJugadoresYTurno();
-		ContenedorPrincipal proximaEscena = new ContenedorPrincipal();
+		ContenedorPrincipal proximaEscena = new ContenedorPrincipal(this.stage);
 		Scene escenaPrincipal = new Scene(proximaEscena, 400, 500);
 	    stage.setScene(escenaPrincipal);
 		stage.setFullScreenExitHint("Bienvenidos Al juego");

@@ -19,6 +19,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import vista.Eventos.BotonLanzarDadosHandler;
 
 public class ContenedorPrincipal extends BorderPane{
@@ -27,14 +28,14 @@ public class ContenedorPrincipal extends BorderPane{
 		VistaTablero vistaTablero; 
 		Canvas canvasCentral;
 		 
-	public ContenedorPrincipal() {
+	public ContenedorPrincipal(Stage stage) {
 		this.setEscenaCentral();
 		this.setBotonesDerecha();
-		this.setMenu();
+		this.setMenu(stage);
 	}
 
-	private void setMenu() {
-		this.menuBar = new BarraDeMenu();
+	private void setMenu(Stage stage) {
+		this.menuBar = new BarraDeMenu(stage);
 		this.setTop(menuBar);
 	}
 
