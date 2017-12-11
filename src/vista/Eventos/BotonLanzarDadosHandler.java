@@ -5,6 +5,7 @@ import java.util.List;
 
 import Clases.AlgoPoly;
 import Clases.Dados;
+import Clases.Estado;
 import Clases.Jugador;
 import Clases.Propiedad;
 import Clases.Tablero;
@@ -12,6 +13,8 @@ import Clases.Turno;
 import excepciones.JugadorPuedeComprarException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -80,7 +83,8 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 			botonComprarPropiedad.setOnAction(botonComprarPropiedadHandler);
 			vBoxBotones.getChildren().add(botonComprarPropiedad);
 		}
-		turno.proximoTurno();
+		Jugador jugadorSiguiente = turno.proximoTurno();
+		this.estadoDeJuego(jugador, jugadorSiguiente);
 		Button botonFinTurno = new Button();
 		botonFinTurno.setText("Finalizar Turno");
 		vBoxBotones.getChildren().add(botonFinTurno);
@@ -90,6 +94,24 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 		BotonInicioTurnoHandler botonFinVentaHandler = new BotonInicioTurnoHandler(vBoxBotones, vBoxMensajes, vistaTablero);
 		botonFinTurno.setOnAction(botonFinVentaHandler);
 		vistaTablero.actualizar();
+	}
+
+	private void estadoDeJuego(Jugador jugador, Jugador jugadorSiguiente) {
+		if (jugador.getEstado() == Estado.PERDEDOR){
+			Alert alerta = new Alert(AlertType.INFORMATION);
+			alerta.setTitle("PERDISTE");
+			alerta.setHeaderText("Mejor suerte la proxima!");
+			alerta.setContentText("Te quedaste sin plata y sin propiedades");
+			alerta.show();
+		}
+		if (AlgoPoly.getInstancia().hayGanador()) {
+			Alert alerta = new Alert(AlertType.INFORMATION);
+			alerta.setTitle("GANASTE");
+			alerta.setHeaderText("Felicitaciones " + jugadorSiguiente.getNombre() + "!!");
+			alerta.setContentText("Sos el ganador de AlgoPoly. Esperamos que vuelvas pronto \n"
+					+ "ATTE: Grupo T13");
+			alerta.show();
+		}
 	}
 
 	

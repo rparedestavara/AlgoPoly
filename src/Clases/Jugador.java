@@ -13,6 +13,7 @@ public class Jugador {
 	private ArrayList<Propiedad> propiedades;
 	private Color color;
 	private String nombre;
+	private Estado estado;
 	private static final double COSTO_FIANZA = 45000;
 	
 	public Jugador() {
@@ -20,6 +21,7 @@ public class Jugador {
 		this.barriosComprados = 0;
 		this.propiedades = new ArrayList<Propiedad>();
 		color = Color.BLACK;
+		this.estado = Estado.EN_JUEGO;
 	}
 	
 	public double getDinero() {
@@ -108,8 +110,8 @@ public class Jugador {
 		return propiedades;
 	}
 	
-	public boolean perdio(double dineroAPagar) {
-		return (this.propiedades.size()==0 && this.dineroActual<dineroAPagar );
+	public void perdio() {
+		this.estado = Estado.PERDEDOR;
 	}
 	
 	public String getNombre() {
@@ -122,6 +124,10 @@ public class Jugador {
 	
 	public double getCostoFianza() {
 		return COSTO_FIANZA;
+	}
+
+	public Estado getEstado() {
+		return this.estado;
 	}
 	
 	

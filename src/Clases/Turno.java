@@ -69,4 +69,8 @@ public class Turno {
 	public void borrarPropiedades() {
 		this.propiedadesVendidas.clear();
 	}
+
+	public void removerJugador(Jugador jugador) {
+		this.jugadores.remove(jugador);
+	}
 }

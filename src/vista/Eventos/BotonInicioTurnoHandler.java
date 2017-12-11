@@ -54,6 +54,7 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 		vBoxMensajes.getChildren().clear();
 		Turno turno = AlgoPoly.getInstancia().getTurno();
 		Jugador jugador = turno.aQuienLeToca();
+		
 		Text nombreJugador = new Text();
 		nombreJugador.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 15));
 		nombreJugador.setFill(jugador.getColor());

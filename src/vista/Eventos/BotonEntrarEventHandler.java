@@ -45,6 +45,7 @@ public class BotonEntrarEventHandler implements EventHandler<ActionEvent> {
 		tablero.agregarJugadores(jugadores);
 		Turno turno = new Turno(jugadores);
 		AlgoPoly.getInstancia().agregarTurno(turno);
+		AlgoPoly.getInstancia().agregarJugadores(jugadores);
 	}
 	
 	@Override

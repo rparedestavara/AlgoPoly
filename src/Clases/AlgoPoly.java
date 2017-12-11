@@ -42,6 +42,8 @@ public class AlgoPoly {
 	
 	public void removerJugador(Jugador jugador) {
 		jugadores.remove(jugador);
+		this.turno.removerJugador(jugador);
+		jugador.perdio();
 		if(jugadores.size() == 1) {
 			this.ganador = jugadores.get(0);
 			}
