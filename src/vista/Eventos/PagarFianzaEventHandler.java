@@ -21,6 +21,7 @@ public class PagarFianzaEventHandler implements EventHandler<ActionEvent> {
 	@Override
 	public void handle(ActionEvent event) {
 		if(jugador.puedePagarFianzaDeCarcel()) {
+			
 			this.jugador.pagarFianzaDeCarcel();
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Fianza pagada exitosamente!");
@@ -28,12 +29,7 @@ public class PagarFianzaEventHandler implements EventHandler<ActionEvent> {
 			alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);			
 			alert.show();
 			pagar.setDisable(true);
-		}else {
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("¡Usted no esta en condiciones de pagar la fianza!");
-			alert.setContentText("Usted no puede pagar la fianza porque no paso mas de un turno o porque no tiene la plata suficiente");
-			alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-			alert.show();
+	
 		}
 		
 	}

@@ -2,13 +2,11 @@ package vista.Eventos;
 
 
 import Clases.AlgoPoly;
-import Clases.Carcel;
 import Clases.Dados;
 import Clases.Jugador;
 import Clases.Propiedad;
 import Clases.Tablero;
 import Clases.Turno;
-import excepciones.NoPuedeJugarException;
 import excepciones.JugadorPuedeComprarException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -48,13 +46,9 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 		dados.lanzar();
 		infoDados.setText("El resultado de los dados es "+ dados.getResultado());
 		infoDados.autosize();
-		Button pagarFianza = null;
 		try {
 			tablero.jugada(turno.aQuienLeToca() , dados.getResultado());
-			
-		}catch(NoPuedeJugarException e) {
-				pagarFianza = this.crearBotonFianza(jugador);
-				Carcel.getInstancia().aumentarTurno(jugador);								
+		
 		}catch(JugadorPuedeComprarException e) {
 			Button botonComprarPropiedad = new Button();
 			Propiedad propiedad = (Propiedad) tablero.getCasillasTablero().get(tablero.getPosicion(jugador));
@@ -66,7 +60,6 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 		turno.proximoTurno();
 		Button botonFinTurno = new Button();
 		botonFinTurno.setText("Finalizar Turno");
-		if (pagarFianza != null && jugador.puedePagarFianzaDeCarcel()) vBoxBotones.getChildren().add(pagarFianza);
 		vBoxBotones.getChildren().add(botonFinTurno);
 		vBoxMensajes.getChildren().add(infoDados);
 		Text infoCasilla = new Text();
@@ -78,10 +71,6 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 		vistaTablero.actualizar();
 	}
 
-	private Button crearBotonFianza(Jugador jugador) {
-		Button pagarFianza = new Button("PAGAR FIANZA!" + " (-$" + jugador.getCostoFianza() + ")");
-		PagarFianzaEventHandler pagarFianzaEventHandler = new PagarFianzaEventHandler(jugador,pagarFianza);
-		pagarFianza.setOnAction(pagarFianzaEventHandler);
-		return pagarFianza;
-	}
+	
+	
 }

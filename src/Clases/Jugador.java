@@ -72,7 +72,7 @@ public class Jugador {
 
 	public boolean puedePagarFianzaDeCarcel() {
 		Carcel carcel = Carcel.getInstancia();
-		return ((carcel.turnosEnCarcel(this) > 1) && (dineroActual >= COSTO_FIANZA));
+		return ((carcel.turnosEnCarcel(this) >= 1) && (dineroActual >= COSTO_FIANZA));
 	}
 
 	public void pagarFianzaDeCarcel() throws SaldoInsuficienteException {
@@ -117,7 +117,7 @@ public class Jugador {
 	}
 	
 	public void setNombre(String nombre) {
-		this.nombre=nombre;
+		this.nombre = nombre;
 	}
 	
 	public double getCostoFianza() {

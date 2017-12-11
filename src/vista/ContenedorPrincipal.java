@@ -40,7 +40,7 @@ public class ContenedorPrincipal extends BorderPane{
 	}
 
 	private void setEscenaCentral() {
-		canvasCentral = new Canvas(1000, 1000);
+		canvasCentral = new Canvas(900, 900);
 		vistaTablero = new VistaTablero(canvasCentral);
 		vistaTablero.actualizar();
 		

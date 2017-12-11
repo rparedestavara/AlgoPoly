@@ -23,7 +23,8 @@ public class Aplicacion extends Application {
 		 
 		stage.setScene(escenaBienvenidos);
 	    stage.setFullScreen(true);
-        stage.show();
+        stage.centerOnScreen();
+	    stage.show();
 	
 	}
 
