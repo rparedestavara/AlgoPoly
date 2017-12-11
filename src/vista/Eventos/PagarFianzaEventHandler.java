@@ -11,11 +11,13 @@ import javafx.scene.layout.Region;
 public class PagarFianzaEventHandler implements EventHandler<ActionEvent> {
 	private Jugador jugador;
 	Button pagar;
+	private Button lanzarDados;
 	
 
-	public PagarFianzaEventHandler(Jugador jugador, Button pagarFianza) {
+	public PagarFianzaEventHandler(Jugador jugador, Button pagarFianza, Button boton) {
 		this.jugador = jugador;
 		this.pagar = pagarFianza;
+		this.lanzarDados = boton;
 	}
 
 	@Override
@@ -29,6 +31,7 @@ public class PagarFianzaEventHandler implements EventHandler<ActionEvent> {
 			alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);			
 			alert.show();
 			pagar.setDisable(true);
+			lanzarDados.setDisable(false);
 	
 		}
 		

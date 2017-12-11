@@ -46,10 +46,11 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 		dados.lanzar();
 		infoDados.setText("El resultado de los dados es "+ dados.getResultado());
 		infoDados.autosize();
+		
 		try {
 			tablero.jugada(turno.aQuienLeToca() , dados.getResultado());
 		
-		}catch(JugadorPuedeComprarException e) {
+		} catch(JugadorPuedeComprarException e) {
 			Button botonComprarPropiedad = new Button();
 			Propiedad propiedad = (Propiedad) tablero.getCasillasTablero().get(tablero.getPosicion(jugador));
 			botonComprarPropiedad.setText("Comprar " + propiedad.getNombre() + " (-$" + propiedad.getPrecio() + ")");

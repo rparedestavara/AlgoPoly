@@ -61,32 +61,33 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 		
 		Button botonLanzarDados = new Button();
 		botonLanzarDados.setText("lanzar Dados");
+		vBoxBotones.getChildren().add(botonLanzarDados);
+		BotonLanzarDadosHandler botonLanzarDadosHandler = new BotonLanzarDadosHandler(vBoxBotones, vBoxMensajes, vistaTablero);
+		botonLanzarDados.setOnAction(botonLanzarDadosHandler);
 		
 		if(Carcel.getInstancia().enCarcel(jugador)) {
-			Button pagarFianza = this.crearBotonFianza(jugador);
+			Button pagarFianza = this.crearBotonFianza(jugador, botonLanzarDados);
 			vBoxBotones.getChildren().add(pagarFianza);
 			
 			if (!jugador.puedePagarFianzaDeCarcel()) {
 				pagarFianza.setDisable(true);
+				Button botonFinTurno = new Button();
+				botonFinTurno.setText("Finalizar Turno");
+				BotonInicioTurnoHandler botonFinVentaHandler = new BotonInicioTurnoHandler(vBoxBotones, vBoxMensajes, vistaTablero);
+				botonFinTurno.setOnAction(botonFinVentaHandler);
+				vBoxBotones.getChildren().add(botonFinTurno);
+				turno.proximoTurno();
 			}
 			
 			Text info = new Text("Usted esta en la carcel");
 			info.setFont(Font.font("Tahoma", FontWeight.BOLD, FontPosture.REGULAR, 13));
 			this.vBoxMensajes.getChildren().add(info);
-			botonLanzarDados.setDisable(true);
-			Button botonFinTurno = new Button();
-			botonFinTurno.setText("Finalizar Turno");
-			BotonInicioTurnoHandler botonFinVentaHandler = new BotonInicioTurnoHandler(vBoxBotones, vBoxMensajes, vistaTablero);
-			botonFinTurno.setOnAction(botonFinVentaHandler);
-			turno.proximoTurno();
-			vBoxBotones.getChildren().add(botonFinTurno);
+			
 			Carcel.getInstancia().aumentarTurno(jugador);
+			botonLanzarDados.setDisable(true);
+
 		}
-		
-		vBoxBotones.getChildren().add(botonLanzarDados);
-		BotonLanzarDadosHandler botonLanzarDadosHandler = new BotonLanzarDadosHandler(vBoxBotones, vBoxMensajes, vistaTablero);
-		botonLanzarDados.setOnAction(botonLanzarDadosHandler);
-		
+
 		Text dineroJugador = new Text("Dinero: " + Double.toString(jugador.getDinero()));
 		vBoxMensajes.getChildren().add(nombreJugador);
 		vBoxMensajes.getChildren().add(dineroJugador);
@@ -108,9 +109,9 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 	
 
 
-	private Button crearBotonFianza(Jugador jugador) {
+	private Button crearBotonFianza(Jugador jugador, Button boton) {
 		Button pagarFianza = new Button("PAGAR FIANZA!" + " (-$" + jugador.getCostoFianza() + ")");
-		PagarFianzaEventHandler pagarFianzaEventHandler = new PagarFianzaEventHandler(jugador,pagarFianza);
+		PagarFianzaEventHandler pagarFianzaEventHandler = new PagarFianzaEventHandler(jugador,pagarFianza, boton);
 		pagarFianza.setOnAction(pagarFianzaEventHandler);
 		return pagarFianza;
 	}
