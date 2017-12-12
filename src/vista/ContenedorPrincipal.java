@@ -73,16 +73,17 @@ public class ContenedorPrincipal extends BorderPane{
 		Turno turno = AlgoPoly.getInstancia().getTurno();
 		Jugador jugador = turno.aQuienLeToca();
 		Text nombreJugador = new Text();
-		nombreJugador.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 15));
+		nombreJugador.setFont(Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 15));
 		nombreJugador.setFill(jugador.getColor());
 		nombreJugador.setText("Turno del jugador: " + jugador.getNombre());		
 		
 		Text dineroJugador = new Text("Dinero: " + Double.toString(jugador.getDinero()));
+		dineroJugador.setFont(Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 15));
 		vBoxMensajes.getChildren().add(nombreJugador);
 		vBoxMensajes.getChildren().add(dineroJugador);
 				
 		Button botonLanzarDados = new Button();
-		botonLanzarDados.setText("lanzar Dados");
+		botonLanzarDados.setText("Lanzar Dados");
 		vBoxBotones.getChildren().add(botonLanzarDados);
 		BotonLanzarDadosHandler botonLanzarDadosHandler = new BotonLanzarDadosHandler(vBoxBotones, vBoxMensajes, vistaTablero);
 		botonLanzarDados.setOnAction(botonLanzarDadosHandler);

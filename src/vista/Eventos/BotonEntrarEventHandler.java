@@ -24,9 +24,9 @@ public class BotonEntrarEventHandler implements EventHandler<ActionEvent> {
 	    
 	public BotonEntrarEventHandler(Stage stage2, TextField nombre1, TextField nombre2,TextField nombre3, Tablero tablero) {
 		this.stage = stage2;
-        this.nomJugador1=nombre1;
-        this.nomJugador2=nombre2;
-        this.nomJugador3=nombre3;
+        this.nomJugador1 = nombre1;
+        this.nomJugador2 = nombre2;
+        this.nomJugador3 = nombre3;
         this.tablero = Tablero.getInstancia();
 
 	}

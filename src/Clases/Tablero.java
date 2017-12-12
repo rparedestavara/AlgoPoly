@@ -55,7 +55,7 @@ public class Tablero {
 	}
 		
 	public void agregarJugadores(ArrayList<Jugador> jugadores) {
-		Color[] colores = {Color.BLUE, Color.SALMON, Color.WHEAT};
+		Color[] colores = {Color.BLUE, Color.DARKSALMON, Color.RED};
 		for(int i = 0; i < jugadores.size(); i++) {
 			Jugador jugador = jugadores.get(i);
 			posicionesJugadores.put(jugador, 0);
