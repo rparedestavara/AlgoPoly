@@ -63,11 +63,10 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 		Jugador jugador = turno.aQuienLeToca();
 		Text nombreJugador=new Text();
 		nombreJugador.setFill(jugador.getColor());
-		nombreJugador.setFont(Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 15));
+		nombreJugador.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 15));
 		nombreJugador.setText("Turno del jugador: " + jugador.getNombre());
 		vBoxMensajes.getChildren().add(nombreJugador);
-		Text dineroJugador = new Text("Dinero: " + jugador.getDinero());
-		dineroJugador.setFont(Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 15));
+		Text dineroJugador = new Text("Dinero: $" + jugador.getDinero());
 		vBoxMensajes.getChildren().add(dineroJugador);
 		dados.lanzar();
 		infoDados.setText("El resultado de los dados es "+ dados.getResultado());
@@ -84,13 +83,13 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 			botonComprarPropiedad.setOnAction(botonComprarPropiedadHandler);
 			vBoxBotones.getChildren().add(botonComprarPropiedad);
 		}
+		vBoxMensajes.getChildren().add(infoDados);
+		mensajeDobleTurno();
 		Jugador jugadorSiguiente = turno.proximoTurno();
 		this.estadoDeJuego(jugador, jugadorSiguiente);
 		Button botonFinTurno = new Button();
 		botonFinTurno.setText("Finalizar Turno");
 		vBoxBotones.getChildren().add(botonFinTurno);
-		vBoxMensajes.getChildren().add(infoDados);
-		mensajeDobleTurno();
 		mostrarMensajes();
 		BotonInicioTurnoHandler botonFinVentaHandler = new BotonInicioTurnoHandler(vBoxBotones, vBoxMensajes, vistaTablero);
 		botonFinTurno.setOnAction(botonFinVentaHandler);

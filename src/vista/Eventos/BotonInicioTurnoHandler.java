@@ -89,7 +89,7 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 
 		}
 
-		Text dineroJugador = new Text("Dinero: " + Double.toString(jugador.getDinero()));
+		Text dineroJugador = new Text("Dinero: $" + Double.toString(jugador.getDinero()));
 		vBoxMensajes.getChildren().add(nombreJugador);
 		vBoxMensajes.getChildren().add(dineroJugador);
 				
