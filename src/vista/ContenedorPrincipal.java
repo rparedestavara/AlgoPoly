@@ -77,7 +77,8 @@ public class ContenedorPrincipal extends BorderPane{
 		nombreJugador.setFill(jugador.getColor());
 		nombreJugador.setText("Turno del jugador: " + jugador.getNombre());		
 		
-		Text dineroJugador = new Text("Dinero: $" + Double.toString(jugador.getDinero()));
+		Text dineroJugador = new Text("Dinero: " + Double.toString(jugador.getDinero()));
+		dineroJugador.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 15));		
 		vBoxMensajes.getChildren().add(nombreJugador);
 		vBoxMensajes.getChildren().add(dineroJugador);
 				

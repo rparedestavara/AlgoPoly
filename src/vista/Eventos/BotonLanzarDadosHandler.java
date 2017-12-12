@@ -66,7 +66,8 @@ public class BotonLanzarDadosHandler implements EventHandler<ActionEvent> {
 		nombreJugador.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 15));
 		nombreJugador.setText("Turno del jugador: " + jugador.getNombre());
 		vBoxMensajes.getChildren().add(nombreJugador);
-		Text dineroJugador = new Text("Dinero: $" + jugador.getDinero());
+		Text dineroJugador = new Text("Dinero: " + Double.toString(jugador.getDinero()));
+		dineroJugador.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 15));
 		vBoxMensajes.getChildren().add(dineroJugador);
 		dados.lanzar();
 		infoDados.setText("El resultado de los dados es "+ dados.getResultado());

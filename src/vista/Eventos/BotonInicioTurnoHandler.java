@@ -67,7 +67,7 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 		botonLanzarDados.setOnAction(botonLanzarDadosHandler);
 		
 		if(Carcel.getInstancia().enCarcel(jugador)) {
-			Button pagarFianza = this.crearBotonFianza(jugador, botonLanzarDados);
+			Button pagarFianza = this.crearBotonFianza(jugador, botonLanzarDados, vBoxMensajes);
 			vBoxBotones.getChildren().add(pagarFianza);
 			
 			if (!jugador.puedePagarFianzaDeCarcel()) {
@@ -110,9 +110,9 @@ public class BotonInicioTurnoHandler implements EventHandler<ActionEvent>{
 	
 
 
-	private Button crearBotonFianza(Jugador jugador, Button boton) {
+	private Button crearBotonFianza(Jugador jugador, Button boton, VBox mensajes) {
 		Button pagarFianza = new Button("PAGAR FIANZA!" + " (-$" + jugador.getCostoFianza() + ")");
-		PagarFianzaEventHandler pagarFianzaEventHandler = new PagarFianzaEventHandler(jugador,pagarFianza, boton);
+		PagarFianzaEventHandler pagarFianzaEventHandler = new PagarFianzaEventHandler(jugador,pagarFianza, boton, mensajes);
 		pagarFianza.setOnAction(pagarFianzaEventHandler);
 		return pagarFianza;
 	}
